@@ -134,3 +134,6 @@ DATABASES = {
 STATIC_URL = 'static/'
 ```
 
+1.12 Ahora debemos ejecutar el archivo **local.py** en vez del original **settings.py**\
+(entorno_1) C:\Users\chris\django\proyecto_1\empleado> python manage.py runserver
+
