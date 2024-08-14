@@ -44,8 +44,8 @@ Para ello, creamos dentro de la carpeta empleado, una llamada **settings** con c
 4 base.py
 
 1.11 Del archivo original settings.py debemos copiar a los archivos recién creados, lo siguiente:\
+en **base.py**:\
 ```
-en base.py:\
 from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -116,5 +116,21 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ```
 
+en **local.py**:\
+```
+from .base import *
 
+DEBUG = True
+
+ALLOWED_HOSTS = []
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+STATIC_URL = 'static/'
+```
 
