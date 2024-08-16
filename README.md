@@ -56,7 +56,7 @@ C:\Users\chris\django\proyecto_1\entorno_1\Scripts> activate\
 ## 2 Configurar la estructura de un proyecto en django
 
 En cualquier desarrollo necesitamos al menos tres entornos (para trabajo local, de producción de pruebas) y y uno base donde alojaremos la configuración básica de todos ellos:\
-Para ello, creamos dentro de la carpeta empleado, una llamada **settings** con cuatro archivos .py en su interior:
+Para ello, creamos dentro de la carpeta empleado, una llamada **settings** con cuatro archivos .py en su interior:\
 1 local.py\
 2 prod.py\
 3 testing.py
