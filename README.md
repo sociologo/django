@@ -7,6 +7,7 @@ patterns etc.
 ## Índice
 
 * [1 Crear un proyecto Django](#1-crear-un-proyecto-django)
+* [2 Configurar la estructura de un proyecto en django](#2 Configurar la estructura de un proyecto en django)
 
 * [Using ES6 Modules](#using-es6-modules)
 * [Class-based Inheritance](#class-based-inheritance)
@@ -22,7 +23,7 @@ patterns etc.
 
 (para limpiar la consola utilizamos el comando **cls**)
 
-1.1 Creemos una carpeta donde vamos a alojar todo nuetro trabajo:\
+### 1.1 Creemos una carpeta donde vamos a alojar todo nuetro trabajo:\
 C:\Users\chris\django\proyecto_1
 
 1.2 Entramos a la terminal escribiendo CMD en el cuadro de búsqueda de windows y vamos a nuestra carpeta:\
@@ -52,7 +53,7 @@ C:\Users\chris\django\proyecto_1\entorno_1\Scripts> activate\
 
 ![image](https://github.com/user-attachments/assets/2e9cee98-5375-4b48-9033-b116c59d4823)
 
-1.10 Debemos ahora configurar ésta estructura.
+## 2 Configurar la estructura de un proyecto en django
 
 En cualquier desarrollo necesitamos al menos tres entornos (para trabajo local, de producción de pruebas) y y uno base donde alojaremos la configuración básica de todos ellos:\
 Para ello, creamos dentro de la carpeta empleado, una llamada **settings** con cuatro archivos .py en su interior:
