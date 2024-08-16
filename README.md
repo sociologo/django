@@ -7,7 +7,7 @@ patterns etc.
 ## Índice
 
 * [1 Crear un proyecto Django](#1-crear-un-proyecto-django)
-  * [1./1 Creemos una carpeta donde vamos a alojar todo nuestro trabajo](#1.1Creemos-una-carpeta-donde-vamos-a-alojar-todo-nuestro-trabajo)
+  * [1.\1 Creemos una carpeta donde vamos a alojar todo nuestro trabajo](#1.1Creemos-una-carpeta-donde-vamos-a-alojar-todo-nuestro-trabajo)
 * [2 Configurar la estructura de un proyecto en django](#2-Configurar-la-estructura-de-un-proyecto-en-django)
 * [3 Ejecutando el archivo localpy en vez del original settingspy](#3-Ejecutando-el-archivo-localpy-en-vez-del-original-settingspy)
 * [4 Aplicaciones](#4-Aplicaciones)
