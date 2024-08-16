@@ -208,5 +208,9 @@ Crearemos las siguientes dos aplicaciones dentro de una nueva carpeta llamada ap
 
 ### 4.3 Vamos al nivel de applications y creamos los dos nuevos proyectos:
 
+(entorno_1) C:\Users\chris\django\proyecto_1\empleado\applications>django-admin startapp departamentos
+
+(entorno_1) C:\Users\chris\django\proyecto_1\empleado\applications>django-admin startapp empleados
+
 
 
