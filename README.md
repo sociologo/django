@@ -156,5 +156,44 @@ STATIC_URL = 'static/'
 
 ## 3 Ejecutando el archivo localpy en vez del original settingspy
 
-(entorno_1) C:\Users\chris\django\proyecto_1\empleado> python manage.py runserver
+### Borramos el archivo settings.py del proyecto original.
+
+### Le indicamos a django que ejecute desde el entorno de configuración local.py:
+
+(entorno_1) C:\Users\chris\django\proyecto_1\empleado> python manage.py runserver --settings= empleado.settings.local
+
+### Redireccionando para aumentar la simplicidad al ejecutar el proyecto:
+
+Agregamos .local a la siguiente l[inea del archivo manage.py:
+
+```
+#!/usr/bin/env python
+"""Django's command-line utility for administrative tasks."""
+import os
+import sys
+
+
+def main():
+    """Run administrative tasks."""
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'empleado.settings.local')
+    try:
+        from django.core.management import execute_from_command_line
+    except ImportError as exc:
+        raise ImportError(
+            "Couldn't import Django. Are you sure it's installed and "
+            "available on your PYTHONPATH environment variable? Did you "
+            "forget to activate a virtual environment?"
+        ) from exc
+    execute_from_command_line(sys.argv)
+
+
+if __name__ == '__main__':
+    main()
+```
+
+con la que ahora podemos ejecutar simplemente escribiendo:\
+(entorno_1) C:\Users\chris\django\proyecto_1\empleado>python manage.py runserver
+
+
+
 
