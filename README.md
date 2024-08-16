@@ -1,6 +1,24 @@
-# django
+# Django
 
-1 Crear un proyecto Django.
+This document covers the basic usage patterns and concepts across Marionette.
+This includes things like calling conventions, setting attributes, common option
+patterns etc.
+
+## Índice
+
+* [1 Crear un proyecto Django](#1-crear-un-proyecto-django)
+
+* [Using ES6 Modules](#using-es6-modules)
+* [Class-based Inheritance](#class-based-inheritance)
+  * [Value Attributes](#value-attributes)
+  * [Functions Returning Values](#functions-returning-values)
+  * [Binding Attributes on Instantiation](#binding-attributes-on-instantiation)
+* [Common Marionette Functionality](./common.md)
+
+
+# 
+
+## 1 Crear un proyecto Django
 
 (para limpiar la consola utilizamos el comando **cls**)
 
