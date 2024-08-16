@@ -8,6 +8,7 @@ patterns etc.
 
 * [1 Crear un proyecto Django](#1-crear-un-proyecto-django)
 * [2 Configurar la estructura de un proyecto en django](#2-Configurar-la-estructura-de-un-proyecto-en-django)
+* [3 Ejecutando el archivo **local.py** en vez del original **settings.py**](#3-Ejecutando-el-archivo-**local.py**-en-vez-del-original-**settings.py**)
 
 * [Using ES6 Modules](#using-es6-modules)
 * [Class-based Inheritance](#class-based-inheritance)
@@ -153,6 +154,7 @@ DATABASES = {
 STATIC_URL = 'static/'
 ```
 
-1.12 Ahora debemos ejecutar el archivo **local.py** en vez del original **settings.py**\
+3 Ejecutando el archivo **local.py** en vez del original **settings.py**\
+
 (entorno_1) C:\Users\chris\django\proyecto_1\empleado> python manage.py runserver
 
