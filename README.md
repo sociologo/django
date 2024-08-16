@@ -195,6 +195,12 @@ con la que ahora podemos ejecutar simplemente escribiendo:\
 
 ## 4 Aplicaciones
 
-Las aplicaciones en django son pequeños proyectos completos. La idea es que cada una sea independiente de las otras con el objetivo de poder reutilizarlas si fuese necesario.
+Las aplicaciones en django son pequeños proyectos completos. La idea es que:
+
+4.1 cada una sea independiente de las otras con el objetivo de poder reutilizarlas si fuese necesario.
+4.2 cada una se dedique a un solo proceso de la lógica del negocio.
+
+![image](https://github.com/user-attachments/assets/8a4cacb5-da70-4e4d-8e39-453c3285dcfe)
+
 
 
