@@ -277,5 +277,7 @@ En resumen, el patrón MVT de Django es una adaptación del patrón MVC, con una
 
 <span style="color:red">TemplateView</span>
 
+<span style="color: red;">Este texto es rojo</span>
+<span style="color: blue;">Este texto es azul</span>
 
 
