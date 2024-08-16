@@ -21,30 +21,30 @@ patterns etc.
 
 (para limpiar la consola utilizamos el comando **cls**)
 
-### 1.1 Creemos una carpeta donde vamos a alojar todo nuestro trabajo:\
+### 1.1 Creemos una carpeta donde vamos a alojar todo nuestro trabajo:
 C:\Users\chris\django\proyecto_1
 
-### 1.2 Entramos a la terminal escribiendo CMD en el cuadro de búsqueda de windows y vamos a nuestra carpeta:\
+### 1.2 Entramos a la terminal escribiendo CMD en el cuadro de búsqueda de windows y vamos a nuestra carpeta:
 cd \Users\chris\django\proyecto_1
 
-### 1.3 Creamos un entorno virtual dentro de ella:\
+### 1.3 Creamos un entorno virtual dentro de ella:
 python -m venv entorno_1
 
-### 1.4 Nos dirigimos a la carpeta Scripts del entorno_1:\
+### 1.4 Nos dirigimos a la carpeta Scripts del entorno_1:
 cd \Users\chris\django\proyecto_1\entorno_1\Scripts
 
-### 1.5 Activamos el entorno con **activate**:\
+### 1.5 Activamos el entorno con **activate**:
 C:\Users\chris\django\proyecto_1\entorno_1\Scripts> activate\
 (entorno_1) C:\Users\chris\django\proyecto_1\entorno_1\Scripts>
 
-### 1.6 Instalamos Django:\
+### 1.6 Instalamos Django:
 (entorno_1) C:\Users\chris\django\proyecto_1\entorno_1\Scripts> pip install django
 
-### 1.7 Ahora, en el entorno activo, nos dirigimos a la carpeta donde vamos a construir nuestro proyecto:\
+### 1.7 Ahora, en el entorno activo, nos dirigimos a la carpeta donde vamos a construir nuestro proyecto:
 (entorno_1) C:\Users\chris\django\proyecto_1\entorno_1\Scripts>cd \Users\chris\django\proyecto_1\
 (entorno_1) C:\Users\chris\django\proyecto_1>
 
-### 1.8 En ella, creamos nuestro proyecto **empleado**:\
+### 1.8 En ella, creamos nuestro proyecto **empleado**:
 (entorno_1) C:\Users\chris\django\proyecto_1> django-admin startproject empleado
 
 ### 1.9 Abrimos el proyecto empleado con Visual Studio:
@@ -151,7 +151,7 @@ DATABASES = {
 STATIC_URL = 'static/'
 ```
 
-3 Ejecutando el archivo **local.py** en vez del original **settings.py**\
+# 3 Ejecutando el archivo **local.py** en vez del original **settings.py**
 
 (entorno_1) C:\Users\chris\django\proyecto_1\empleado> python manage.py runserver
 
