@@ -197,10 +197,16 @@ con la que ahora podemos ejecutar simplemente escribiendo:\
 
 Las aplicaciones en django son pequeños proyectos completos. La idea es que:
 
-4.1 cada una sea independiente de las otras con el objetivo de poder reutilizarlas si fuese necesario.
-4.2 cada una se dedique a un solo proceso de la lógica del negocio.
+### 4.1 cada una sea independiente de las otras con el objetivo de poder reutilizarlas si fuese necesario.\
+### 4.2 cada una se dedique a un solo proceso de la lógica del negocio.
+
+Crearemos las siguientes dos aplicaciones dentro de una nueva carpeta llamada applications en la cre creamos un archivo __init__.py:
 
 ![image](https://github.com/user-attachments/assets/8a4cacb5-da70-4e4d-8e39-453c3285dcfe)
+
+![image](https://github.com/user-attachments/assets/7d58750c-5b20-4f68-bb78-36d88a9d2a6e)
+
+### 4.3 Vamos al nivel de applications y creamos los dos nuevos proyectos:
 
 
 
