@@ -10,7 +10,6 @@ patterns etc.
 * [2 Configurar la estructura de un proyecto en django](#2-Configurar-la-estructura-de-un-proyecto-en-django)
 * [3 Ejecutando el archivo localpy en vez del original settingspy](#3-Ejecutando-el-archivo-localpy-en-vez-del-original-settingspy)
 * [4 Aplicaciones](#4-Aplicaciones)
-[3 Ejecutando el archivo local.py en vez del original settings.py
 
 * [Using ES6 Modules](#using-es6-modules)
 * [Class-based Inheritance](#class-based-inheritance)
