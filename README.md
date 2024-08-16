@@ -275,9 +275,6 @@ Vista (View): Creamos una vista que recupera todos los productos de la base de d
 Plantilla (Template): Diseñamos un archivo HTML que muestra la lista de productos con sus nombres y precios.
 En resumen, el patrón MVT de Django es una adaptación del patrón MVC, con una terminología y flujo de trabajo ligeramente diferentes, pero con el mismo objetivo de separar la lógica de negocio, la lógica de presentación y la interfaz de usuario12.
 
-<span style="color:red">TemplateView</span>
-
-<span style="color: red;">Este texto es rojo</span>
-<span style="color: blue;">Este texto es azul</span>
+**TemplateView**
 
 
