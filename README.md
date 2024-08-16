@@ -222,6 +222,9 @@ y en cada uno de los archivos apps.py de las aplicaciones departamentos y emplea
 
 ![image](https://github.com/user-attachments/assets/472135fc-6133-4ecb-9a26-9cefb48c2180)
 
+![image](https://github.com/user-attachments/assets/49b450f9-1d92-4f52-8bbe-ba4ee394f6d4)
+
+
 
 
 
