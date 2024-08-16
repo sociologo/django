@@ -57,7 +57,7 @@ En cualquier desarrollo necesitamos al menos tres entornos (para trabajo local, 
 Para ello, creamos dentro de la carpeta empleado, una llamada **settings** con cuatro archivos .py en su interior:\
 1 local.py\
 2 prod.py\
-3 testing.py
+3 testing.py\
 4 base.py
 
 1.11 Del archivo original settings.py debemos copiar a los archivos recién creados, lo siguiente:\
@@ -151,7 +151,7 @@ DATABASES = {
 STATIC_URL = 'static/'
 ```
 
-# 3 Ejecutando el archivo **local.py** en vez del original **settings.py**
+# 3 Ejecutando el archivo local.py en vez del original settings.py
 
 (entorno_1) C:\Users\chris\django\proyecto_1\empleado> python manage.py runserver
 
