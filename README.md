@@ -20,7 +20,7 @@ Este manual está diseñado tanto para principiantes como para desarrolladores c
 * [2 Configurar la estructura de un proyecto en django](#2-Configurar-la-estructura-de-un-proyecto-en-django)
 * [3 Ejecutando el archivo localpy en vez del original settingspy](#3-Ejecutando-el-archivo-localpy-en-vez-del-original-settingspy)
 * [4 Aplicaciones](#4-Aplicaciones)
-* [5 Vistas genericas (Views)](#5-Vistas-genericas-(Views))
+* [5 Vistas genericas (Views)](#5-Vistas-genericas-Views)
 
 ## 1 Crear un proyecto Django
 
@@ -232,7 +232,7 @@ y en cada uno de los archivos apps.py de las aplicaciones departamentos y emplea
 
 (entorno_1) C:\Users\chris\django\proyecto_1\empleado>python manage.py runserver
 
-## 5 Vistas genericas (Views)
+## 5 Vistas genericas Views
 
 
 
