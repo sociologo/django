@@ -1,8 +1,17 @@
 # Django
 
-This document covers the basic usage patterns and concepts across Marionette.
-This includes things like calling conventions, setting attributes, common option
-patterns etc.
+Bienvenido a este manual sobre el desarrollo de aplicaciones web completas utilizando Django, uno de los frameworks más populares y robustos para Python. Django es conocido por su capacidad para facilitar el desarrollo rápido y seguro de aplicaciones web, gracias a su filosofía de “baterías incluidas”, que proporciona una amplia gama de herramientas y funcionalidades listas para usar.
+
+En este manual, te guiaremos paso a paso a través del proceso de creación de una aplicación web completa. Desde la configuración inicial del entorno de desarrollo hasta la implementación de funcionalidades avanzadas, aprenderás a:
+
+Configurar tu entorno de desarrollo: Instalación de Django y configuración de tu proyecto.
+Crear y gestionar modelos de datos: Definir las estructuras de datos y cómo interactuar con la base de datos.
+Desarrollar vistas y plantillas: Crear la lógica de negocio y las interfaces de usuario.
+Implementar autenticación y autorización: Gestionar usuarios y permisos.
+Desplegar tu aplicación: Preparar y lanzar tu aplicación en un entorno de producción.
+Este manual está diseñado tanto para principiantes como para desarrolladores con experiencia previa en otros frameworks. A lo largo del camino, proporcionaremos ejemplos prácticos y mejores prácticas para asegurarnos de que puedas aprovechar al máximo las capacidades de Django.
+
+¡Empecemos este emocionante viaje hacia el desarrollo de aplicaciones web con Django!
 
 ## Índice
 
@@ -11,13 +20,6 @@ patterns etc.
 * [2 Configurar la estructura de un proyecto en django](#2-Configurar-la-estructura-de-un-proyecto-en-django)
 * [3 Ejecutando el archivo localpy en vez del original settingspy](#3-Ejecutando-el-archivo-localpy-en-vez-del-original-settingspy)
 * [4 Aplicaciones](#4-Aplicaciones)
-
-* [Using ES6 Modules](#using-es6-modules)
-* [Class-based Inheritance](#class-based-inheritance)
-  * [Value Attributes](#value-attributes)
-  * [Functions Returning Values](#functions-returning-values)
-  * [Binding Attributes on Instantiation](#binding-attributes-on-instantiation)
-* [Common Marionette Functionality](./common.md)
 
 ## 1 Crear un proyecto Django
 
