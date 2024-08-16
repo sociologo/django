@@ -7,7 +7,7 @@ patterns etc.
 ## Índice
 
 * [1 Crear un proyecto Django](#1-crear-un-proyecto-django)
-* [2 Configurar la estructura de un proyecto en django](#2 Configurar la estructura de un proyecto en django)
+* [2 Configurar la estructura de un proyecto en django](#2-Configurar-la-estructura-de-un-proyecto-en-django)
 
 * [Using ES6 Modules](#using-es6-modules)
 * [Class-based Inheritance](#class-based-inheritance)
