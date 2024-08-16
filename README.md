@@ -9,7 +9,7 @@ patterns etc.
 * [1 Crear un proyecto Django](#1-crear-un-proyecto-django)
 * [2 Configurar la estructura de un proyecto en django](#2-Configurar-la-estructura-de-un-proyecto-en-django)
 * [3 Ejecutando el archivo localpy en vez del original settingspy](#3-Ejecutando-el-archivo-localpy-en-vez-del-original-settingspy)
-* 
+* [4 Aplicaciones](#4-Aplicaciones)
 [3 Ejecutando el archivo local.py en vez del original settings.py
 
 * [Using ES6 Modules](#using-es6-modules)
@@ -194,6 +194,8 @@ if __name__ == '__main__':
 con la que ahora podemos ejecutar simplemente escribiendo:\
 (entorno_1) C:\Users\chris\django\proyecto_1\empleado>python manage.py runserver
 
+## 4 Aplicaciones
 
+Las aplicaciones en django son pequeños proyectos completos.
 
 
