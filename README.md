@@ -237,17 +237,29 @@ y en cada uno de los archivos apps.py de las aplicaciones departamentos y emplea
 El modelo Vista-Template (MVT) de Django es una variación del clásico modelo Vista-Controlador (MVC). A continuación, te explico en qué consiste cada uno y sus diferencias clave:
 
 Modelo Vista-Template (MVT) en Django
-Modelo (Model):
+
+Modelo (**Model**):
+
 Se encarga de la lógica de acceso a los datos y define la estructura de la base de datos. En Django, los modelos son clases de Python que se traducen en tablas de la base de datos.
+
 Ejemplo: Definir un modelo Usuario con campos como nombre, email, y fecha_de_nacimiento.
-Vista (View):
+
+Vista (**View**):
+
 Contiene la lógica de negocio y controla qué datos se envían al usuario. Las vistas en Django son funciones o clases que reciben una solicitud HTTP, interactúan con el modelo si es necesario, y devuelven una respuesta HTTP.
+
 Ejemplo: Una vista que recupera todos los usuarios de la base de datos y los envía a una plantilla para su visualización.
-Plantilla (Template):
+
+Plantilla (**Template**):
+
 Es la capa de presentación que define cómo se muestran los datos al usuario. Las plantillas en Django son archivos HTML que pueden contener etiquetas de plantilla de Django para mostrar datos dinámicos.
+
 Ejemplo: Un archivo HTML que muestra una lista de usuarios con sus nombres y correos electrónicos.
+
 Diferencias con el Modelo Vista-Controlador (MVC)
+
 Controlador (Controller) vs. Vista (View):
+
 En el patrón MVC, el Controlador maneja la lógica de negocio y la interacción entre el modelo y la vista. En Django, esta función la realiza la Vista.
 En MVC, la Vista es responsable solo de la presentación de los datos. En MVT, la Plantilla cumple esta función.
 Terminología:
