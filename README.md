@@ -22,6 +22,7 @@ patterns etc.
 ## 1 Crear un proyecto Django
 
 (para limpiar la consola utilizamos el comando **cls**)
+(para salir de la consola utilizamos el comando **CTRL+C**)
 
 ### 1.1 Creemos una carpeta donde vamos a alojar todo nuestro trabajo:
 C:\Users\chris\django\proyecto_1
