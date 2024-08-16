@@ -212,5 +212,16 @@ Crearemos las siguientes dos aplicaciones dentro de una nueva carpeta llamada ap
 
 (entorno_1) C:\Users\chris\django\proyecto_1\empleado\applications>django-admin startapp empleados
 
+![image](https://github.com/user-attachments/assets/9c2631f9-fd41-4d16-8b0a-04f7eb2aba5f)
+
+### 4.4 Ahora necesitamos instalar nuestras aplicaciones en el archivo base.py:
+
+![image](https://github.com/user-attachments/assets/12f5e13b-8ccf-49c4-8952-04664108c281)
+
+y en cada uno de los archivos apps.py de las aplicaciones departamentos y empleados anteponemos el prefijo applications:
+
+![image](https://github.com/user-attachments/assets/472135fc-6133-4ecb-9a26-9cefb48c2180)
+
+
 
 
