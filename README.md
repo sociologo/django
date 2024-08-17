@@ -234,6 +234,8 @@ y en cada uno de los archivos apps.py de las aplicaciones departamentos y emplea
 
 ## 5 Vistas genericas Views
 
+### La teoría del patrón de diseño MVT
+
 El modelo Vista-Template (MVT) de Django es una variación del clásico modelo Vista-Controlador (MVC). A continuación, te explico en qué consiste cada uno y sus diferencias clave:
 
 Modelo Vista-Template (MVT) en Django
@@ -271,9 +273,64 @@ Ejemplo Práctico
 Supongamos que queremos mostrar una lista de productos en una tienda en línea:
 
 Modelo (Model): Definimos un modelo Producto con campos como nombre, precio, y descripción.
+
 Vista (View): Creamos una vista que recupera todos los productos de la base de datos y los pasa a una plantilla.
+
 Plantilla (Template): Diseñamos un archivo HTML que muestra la lista de productos con sus nombres y precios.
+
 En resumen, el patrón MVT de Django es una adaptación del patrón MVC, con una terminología y flujo de trabajo ligeramente diferentes, pero con el mismo objetivo de separar la lógica de negocio, la lógica de presentación y la interfaz de usuario12.
+
+### La creación de una vista
+
+51 Dentro de la aplicacion **empleado**, en la carpeta applications, construyamos una nueva aplicacion llamada **exp** donde realizaremos todas nuestras pruebas.
+
+C:\Users\chris>cd \Users\chris\django\proyecto_1\entorno_1\Scripts\
+C:\Users\chris\django\proyecto_1\entorno_1\Scripts>activate
+
+
+django-admin startapp exp
+
+52 Luego vamos a **base.py** para agregamos la ruta de la aplicacion para instalarla.
+
+'applications.exp',
+
+53 Luego vamos a apps.py de la misma aplicación y agregamos la rura de la carpeta:
+
+home: 'applications.exp'
+
+54 Dentro de la carpeta epx agregamos una nueva llamada tempaltes, donde alojaremos todos nuestros htmls.
+
+55 En views.py de exp agregamos las siguientes lineas de codigo:
+
+from django.views.generic import TemplateView
+
+class IndexView(TemplateView):
+ template_name = 'home.html'
+
+56 En la carpeta templates creamos un archivo llamado home.html donde escribimos el siguiente código:
+
+57 en urls.py agregamos una nueva ruta
+
+from applications.home.views import IndexView
+
+urlpatterns = [
+ path('admin/', admin.site.urls'),
+ path('home/', IndexView.as_view()'),
+]
+
+58 ejecutemos nuevamente nuestro proyecto y vamos a la url home:
+
+(entorno_1) C:\Users\chris\django\proyecto_1\empleado>python manage.py runserver
+
+http://127.0.0.1:8000/home/
+
+ 
+
+
+
+
+
+
 
 **TemplateView**
 
