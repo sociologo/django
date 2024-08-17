@@ -285,10 +285,10 @@ En resumen, el patrón MVT de Django es una adaptación del patrón MVC, con una
 51 Dentro de la aplicacion **empleado**, en la carpeta applications, construyamos una nueva aplicacion llamada **exp** donde realizaremos todas nuestras pruebas.
 
 C:\Users\chris>cd \Users\chris\django\proyecto_1\entorno_1\Scripts\
-C:\Users\chris\django\proyecto_1\entorno_1\Scripts>activate
+C:\Users\chris\django\proyecto_1\entorno_1\Scripts>activate\
+(entorno_1) C:\Users\chris\django\proyecto_1\entorno_1\Scripts>cd \Users\chris\django\proyecto_1\empleado\applications
 
-
-django-admin startapp exp
+(entorno_1) C:\Users\chris\django\proyecto_1\empleado\applications>django-admin startapp exp
 
 52 Luego vamos a **base.py** para agregamos la ruta de la aplicacion para instalarla.
 
