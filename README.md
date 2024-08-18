@@ -325,6 +325,7 @@ class IndexView(TemplateView):
 
 56 En la carpeta templates creamos un archivo llamado home.html donde escribimos el siguiente código:
 
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -348,7 +349,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', IndexView.as_view()),
 ]
-
+```
 
 58 ejecutemos nuevamente nuestro proyecto y vamos a la url home:
 
