@@ -318,10 +318,12 @@ home: 'applications.exp'
 
 55 En views.py de exp agregamos las siguientes lineas de codigo:
 
+```
 from django.views.generic import TemplateView
 
 class IndexView(TemplateView):
- template_name = 'home.html'
+    template_name = 'home.html'
+```
 
 56 En la carpeta templates creamos un archivo llamado home.html donde escribimos el siguiente código:
 
@@ -338,9 +340,11 @@ class IndexView(TemplateView):
     <h3>Probando el patrón de diseño</h3>
 </body>
 </html>
+```
 
 57 en urls.py agregamos una nueva ruta
 
+```
 from django.contrib import admin
 from django.urls import path
 from applications.exp.views import IndexView
