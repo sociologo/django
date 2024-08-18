@@ -366,8 +366,13 @@ http://127.0.0.1:8000/home/
  
 ## 6 Haciendo una carpeta templates generalizada
 
-![image](https://github.com/user-attachments/assets/b4cac871-1830-4412-8bf5-27ffe311540c)
+![image](https://github.com/user-attachments/assets/42daddf5-fdac-4407-af21-49194421d67d)
 
+62 Borramos la carpeta templates de la carpeta exp
+
+63 Hacemos las siguientes modificaciones en el archivo base.py:
+
+![image](https://github.com/user-attachments/assets/75a7085a-d89e-4dbd-bc1c-bc980ae4c371)
 
 
 
