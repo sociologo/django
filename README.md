@@ -364,7 +364,7 @@ http://127.0.0.1:8000/home/
 
 ![image](https://github.com/user-attachments/assets/83b55f69-3637-4cd5-9376-86b368fd4198)
  
-### 6 Haciendo una carpeta templates generalizada
+## 6 Haciendo una carpeta templates generalizada
 
 ![image](https://github.com/user-attachments/assets/b4cac871-1830-4412-8bf5-27ffe311540c)
 
