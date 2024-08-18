@@ -25,7 +25,21 @@ Este manual está diseñado tanto para principiantes como para desarrolladores c
 ## 1 Crear un proyecto Django
 
 (para limpiar la consola utilizamos el comando **cls**)
+
 (para salir de la consola utilizamos el comando **CTRL+C**)
+
+Para instalar Djaneiro en Visual Studio Code, sigue estos pasos:
+
+Abre Visual Studio Code.
+Accede a la barra de extensiones: Puedes hacerlo haciendo clic en el ícono de extensiones en la barra lateral izquierda o presionando Ctrl+Shift+X.
+Busca “Djaneiro”: En la barra de búsqueda de extensiones, escribe “Djaneiro”.
+Instala la extensión: Cuando encuentres “Djaneiro - Django Snippets”, haz clic en el botón de instalar1.
+Reinicia Visual Studio Code: Para asegurarte de que la extensión se ha instalado correctamente, reinicia Visual Studio Code.
+
+Para crear una estructura básica de HTML utilizando Djaneiro en Visual Studio Code, sigue estos pasos:
+
+Abre un archivo HTML: Crea un nuevo archivo con la extensión .html o abre uno existente.
+Escribe el snippet: Djaneiro proporciona varios snippets útiles. Para una estructura básica de HTML, puedes usar el snippet html5. Simplemente escribe html5 y presiona Tab.
 
 ### 11 Creemos una carpeta donde vamos a alojar todo nuestro trabajo:
 C:\Users\chris\django\proyecto_1
@@ -290,7 +304,7 @@ C:\Users\chris\django\proyecto_1\entorno_1\Scripts>activate\
 
 (entorno_1) C:\Users\chris\django\proyecto_1\empleado\applications>django-admin startapp exp
 
-52 Luego vamos a **base.py** para agregamos la ruta de la aplicacion para instalarla.
+52 Luego, en **base.py** agregamos la ruta de la aplicacion para instalarla.
 
 'applications.exp',
 
@@ -298,7 +312,9 @@ C:\Users\chris\django\proyecto_1\entorno_1\Scripts>activate\
 
 home: 'applications.exp'
 
-54 Dentro de la carpeta epx agregamos una nueva llamada tempaltes, donde alojaremos todos nuestros htmls.
+![image](https://github.com/user-attachments/assets/348e7716-16b6-4032-8999-49d056411832)
+
+54 Dentro de la carpeta exp agregamos una nueva llamada templates, donde alojaremos todos nuestros htmls.
 
 55 En views.py de exp agregamos las siguientes lineas de codigo:
 
@@ -309,14 +325,30 @@ class IndexView(TemplateView):
 
 56 En la carpeta templates creamos un archivo llamado home.html donde escribimos el siguiente código:
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hola</h1>
+    <h3>Probando el patrón de diseño</h3>
+</body>
+</html>
+
 57 en urls.py agregamos una nueva ruta
 
-from applications.home.views import IndexView
+from django.contrib import admin
+from django.urls import path
+from applications.exp.views import IndexView
 
 urlpatterns = [
- path('admin/', admin.site.urls'),
- path('home/', IndexView.as_view()'),
+    path('admin/', admin.site.urls),
+    path('home/', IndexView.as_view()),
 ]
+
 
 58 ejecutemos nuevamente nuestro proyecto y vamos a la url home:
 
@@ -324,6 +356,7 @@ urlpatterns = [
 
 http://127.0.0.1:8000/home/
 
+![image](https://github.com/user-attachments/assets/83b55f69-3637-4cd5-9376-86b368fd4198)
  
 
 
