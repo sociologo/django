@@ -374,6 +374,14 @@ http://127.0.0.1:8000/home/
 
 ![image](https://github.com/user-attachments/assets/75a7085a-d89e-4dbd-bc1c-bc980ae4c371)
 
+y en la vista de nuestra carpeta experimental:
+
+![image](https://github.com/user-attachments/assets/81afbe60-8bf1-4ceb-aa7b-1b80936d4ace)
+
+Volvemos a cargar nuestro proyecto y vamos a la url home:
+
+![image](https://github.com/user-attachments/assets/eb33fbaa-bf6c-461d-8f77-58edbda2e6e7)
+
 
 
 
