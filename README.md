@@ -380,7 +380,10 @@ y en la vista de nuestra carpeta experimental:
 
 Volvemos a cargar nuestro proyecto y vamos a la url home:
 
-![image](https://github.com/user-attachments/assets/eb33fbaa-bf6c-461d-8f77-58edbda2e6e7)
+(entorno_1) C:\Users\chris\django\proyecto_1\empleado>python manage.py runserver
+
+![image](https://github.com/user-attachments/assets/06fac228-4f8b-4efa-a323-fed2ef93da1f)
+
 
 
 
