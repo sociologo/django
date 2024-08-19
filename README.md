@@ -486,6 +486,20 @@ Siguiendo el patron MVT agreguemos una vista, activemos su url, construyamos el 
 
 1 Construimos el modelo Departamento
 
+consideremos los siguientes parámetros de los campos:
+```
+models.CharField('Nombre', max_length=50, editable=False)
+```
+editable=False hace que el llenado del campo no sea obligatorio.
+```
+models.BooleanField('Anulado', default=False)
+```
+default=False hace que el campo venga por defecto con la selección NO anulado.
+```
+models.CharField('Nombre corto', max_length=20, unique=True)
+```
+unique=True hace que el nombre del campo no se pueda volver a repetir.
+
 ![image](https://github.com/user-attachments/assets/d018d264-f6ad-4c59-812c-412922e2de22)
 
 2 lo registramos en al admin.py de la aplicación departamentos
