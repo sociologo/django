@@ -364,7 +364,7 @@ http://127.0.0.1:8000/home/
 
 ![image](https://github.com/user-attachments/assets/83b55f69-3637-4cd5-9376-86b368fd4198)
  
-## 6 Haciendo una carpeta templates generalizada
+## 6 Haciendo una carpeta templates general para el proyecto
 
 ![image](https://github.com/user-attachments/assets/42daddf5-fdac-4407-af21-49194421d67d)
 
@@ -384,8 +384,11 @@ Volvemos a cargar nuestro proyecto y vamos a la url home:
 
 ![image](https://github.com/user-attachments/assets/06fac228-4f8b-4efa-a323-fed2ef93da1f)
 
+## 7 Haciendo una carpeta parcial para cada app
 
+## 8 Vistas genéricas
 
+Las vistas genéricas heredan de una clase padre llamada view y realizan las tareas del CRUD, las cuales podemos personalizar.
 
 
 
