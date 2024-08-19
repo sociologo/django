@@ -426,6 +426,22 @@ Todas necesitarán de un HTML para desplegar el proceso que realizan.
 
 el ORM de Django es una herramienta poderosa que permite a los desarrolladores interactuar con bases de datos de manera eficiente y efectiva utilizando Python, sin necesidad de escribir consultas SQL manualmente.
 
+Haremos que la ORM de Django trabaje construyendo nuestra primera base datos la que consistirá sólo en una tabla asociada a la base de datos que trea por defecto Django (sqlite3):
+
+![image](https://github.com/user-attachments/assets/7043533e-874d-4fa2-aac5-edd0d1c0c08f)
+
+Ahora le preguntaremos a Django si ha existido algún vcambio en nuestra base de datos:
+
+C:\Users\chris\django\proyecto_1\empleado>cd \Users\chris\django\proyecto_1\entorno_1\Scripts
+
+C:\Users\chris\django\proyecto_1\entorno_1\Scripts>activate
+
+(entorno_1) C:\Users\chris\django\proyecto_1\entorno_1\Scripts>cd \Users\chris\django\proyecto_1\empleado
+
+(entorno_1) C:\Users\chris\django\proyecto_1\empleado>python manage.py makemigrations
+
+
+
 
 
 
