@@ -490,7 +490,12 @@ consideremos los siguientes parámetros de los campos:
 ```
 models.CharField('Nombre', max_length=50, editable=False)
 ```
-editable=False hace que el llenado del campo no sea obligatorio.
+editable=False hace que el llenado del campo no se pueda editar.
+
+```
+models.CharField('Nombre', max_length=50, blank=True)
+```
+blank=True hace que el llenado del campo no sea obligatorio.
 ```
 models.BooleanField('Anulado', default=False)
 ```
