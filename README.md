@@ -430,7 +430,7 @@ Haremos que la ORM de Django trabaje construyendo nuestra primera base datos la 
 
 ![image](https://github.com/user-attachments/assets/2eef1b7e-775a-424c-a0ae-693437d6690a)
 
-Ahora le preguntaremos a Django si ha existido algún vcambio en nuestra base de datos:
+Ahora le preguntaremos a Django si ha existido algún cambio en nuestra base de datos y/o es posible la creación de las tablas:
 
 C:\Users\chris\django\proyecto_1\empleado>cd \Users\chris\django\proyecto_1\entorno_1\Scripts
 
@@ -479,6 +479,11 @@ Siguiendo el patron MVT agreguemos una vista, activemos su url, construyamos el 
 ![image](https://github.com/user-attachments/assets/108500c0-761a-4c62-9f0a-2f09dfe2b8da)
 
 ![image](https://github.com/user-attachments/assets/720a9d62-e42d-4f26-b164-9c4065ab9034)
+
+## 11 Implementando la base de datos Empleado.
+
+![image](https://github.com/user-attachments/assets/8dac515d-6913-48b2-b0c2-f4048b827da5)
+
 
 
 
