@@ -389,7 +389,10 @@ Volvemos a cargar nuestro proyecto y vamos a la url home:
 ## 8 Vistas genéricas
 
 Las vistas genéricas heredan de una clase padre llamada view y realizan las tareas del CRUD, las cuales podemos personalizar.
-Son vistas basadas en clases.
+
+Son vistas basadas en clases. 
+
+Todas necesitarán de un HTML para desplegar el proceso que realizan.
 
 
 
