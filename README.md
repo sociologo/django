@@ -484,6 +484,15 @@ Siguiendo el patron MVT agreguemos una vista, activemos su url, construyamos el 
 
 ![image](https://github.com/user-attachments/assets/8dac515d-6913-48b2-b0c2-f4048b827da5)
 
+1 Construimos el modelo Departamento
+
+![image](https://github.com/user-attachments/assets/d018d264-f6ad-4c59-812c-412922e2de22)
+
+2 lo registramos en al admin.py de la aplicación departamentos
+
+![image](https://github.com/user-attachments/assets/bb08b6a6-6a9c-46a0-9629-d8b0bd79dd4f)
+
+
 
 
 
