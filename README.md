@@ -386,11 +386,21 @@ Volvemos a cargar nuestro proyecto y vamos a la url home:
 
 ## 7 Haciendo una carpeta parcial para cada app
 
+Cada aplicación, por buena práctica arquitectónica, debe poseer su propio archivo de urls, urls.py, par que en el archivo urls.py original, sólo importemos. Ésto es lo que vamos a crear en nuestra aplicación de ejercicio exp.
+
+![image](https://github.com/user-attachments/assets/e4fbfa3c-b82b-437e-9a0f-c88ca61fdb87)
+
+Ahora llamamos éste urls.py de exp desde nuestro archivo urls.py general importando el paquete include:
+
+![image](https://github.com/user-attachments/assets/2bfcca87-970b-45b9-ad0d-2ff69d19bd82)
+
 ## 8 Vistas genéricas
 
-Las vistas genéricas heredan de una clase padre llamada view y realizan las tareas del CRUD, las cuales podemos personalizar.
+Las vistas genéricas heredan de una clase padre llamada **view** y realizan las tareas del CRUD, las cuales podemos personalizar.
 
 Son vistas basadas en clases. 
+
+Se pueden agregar las funciones extras que se deseen.
 
 Todas necesitarán de un HTML para desplegar el proceso que realizan.
 
