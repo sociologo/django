@@ -404,7 +404,7 @@ Se pueden agregar las funciones extras que se deseen.
 
 Todas necesitarán de un HTML para desplegar el proceso que realizan.
 
-## 9 
+## 9 Nuestros primeros pasos en MVT
 
 1 Creemos la vista basada en clases ListView y observemos su comportamiento en un pequeño ejemplo en viwes.py de nuestra aplicación exp. Creamos la clase **Prueba_ListView**:
 
@@ -420,6 +420,9 @@ Todas necesitarán de un HTML para desplegar el proceso que realizan.
 
 ![image](https://github.com/user-attachments/assets/59feefbe-3edf-4e39-b6c0-9c7d68d708a6)
 
+## 10 el ORM de Django y modelos
+
+el ORM de Django es una herramienta poderosa que permite a los desarrolladores interactuar con bases de datos de manera eficiente y efectiva utilizando Python, sin necesidad de escribir consultas SQL manualmente.
 
 
 
