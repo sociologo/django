@@ -406,13 +406,23 @@ Todas necesitarán de un HTML para desplegar el proceso que realizan.
 
 ## 9 
 
-Creemos la vista basada en clases ListView y observemos su comportamiento en un pequeño ejemplo en viwes.py de nuestra aplicación exp. Creamos la clase **Prueba_ListView**:
+1 Creemos la vista basada en clases ListView y observemos su comportamiento en un pequeño ejemplo en viwes.py de nuestra aplicación exp. Creamos la clase **Prueba_ListView**:
 
-![image](https://github.com/user-attachments/assets/a2674826-48c2-4ea2-b7d5-0b5710f83867)
+![image](https://github.com/user-attachments/assets/6ac03929-825c-487c-b612-462449862e0b)
 
-Agraegamos al url en la aplicación exp:
+2 Agregamos al url en la aplicación exp:
 
 ![image](https://github.com/user-attachments/assets/f7b31011-cb1a-4c61-9a8c-f4dea81466fd)
+
+3 construímos el archivo html correspondiente llamado **lista** con el context_object_name interpolado (dentro de dobles llaves):
+
+![image](https://github.com/user-attachments/assets/78534cf5-e683-4398-ade3-82be1d4e9e95)
+
+![image](https://github.com/user-attachments/assets/59feefbe-3edf-4e39-b6c0-9c7d68d708a6)
+
+
+
+
 
 
 
