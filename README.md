@@ -496,7 +496,9 @@ Siguiendo el patron MVT agreguemos una vista, activemos su url, construyamos el 
 
 ![image](https://github.com/user-attachments/assets/450ddc01-2aac-4f05-bf2e-af9864df56ab)
 
+4 es importante enfatizar de que las migraciones para que surtan efecto deben pertenecer a las aplicaciones instaladas:
 
+![image](https://github.com/user-attachments/assets/c1ed3f50-4e6a-47c3-8297-adcfa3b34148)
 
 
 
