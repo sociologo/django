@@ -492,6 +492,9 @@ Siguiendo el patron MVT agreguemos una vista, activemos su url, construyamos el 
 
 ![image](https://github.com/user-attachments/assets/bb08b6a6-6a9c-46a0-9629-d8b0bd79dd4f)
 
+3 y ya tenemos la tabla con funcionalidad en nuestro navegador:
+
+![image](https://github.com/user-attachments/assets/450ddc01-2aac-4f05-bf2e-af9864df56ab)
 
 
 
