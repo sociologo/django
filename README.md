@@ -428,7 +428,7 @@ el ORM de Django es una herramienta poderosa que permite a los desarrolladores i
 
 Haremos que la ORM de Django trabaje construyendo nuestra primera base datos la que consistirá sólo en una tabla asociada a la base de datos que trea por defecto Django (sqlite3):
 
-![image](https://github.com/user-attachments/assets/7043533e-874d-4fa2-aac5-edd0d1c0c08f)
+![image](https://github.com/user-attachments/assets/2eef1b7e-775a-424c-a0ae-693437d6690a)
 
 Ahora le preguntaremos a Django si ha existido algún vcambio en nuestra base de datos:
 
@@ -439,6 +439,38 @@ C:\Users\chris\django\proyecto_1\entorno_1\Scripts>activate
 (entorno_1) C:\Users\chris\django\proyecto_1\entorno_1\Scripts>cd \Users\chris\django\proyecto_1\empleado
 
 (entorno_1) C:\Users\chris\django\proyecto_1\empleado>python manage.py makemigrations
+
+![image](https://github.com/user-attachments/assets/73b4912e-5896-4558-a333-b0e1a170a116)
+
+Ahora creamos la base de datos:
+
+(entorno_1) C:\Users\chris\django\proyecto_1\empleado>python manage.py migrate
+
+![image](https://github.com/user-attachments/assets/5fc24361-f497-4a80-818a-a0c0caeb4e5a)
+
+Ahora, como podemos interactuar con el modelo creado? Esto se consigue con el administrador de Django a traves del archivo admin.py de exp:
+
+![image](https://github.com/user-attachments/assets/9f1ed6fe-d737-4aec-82a2-afd69a12b95d)
+
+levantemos nuestro servidor y vayamos a la url admin:
+
+(entorno_1) C:\Users\chris\django\proyecto_1\empleado>python manage.py runserver
+
+![image](https://github.com/user-attachments/assets/debc54e7-dec8-4241-89dc-b1d4b7ebe935)
+
+bajemos nuestro servidor para en la terminal crear un superuser:
+
+(entorno_1) C:\Users\chris\django\proyecto_1\empleado>python manage.py createsuperuser
+
+Username: chris\
+Email address: tarredwall@gmail.com\
+Password: cualquiercosa
+
+Levantamos nuevamente nuestro servidor e ingresamos al administrador con nuestras credenciales:
+
+![image](https://github.com/user-attachments/assets/0fe8e6e8-3204-469c-93a3-bda26f89d0df)
+
+
 
 
 
