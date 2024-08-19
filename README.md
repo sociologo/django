@@ -448,9 +448,9 @@ Ahora creamos la base de datos:
 
 ![image](https://github.com/user-attachments/assets/5fc24361-f497-4a80-818a-a0c0caeb4e5a)
 
-Ahora, como podemos interactuar con el modelo creado? Esto se consigue con el administrador de Django a traves del archivo admin.py de exp:
+Ahora, como podemos interactuar con el modelo creado? Esto se consigue con el administrador de Django a traves del archivo admin.py de exp. Ingresamos las siguientes lineas de codigo:
 
-![image](https://github.com/user-attachments/assets/9f1ed6fe-d737-4aec-82a2-afd69a12b95d)
+![image](https://github.com/user-attachments/assets/bb13badc-6316-43c1-aa3d-240aa36a72fb)
 
 levantemos nuestro servidor y vayamos a la url admin:
 
@@ -468,7 +468,18 @@ Password: cualquiercosa
 
 Levantamos nuevamente nuestro servidor e ingresamos al administrador con nuestras credenciales:
 
-![image](https://github.com/user-attachments/assets/0fe8e6e8-3204-469c-93a3-bda26f89d0df)
+![image](https://github.com/user-attachments/assets/e077e7ed-8e07-4294-8a08-e586d475f348)
+
+Siguiendo el patron MVT agreguemos una vista, activemos su url, construyamos el respectivo html, levantemos nuestro servidor y vayamos al navegador:
+
+![image](https://github.com/user-attachments/assets/c9d32b74-e475-4a3f-b568-5062c61abc6f)
+
+![image](https://github.com/user-attachments/assets/cdf0e17e-63d1-4f67-ba21-b45f65386bba)
+
+![image](https://github.com/user-attachments/assets/108500c0-761a-4c62-9f0a-2f09dfe2b8da)
+
+![image](https://github.com/user-attachments/assets/720a9d62-e42d-4f26-b164-9c4065ab9034)
+
 
 
 
