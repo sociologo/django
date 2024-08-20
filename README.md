@@ -519,7 +519,9 @@ unique=True hace que el nombre del campo no se pueda volver a repetir.
 
 ![image](https://github.com/user-attachments/assets/c1ed3f50-4e6a-47c3-8297-adcfa3b34148)
 
+## 12 Claves foráneas.
 
+![image](https://github.com/user-attachments/assets/d11b2bc9-b07a-4756-af4c-4695d8b1ab88)
 
 
 
