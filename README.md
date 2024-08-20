@@ -539,11 +539,15 @@ unique=True hace que el nombre del campo no se pueda volver a repetir.
 
 ![image](https://github.com/user-attachments/assets/acfac8cf-494f-4525-b238-c71cdb5e6572)
 
+Le damos siguiente a todo:
+
 ![image](https://github.com/user-attachments/assets/68d73a14-cc8d-412e-90a5-6ead62b78007)
 
 Ingresamos la contraseña 123456:
 
 ![image](https://github.com/user-attachments/assets/2b82d445-45b2-4208-b416-63256e6477bd)
+
+Le damos siguiente a todo:
 
 
 
