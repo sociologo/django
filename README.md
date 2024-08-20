@@ -1,5 +1,7 @@
 # Django
 
+https://docs.djangoproject.com/en/5.1/
+
 Christian Castro
 
 Bienvenido a este manual sobre el desarrollo de aplicaciones web completas utilizando Django, uno de los frameworks más populares y robustos para Python. Django es conocido por su capacidad para facilitar el desarrollo rápido y seguro de aplicaciones web, gracias a su filosofía de “baterías incluidas”, que proporciona una amplia gama de herramientas y funcionalidades listas para usar.
@@ -522,6 +524,18 @@ unique=True hace que el nombre del campo no se pueda volver a repetir.
 ## 12 Claves foráneas.
 
 ![image](https://github.com/user-attachments/assets/d11b2bc9-b07a-4756-af4c-4695d8b1ab88)
+
+![image](https://github.com/user-attachments/assets/9ea1d153-190b-4e03-ad5f-a703a72c8583)
+
+![image](https://github.com/user-attachments/assets/25ba4780-3b80-4ebc-9c9b-26061c083c5c)
+
+![image](https://github.com/user-attachments/assets/2ec89b2e-554e-464d-8b5e-3d9d7ecb39f4)
+
+# 13 Instalación de PostgreSQL
+
+
+
+
 
 
 
