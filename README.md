@@ -549,6 +549,10 @@ Ingresamos la contraseña 123456:
 
 Le damos siguiente a todo:
 
+Y finalizamos:
+
+![image](https://github.com/user-attachments/assets/5844465e-3838-4e5f-913a-65af349287f1)
+
 
 
 
