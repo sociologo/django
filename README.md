@@ -567,6 +567,9 @@ Creamos un usuario y le damos permisos para acceder a la base de datos recien cr
 
 Ahora conectamos Django a nuestra base de datos PostgreSQL:
 
+![image](https://github.com/user-attachments/assets/e8cf2aa5-6620-4dc6-9b88-db1db45b5118)
+
+
 
 
 
