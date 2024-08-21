@@ -553,6 +553,25 @@ Y finalizamos:
 
 ![image](https://github.com/user-attachments/assets/5844465e-3838-4e5f-913a-65af349287f1)
 
+Ahora que tenemos instalado nuestro postgreSQL en local, podemos acceder a la consola:
+
+**SQL Shell (psql)**
+
+![image](https://github.com/user-attachments/assets/25768bac-1771-4813-977d-a671be870950)
+
+Damos enter hasta **Contraseña para usuario postgres:** para indicarle que cargue las opciones por defecto. Ingresamos 123456 y creamos nuestra base de datos.
+
+Creamos un usuario y le damos permisos para acceder a la base de datos recien creada:
+
+![image](https://github.com/user-attachments/assets/33066c2b-e8a5-433e-96c5-02388ec81b99)
+
+Ahora conectamos Django a nuestra base de datos PostgreSQL:
+
+
+
+
+
+
 
 
 
