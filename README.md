@@ -573,6 +573,13 @@ Instalamos el conector psycopg2:
 
 Configuramos el archivo local.py
 
+![image](https://github.com/user-attachments/assets/5b3a443c-879c-4b4f-827c-ee79e4080ca7)
+
+![image](https://github.com/user-attachments/assets/35ef59a6-daea-4b55-8091-f3a9a0a49e7d)
+
+
+
+
 
 
 
