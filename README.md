@@ -577,6 +577,20 @@ Configuramos el archivo local.py
 
 ![image](https://github.com/user-attachments/assets/35ef59a6-daea-4b55-8091-f3a9a0a49e7d)
 
+![image](https://github.com/user-attachments/assets/69184304-e843-4b70-a3c1-320f539eaee1)
+
+Debemos volver a crear un super usuario!
+
+![image](https://github.com/user-attachments/assets/85ac7202-aba1-44a2-b1c3-2c88f36f19db)
+
+Pues nuestra base de datos en PostgreSQL es nueva y no tiene registrado ningun usuario.
+
+Ingresamos como contraseña 123456:
+
+![image](https://github.com/user-attachments/assets/3a6ea903-e48d-42f6-aa54-aa4d933a8881)
+
+
+
 
 
 
