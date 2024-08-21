@@ -589,6 +589,10 @@ Ingresamos como contraseña 123456:
 
 ![image](https://github.com/user-attachments/assets/3a6ea903-e48d-42f6-aa54-aa4d933a8881)
 
+y ya estamos conectados:
+
+![image](https://github.com/user-attachments/assets/c3962e0c-2636-43ea-bf4f-75a8e3ba1e19)
+
 
 
 
