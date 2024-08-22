@@ -27,6 +27,23 @@ Este manual está diseñado tanto para principiantes como para desarrolladores c
 * [5 Vistas genericas (Views)](#5-Vistas-genericas-Views)
 * [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
 
+  
+* [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
+* [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
+* [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
+* [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
+* [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
+* [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
+* [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
+* [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
+## 7 Haciendo una carpeta parcial para cada app
+## 8 Vistas genéricas
+## 9 Nuestros primeros pasos en MVT
+## 10 el ORM de Django y modelos
+## 11 Implementando la base de datos Empleado.
+## 12 Claves foráneas.
+## 13 PostgreSQL y Django
+
 ## 1 Crear un proyecto Django
 
 (para limpiar la consola utilizamos el comando **cls**)
@@ -390,6 +407,10 @@ Volvemos a cargar nuestro proyecto y vamos a la url home:
 
 ## 7 Haciendo una carpeta parcial para cada app
 
+
+
+
+
 Cada aplicación, por buena práctica arquitectónica, debe poseer su propio archivo de urls, urls.py, par que en el archivo urls.py original, sólo importemos. Ésto es lo que vamos a crear en nuestra aplicación de ejercicio exp.
 
 ![image](https://github.com/user-attachments/assets/e4fbfa3c-b82b-437e-9a0f-c88ca61fdb87)
@@ -531,7 +552,7 @@ unique=True hace que el nombre del campo no se pueda volver a repetir.
 
 ![image](https://github.com/user-attachments/assets/2ec89b2e-554e-464d-8b5e-3d9d7ecb39f4)
 
-# 13 Instalación de PostgreSQL
+## 13 PostgreSQL y Django
 
 1 Descargemos el instalador de PostgreSQL
 
