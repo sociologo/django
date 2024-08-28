@@ -611,6 +611,9 @@ y ya estamos conectados:
 
 ## 15 Creando modelos dentro de una aplicación ya existente.
 
+1 Creamos un modelo habilidades en relacion muchos a muchos con el modelo empleado.
+
+2 Construimos un diseño al administrador de Django para el modelo empleados.
 
 
 
