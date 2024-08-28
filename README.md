@@ -34,6 +34,8 @@ Este manual está diseñado tanto para principiantes como para desarrolladores c
 * [12 Claves foráneas](#12-Claves-foráneas)
 * [13 PostgreSQL y Django](#13-PostgreSQL-y-Django)
 * [14 La clase meta](#14-La-clase-meta)
+* [15 Creando modelos dentro de una aplicación ya existente](#15-Creando-modelos-dentro-de-una-aplicación-ya-existente)
+
 
 ## 1 Crear un proyecto Django
 
@@ -606,6 +608,8 @@ y ya estamos conectados:
 ![image](https://github.com/user-attachments/assets/c3962e0c-2636-43ea-bf4f-75a8e3ba1e19)
 
 ## 14 La clase meta
+
+## 15 Creando modelos dentro de una aplicación ya existente.
 
 
 
