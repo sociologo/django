@@ -26,23 +26,14 @@ Este manual está diseñado tanto para principiantes como para desarrolladores c
 * [4 Aplicaciones](#4-Aplicaciones)
 * [5 Vistas genericas (Views)](#5-Vistas-genericas-Views)
 * [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
-
-  
-* [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
-* [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
-* [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
-* [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
-* [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
-* [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
-* [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
-* [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
-## 7 Haciendo una carpeta parcial para cada app
-## 8 Vistas genéricas
-## 9 Nuestros primeros pasos en MVT
-## 10 el ORM de Django y modelos
-## 11 Implementando la base de datos Empleado.
-## 12 Claves foráneas.
-## 13 PostgreSQL y Django
+* [7 Haciendo una carpeta parcial para cada app](#7-Haciendo-una-carpeta-parcial-para-cada-app)
+* [8 Vistas genéricas](#8-Vistas-genéricas)
+* [9 Nuestros primeros pasos en MVT](#9-Nuestros-primeros-pasos-en-MVT)
+* [10 el ORM de Django y modelos](#10-el-ORM-de-Django-y-modelos)
+* [11 Implementando la base de datos Empleado](#11-Implementando-la-base-de-datos-Empleado)
+* [12 Claves foráneas](#12-Claves-foráneas)
+* [13 PostgreSQL y Django](#13-PostgreSQL-y-Django)
+* [14 La clase meta](#14-La-clase-meta)
 
 ## 1 Crear un proyecto Django
 
@@ -614,7 +605,7 @@ y ya estamos conectados:
 
 ![image](https://github.com/user-attachments/assets/c3962e0c-2636-43ea-bf4f-75a8e3ba1e19)
 
-
+## 14 La clase meta
 
 
 
