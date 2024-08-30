@@ -613,6 +613,11 @@ y ya estamos conectados:
 
 ### 14 La clase meta
 
+Con esta clase podemos personalizar los atributos de nuestros modelos, como sus nombres, el orden en el que se despliegan los registros de los modelos, que no se puedan registrar nuevos elementos con nombres repetidos.
+Implementemos estos cambios en nuesto modelo Departamento:
+
+ 
+
 ### 15 Creando modelos dentro de una aplicación ya existente.
 
 1 Creamos un modelo habilidades en relacion muchos a muchos con el modelo empleado.
