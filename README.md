@@ -616,11 +616,20 @@ y ya estamos conectados:
 Con esta clase podemos personalizar los atributos de nuestros modelos, como sus nombres, el orden en el que se despliegan los registros de los modelos, que no se puedan registrar nuevos elementos con nombres repetidos.
 Implementemos estos cambios en nuesto modelo Departamento:
 
- 
+![image](https://github.com/user-attachments/assets/02a551bf-d8c0-4a1f-8c50-311b3d6af117)
+
+Hacemos las migraciones y levantamos el servidor:
+
+![image](https://github.com/user-attachments/assets/4a13f415-0027-40ca-9486-67fdac98371a)
+
+veamos como nos queda el administrador:
+
+![image](https://github.com/user-attachments/assets/ea92d0a5-e7f6-47af-8c17-170a6e92a21b)
+
 
 ### 15 Creando modelos dentro de una aplicación ya existente.
 
-1 Creamos un modelo habilidades en relacion muchos a muchos con el modelo empleado.
+1 Creamos un modelo Habilidades en relacion muchos a muchos con el modelo empleado.
 
 2 Construimos un diseño al administrador de Django para el modelo empleados.
 
