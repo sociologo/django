@@ -615,7 +615,7 @@ y ya estamos conectados:
 
 2 Construimos un diseño al administrador de Django para el modelo empleados.
 
-
+## Apps de terceros para personalizar el administrador.
 
 
 
