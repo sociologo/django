@@ -629,7 +629,17 @@ veamos como nos queda el administrador:
 
 ### 15 Creando modelos dentro de una aplicación ya existente.
 
-1 Creamos un modelo Habilidades en relacion muchos a muchos con el modelo empleado.
+1 Creamos un modelo Habilidades en relacion muchos a muchos con el modelo empleado y construyamos la recion muchos a muchos:
+
+![image](https://github.com/user-attachments/assets/0a401ab3-fab7-4354-8849-f89c796025c9)
+
+instalemos pillow para poder hacer uso del atributo ImageField y mofifiquemos la siguiente linea de codigo:
+
+(entorno_1) C:\Users\chris\django\proyecto_1\empleado>pip install pillow
+
+![image](https://github.com/user-attachments/assets/f16bad11-03a7-4da7-9934-5fa915c89927)
+
+
 
 2 Construimos un diseño al administrador de Django para el modelo empleados.
 
