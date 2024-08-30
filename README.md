@@ -33,7 +33,9 @@ Este manual está diseñado tanto para principiantes como para desarrolladores c
 * [11 Implementando la base de datos Empleado](#11-Implementando-la-base-de-datos-Empleado)
 * [12 Claves foráneas](#12-Claves-foráneas)
 * [13 PostgreSQL y Django](#13-PostgreSQL-y-Django)
-* [14 La clase meta](#14-La-clase-meta)
+
+* [El Administrador de Django](#El-Administrador-de-Django)
+  * [14 La clase meta](#14-La-clase-meta)
 * [15 Creando modelos dentro de una aplicación ya existente](#15-Creando-modelos-dentro-de-una-aplicación-ya-existente)
 
 
@@ -607,15 +609,17 @@ y ya estamos conectados:
 
 ![image](https://github.com/user-attachments/assets/c3962e0c-2636-43ea-bf4f-75a8e3ba1e19)
 
-## 14 La clase meta
+## El Administrador de Django
 
-## 15 Creando modelos dentro de una aplicación ya existente.
+### 14 La clase meta
+
+### 15 Creando modelos dentro de una aplicación ya existente.
 
 1 Creamos un modelo habilidades en relacion muchos a muchos con el modelo empleado.
 
 2 Construimos un diseño al administrador de Django para el modelo empleados.
 
-## Apps de terceros para personalizar el administrador.
+### 16 Apps de terceros para personalizar el administrador.
 
 
 
