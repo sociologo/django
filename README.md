@@ -704,7 +704,7 @@ veamos como nos queda el administrador:
 ![image](https://github.com/user-attachments/assets/4f17c772-b53c-4f09-a9bf-ac7e34f7e95a)
 
 
-![image](https://github.com/user-attachments/assets/724cc7c3-be2d-47e2-8b7e-52cccd4e5416)
+
 
 
 
