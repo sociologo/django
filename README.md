@@ -34,9 +34,16 @@ Este manual está diseñado tanto para principiantes como para desarrolladores c
 * [12 Claves foráneas](#12-Claves-foráneas)
 * [13 PostgreSQL y Django](#13-PostgreSQL-y-Django)
 
-* [El Administrador de Django](#El-Administrador-de-Django)
-  * [14 La clase meta](#14-La-clase-meta)
-* [15 Creando modelos dentro de una aplicación ya existente](#15-Creando-modelos-dentro-de-una-aplicación-ya-existente)
+  
+
+* [14 El Administrador de Django](14-El-Administrador-de-Django)
+ * [14.1 La clase meta](14.1-La-clase-meta)
+* [15 Creando modelos dentro de una aplicación ya existente](15-Creando-modelos-dentro-de-una-aplicación-ya-existente)
+* [16 Diseñar un despliegue de registros al administrador de Django para el modelo empleados](16-Diseñar-un-despliegue-de-registros-al-administrador-de-Django-para-el-modelo-empleados)
+* [17 Algunas apps de terceros](17-Algunas-apps-de-terceros)
+
+
+
 
 
 ## 1 Crear un proyecto Django
@@ -609,9 +616,9 @@ y ya estamos conectados:
 
 ![image](https://github.com/user-attachments/assets/c3962e0c-2636-43ea-bf4f-75a8e3ba1e19)
 
-## El Administrador de Django
+## 14 El Administrador de Django
 
-### 14 La clase meta
+### 14.1 La clase meta
 
 La clase Meta es completamente opcional, pero es muy útil para ajustar y personalizar el comportamiento de tus modelos en Django.
 
@@ -679,7 +686,7 @@ veamos como nos queda el administrador:
 ![image](https://github.com/user-attachments/assets/ea92d0a5-e7f6-47af-8c17-170a6e92a21b)
 
 
-### 15 Creando modelos dentro de una aplicación ya existente.
+## 15 Creando modelos dentro de una aplicación ya existente
 
 15.1 Creemos un modelo **Habilidades** en relación muchos a muchos con el modelo **empleado** e instalemos pillow para poder hacer uso del atributo ImageField:
 
@@ -711,7 +718,7 @@ veamos como nos queda el administrador:
 
 
 
-### 16 Diseñar un despliegue de registros al administrador de Django para el modelo empleados.
+## 16 Diseñar un despliegue de registros al administrador de Django para el modelo empleados
 
 16.1 El atributo list_display()
 
@@ -741,7 +748,7 @@ Podemos añadir una columna que integre primer y segundo apellido de cada regist
 
 ![image](https://github.com/user-attachments/assets/6a58b3a7-16ee-47f8-a86b-75178569292c)
 
-
+## 17 Algunas apps de terceros
 
 
 
