@@ -33,11 +33,8 @@ Este manual está diseñado tanto para principiantes como para desarrolladores c
 * [11 Implementando la base de datos Empleado](#11-Implementando-la-base-de-datos-Empleado)
 * [12 Claves foráneas](#12-Claves-foráneas)
 * [13 PostgreSQL y Django](#13-PostgreSQL-y-Django)
-
-  
-
 * [14 El Administrador de Django](14-El-Administrador-de-Django)
- * [14.1 La clase meta](14.1-La-clase-meta)
+  * [14.1 La clase meta](14.1-La-clase-meta)
 * [15 Creando modelos dentro de una aplicación ya existente](15-Creando-modelos-dentro-de-una-aplicación-ya-existente)
 * [16 Diseñar un despliegue de registros al administrador de Django para el modelo empleados](16-Diseñar-un-despliegue-de-registros-al-administrador-de-Django-para-el-modelo-empleados)
 * [17 Algunas apps de terceros](17-Algunas-apps-de-terceros)
