@@ -681,36 +681,69 @@ veamos como nos queda el administrador:
 
 ### 15 Creando modelos dentro de una aplicación ya existente.
 
-1 Creemos un modelo **Habilidades** en relación muchos a muchos con el modelo **empleado** e instalemos pillow para poder hacer uso del atributo ImageField:
+15.1 Creemos un modelo **Habilidades** en relación muchos a muchos con el modelo **empleado** e instalemos pillow para poder hacer uso del atributo ImageField:
 
 (entorno_1) C:\Users\chris\django\proyecto_1\empleado>pip install pillow
 
 ![image](https://github.com/user-attachments/assets/0d9618aa-cee2-4c4c-b634-51344ff8f7f6)
 
-2 Registremos la nueva tabla en el archivo **admin.py** de la aplicación **empleados**:
+15.2 Registremos la nueva tabla en el archivo **admin.py** de la aplicación **empleados**:
 
 ![image](https://github.com/user-attachments/assets/0f6a19cb-8538-46d8-852e-6e836ba168a1)
 
-3 Bajemos el servidor, hagamos las migraciones y reiniciemos:
+15.3 Bajemos el servidor, hagamos las migraciones y reiniciemos:
 
 ![image](https://github.com/user-attachments/assets/aedef6c3-9b2f-443e-9aeb-a5852370d12e)
 
-4 Ahora tenemos dos modelos en la aplicación **EMPLEADOS**:
+15.4 Ahora tenemos dos modelos en la aplicación **EMPLEADOS**:
 
 ![image](https://github.com/user-attachments/assets/709648ff-374a-4819-a1e9-0cf54bffdad8)
 
-5 Agreguemos nuevos empleados con habilidades específicas:
+15.5 Agreguemos nuevos empleados con habilidades específicas:
 
 ![image](https://github.com/user-attachments/assets/4f17c772-b53c-4f09-a9bf-ac7e34f7e95a)
 
+![image](https://github.com/user-attachments/assets/b2b0e43f-3a98-4be4-adce-4cc7009937c9)
+
+![image](https://github.com/user-attachments/assets/7857e781-1b20-4567-bff2-cf136e529e5a)
+
+![image](https://github.com/user-attachments/assets/1352732a-fa2b-4de1-8fe2-6828b822ffed)
+
+
+
+### 16 Diseñar un despliegue de registros al administrador de Django para el modelo empleados.
+
+16.1 El atributo list_display()
+
+El atributo list_display en Django se utiliza en la clase ModelAdmin para especificar qué campos de un modelo deben mostrarse en la vista de lista del panel de administración. Esto es especialmente útil para proporcionar una visión general rápida de las instancias del modelo. 
+
+![image](https://github.com/user-attachments/assets/ba7709cc-2d2f-4398-a62e-6e8bd5e2f299)
+
+![image](https://github.com/user-attachments/assets/2b266887-bca5-42ea-b94f-a60e759ade1d)
+
+
+16.2 Integrar un buscador al modelo
 
 
 
 
 
-2 Construimos un diseño al administrador de Django para el modelo empleados.
 
-### 16 Apps de terceros para personalizar el administrador.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
