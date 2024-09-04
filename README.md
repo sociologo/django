@@ -695,7 +695,17 @@ veamos como nos queda el administrador:
 
 ![image](https://github.com/user-attachments/assets/aedef6c3-9b2f-443e-9aeb-a5852370d12e)
 
-Veamos como luce ahora nuestro administrador al querer ingresar un nuevo registro a nuestro modelo Empleados:
+4 Ahora tenemos dos modelos en la aplicación **EMPLEADOS**:
+
+![image](https://github.com/user-attachments/assets/709648ff-374a-4819-a1e9-0cf54bffdad8)
+
+5 Agreguemos nuevos empleados con habilidades específicas:
+
+![image](https://github.com/user-attachments/assets/4f17c772-b53c-4f09-a9bf-ac7e34f7e95a)
+
+
+![image](https://github.com/user-attachments/assets/724cc7c3-be2d-47e2-8b7e-52cccd4e5416)
+
 
 
 2 Construimos un diseño al administrador de Django para el modelo empleados.
