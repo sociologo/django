@@ -713,11 +713,9 @@ veamos como nos queda el administrador:
 
 ![image](https://github.com/user-attachments/assets/1352732a-fa2b-4de1-8fe2-6828b822ffed)
 
-
-
 ## 16 Diseñar un despliegue de registros al administrador de Django para el modelo empleados
 
-16.1 El atributo list_display()
+### 16.1 El atributo list_display()
 
 El atributo list_display en Django se utiliza en la clase ModelAdmin para especificar qué campos de un modelo deben mostrarse en la vista de lista del panel de administración. Esto es especialmente útil para proporcionar una visión general rápida de las instancias del modelo. 
 
@@ -746,6 +744,12 @@ Podemos añadir una columna que integre primer y segundo apellido de cada regist
 ![image](https://github.com/user-attachments/assets/6a58b3a7-16ee-47f8-a86b-75178569292c)
 
 ## 17 Algunas apps de terceros
+
+### 17.1 La app Django CKEditor
+
+![image](https://github.com/user-attachments/assets/8a104377-9260-437a-b5a7-d1e910f38984)
+
+![image](https://github.com/user-attachments/assets/7f2c66e9-dbd3-44d8-be82-d6be771146ce)
 
 
 
