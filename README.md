@@ -613,8 +613,60 @@ y ya estamos conectados:
 
 ### 14 La clase meta
 
-Con esta clase podemos personalizar los atributos de nuestros modelos, como sus nombres, el orden en el que se despliegan los registros de los modelos, que no se puedan registrar nuevos elementos con nombres repetidos.
-Implementemos estos cambios en nuesto modelo Departamento:
+La clase Meta es completamente opcional, pero es muy útil para ajustar y personalizar el comportamiento de tus modelos en Django.
+
+En Django, la clase Meta es una clase interna que se utiliza dentro de los modelos para definir opciones de metadatos. Estas opciones permiten personalizar el comportamiento del modelo sin tener que modificar el código principal del modelo. Aquí hay algunas de las cosas que puedes hacer con la clase Meta:
+
+14.1 Ordenar los resultados: Puedes especificar el orden predeterminado de los registros cuando se recuperan de la base de datos.
+
+```
+class Persona(models.Model):
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+
+    class Meta:
+        ordering = ['last_name']
+```
+
+14.2 Nombres legibles: Puedes definir nombres legibles para el modelo en singular y plural.
+
+```
+class Persona(models.Model):
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+
+    class Meta:
+        verbose_name = "Persona"
+        verbose_name_plural = "Personas"
+```
+
+14.3 Permisos personalizados: Puedes definir permisos específicos para el modelo.
+
+```
+class Persona(models.Model):
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+
+    class Meta:
+        permissions = [
+            ("can_view_persona", "Can view persona"),
+        ]
+
+```
+
+14.4 Nombre de la tabla: Puedes especificar el nombre de la tabla en la base de datos.
+
+```
+class Persona(models.Model):
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+
+    class Meta:
+        db_table = 'mi_tabla_persona'
+
+```
+
+Implementemos algunos cambios con ésta clase en nuesto modelo Departamento:
 
 ![image](https://github.com/user-attachments/assets/02a551bf-d8c0-4a1f-8c50-311b3d6af117)
 
