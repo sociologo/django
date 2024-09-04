@@ -721,22 +721,17 @@ El atributo list_display en Django se utiliza en la clase ModelAdmin para especi
 
 ![image](https://github.com/user-attachments/assets/2b266887-bca5-42ea-b94f-a60e759ade1d)
 
-
 16.2 Buscadores y filtros
-
-
-
-![image](https://github.com/user-attachments/assets/663cef2b-794d-41ff-ac70-6f02b213a6e6)
-
-
-Podemos integrar una interfaz mas agradable paras seleccionar atributos en relaciones muchos a muchos:
 
 ![image](https://github.com/user-attachments/assets/1e13fd86-6592-44bb-b07a-9fbd64ab9cf2)
 
 ![image](https://github.com/user-attachments/assets/030a0314-c4da-47a0-9a9f-d13857156f35)
 
+Podemos integrar una interfaz mas agradable paras seleccionar atributos en relaciones muchos a muchos:
 
+![image](https://github.com/user-attachments/assets/2c1a8451-e8cb-40da-8e1d-9fda5b1f7d2f)
 
+![image](https://github.com/user-attachments/assets/43c1a300-d1d5-4135-935d-0560e3677e98)
 
 
 
