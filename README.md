@@ -687,7 +687,13 @@ veamos como nos queda el administrador:
 
 ![image](https://github.com/user-attachments/assets/0d9618aa-cee2-4c4c-b634-51344ff8f7f6)
 
+2 Registremos la nueva tabla en el archivo **admin.py** de la aplicación **empleados**:
 
+![image](https://github.com/user-attachments/assets/0f6a19cb-8538-46d8-852e-6e836ba168a1)
+
+3 Bajemos el servidor, hagamos las migraciones y reiniciemos:
+
+![image](https://github.com/user-attachments/assets/aedef6c3-9b2f-443e-9aeb-a5852370d12e)
 
 Veamos como luce ahora nuestro administrador al querer ingresar un nuevo registro a nuestro modelo Empleados:
 
