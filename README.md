@@ -685,7 +685,8 @@ veamos como nos queda el administrador:
 
 (entorno_1) C:\Users\chris\django\proyecto_1\empleado>pip install pillow
 
-![image](https://github.com/user-attachments/assets/9c1a9fab-d16e-4e76-96db-e71664f910a1)
+![image](https://github.com/user-attachments/assets/0d9618aa-cee2-4c4c-b634-51344ff8f7f6)
+
 
 
 Veamos como luce ahora nuestro administrador al querer ingresar un nuevo registro a nuestro modelo Empleados:
