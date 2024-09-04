@@ -681,7 +681,7 @@ veamos como nos queda el administrador:
 
 ### 15 Creando modelos dentro de una aplicación ya existente.
 
-1 Creamos un modelo Habilidades en relacion muchos a muchos con el modelo empleado y construyamos la recion muchos a muchos:
+1 Crearemos un modelo **Habilidades** en relación muchos a muchos con el modelo **empleado**:
 
 ![image](https://github.com/user-attachments/assets/0a401ab3-fab7-4354-8849-f89c796025c9)
 
