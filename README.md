@@ -639,6 +639,7 @@ instalemos pillow para poder hacer uso del atributo ImageField y mofifiquemos la
 
 ![image](https://github.com/user-attachments/assets/f16bad11-03a7-4da7-9934-5fa915c89927)
 
+Veamos como luce ahora nuestro administrador al querer ingresar un nuevo registro a nuestro modelo Empleados:
 
 
 2 Construimos un diseño al administrador de Django para el modelo empleados.
