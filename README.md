@@ -747,6 +747,15 @@ Podemos añadir una columna que integre primer y segundo apellido de cada regist
 
 ### 17.1 La app Django CKEditor
 
+CKEditor es una aplicación de editor de texto enriquecido que se puede integrar fácilmente en proyectos de Django mediante el paquete django-ckeditor. Este editor permite a los usuarios crear y editar contenido con formato, similar a lo que se puede hacer en un procesador de textos como Microsoft Word. Aquí te explico algunas de sus características y cómo se utiliza:
+
+Características Principales\
+17.1.1 Formato de Texto: Permite aplicar estilos como negrita, cursiva, subrayado, y tachado.\
+17.1.2 Listas y Tablas: Facilita la creación de listas ordenadas y desordenadas, así como tablas.\
+17.1.3 Multimedia: Soporta la inserción de imágenes, videos y otros elementos multimedia.\
+17.1.4 Enlaces: Permite añadir enlaces a otros sitios web o documentos.\
+17.1.5 Código y Bloques de Cita: Incluye opciones para insertar bloques de código y citas.\
+
 ![image](https://github.com/user-attachments/assets/8a104377-9260-437a-b5a7-d1e910f38984)
 
 ![image](https://github.com/user-attachments/assets/7f2c66e9-dbd3-44d8-be82-d6be771146ce)
