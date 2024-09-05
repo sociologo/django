@@ -38,7 +38,7 @@ Este manual está diseñado tanto para principiantes como para desarrolladores c
 * [15 Creando modelos dentro de una aplicación ya existente](#15-Creando-modelos-dentro-de-una-aplicación-ya-existente)
 * [16 Diseñar un despliegue de registros al administrador de Django para el modelo empleados](#16-Diseñar-un-despliegue-de-registros-al-administrador-de-Django-para-el-modelo-empleados)
 * [17 Algunas apps de terceros](#17-Algunas-apps-de-terceros)
-
+* [18 Vistas basadas en clases](#18-Vistas-basadas-en-clases)
 
 
 
@@ -772,7 +772,7 @@ hacemos las migraciones y volvemos a cargar el servidor. Vamonos a la pagina del
 
 ![image](https://github.com/user-attachments/assets/f3f7572f-8c2a-4bb0-9f70-ac5c9d92b475)
 
-
+## 18 Vistas basadas en clases
 
 
 
