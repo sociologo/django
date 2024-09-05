@@ -750,31 +750,39 @@ Podemos añadir una columna que integre primer y segundo apellido de cada regist
 CKEditor es una aplicación de editor de texto enriquecido que se puede integrar fácilmente en proyectos de Django mediante el paquete django-ckeditor. Este editor permite a los usuarios crear y editar contenido con formato, similar a lo que se puede hacer en un procesador de textos como Microsoft Word. Aquí te explico algunas de sus características y cómo se utiliza:
 
 Características Principales\
-17.1.1 Formato de Texto: Permite aplicar estilos como negrita, cursiva, subrayado, y tachado.\
-17.1.2 Listas y Tablas: Facilita la creación de listas ordenadas y desordenadas, así como tablas.\
-17.1.3 Multimedia: Soporta la inserción de imágenes, videos y otros elementos multimedia.\
-17.1.4 Enlaces: Permite añadir enlaces a otros sitios web o documentos.\
-17.1.5 Código y Bloques de Cita: Incluye opciones para insertar bloques de código y citas.\
+17.1.1.1 Formato de Texto: Permite aplicar estilos como negrita, cursiva, subrayado, y tachado.\
+17.1.1.2 Listas y Tablas: Facilita la creación de listas ordenadas y desordenadas, así como tablas.\
+17.1.1.3 Multimedia: Soporta la inserción de imágenes, videos y otros elementos multimedia.\
+17.1.1.4 Enlaces: Permite añadir enlaces a otros sitios web o documentos.\
+17.1.1.5 Código y Bloques de Cita: Incluye opciones para insertar bloques de código y citas.
 
 ![image](https://github.com/user-attachments/assets/8a104377-9260-437a-b5a7-d1e910f38984)
 
 ![image](https://github.com/user-attachments/assets/7f2c66e9-dbd3-44d8-be82-d6be771146ce)
 
-Registramos al app de terceros ckeditor en el archivo **base.py**
+17.1.2 Registramos al app de terceros ckeditor en el archivo **base.py**
 
 ![image](https://github.com/user-attachments/assets/f3317cfb-804a-49ff-b8a9-2c68e45d8204)
 
-Agregamos un campo te tenga la forma de elemento de blog:
+17.1.3 Agregamos un campo que tenga la forma de elemento de blog:
 
 ![image](https://github.com/user-attachments/assets/206c94db-59db-4433-8d8c-e4b74e49a665)
 
-hacemos las migraciones y volvemos a cargar el servidor. Vamonos a la pagina del administrador de Django:
+17.1.4 Hacemos las migraciones y volvemos a cargar el servidor. Vámonos a la página del administrador de Django:
 
 ![image](https://github.com/user-attachments/assets/f3f7572f-8c2a-4bb0-9f70-ac5c9d92b475)
 
 ## 18 Vistas basadas en clases
 
+### 18.1 El método ListView
 
+El método ListView en Django es una vista genérica basada en clases que se utiliza para mostrar una lista de objetos. Es especialmente útil cuando necesitas mostrar una lista de elementos de un modelo en una página web. 
+
+Funcionalidad Principal:
+
+1 Mostrar una lista de objetos: ListView se encarga de obtener una lista de objetos de un modelo y renderizarlos en una plantilla.\
+2 Paginación: Puedes habilitar la paginación para dividir la lista de objetos en varias páginas.\
+3 Contexto: Proporciona un contexto a la plantilla que incluye la lista de objetos y otros datos adicionales.
 
 
 
