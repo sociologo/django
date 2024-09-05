@@ -751,8 +751,17 @@ Podemos añadir una columna que integre primer y segundo apellido de cada regist
 
 ![image](https://github.com/user-attachments/assets/7f2c66e9-dbd3-44d8-be82-d6be771146ce)
 
+Registramos al app de terceros ckeditor en el archivo **base.py**
 
+![image](https://github.com/user-attachments/assets/f3317cfb-804a-49ff-b8a9-2c68e45d8204)
 
+Agregamos un campo te tenga la forma de elemento de blog:
+
+![image](https://github.com/user-attachments/assets/206c94db-59db-4433-8d8c-e4b74e49a665)
+
+hacemos las migraciones y volvemos a cargar el servidor. Vamonos a la pagina del administrador de Django:
+
+![image](https://github.com/user-attachments/assets/f3f7572f-8c2a-4bb0-9f70-ac5c9d92b475)
 
 
 
