@@ -774,6 +774,8 @@ Características Principales\
 
 ## 18 Vistas basadas en clases
 
+ccbv.co.uk
+
 ### 18.1 El método ListView
 
 El método ListView en Django es una vista genérica basada en clases que se utiliza para mostrar una lista de objetos. Es especialmente útil cuando necesitas mostrar una lista de elementos de un modelo en una página web. 
