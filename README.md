@@ -774,7 +774,8 @@ Características Principales\
 
 ## 18 Vistas basadas en clases
 
-ccbv.co.uk
+[ccbv.co.uk](https://ccbv.co.uk)
+
 
 ### 18.1 El método ListView
 
