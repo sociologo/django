@@ -779,15 +779,34 @@ Características Principales\
 
 ### 18.1 El método ListView
 
+[Documentacion ListView](https://docs.djangoproject.com/en/5.1/ref/class-based-views/generic-display/)
+
 El método ListView en Django es una vista genérica basada en clases que se utiliza para mostrar una lista de objetos. Es especialmente útil cuando necesitas mostrar una lista de elementos de un modelo en una página web. 
 
-Funcionalidad Principal:
+Funcionalidades:
 
-1 Mostrar una lista de objetos: ListView se encarga de obtener una lista de objetos de un modelo y renderizarlos en una plantilla.\
+1 ListView se encarga de obtener una lista de objetos de un modelo y renderizarlos en una plantilla.\
 2 Paginación: Puedes habilitar la paginación para dividir la lista de objetos en varias páginas.\
-3 Contexto: Proporciona un contexto a la plantilla que incluye la lista de objetos y otros datos adicionales.
+3 Proporciona un **contexto** a la plantilla que incluye la lista de objetos y otros datos adicionales.
+
+Implementaremos cinco requerimientos de listado sobre nuestra aplicacion **empleados**.
+
+1 Listar todos los empleados.
+
+En el archivo views.py de la aplicacion empleados debemos importar el metodo ListView, el modelo Empleado y construir la siguiente clase:
+
+![image](https://github.com/user-attachments/assets/c00ff6d7-4740-419b-a78f-b908726f5410)
 
 
+### 18.2 Iteracion sobre registros de modelos para listarlos
+
+```
+<ul>
+ {% for e in object_list %}
+  <li>{{ e }}</li>
+ {% endfor %}
+</ul>
+```
 
 
 
