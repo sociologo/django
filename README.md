@@ -823,13 +823,68 @@ Iteracion sobre registros de modelos para listarlos
 
 ![image](https://github.com/user-attachments/assets/e189374d-2287-4d73-8a4a-78c12135ebec)
 
+### 18.1.2 Listar todos los empleados que pertenezcan a un area especifica.
 
+Solo con fines pedagogicos haremos esto de forma bruta.
 
+1 En **views.py** de la aplicacion empleado:
 
+```
+from django.shortcuts import render # type: ignore
 
+from django.views.generic import( # type: ignore
+    ListView
+)
 
+from .models import Empleado
 
+# 1 Listar todos los empleados de la empresa
 
+class ListAllEmpleados(ListView):
+    template_name = 'persona/list_all.html'
+    model = Empleado
+    context_object_name = 'lista'
+
+# 2 Listar todos los empleados de la empresa por departamento
+
+class ListAllByDept(ListView):
+    template_name = 'persona/AllByDept.html'
+    queryset = Empleado.objects.filter(
+        departamento__short_name = 'ciencias matemáticas'
+    )
+```
+
+2 En **urls.py** de la aplicacion empleado:
+
+```
+from django.contrib import admin # type: ignore
+from django.urls import path, include # type: ignore
+
+from . import views
+
+urlpatterns = [
+    path('listar-todo-empleados/', views.ListAllEmpleados.as_view()),
+    path('listar-por-area/', views.ListAllByDept.as_view()),
+]
+```
+
+3 En la carpeta persona que esta en la carpeta templates anadimos list.html:
+
+```
+<h1>
+    lista de todos los empleados
+</h1>
+
+<ul>
+    {% for e in object_list %}
+        <li>{{ e }}</li>
+    {% endfor %}
+</ul>
+```
+
+4 y obtenemos:
+
+![image](https://github.com/user-attachments/assets/8d1bc43b-d62c-4740-8374-366c4883c6df)
 
 
 
