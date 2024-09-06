@@ -791,14 +791,25 @@ Funcionalidades:
 
 Implementaremos cinco requerimientos de listado sobre nuestra aplicacion **empleados**.
 
-1 Listar todos los empleados.
+### 18.1.1 Listar todos los empleados.
 
 En el archivo views.py de la aplicacion empleados debemos importar el metodo ListView, el modelo Empleado y construir la siguiente clase:
 
 ![image](https://github.com/user-attachments/assets/c00ff6d7-4740-419b-a78f-b908726f5410)
 
+2 Debemos activar nuestra vista generica para lo cual vamos al archivo urls.py de la aplicacion empleado, importamos las views y declaramos la url: listar-todo-empleado/ y hacemos el llamado a la clase sobre la cual hemos basado nuestra vista:
 
-### 18.2 Iteracion sobre registros de modelos para listarlos
+![image](https://github.com/user-attachments/assets/99ea6f61-5869-4061-8a52-4f5b5e5ec22c)
+
+3 La url recien declarada no la hemos activado en las urls principales de Django, para lo cual vamos al archivo urls.py de la aplicacion empleado (aca se puede producir una confusion. Esta aplicacion empleado, en singular es la que alberga por completo nuestro proyecto, la aplicacion el plural empleados, alberga la aplicacion del contexto especifico del modelo empleados)
+
+![image](https://github.com/user-attachments/assets/12e21b13-ace2-4110-aeeb-0c63cc89d0f6)
+
+4 Por ultimo debemos construir el archivo html dentro de una carpeta persona en la ruta de los templates:
+
+![image](https://github.com/user-attachments/assets/745c0f3d-d44e-4fe7-83f3-ae3c87d51b93)
+
+Iteracion sobre registros de modelos para listarlos
 
 ```
 <ul>
