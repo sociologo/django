@@ -819,6 +819,11 @@ Iteracion sobre registros de modelos para listarlos
 </ul>
 ```
 
+5 Y ejecutemos nuestro proyecto:
+
+![image](https://github.com/user-attachments/assets/e189374d-2287-4d73-8a4a-78c12135ebec)
+
+
 
 
 
