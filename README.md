@@ -886,9 +886,11 @@ urlpatterns = [
 
 ![image](https://github.com/user-attachments/assets/8d1bc43b-d62c-4740-8374-366c4883c6df)
 
+### 18.1.3 Listar todos los empleados que pertenezcan a un area especifica mediante urls.
 
+### 18.1.4 Listar todos los empleados que pertenezcan a un area especifica mediante un filtro en una caja de texto.
 
-
+### 18.1.5 Paginacion en la vista ListView.
 
 
 
