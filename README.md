@@ -886,7 +886,7 @@ urlpatterns = [
 
 ![image](https://github.com/user-attachments/assets/8d1bc43b-d62c-4740-8374-366c4883c6df)
 
-### 18.1.3 Listar todos los empleados que pertenezcan a un area especifica mediante urls.
+### 18.1.3 Listar todos los empleados que pertenezcan a un area especifica mediante urls con un filtro en una caja de texto.
 
 1 Debemos utilizar el metodo **get_queryset** para recoger un parametro desde la url.
 Es entonces que debemos agregar a la url lista-by-area/ un elemento de la siguiente manera:
@@ -946,13 +946,17 @@ c en la carpeta persona de templates templates construimos **by_kword.html** par
     {% endfor %}
 </ul>
 ```
+![image](https://github.com/user-attachments/assets/a4ab7983-78e4-4734-9a66-73a54df63b65)
+
+Nuestro resultado de busqueda para carlos es:
+
+![image](https://github.com/user-attachments/assets/8d7961c8-446c-43b4-94d1-5a11a449c22e)
+
+![image](https://github.com/user-attachments/assets/64449aba-4f81-4cdd-8a77-2acf0354db58)
+
+### 18.1.4 Paginacion en la vista ListView.
 
 
-
-
-### 18.1.4 Listar todos los empleados que pertenezcan a un area especifica mediante un filtro en una caja de texto.
-
-### 18.1.5 Paginacion en la vista ListView.
 
 
 
