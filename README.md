@@ -956,6 +956,35 @@ Nuestro resultado de busqueda para carlos es:
 
 ### 18.1.4 Paginacion en la vista ListView.
 
+La paginación es crucial al listar registros en Django por varias razones:
+
+Rendimiento: Cargar todos los registros de una base de datos grande en una sola página puede ser muy lento y consumir muchos recursos del servidor. La paginación permite dividir los datos en partes más manejables, mejorando el rendimiento de la aplicación.\
+Usabilidad: Presentar demasiados datos en una sola página puede ser abrumador para los usuarios. La paginación facilita la navegación y hace que la interfaz sea más amigable y fácil de usar.\
+Carga de Red: Al limitar la cantidad de datos enviados al cliente en cada solicitud, se reduce la carga de red, lo que puede ser especialmente importante en aplicaciones con muchos usuarios concurrentes.\
+Experiencia del Usuario: La paginación permite a los usuarios encontrar y acceder a la información de manera más eficiente, mejorando su experiencia general en la aplicación.
+
+![image](https://github.com/user-attachments/assets/aef71236-1754-455c-8fd3-331fc236c8f2)
+
+```
+# 1 Listar todos los empleados de la empresa
+
+class ListAllEmpleados(ListView):
+    template_name = 'persona/list_all.html'
+    model = Empleado
+    paginate_by = 3
+    context_object_name = 'lista'
+```
+
+![image](https://github.com/user-attachments/assets/0ff4e393-7b66-4e87-8088-f120f5738bb6)
+
+![image](https://github.com/user-attachments/assets/68daa866-cc3a-4091-96ca-033581bf5548)
+
+Tambien podemos establecer un orden al listado.
+
+
+
+
+
 
 
 
