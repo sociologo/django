@@ -41,6 +41,21 @@ Este manual está diseñado tanto para principiantes como para desarrolladores c
 * [18 Vistas basadas en clases](#18-Vistas-basadas-en-clases)
   * [18_1_El método ListView](#18_1-El-método-ListView)
     * [18_1_1 Listar todos los empleados](#18_1_1-Listar-todos-los-empleados)
+
+
+    * [18_1_2 Listar todos los empleados que pertenezcan a un area específica.](#18_1_2-Listar-todos-los-empleados-que-pertenezcan-a-un-area-específica.)
+    * [18_1_3 Listar todos los empleados que pertenezcan a un area específica mediante urls con un filtro en una caja de texto.](#18_1_3-Listar-todos-los-empleados-que-pertenezcan-a-un-area-específica-mediante-urls-con-un-filtro-en-una-caja-de-texto.)
+    * [18_1_4 Paginación en la vista ListView.](#18_1_4-Paginación-en-la-vista-ListView.)
+    * [18_1_5 Listar las habilidades de un empleado.](#18_1_5-Listar-las-habilidades-de-un-empleado.)
+
+
+
+   
+
+
+
+
+
   * [18.2 El método DetailView](#18_2-El-método-DetailView)
 
 
@@ -827,7 +842,7 @@ Iteracion sobre registros de modelos para listarlos
 
 ![image](https://github.com/user-attachments/assets/e189374d-2287-4d73-8a4a-78c12135ebec)
 
-#### 18.1.2 Listar todos los empleados que pertenezcan a un area especifica.
+#### 18_1_2 Listar todos los empleados que pertenezcan a un area específica.
 
 Solo con fines pedagogicos haremos esto de forma bruta.
 
@@ -890,7 +905,7 @@ urlpatterns = [
 
 ![image](https://github.com/user-attachments/assets/8d1bc43b-d62c-4740-8374-366c4883c6df)
 
-#### 18.1.3 Listar todos los empleados que pertenezcan a un area especifica mediante urls con un filtro en una caja de texto.
+#### 18_1_3 Listar todos los empleados que pertenezcan a un area específica mediante urls con un filtro en una caja de texto.
 
 1 Debemos utilizar el metodo **get_queryset** para recoger un parametro desde la url.
 Es entonces que debemos agregar a la url lista-by-area/ un elemento de la siguiente manera:
@@ -958,7 +973,7 @@ Nuestro resultado de busqueda para carlos es:
 
 ![image](https://github.com/user-attachments/assets/64449aba-4f81-4cdd-8a77-2acf0354db58)
 
-#### 18.1.4 Paginacion en la vista ListView.
+#### 18_1_4 Paginación en la vista ListView.
 
 La paginación es crucial al listar registros en Django por varias razones:
 
@@ -998,7 +1013,7 @@ class ListAllEmpleados(ListView):
 
 ![image](https://github.com/user-attachments/assets/e1c86f92-88d3-42b1-b6c2-c2e99dd5b442)
 
-#### 18.1.5 Listar las habilidades de un empleado
+#### 18_1_5 Listar las habilidades de un empleado.
 
 Recordemos que habilidades con empleados es una relacion de muchos a muchos.
 
