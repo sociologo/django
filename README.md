@@ -981,6 +981,20 @@ class ListAllEmpleados(ListView):
 
 Tambien podemos establecer un orden al listado.
 
+```
+# 1 Listar todos los empleados de la empresa
+
+class ListAllEmpleados(ListView):
+    template_name = 'persona/list_all.html'
+    model = Empleado
+    paginate_by = 3
+    ordering = 'first_name'
+    context_object_name = 'lista'
+```
+
+![image](https://github.com/user-attachments/assets/e1c86f92-88d3-42b1-b6c2-c2e99dd5b442)
+
+### 18.1.5 Listar las habilidades de un empleado.
 
 
 
