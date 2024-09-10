@@ -40,7 +40,7 @@ Este manual está diseñado tanto para principiantes como para desarrolladores c
 * [17 Algunas apps de terceros](#17-Algunas-apps-de-terceros)
 * [18 Vistas basadas en clases](#18-Vistas-basadas-en-clases)
 * [18_El método ListView](#18_1-El-metodo-ListView)
-  * [18.1.1 Listar todos los empleados](#18.1.1-Listar-todos-los-empleados)
+  * [18_1_1 Listar todos los empleados](#18_1_1-Listar-todos-los-empleados)
 
 
 
@@ -793,7 +793,7 @@ Funcionalidades:
 
 Implementaremos cinco requerimientos de listado sobre nuestra aplicacion **empleados**.
 
-#### 18.1.1 Listar todos los empleados.
+#### 18_1_1 Listar todos los empleados.
 
 En el archivo views.py de la aplicacion empleados debemos importar el metodo ListView, el modelo Empleado y construir la siguiente clase:
 
