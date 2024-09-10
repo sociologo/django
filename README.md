@@ -1019,14 +1019,22 @@ Recordemos que habilidades con empleados es una relacion de muchos a muchos.
 
 1 Hacemos que en el listado de empleados del administrador de django se visualice el id de cada registro.
 
+![image](https://github.com/user-attachments/assets/6fe81643-d81f-4e36-8829-ddf6482ed0d9)
+
+![image](https://github.com/user-attachments/assets/ee1f9c05-795f-4beb-bab3-6a88c1839d12)
+
+
+
+
+
 a) Construimos el metodo dentro de una clase en la vista de empleados:
 ```
-class ListEmpByKword(ListView):
-    template_name = 'persona/by_kword.html'
+class ListEmpByHabili(ListView):
+    template_name = 'persona/by_habili.html'
     context_object_name = 'empleados'
 
     def get_queryset(self):
-        palabra_clave = self.request.GET.get("kword", '')
+        palabra_clave = self.request.GET.get("habili", '')
         lista = Empleado.objects.filter(
         firts_name = palabra_clave
         )
@@ -1044,16 +1052,17 @@ urlpatterns = [
     path('listar-todo-empleados/', views.ListAllEmpleados.as_view()),
     path('listar-por-area/', views.ListAllByDept.as_view()),
     path('buscar-emp-por-kword/', views.ListEmpByKword.as_view()),
+    path('buscar-emp-por-habili/', views.ListEmpByHabili.as_view()),
 ]
 
 ```
-c en la carpeta persona de templates templates construimos **by_kword.html** para la caja de texto
+c en la carpeta persona de templates templates construimos **by_habili.html** para la caja de texto
 ```
 <h1>
-    Buscar empleados por kword
+    Buscar empleados por Habilidad
 </h1>
 <form method="GET">{% csrf_token %}
-    <input type="text" id="kword" name="kword" placeholder="Ingresa nombre">
+    <input type="text" id="habili" name="habili" placeholder="Ingresa Habilidad">
     <button type="submit"> Buscar </button>
 </form>
 <h3>
