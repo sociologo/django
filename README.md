@@ -779,7 +779,7 @@ Características Principales\
 [ccbv.co.uk](https://ccbv.co.uk)
 
 
-### 18.1 El método ListView
+### 18.1 El metodo ListView
 
 [Documentacion ListView](https://docs.djangoproject.com/en/5.1/ref/class-based-views/generic-display/)
 
