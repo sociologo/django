@@ -1019,7 +1019,52 @@ Recordemos que habilidades con empleados es una relacion de muchos a muchos.
 
 1 Hacemos que en el listado de empleados del administrador de django se visualice el id de cada registro.
 
+a) Construimos el metodo dentro de una clase en la vista de empleados:
+```
+class ListEmpByKword(ListView):
+    template_name = 'persona/by_kword.html'
+    context_object_name = 'empleados'
 
+    def get_queryset(self):
+        palabra_clave = self.request.GET.get("kword", '')
+        lista = Empleado.objects.filter(
+        firts_name = palabra_clave
+        )
+        return lista
+```
+b Creamos la url en la aplicacion empleados:
+```
+
+from django.contrib import admin # type: ignore
+from django.urls import path, include # type: ignore
+
+from . import views
+
+urlpatterns = [
+    path('listar-todo-empleados/', views.ListAllEmpleados.as_view()),
+    path('listar-por-area/', views.ListAllByDept.as_view()),
+    path('buscar-emp-por-kword/', views.ListEmpByKword.as_view()),
+]
+
+```
+c en la carpeta persona de templates templates construimos **by_kword.html** para la caja de texto
+```
+<h1>
+    Buscar empleados por kword
+</h1>
+<form method="GET">{% csrf_token %}
+    <input type="text" id="kword" name="kword" placeholder="Ingresa nombre">
+    <button type="submit"> Buscar </button>
+</form>
+<h3>
+    Lista resultado
+</h3>
+<ul>
+    {% for e in empleados %}
+        <li>{{ e }}</li>
+    {% endfor %}
+</ul>
+```
 
 
 ### 18_2 El método DetailView
