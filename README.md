@@ -39,7 +39,7 @@ Este manual está diseñado tanto para principiantes como para desarrolladores c
 * [16 Diseñar un despliegue de registros al administrador de Django para el modelo empleados](#16-Diseñar-un-despliegue-de-registros-al-administrador-de-Django-para-el-modelo-empleados)
 * [17 Algunas apps de terceros](#17-Algunas-apps-de-terceros)
 * [18 Vistas basadas en clases](#18-Vistas-basadas-en-clases)
-* [18.1 El método ListView](#18.1-El-metodo-ListView)
+* [18_El método ListView](#18_1-El-metodo-ListView)
   * [18.1.1 Listar todos los empleados](#18.1.1-Listar-todos-los-empleados)
 
 
@@ -779,7 +779,7 @@ Características Principales\
 [ccbv.co.uk](https://ccbv.co.uk)
 
 
-### 18.1 El metodo ListView
+### 18_1 El metodo ListView
 
 [Documentacion ListView](https://docs.djangoproject.com/en/5.1/ref/class-based-views/generic-display/)
 
