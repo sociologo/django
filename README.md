@@ -928,7 +928,7 @@ class ListEmpByKword(ListView):
     def get_queryset(self):
         palabra_clave = self.request.GET.get("kword", '')
         lista = Empleado.objects.filter(
-        firts_name = palabra_clave
+        first_name = palabra_clave
         )
         return lista
 ```
@@ -1036,7 +1036,7 @@ class ListEmpByHabili(ListView):
     def get_queryset(self):
         palabra_clave = self.request.GET.get("habili", '')
         lista = Empleado.objects.filter(
-        firts_name = palabra_clave
+        first_name = palabra_clave
         )
         return lista
 ```
