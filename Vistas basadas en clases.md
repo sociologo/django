@@ -59,7 +59,7 @@ en la que iteramos sobre registros de modelos para listarlos:
 
 ![image](https://github.com/user-attachments/assets/e189374d-2287-4d73-8a4a-78c12135ebec)
 
-#### 18_1_2 Listar todos los empleados que pertenezcan a un area específica
+### 1_1_2 Listar todos los empleados que pertenezcan a un area específica.
 
 Solo con fines pedagogicos haremos esto de forma bruta.
 
