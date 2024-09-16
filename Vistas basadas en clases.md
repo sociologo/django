@@ -5,7 +5,7 @@
 ## Índice
 
 * [1 El método ListView](#1-El-método-ListView)
-  * [11 Creemos una carpeta donde vamos a alojar todo nuestro trabajo](#11-Creemos-una-carpeta-donde-vamos-a-alojar-todo-nuestro-trabajo)
+  * [1_1 Listar todos los empleados](#1_1 Listar todos los empleados)
   * 
 ## 1 El método ListView
 
@@ -27,7 +27,7 @@ c Listar todos los empleados.\
 d Listar todos los empleados.\
 e Listar todos los empleados.
 
-### 1_1_1 Listar todos los empleados.
+### 1_1 Listar todos los empleados.
 
 1 En el archivo **views.py** de la aplicación empleados debemos importar el método **ListView**, el modelo **Empleado** y construir la clase **ListAllEmpleados**:
 
