@@ -238,14 +238,11 @@ a) Construimos el metodo dentro de una clase en la vista de empleados:
 ```
 class ListEmpByHabili(ListView):
     template_name = 'persona/by_habili.html'
-    context_object_name = 'empleados'
+    context_object_name = 'empleados_by_habili'
 
     def get_queryset(self):
-        palabra_clave = self.request.GET.get("habili", '')
-        lista = Empleado.objects.filter(
-        first_name = palabra_clave
-        )
-        return lista
+        empleado = Empleado.objects.get(id=11)
+        return empleado.habilidades.all()
 ```
 b Creamos la url en la aplicacion empleados:
 ```
