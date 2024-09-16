@@ -5,8 +5,8 @@
 ## Índice
 
 * [1 El método ListView](#1-El-método-ListView)
-  * [1_1 Listar todos los empleados](#1_1 Listar todos los empleados)
-  * 
+  * [1_1 Listar todos los empleados](#1_1-Listar-todos-los-empleados)
+
 ## 1 El método ListView
 
 [Documentacion ListView](https://docs.djangoproject.com/en/5.1/ref/class-based-views/generic-display/#listview)
