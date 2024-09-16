@@ -17,7 +17,7 @@ Funcionalidades:
 
 Implementaremos cinco requerimientos de listado sobre nuestra aplicacion **empleados**.
 
-#### 18_1_1 Listar todos los empleados.
+### 1_1_1 Listar todos los empleados.
 
 En el archivo views.py de la aplicacion empleados debemos importar el metodo ListView, el modelo Empleado y construir la siguiente clase:
 
@@ -280,4 +280,4 @@ c en la carpeta persona de templates templates construimos **by_habili.html** pa
 ```
 
 
-### 18_2 El método DetailView
+## 2_1 El método DetailView
