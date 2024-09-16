@@ -1,9 +1,13 @@
-# 1 Vistas basadas en clases
+# Vistas basadas en clases
 
 [ccbv.co.uk](https://ccbv.co.uk)
 
+## Índice
 
-## 1_1 El método ListView
+* [1 El método ListView](#1-El-método-ListView)
+  * [11 Creemos una carpeta donde vamos a alojar todo nuestro trabajo](#11-Creemos-una-carpeta-donde-vamos-a-alojar-todo-nuestro-trabajo)
+  * 
+## 1 El método ListView
 
 [Documentacion ListView](https://docs.djangoproject.com/en/5.1/ref/class-based-views/generic-display/#listview)
 
