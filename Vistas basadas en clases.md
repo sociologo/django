@@ -1,9 +1,9 @@
-## 18 Vistas basadas en clases
+# 1 Vistas basadas en clases
 
 [ccbv.co.uk](https://ccbv.co.uk)
 
 
-### 18_1 El método ListView
+## 1_2 El método ListView
 
 [Documentacion ListView](https://docs.djangoproject.com/en/5.1/ref/class-based-views/generic-display/)
 
