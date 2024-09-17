@@ -7,6 +7,7 @@
 * [1 El método ListView](#1-El-método-ListView)
   * [a Listar todos los empleados](#a-Listar-todos-los-empleados)
   * [b Listar todos los empleados que pertenezcan a un departamento](#b-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento)
+  * [c Listar todos los empleados que pertenezcan a un departamento mediante urls con un filtro en una caja de texto](#c-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento-mediante-urls-con-un-filtro-en-una-caja-de-texto)
 
 ## 1 El método ListView
 
@@ -24,7 +25,7 @@ Implementaremos cinco requerimientos de listado sobre nuestra aplicación **empl
 
 a Listar todos los empleados.\
 b Listar todos los empleados que pertenezcan a un departamento.\
-c Listar todos los empleados.\
+c Listar todos los empleados que pertenezcan a un departamento mediante urls con un filtro en una caja de texto.\
 d Listar todos los empleados.\
 e Listar todos los empleados.
 
@@ -127,7 +128,7 @@ urlpatterns = [
 
 ![image](https://github.com/user-attachments/assets/8d1bc43b-d62c-4740-8374-366c4883c6df)
 
-#### 18_1_3 Listar todos los empleados que pertenezcan a un area específica mediante urls con un filtro en una caja de texto
+### c Listar todos los empleados que pertenezcan a un departamento mediante urls con un filtro en una caja de texto.
 
 1 Debemos utilizar el metodo **get_queryset** para recoger un parametro desde la url.
 Es entonces que debemos agregar a la url lista-by-area/ un elemento de la siguiente manera:
