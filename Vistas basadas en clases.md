@@ -7,8 +7,8 @@
 * [1 El método ListView](#1-El-método-ListView)
   * [a) Listar todos los empleados](#a-Listar-todos-los-empleados)
   * [b) Listar todos los empleados que pertenezcan a un departamento](#b-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento)
-  * [c Listar todos los empleados que pertenezcan a un departamento mediante urls con un filtro en una caja de texto](#c-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento-mediante-urls-con-un-filtro-en-una-caja-de-texto)
-  * [d Listar las habilidades de un empleado](#d-Listar-las-habilidades-de-un-empleado)
+  * [c) Listar todos los empleados que pertenezcan a un departamento mediante urls con un filtro en una caja de texto](#c-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento-mediante-urls-con-un-filtro-en-una-caja-de-texto)
+  * [d) Listar las habilidades de un empleado](#d-Listar-las-habilidades-de-un-empleado)
 * [2 El método DetailView](#2-El-método-DetailView)
 
 
@@ -28,13 +28,13 @@ Entrega tres grandes funcionalidades:
 
 Implementaremos cinco requerimientos de listado sobre nuestra aplicación **empleados**.
 
-a Listar todos los empleados.\
-b Listar todos los empleados que pertenezcan a un departamento.\
-c Listar todos los empleados que pertenezcan a un departamento mediante urls con un filtro en una caja de texto.\
-d Listar todos los empleados.\
-e Listar todos los empleados.
+a) Listar todos los empleados.\
+b) Listar todos los empleados que pertenezcan a un departamento.\
+c) Listar todos los empleados que pertenezcan a un departamento mediante urls con un filtro en una caja de texto.\
+d) Listar las habilidades de un empleado.\
 
-### a Listar todos los empleados.
+
+### a) Listar todos los empleados.
 
 1 En el archivo **views.py** de la aplicación empleados debemos importar el método **ListView**, el modelo **Empleado** y construir la clase **ListAllEmpleados**:
 
