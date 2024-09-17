@@ -8,6 +8,13 @@
   * [a) Listar todos los empleados](#a-Listar-todos-los-empleados)
   * [b) Listar todos los empleados que pertenezcan a un departamento](#b-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento)
   * [c) Listar todos los empleados que pertenezcan a un departamento mediante urls con un filtro en una caja de texto](#c-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento-mediante-urls-con-un-filtro-en-una-caja-de-texto)
+
+  * [Algunas propiedades de la vista ListView](#Algunas-propiedades-de-la-vista-ListView)
+    * [Paginación en la vista ListView](#Paginación-en-la-vista-ListView)
+
+
+
+
   * [d) Listar las habilidades de un empleado](#d-Listar-las-habilidades-de-un-empleado)
 * [2 El método DetailView](#2-El-método-DetailView)
 
@@ -70,7 +77,7 @@ en la que iteramos sobre registros de modelos para listarlos:
 
 ![image](https://github.com/user-attachments/assets/e189374d-2287-4d73-8a4a-78c12135ebec)
 
-### b Listar todos los empleados que pertenezcan a un departamento.
+### b) Listar todos los empleados que pertenezcan a un departamento.
 
 Sólo con fines pedagógicos haremos ésto en duro.
 
@@ -133,7 +140,7 @@ urlpatterns = [
 
 ![image](https://github.com/user-attachments/assets/8d1bc43b-d62c-4740-8374-366c4883c6df)
 
-### c Listar todos los empleados que pertenezcan a un departamento mediante urls con un filtro en una caja de texto.
+### c) Listar todos los empleados que pertenezcan a un departamento mediante urls con un filtro en una caja de texto.
 
 1 Debemos utilizar el método **get_queryset** para recoger un parámetro desde la url.
 
