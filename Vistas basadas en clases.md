@@ -115,11 +115,11 @@ urlpatterns = [
 ]
 ```
 
-3 En la carpeta **persona** que está en la carpeta **templates** añadimos **list.html**:
+3 En la carpeta **persona** que está en la carpeta **templates** añadimos **AllByDept.html**:
 
 ```
 <h1>
-    lista de todos los empleados
+    lista de empleados por departamento
 </h1>
 
 <ul>
