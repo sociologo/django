@@ -8,8 +8,6 @@
   * [a Listar todos los empleados](#a-Listar-todos-los-empleados)
   * [b Listar todos los empleados que pertenezcan a un departamento](#b-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento)
 
-
-
 ## 1 El método ListView
 
 [Documentacion ListView](https://docs.djangoproject.com/en/5.1/ref/class-based-views/generic-display/#listview)
@@ -68,9 +66,9 @@ en la que iteramos sobre registros de modelos para listarlos:
 
 ### b Listar todos los empleados que pertenezcan a un departamento.
 
-Solo con fines pedagogicos haremos esto de forma bruta.
+Sólo con fines pedagógicos haremos ésto en duro.
 
-1 En **views.py** de la aplicacion empleado:
+1 En **views.py** de la aplicación **empleados** construímos la clase **ListAllByDept**:
 
 ```
 from django.shortcuts import render # type: ignore
@@ -97,7 +95,7 @@ class ListAllByDept(ListView):
     )
 ```
 
-2 En **urls.py** de la aplicacion empleado:
+2 En **urls.py** de la aplicación **empleado** le asignamos su ruta:
 
 ```
 from django.contrib import admin # type: ignore
@@ -111,7 +109,7 @@ urlpatterns = [
 ]
 ```
 
-3 En la carpeta persona que esta en la carpeta templates anadimos list.html:
+3 En la carpeta **persona** que está en la carpeta **templates** añadimos **list.html**:
 
 ```
 <h1>
