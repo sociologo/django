@@ -2,6 +2,8 @@
 
 [Vistas basadas en clases](https://github.com/sociologo/django/blob/main/Vistas%20basadas%20en%20clases.md)
 
+[Levantando el servicio](https://github.com/sociologo/django/blob/main/levantando%20el%20servicio)
+
 https://docs.djangoproject.com/en/5.1/
 
 Christian Castro
