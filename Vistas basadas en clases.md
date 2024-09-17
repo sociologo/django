@@ -131,7 +131,9 @@ urlpatterns = [
 
 4 y obtenemos:
 
-![image](https://github.com/user-attachments/assets/8d1bc43b-d62c-4740-8374-366c4883c6df)
+![image](https://github.com/user-attachments/assets/1d620aeb-4996-4890-8063-81788a106172)
+
+![image](https://github.com/user-attachments/assets/d3df5302-4f0a-4cca-8e13-e43b308bd346)
 
 ### c) Listar todos los empleados que pertenezcan a un departamento mediante urls con un filtro en una caja de texto.
 
