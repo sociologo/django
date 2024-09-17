@@ -1,5 +1,7 @@
 # Django
 
+[Vistas basadas en clases](https://github.com/sociologo/django/blob/main/Vistas%20basadas%20en%20clases.md)
+
 https://docs.djangoproject.com/en/5.1/
 
 Christian Castro
