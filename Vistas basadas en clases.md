@@ -8,6 +8,11 @@
   * [a Listar todos los empleados](#a-Listar-todos-los-empleados)
   * [b Listar todos los empleados que pertenezcan a un departamento](#b-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento)
   * [c Listar todos los empleados que pertenezcan a un departamento mediante urls con un filtro en una caja de texto](#c-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento-mediante-urls-con-un-filtro-en-una-caja-de-texto)
+  * [d Listar las habilidades de un empleado](#d-Listar-las-habilidades-de-un-empleado)
+
+
+
+### d Listar las habilidades de un empleado.
 
 ## 1 El método ListView
 
@@ -130,19 +135,20 @@ urlpatterns = [
 
 ### c Listar todos los empleados que pertenezcan a un departamento mediante urls con un filtro en una caja de texto.
 
-1 Debemos utilizar el metodo **get_queryset** para recoger un parametro desde la url.
-Es entonces que debemos agregar a la url lista-by-area/ un elemento de la siguiente manera:
-lista-by-area<shortname>/
+1 Debemos utilizar el método **get_queryset** para recoger un parámetro desde la url.
 
-2 **kwards** es un metodo de Django que nos permite recoger elementos desde las urls, y con el que tomamos el elemento <shotname>.
+Es entonces que debemos agregar a la url **lista-by-area/** un elemento de la siguiente manera:
+**lista-by-area<shortname>**/
 
-3 Necesitamos una caja de texto html para que el usuario pueda definir su busqueda a listar.
+2 **kwards** es un metodo de Django que nos permite recoger elementos desde las urls, y con el que tomamos el elemento **<shotname>**.
 
-4 Es importante no olvidar la clave de acceso {% csrf_token %}
+3 Necesitamos una caja de texto html para que el usuario hacer una búsqueda filtrada.
+
+4 Es importante no olvidar la clave de acceso {% csrf_token %}.
 
 Entonces:
 
-a) Construimos el metodo dentro de una clase en la vista de empleados:
+1 Construimos el método dentro de una clase en la vista de **empleados**:
 ```
 class ListEmpByKword(ListView):
     template_name = 'persona/by_kword.html'
@@ -155,7 +161,7 @@ class ListEmpByKword(ListView):
         )
         return lista
 ```
-b Creamos la url en la aplicacion empleados:
+2 Creamos la url en la aplicación empleados:
 ```
 
 from django.contrib import admin # type: ignore
@@ -170,7 +176,7 @@ urlpatterns = [
 ]
 
 ```
-c en la carpeta persona de templates templates construimos **by_kword.html** para la caja de texto
+3 en la carpeta **persona** de templates construímos **by_kword.html** para la caja de texto
 ```
 <h1>
     Buscar empleados por kword
@@ -190,19 +196,24 @@ c en la carpeta persona de templates templates construimos **by_kword.html** par
 ```
 ![image](https://github.com/user-attachments/assets/a4ab7983-78e4-4734-9a66-73a54df63b65)
 
-Nuestro resultado de busqueda para carlos es:
+Nuestro resultado de búsqueda para carlos es:
 
 ![image](https://github.com/user-attachments/assets/8d7961c8-446c-43b4-94d1-5a11a449c22e)
 
 ![image](https://github.com/user-attachments/assets/64449aba-4f81-4cdd-8a77-2acf0354db58)
 
-#### 18_1_4 Paginación en la vista ListView
+### Algunas propiedades de la vista ListView
+
+#### Paginación en la vista ListView
 
 La paginación es crucial al listar registros en Django por varias razones:
 
 Rendimiento: Cargar todos los registros de una base de datos grande en una sola página puede ser muy lento y consumir muchos recursos del servidor. La paginación permite dividir los datos en partes más manejables, mejorando el rendimiento de la aplicación.\
+
 Usabilidad: Presentar demasiados datos en una sola página puede ser abrumador para los usuarios. La paginación facilita la navegación y hace que la interfaz sea más amigable y fácil de usar.\
+
 Carga de Red: Al limitar la cantidad de datos enviados al cliente en cada solicitud, se reduce la carga de red, lo que puede ser especialmente importante en aplicaciones con muchos usuarios concurrentes.\
+
 Experiencia del Usuario: La paginación permite a los usuarios encontrar y acceder a la información de manera más eficiente, mejorando su experiencia general en la aplicación.
 
 ![image](https://github.com/user-attachments/assets/aef71236-1754-455c-8fd3-331fc236c8f2)
@@ -221,7 +232,8 @@ class ListAllEmpleados(ListView):
 
 ![image](https://github.com/user-attachments/assets/68daa866-cc3a-4091-96ca-033581bf5548)
 
-Tambien podemos establecer un orden al listado.
+
+#### Orden al listado.
 
 ```
 # 1 Listar todos los empleados de la empresa
@@ -236,7 +248,8 @@ class ListAllEmpleados(ListView):
 
 ![image](https://github.com/user-attachments/assets/e1c86f92-88d3-42b1-b6c2-c2e99dd5b442)
 
-#### 18_1_5 Listar las habilidades de un empleado
+
+### d Listar las habilidades de un empleado.
 
 Recordemos que habilidades con empleados es una relacion de muchos a muchos.
 
