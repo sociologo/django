@@ -9,6 +9,9 @@
   * [b Listar todos los empleados que pertenezcan a un departamento](#b-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento)
   * [c Listar todos los empleados que pertenezcan a un departamento mediante urls con un filtro en una caja de texto](#c-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento-mediante-urls-con-un-filtro-en-una-caja-de-texto)
   * [d Listar las habilidades de un empleado](#d-Listar-las-habilidades-de-un-empleado)
+* [2 El método DetailView](#2-El-método-DetailView)
+
+
 
 
 ## 1 El método ListView
@@ -248,7 +251,7 @@ class ListAllEmpleados(ListView):
 
 ### d Listar las habilidades de un empleado.
 
-Recordemos que habilidades con empleados es una relacion de muchos a muchos.
+Recordemos que **habilidades** con **empleados** es una relación de muchos a muchos.
 
 1 Hacemos que en el listado de empleados del administrador de django se visualice el id de cada registro.
 
@@ -256,11 +259,7 @@ Recordemos que habilidades con empleados es una relacion de muchos a muchos.
 
 ![image](https://github.com/user-attachments/assets/ee1f9c05-795f-4beb-bab3-6a88c1839d12)
 
-
-
-
-
-a) Construimos el metodo dentro de una clase en la vista de empleados:
+a) Construímos el método **get_queryset** dentro de la clase **ListEmpByHabili** en la vista de empleados:
 ```
 class ListEmpByHabili(ListView):
     template_name = 'persona/by_habili.html'
@@ -270,7 +269,7 @@ class ListEmpByHabili(ListView):
         empleado = Empleado.objects.get(id=11)
         return empleado.habilidades.all()
 ```
-b Creamos la url en la aplicacion empleados:
+b) Creamos la url **buscar-emp-por-habili/** en la aplicación empleados:
 ```
 
 from django.contrib import admin # type: ignore
@@ -286,7 +285,7 @@ urlpatterns = [
 ]
 
 ```
-c en la carpeta persona de templates templates construimos **by_habili.html** para la caja de texto
+c) en la carpeta **persona** de templates templates construimos **by_habili.html** para la caja de texto:
 ```
 <h1>
     Buscar empleados por Habilidad
@@ -305,5 +304,4 @@ c en la carpeta persona de templates templates construimos **by_habili.html** pa
 </ul>
 ```
 
-
-## 2_1 El método DetailView
+## 2 El método DetailView
