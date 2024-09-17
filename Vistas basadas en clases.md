@@ -11,9 +11,6 @@
   * [d Listar las habilidades de un empleado](#d-Listar-las-habilidades-de-un-empleado)
 
 
-
-### d Listar las habilidades de un empleado.
-
 ## 1 El método ListView
 
 [Documentacion ListView](https://docs.djangoproject.com/en/5.1/ref/class-based-views/generic-display/#listview)
