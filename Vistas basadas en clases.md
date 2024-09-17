@@ -5,7 +5,10 @@
 ## Índice
 
 * [1 El método ListView](#1-El-método-ListView)
-  * [1_1 Listar todos los empleados](#1_1-Listar-todos-los-empleados)
+  * [a Listar todos los empleados](#a-Listar-todos-los-empleados)
+  * [b Listar todos los empleados que pertenezcan a un departamento](#b-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento)
+
+
 
 ## 1 El método ListView
 
@@ -22,12 +25,12 @@ Entrega tres grandes funcionalidades:
 Implementaremos cinco requerimientos de listado sobre nuestra aplicación **empleados**.
 
 a Listar todos los empleados.\
-b Listar todos los empleados.\
+b Listar todos los empleados que pertenezcan a un departamento.\
 c Listar todos los empleados.\
 d Listar todos los empleados.\
 e Listar todos los empleados.
 
-### 1_1 Listar todos los empleados.
+### a Listar todos los empleados.
 
 1 En el archivo **views.py** de la aplicación empleados debemos importar el método **ListView**, el modelo **Empleado** y construir la clase **ListAllEmpleados**:
 
@@ -63,7 +66,7 @@ en la que iteramos sobre registros de modelos para listarlos:
 
 ![image](https://github.com/user-attachments/assets/e189374d-2287-4d73-8a4a-78c12135ebec)
 
-### 1_1_2 Listar todos los empleados que pertenezcan a un area específica.
+### b Listar todos los empleados que pertenezcan a un departamento.
 
 Solo con fines pedagogicos haremos esto de forma bruta.
 
