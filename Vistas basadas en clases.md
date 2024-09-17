@@ -8,18 +8,12 @@
   * [a) Listar todos los empleados](#a-Listar-todos-los-empleados)
   * [b) Listar todos los empleados que pertenezcan a un departamento](#b-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento)
   * [c) Listar todos los empleados que pertenezcan a un departamento mediante urls con un filtro en una caja de texto](#c-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento-mediante-urls-con-un-filtro-en-una-caja-de-texto)
-
   * [Algunas propiedades de la vista ListView](#Algunas-propiedades-de-la-vista-ListView)
     * [Paginación en la vista ListView](#Paginación-en-la-vista-ListView)
-
-
-
-
+    * [Orden al listado](#Orden-al-listado)   
   * [d) Listar las habilidades de un empleado](#d-Listar-las-habilidades-de-un-empleado)
+    
 * [2 El método DetailView](#2-El-método-DetailView)
-
-
-
 
 ## 1 El método ListView
 
@@ -38,8 +32,7 @@ Implementaremos cinco requerimientos de listado sobre nuestra aplicación **empl
 a) Listar todos los empleados.\
 b) Listar todos los empleados que pertenezcan a un departamento.\
 c) Listar todos los empleados que pertenezcan a un departamento mediante urls con un filtro en una caja de texto.\
-d) Listar las habilidades de un empleado.\
-
+d) Listar las habilidades de un empleado.
 
 ### a) Listar todos los empleados.
 
@@ -209,19 +202,19 @@ Nuestro resultado de búsqueda para carlos es:
 
 ![image](https://github.com/user-attachments/assets/64449aba-4f81-4cdd-8a77-2acf0354db58)
 
-### Algunas propiedades de la vista ListView
+### Algunas propiedades de la vista ListView.
 
-#### Paginación en la vista ListView
+#### Paginación en la vista ListView.
 
 La paginación es crucial al listar registros en Django por varias razones:
 
-Rendimiento: Cargar todos los registros de una base de datos grande en una sola página puede ser muy lento y consumir muchos recursos del servidor. La paginación permite dividir los datos en partes más manejables, mejorando el rendimiento de la aplicación.\
+**Rendimiento**: Cargar todos los registros de una base de datos grande en una sola página puede ser muy lento y consumir muchos recursos del servidor. La paginación permite dividir los datos en partes más manejables, mejorando el rendimiento de la aplicación.
 
-Usabilidad: Presentar demasiados datos en una sola página puede ser abrumador para los usuarios. La paginación facilita la navegación y hace que la interfaz sea más amigable y fácil de usar.\
+**Usabilidad**: Presentar demasiados datos en una sola página puede ser abrumador para los usuarios. La paginación facilita la navegación y hace que la interfaz sea más amigable y fácil de usar.
 
-Carga de Red: Al limitar la cantidad de datos enviados al cliente en cada solicitud, se reduce la carga de red, lo que puede ser especialmente importante en aplicaciones con muchos usuarios concurrentes.\
+**Carga de Red**: Al limitar la cantidad de datos enviados al cliente en cada solicitud, se reduce la carga de red, lo que puede ser especialmente importante en aplicaciones con muchos usuarios concurrentes.
 
-Experiencia del Usuario: La paginación permite a los usuarios encontrar y acceder a la información de manera más eficiente, mejorando su experiencia general en la aplicación.
+**Experiencia del Usuario**: La paginación permite a los usuarios encontrar y acceder a la información de manera más eficiente, mejorando su experiencia general en la aplicación.
 
 ![image](https://github.com/user-attachments/assets/aef71236-1754-455c-8fd3-331fc236c8f2)
 
