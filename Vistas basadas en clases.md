@@ -19,12 +19,12 @@
 
 [Documentacion ListView](https://docs.djangoproject.com/en/5.1/ref/class-based-views/generic-display/#listview)
 
-El método **ListView** en Django es una vista genérica basada en clases que utilizamos para listar una serie de objetos de un modelo en una página web. 
+El método **ListView** en Django es una vista genérica basada en clases utilizada para listar objetos de un modelo en una página web. 
 
 Entrega tres grandes funcionalidades:
 
 1 se encarga de obtener una lista de objetos de un modelo y renderizarlos en una plantilla.\
-2 puedes habilitar la paginación para dividir la lista de objetos en varias páginas.\
+2 puede habilitar la paginación para dividir la lista de objetos en varias páginas.\
 3 proporciona un **contexto** a la plantilla que incluye la lista de objetos y otros datos adicionales.
 
 Implementaremos cinco requerimientos de listado sobre nuestra aplicación **empleados**.
@@ -36,21 +36,21 @@ d) Listar las habilidades de un empleado.
 
 ### a) Listar todos los empleados.
 
-1 En el archivo **views.py** de la aplicación empleados debemos importar el método **ListView**, el modelo **Empleado** y construir la clase **ListAllEmpleados**:
+1 En el archivo **views.py** de la aplicación **empleados** debemos importar el método **ListView**, el modelo **Empleado** y construir la clase **ListAllEmpleados**:
 
-![image](https://github.com/user-attachments/assets/c00ff6d7-4740-419b-a78f-b908726f5410)
+![image](https://github.com/user-attachments/assets/491a04e7-d89c-4090-bc02-e62e51e4b613)
 
-2 Debemos activar nuestra vista genérica para lo cual vamos al archivo urls.py de la aplicacion empleados, importamos las **views**, declaramos la url: **listar-todo-empleado/** y hacemos el llamado a la clase sobre la cual hemos basado nuestra vista:
+2 Debemos activar nuestra vista genérica, para lo cual vamos al archivo urls.py de la aplicacion empleados, importamos las **views**, declaramos la url: **listar-todo-empleado/** y hacemos el llamado a la clase sobre la cual hemos basado nuestra vista:
 
-![image](https://github.com/user-attachments/assets/99ea6f61-5869-4061-8a52-4f5b5e5ec22c)
+![image](https://github.com/user-attachments/assets/65b5777f-d842-4d0b-8396-43ffe3e926bc)
 
 3 La url recién declarada no la hemos activado en las urls principales de Django, para lo cual vamos al archivo urls.py de la aplicación **empleado** (acá se puede producir una confusión. La aplicación en singular **empleado** es la que alberga por completo nuestro proyecto; la aplicación el plural **empleados**, alberga la aplicación del contexto específico del modelo empleados).
 
-![image](https://github.com/user-attachments/assets/12e21b13-ace2-4110-aeeb-0c63cc89d0f6)
+![image](https://github.com/user-attachments/assets/f3d27b19-6972-4d3c-b98e-766378bfcd00)
 
 4 Por último debemos construir el archivo list_all.html dentro de una carpeta **persona** en la ruta de los **templates**:
 
-![image](https://github.com/user-attachments/assets/745c0f3d-d44e-4fe7-83f3-ae3c87d51b93)
+![image](https://github.com/user-attachments/assets/a00d7484-f0e6-436a-a604-58b4f01aecd5)
 
 en la que iteramos sobre registros de modelos para listarlos:
 
