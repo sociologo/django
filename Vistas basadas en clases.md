@@ -68,7 +68,7 @@ en la que iteramos sobre registros de modelos para listarlos:
 
 5 Y ejecutamos nuestro proyecto:
 
-![image](https://github.com/user-attachments/assets/e189374d-2287-4d73-8a4a-78c12135ebec)
+![image](https://github.com/user-attachments/assets/3d22080e-b269-43aa-b2de-2cc4f7c29a74)
 
 ### b) Listar todos los empleados que pertenezcan a un departamento.
 
