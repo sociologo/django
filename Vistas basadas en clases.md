@@ -174,9 +174,16 @@ class ListAllEmpleados(ListView):
 
 ![image](https://github.com/user-attachments/assets/e1c86f92-88d3-42b1-b6c2-c2e99dd5b442)
 
+
+
+
+
+
 ### d) Listar las habilidades de un empleado.
 
-Recordemos que **habilidades** con **empleados** es una relación de muchos a muchos.
+Recordemos que **habilidades** con **empleado** es una relación de muchos a muchos:
+
+![image](https://github.com/user-attachments/assets/474c08a0-0f4b-4b25-923f-d0a0abce7570)
 
 1 Hacemos que en el listado de empleados del administrador de django se visualice el id de cada registro.
 
