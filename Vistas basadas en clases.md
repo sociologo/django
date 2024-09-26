@@ -174,8 +174,7 @@ class ListAllEmpleados(ListView):
 
 ![image](https://github.com/user-attachments/assets/e1c86f92-88d3-42b1-b6c2-c2e99dd5b442)
 
-
-### d Listar las habilidades de un empleado.
+### d) Listar las habilidades de un empleado.
 
 Recordemos que **habilidades** con **empleados** es una relación de muchos a muchos.
 
