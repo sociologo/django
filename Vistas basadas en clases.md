@@ -72,137 +72,61 @@ en la que iteramos sobre registros de modelos para listarlos:
 
 ### b) Listar todos los empleados que pertenezcan a un departamento.
 
-Sólo con fines pedagógicos haremos ésto en duro.
+Hagamos una modificación en en el archivo admin.py de **empleados** para que en el despliegue de registros de empleados vía nuestro administrador Django, también aparezca el filtro de departamentos:
+
+![image](https://github.com/user-attachments/assets/a56029c8-95b0-41a0-bc18-9e16251719f2)
+
+![image](https://github.com/user-attachments/assets/58b8a710-240f-43c1-a043-339758e38407)
+
+Es éste el proceso que replicaremos con código utilizando el atributo **queryset**:
+
+Primero haremos ésto en duro listando todos los empleados del departamento 'ciencias matemáticas'.
 
 1 En **views.py** de la aplicación **empleados** construímos la clase **ListAllByDept**:
 
-```
-from django.shortcuts import render # type: ignore
-
-from django.views.generic import( # type: ignore
-    ListView
-)
-
-from .models import Empleado
-
-# 1 Listar todos los empleados de la empresa
-
-class ListAllEmpleados(ListView):
-    template_name = 'persona/list_all.html'
-    model = Empleado
-    context_object_name = 'lista'
-
-# 2 Listar todos los empleados de la empresa por departamento
-
-class ListAllByDept(ListView):
-    template_name = 'persona/AllByDept.html'
-    queryset = Empleado.objects.filter(
-        departamento__short_name = 'ciencias matemáticas'
-    )
-```
+![image](https://github.com/user-attachments/assets/61ff3f4a-820c-4b58-87fa-cb570d968ba9)
 
 2 En **urls.py** de la aplicación **empleado** le asignamos su ruta:
 
-```
-from django.contrib import admin # type: ignore
-from django.urls import path, include # type: ignore
-
-from . import views
-
-urlpatterns = [
-    path('listar-todo-empleados/', views.ListAllEmpleados.as_view()),
-    path('listar-por-area/', views.ListAllByDept.as_view()),
-]
-```
+![image](https://github.com/user-attachments/assets/6874053f-f969-44c8-93a7-b5bd66a77bc1)
 
 3 En la carpeta **persona** que está en la carpeta **templates** añadimos **AllByDept.html**:
 
-```
-<h1>
-    lista de empleados por departamento
-</h1>
-
-<ul>
-    {% for e in object_list %}
-        <li>{{ e }}</li>
-    {% endfor %}
-</ul>
-```
+![image](https://github.com/user-attachments/assets/2d933f85-416e-4ea8-8f3e-a54680b41a13)
 
 4 y obtenemos:
 
-![image](https://github.com/user-attachments/assets/1d620aeb-4996-4890-8063-81788a106172)
+![image](https://github.com/user-attachments/assets/4501354e-605f-4d0c-b97d-9d2b6e3f1a25)
 
-![image](https://github.com/user-attachments/assets/d3df5302-4f0a-4cca-8e13-e43b308bd346)
+que comprobamos es correcto:
+
+![image](https://github.com/user-attachments/assets/f8380b72-1ec0-478b-a8fc-71bff0fee0f2)
+
+Debemos utilizar ahora una forma eficiente para hacer lo anterior utilizando **get_queryset()**, filtrando a través de una caja de texto:
+
+
+
+
+
 
 ### c) Listar todos los empleados que pertenezcan a un departamento mediante urls con un filtro en una caja de texto.
 
-1 Debemos utilizar el método **get_queryset** para recoger un parámetro desde la url.
+1 Debemos utilizar el método **get_queryset** para recoger un parámetro desde la url. **kwards** es un método de Django que nos permite recoger elementos desde las urls.
 
-Es entonces que debemos agregar a la url **lista-by-area/** un elemento de la siguiente manera:
-**lista-by-area<shortname>**/
+![image](https://github.com/user-attachments/assets/a1a5d8bc-d7a8-49f2-b8d8-9f40adaa414f)
 
-2 **kwards** es un metodo de Django que nos permite recoger elementos desde las urls, y con el que tomamos el elemento **<shotname>**.
+2 Necesitamos una caja de texto html para que el usuario pueda hacer una búsqueda filtrada. En la carpeta **persona** de templates construímos **by_kword.html**. Añadimos una clave de acceso {% csrf_token %}
 
-3 Necesitamos una caja de texto html para que el usuario hacer una búsqueda filtrada.
+![image](https://github.com/user-attachments/assets/978b96de-2042-459b-b419-71b71524291e)
 
-4 Es importante no olvidar la clave de acceso {% csrf_token %}.
+Nuestro resultado de búsqueda para 'ciencias matemáticas' es:
 
-Entonces:
+![image](https://github.com/user-attachments/assets/086db168-ed34-425a-9edb-4f888c91402d)
 
-1 Construimos el método dentro de una clase en la vista de **empleados**:
-```
-class ListEmpByKword(ListView):
-    template_name = 'persona/by_kword.html'
-    context_object_name = 'empleados'
+Nuestro resultado de búsqueda para 'ciencias físicas' es:
 
-    def get_queryset(self):
-        palabra_clave = self.request.GET.get("kword", '')
-        lista = Empleado.objects.filter(
-        first_name = palabra_clave
-        )
-        return lista
-```
-2 Creamos la url en la aplicación empleados:
-```
+![image](https://github.com/user-attachments/assets/793e997f-1ecb-4aa5-95a2-fcb05ff67450)
 
-from django.contrib import admin # type: ignore
-from django.urls import path, include # type: ignore
-
-from . import views
-
-urlpatterns = [
-    path('listar-todo-empleados/', views.ListAllEmpleados.as_view()),
-    path('listar-por-area/', views.ListAllByDept.as_view()),
-    path('buscar-emp-por-kword/', views.ListEmpByKword.as_view()),
-]
-
-```
-3 en la carpeta **persona** de templates construímos **by_kword.html** para la caja de texto
-```
-<h1>
-    Buscar empleados por kword
-</h1>
-<form method="GET">{% csrf_token %}
-    <input type="text" id="kword" name="kword" placeholder="Ingresa nombre">
-    <button type="submit"> Buscar </button>
-</form>
-<h3>
-    Lista resultado
-</h3>
-<ul>
-    {% for e in empleados %}
-        <li>{{ e }}</li>
-    {% endfor %}
-</ul>
-```
-![image](https://github.com/user-attachments/assets/a4ab7983-78e4-4734-9a66-73a54df63b65)
-
-Nuestro resultado de búsqueda para carlos es:
-
-![image](https://github.com/user-attachments/assets/8d7961c8-446c-43b4-94d1-5a11a449c22e)
-
-![image](https://github.com/user-attachments/assets/64449aba-4f81-4cdd-8a77-2acf0354db58)
 
 ### Algunas propiedades de la vista ListView.
 
