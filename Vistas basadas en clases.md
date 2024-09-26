@@ -4,7 +4,7 @@
 
 ## Índice
 
-* [1 El método ListView](#1-El-método-ListView)
+* [El método ListView](#1-El-método-ListView)
   * [a) Listar todos los empleados](#a-Listar-todos-los-empleados)
   * [b) Listar todos los empleados que pertenezcan a un departamento](#b-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento)
   * [c) Listar todos los empleados que pertenezcan a un departamento mediante urls con un filtro en una caja de texto](#c-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento-mediante-urls-con-un-filtro-en-una-caja-de-texto)
@@ -13,9 +13,7 @@
     * [Orden al listado](#Orden-al-listado)   
   * [d) Listar las habilidades de un empleado](#d-Listar-las-habilidades-de-un-empleado)
     
-* [2 El método DetailView](#2-El-método-DetailView)
-
-## 1 El método ListView
+## El método ListView
 
 [Documentacion ListView](https://docs.djangoproject.com/en/5.1/ref/class-based-views/generic-display/#listview)
 
