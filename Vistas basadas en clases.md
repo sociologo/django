@@ -163,7 +163,7 @@ Recordemos que **habilidades** con **empleado** es una relación de muchos a muc
 
 ![image](https://github.com/user-attachments/assets/474c08a0-0f4b-4b25-923f-d0a0abce7570)
 
-1 Hacemos que en el listado de empleados del administrador de django se visualice el id de cada registro.
+1 Hacemos que en el listado de empleados del administrador de django se visualice el id de cada registro:
 ![image](https://github.com/user-attachments/assets/f6fb0e9f-c29d-4e34-b46a-7f8c241a83d4)
 ![image](https://github.com/user-attachments/assets/d5d6e353-d41b-48f5-90c4-17018d9bf6f0)
 
@@ -172,55 +172,16 @@ y desplegamos la lista de sus habilidades. Le asignamos por defecto el valor id 
 
 ![image](https://github.com/user-attachments/assets/ce01ea5b-3613-41e7-9155-a09dbe3a18ad)
 
+3 Activamos la vista:
+![image](https://github.com/user-attachments/assets/336ad63c-7d11-4886-91b2-92c71a7e6fc3)
+
+4 Construímos el html **by_habili.html**:
+
+![image](https://github.com/user-attachments/assets/9b245bf7-5bbf-4560-99b0-3324214867f5)
 
 
 
 
 
-
-a) Construímos el método **get_queryset** dentro de la clase **ListEmpByHabili** en la vista de empleados:
-```
-class ListEmpByHabili(ListView):
-    template_name = 'persona/by_habili.html'
-    context_object_name = 'empleados_by_habili'
-
-    def get_queryset(self):
-        empleado = Empleado.objects.get(id=11)
-        return empleado.habilidades.all()
-```
-b) Creamos la url **buscar-emp-por-habili/** en la aplicación empleados:
-```
-
-from django.contrib import admin # type: ignore
-from django.urls import path, include # type: ignore
-
-from . import views
-
-urlpatterns = [
-    path('listar-todo-empleados/', views.ListAllEmpleados.as_view()),
-    path('listar-por-area/', views.ListAllByDept.as_view()),
-    path('buscar-emp-por-kword/', views.ListEmpByKword.as_view()),
-    path('buscar-emp-por-habili/', views.ListEmpByHabili.as_view()),
-]
-
-```
-c) en la carpeta **persona** de templates templates construimos **by_habili.html** para la caja de texto:
-```
-<h1>
-    Buscar empleados por Habilidad
-</h1>
-<form method="GET">{% csrf_token %}
-    <input type="text" id="habili" name="habili" placeholder="Ingresa Habilidad">
-    <button type="submit"> Buscar </button>
-</form>
-<h3>
-    Lista resultado
-</h3>
-<ul>
-    {% for e in empleados %}
-        <li>{{ e }}</li>
-    {% endfor %}
-</ul>
-```
 
 ## 2 El método DetailView
