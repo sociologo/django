@@ -181,12 +181,3 @@ y desplegamos la lista de sus habilidades. Le asignamos por defecto el valor id 
 
 ![image](https://github.com/user-attachments/assets/28e7092a-b400-4ed5-8168-2b0307276a63)
 ![image](https://github.com/user-attachments/assets/f6d0ef91-8102-417d-b116-b774b0c64306)
-
-
-
-
-
-
-
-
-## 2 El método DetailView
