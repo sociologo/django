@@ -142,41 +142,18 @@ La paginación es crucial al listar registros en Django por varias razones:
 
 **Experiencia del Usuario**: La paginación permite a los usuarios encontrar y acceder a la información de manera más eficiente, mejorando su experiencia general en la aplicación.
 
-![image](https://github.com/user-attachments/assets/aef71236-1754-455c-8fd3-331fc236c8f2)
+Con **paginate_by** le indicamos a la clase **ListAllEmpleados** la cantidad de registros que despligue por página:
 
-```
-# 1 Listar todos los empleados de la empresa
-
-class ListAllEmpleados(ListView):
-    template_name = 'persona/list_all.html'
-    model = Empleado
-    paginate_by = 3
-    context_object_name = 'lista'
-```
-
-![image](https://github.com/user-attachments/assets/0ff4e393-7b66-4e87-8088-f120f5738bb6)
-
-![image](https://github.com/user-attachments/assets/68daa866-cc3a-4091-96ca-033581bf5548)
+![image](https://github.com/user-attachments/assets/9dde698d-5393-4cd1-9855-daddaaec6c72)
+![image](https://github.com/user-attachments/assets/29e4c2c9-6d3d-4a31-b419-926e4b27684e)
+![image](https://github.com/user-attachments/assets/d1ef1023-dc74-4328-b906-bc657583d4a0)
 
 
 #### Orden al listado.
 
-```
-# 1 Listar todos los empleados de la empresa
+El atributo **ordering** en la vista ListView de Django se utiliza para especificar el orden en que se deben mostrar los objetos en la lista. Este atributo espera una lista o tupla de nombres de campos por los cuales se debe ordenar el queryset. 
 
-class ListAllEmpleados(ListView):
-    template_name = 'persona/list_all.html'
-    model = Empleado
-    paginate_by = 3
-    ordering = 'first_name'
-    context_object_name = 'lista'
-```
-
-![image](https://github.com/user-attachments/assets/e1c86f92-88d3-42b1-b6c2-c2e99dd5b442)
-
-
-
-
+![image](https://github.com/user-attachments/assets/b46c3c31-7cb5-4ad1-9f49-6b0d8d90c4e3)
 
 
 ### d) Listar las habilidades de un empleado.
