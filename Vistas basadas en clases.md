@@ -153,6 +153,7 @@ Con **paginate_by** le indicamos a la clase **ListAllEmpleados** la cantidad de 
 
 El atributo **ordering** en la vista ListView de Django se utiliza para especificar el orden en que se deben mostrar los objetos en la lista. Este atributo espera una lista o tupla de nombres de campos por los cuales se debe ordenar el queryset. 
 
+![image](https://github.com/user-attachments/assets/d87577d1-ca09-4e3a-a562-defd67768cd4)
 ![image](https://github.com/user-attachments/assets/b46c3c31-7cb5-4ad1-9f49-6b0d8d90c4e3)
 
 
