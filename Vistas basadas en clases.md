@@ -187,9 +187,10 @@ Recordemos que **habilidades** con **empleado** es una relación de muchos a muc
 
 1 Hacemos que en el listado de empleados del administrador de django se visualice el id de cada registro.
 
-![image](https://github.com/user-attachments/assets/6fe81643-d81f-4e36-8829-ddf6482ed0d9)
+![image](https://github.com/user-attachments/assets/f6fb0e9f-c29d-4e34-b46a-7f8c241a83d4)
 
-![image](https://github.com/user-attachments/assets/ee1f9c05-795f-4beb-bab3-6a88c1839d12)
+![image](https://github.com/user-attachments/assets/d5d6e353-d41b-48f5-90c4-17018d9bf6f0)
+
 
 a) Construímos el método **get_queryset** dentro de la clase **ListEmpByHabili** en la vista de empleados:
 ```
