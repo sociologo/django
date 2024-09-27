@@ -22,6 +22,8 @@ En este manual, te guía paso a paso a través del proceso de creación de una a
 
 Este manual está diseñado tanto para principiantes como para desarrolladores con experiencia previa en otros frameworks. A lo largo del camino, proporcionaremos ejemplos prácticos y mejores prácticas para asegurarnos de que puedas aprovechar al máximo las capacidades de Django.
 
+![image](https://github.com/user-attachments/assets/f2c04ee9-9c07-43e9-a033-90d9d9266212)
+
 
 
 
