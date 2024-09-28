@@ -189,6 +189,49 @@ y desplegamos la lista de sus habilidades. Le asignamos por defecto el valor id 
 
 ## 2 El método DetailView
 
+La vista DetailView en Django es una vista genérica basada en clases que se utiliza para mostrar los detalles de un solo objeto. 
+
+Atributos Principales:
+
+**model**: Especifica el modelo del objeto que se va a mostrar.\
+**template_name**: Define el nombre de la plantilla que se utilizará para renderizar la vista. Si no se especifica, Django buscará una plantilla con el nombre <nombre_del_modelo>_detail.html.\
+**context_object_name**: Define el nombre del objeto en el contexto de la plantilla. Por defecto, Django usa object, pero puedes cambiarlo a algo más descriptivo.
+
+URL y Parámetros:
+
+La URL que apunta a una DetailView generalmente incluye un parámetro que identifica al objeto, como un ID o un slug (en el contexto de desarrollo web, un slug es la parte final de una URL que identifica de manera única una página específica dentro de un sitio web. Por ejemplo, en la URL https://www.ejemplo.com/articulos/que-es-un-slug, el slug es **que-es-un-slug**. Los slugs son importantes para el SEO (optimización en motores de búsqueda) porque pueden contener palabras clave que ayudan a los motores de búsqueda a entender el contenido de la página. Un buen slug debe ser claro, conciso y relevante para el contenido de la página). Este parámetro se pasa a la vista para que pueda recuperar el objeto correcto de la base de datos.
+
+Métodos Personalizables:
+
+**get_queryset()**: Puedes sobrescribir este método para personalizar la consulta que obtiene el objeto.\
+**get_context_data()**: Permite agregar datos adicionales al contexto que se pasa a la plantilla.
+
+1 Importamos DetailView
+
+2 Creamos una clase DetailView
+
+3 Activamos la vista declarando una URL con un pk
+
+4 Construimos el html asociado
+
+5 Accedemos a la URL con un pk específico
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## 3 El método CreateView
