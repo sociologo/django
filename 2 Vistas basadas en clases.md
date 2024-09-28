@@ -12,7 +12,15 @@
     * [Paginación en la vista ListView](#Paginación-en-la-vista-ListView)
     * [Orden al listado](#Orden-al-listado)   
   * [d) Listar las habilidades de un empleado](#d-Listar-las-habilidades-de-un-empleado)
-    
+
+* [1 El método ListView](#1-El-método-ListView)
+## 2 El método ListView
+
+## 3 El método ListView
+
+## 4 El método ListView
+
+
 ## 1 El método ListView
 
 [Documentacion ListView](https://docs.djangoproject.com/en/5.1/ref/class-based-views/generic-display/#listview)
@@ -181,3 +189,12 @@ y desplegamos la lista de sus habilidades. Le asignamos por defecto el valor id 
 
 ![image](https://github.com/user-attachments/assets/28e7092a-b400-4ed5-8168-2b0307276a63)
 ![image](https://github.com/user-attachments/assets/f6d0ef91-8102-417d-b116-b774b0c64306)
+
+## 2 El método ListView
+
+## 3 El método ListView
+
+## 4 El método ListView
+
+
+
