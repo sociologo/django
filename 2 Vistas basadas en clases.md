@@ -222,6 +222,16 @@ Métodos Personalizables:
 
 ![image](https://github.com/user-attachments/assets/a279bf78-aa95-4efb-95f5-36493a89c24a)
 
+### 1 El método **get_context_data**.
+
+El método **get_context_data** en Django se utiliza para agregar datos adicionales al contexto que se pasa a la plantilla. Este método devuelve un diccionario de contexto que luego se utiliza para renderizar (en el contexto de Django, renderizar se refiere al proceso de tomar una plantilla (template) y combinarla con datos del contexto para generar una página web completa que se envía al navegador del usuario) la plantilla.
+
+![image](https://github.com/user-attachments/assets/7b3584dd-7b96-493c-b13c-e01fd6903fb6)
+
+![image](https://github.com/user-attachments/assets/1046ab85-e330-49df-bfc3-1d7a5dd02de8)
+
+![image](https://github.com/user-attachments/assets/cdb3d9ab-6f6d-4b1d-809f-a27ad02d9f42)
+
 
 
 
