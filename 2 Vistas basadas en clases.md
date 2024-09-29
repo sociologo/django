@@ -107,11 +107,6 @@ que comprobamos es correcto:
 
 Debemos utilizar ahora una forma eficiente para hacer lo anterior utilizando **get_queryset()**, filtrando a través de una caja de texto:
 
-
-
-
-
-
 ### c) Listar todos los empleados que pertenezcan a un departamento mediante urls con un filtro en una caja de texto.
 
 1 Debemos utilizar el método **get_queryset** para recoger un parámetro desde la url. **kwards** es un método de Django que nos permite recoger elementos desde las urls.
@@ -129,7 +124,6 @@ Nuestro resultado de búsqueda para 'ciencias matemáticas' es:
 Nuestro resultado de búsqueda para 'ciencias físicas' es:
 
 ![image](https://github.com/user-attachments/assets/793e997f-1ecb-4aa5-95a2-fcb05ff67450)
-
 
 ### Algunas propiedades de la vista ListView.
 
@@ -151,14 +145,12 @@ Con **paginate_by** le indicamos a la clase **ListAllEmpleados** la cantidad de 
 ![image](https://github.com/user-attachments/assets/29e4c2c9-6d3d-4a31-b419-926e4b27684e)
 ![image](https://github.com/user-attachments/assets/d1ef1023-dc74-4328-b906-bc657583d4a0)
 
-
 #### Orden al listado.
 
 El atributo **ordering** en la vista ListView de Django se utiliza para especificar el orden en que se deben mostrar los objetos en la lista. Este atributo espera una lista o tupla de nombres de campos por los cuales se debe ordenar el queryset. 
 
 ![image](https://github.com/user-attachments/assets/d87577d1-ca09-4e3a-a562-defd67768cd4)
 ![image](https://github.com/user-attachments/assets/b46c3c31-7cb5-4ad1-9f49-6b0d8d90c4e3)
-
 
 ### d) Listar las habilidades de un empleado.
 
@@ -234,23 +226,63 @@ El método **get_context_data** en Django se utiliza para agregar datos adiciona
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## 3 El método CreateView
+
+1 Importamos las vistas genericas que necesitaremos, el paquete reverse_lazy y construimos la clase con su template y los **fields**:
+
+En Django, los fields en la vista CreateView son cruciales porque determinan qué campos del modelo se incluirán en el formulario que se presenta al usuario para crear una nueva instancia del modelo. Aquí hay algunas razones por las que son importantes:
+
+**Control de Datos**: Permiten especificar exactamente qué campos del modelo deben ser rellenados por el usuario, asegurando que solo se recopile la información necesaria.
+
+**Validación**: Los campos definidos en el formulario se validan automáticamente según las reglas establecidas en el modelo, lo que ayuda a mantener la integridad de los datos.
+
+**Seguridad**: Al definir explícitamente los campos, se evita que usuarios malintencionados envíen datos no deseados o intenten modificar campos que no deberían ser accesibles.
+
+**Facilidad de Uso**: Proporcionan una manera sencilla de generar formularios sin necesidad de escribir mucho código adicional, aprovechando las capacidades de las vistas basadas en clases (CBV) de Django
+
+Diferencias entre los métodos GET y POST en el protocolo HTTP, especialmente en relación con las URLs:
+
+Método GET
+
+**Transmisión de Datos**: Los datos se envían a través de la URL como parámetros de consulta (query string). Por ejemplo, http://example.com/page?name=John&age=30.
+
+**Visibilidad**: Los datos son visibles en la barra de direcciones del navegador, lo que puede ser menos seguro para información sensible.
+
+**Uso Común**: Ideal para solicitudes de lectura, como obtener datos de un servidor sin realizar cambios en él.
+
+**Limitaciones de Tamaño**: Tiene restricciones en la cantidad de datos que se pueden enviar debido a la longitud máxima de la URL.
+
+Método POST
+
+**Transmisión de Datos**: Los datos se envían en el cuerpo de la solicitud HTTP, no en la URL.
+
+**Visibilidad**: Los datos no son visibles en la barra de direcciones del navegador, lo que proporciona mayor seguridad para información sensible.
+
+**Uso Común**: Adecuado para solicitudes de escritura, como enviar datos a un servidor para ser procesados (por ejemplo, formularios de registro).
+
+**Sin Limitaciones de Tamaño**: No tiene restricciones significativas en la cantidad de datos que se pueden enviar.
+
+Debemos indicar una vez que se haya hecho el post a que pagina deseamos redireccionar.
+
+![image](https://github.com/user-attachments/assets/fb96eace-ebb5-415d-b687-684f22258744)
+
+2 Construimos los htmls
+
+![image](https://github.com/user-attachments/assets/5f656981-16f5-4d68-8820-38609a101819)
+
+![image](https://github.com/user-attachments/assets/78d48cc8-60d7-4883-871e-72406dcbc083)
+
+3 Activamos las vistas con urls:
+
+El paquete **reverse_lazy**
+
+El paquete reverse_lazy en Django es una versión evaluada de forma diferida de la función reverse. Se utiliza para generar una URL para una vista en un momento posterior, generalmente cuando se necesita la URL. Esto es especialmente útil en situaciones donde la configuración de URL de tu proyecto aún no se ha cargado, como en vistas basadas en clases genéricas, ya que los atributos de clase en Python se evalúan al importar.
+
+![image](https://github.com/user-attachments/assets/617e0be1-f8f3-46eb-8293-c8f78e2269fe)
+
+
+
+
 
 
 
