@@ -280,6 +280,18 @@ El paquete reverse_lazy en Django es una versión evaluada de forma diferida de 
 
 ![image](https://github.com/user-attachments/assets/617e0be1-f8f3-46eb-8293-c8f78e2269fe)
 
+4 Agreguemos un empleado:
+
+![image](https://github.com/user-attachments/assets/4465a0a6-dd6c-423b-9551-cf31024e56b7)
+
+![image](https://github.com/user-attachments/assets/421f4595-9bdb-4b19-90d3-eaa4c2e086df)
+
+![image](https://github.com/user-attachments/assets/1b7b780e-6a06-41b1-ba91-4518f7716850)
+
+![image](https://github.com/user-attachments/assets/7a5c9965-781b-49de-a900-b63d267b37a0)
+
+
+
 
 
 
