@@ -292,7 +292,32 @@ El paquete reverse_lazy en Django es una versión evaluada de forma diferida de 
 
 ### Nuevos campos compuestos en el modelo de empleados.
 
-Supongamos 
+Supongamos que deseamos un nuevo campo compuesto de los elementos unicos 'nombre' y 'apellido' de un empleado. Para ello:
+
+1 en el modelo de empleados construímos un nuevo campo llamado **full_name** no obligatorio.\
+2 ejecutamos la migracion (makemigrations y migrate).\
+3 en el html eliminamos el nuevo campo y el campo avatar (lo dejaremos en suspenso).\
+4 interceptamos el guardado de first y last name en el template CreateView para generar el contenido del nuevo campo con el método **form_valid()**. Sólo cuando los datos ingresados son válidos se accede al método **form_valid()**.
+```
+def form_valid(self,form):
+ empleado = form.save()
+ empleado.full_name = empleado.first_name + ' ' + empleado.last_name
+ empleado.save()
+ return super(EmpleadoCreateView, self).form_valid(form)
+```
+Lo anterior no es optimo pues estamos guardando innecesariamente el dato una segunda vez. Para evitar ésto hacemos:
+```
+def form_valid(self,form):
+ empleado = form.save(commit=false)
+ empleado.full_name = empleado.first_name + ' ' + empleado.last_name
+ empleado.save()
+ return super(EmpleadoCreateView, self).form_valid(form)
+```
+5 ejecutamos el servidor, registramos un nuevo empleado y verificamos.\
+
+
+
+
 
 
 
