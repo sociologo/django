@@ -357,7 +357,7 @@ El método **post()** permite guardar datos sin haber sido previamente validados
 3 Creamos el html respectivo.
 ![image](https://github.com/user-attachments/assets/2d0e445d-7d51-43de-987a-2287706101dd)
 
-4 Activamos la vista con un <pk>.
+4 Activamos la vista con un &lt;pk&gt;.
 ![image](https://github.com/user-attachments/assets/ac7b3871-8a33-4fc0-a128-a449a23cbed5)
 
 5 Actualizamos la informacion de un empleado.
