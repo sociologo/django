@@ -339,6 +339,43 @@ def form_valid(self,form):
 
 ## 4 El método UpdateView
 
+El método UpdateView en Django es una vista genérica basada en clases que se utiliza para actualizar una instancia existente de un modelo en la base de datos. Hace:
+
+Formulario de Edición: Muestra un formulario para editar un objeto existente. Este formulario se genera automáticamente a partir de la clase del modelo, a menos que se especifique una clase de formulario personalizada.\
+Validación y Redisplay: Si hay errores de validación, vuelve a mostrar el formulario con los errores resaltados.\
+Guardar Cambios: Guarda los cambios realizados en el objeto una vez que el formulario se envía correctamente.
+
+Este método es útil para situaciones en las que necesitas permitir a los usuarios actualizar información existente, como editar un perfil de usuario o modificar un artículo en un blog.
+
+1 Importamos la vista.
+![image](https://github.com/user-attachments/assets/0bb860e4-5ea4-4667-b491-ea620246eadd)
+
+2 Creamos la vista basada en clases EmpleadoUpdateView sobreescribiendo el método **post**:
+El método **post()** permite guardar datos sin haber sido previamente validados por el método **form_valid()**
+![image](https://github.com/user-attachments/assets/599dc1e7-31ed-4d4d-bd68-f8485333e44f)
+
+3 Creamos el html respectivo.
+![image](https://github.com/user-attachments/assets/2d0e445d-7d51-43de-987a-2287706101dd)
+
+4 Activamos la vista con un <pk>.
+![image](https://github.com/user-attachments/assets/ac7b3871-8a33-4fc0-a128-a449a23cbed5)
+
+5 Actualizamos la informacion de un empleado.
+
+No olvidemos acceder a esta URL adjuntado la pk asociada a un registro específico.
+![image](https://github.com/user-attachments/assets/7c8f15cc-868e-462b-8296-955a81920876)
+![image](https://github.com/user-attachments/assets/d374f642-abea-4da1-94cf-02fa31063ccc)
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## 5 El método DeleteView
