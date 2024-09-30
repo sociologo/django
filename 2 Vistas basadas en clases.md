@@ -14,7 +14,7 @@
   * [d) Listar las habilidades de un empleado](#d-Listar-las-habilidades-de-un-empleado)
 * [2 El método DetailView](#2-El-método-DetailView)
 * [3 El método CreateView](#3-El-método-CreateView)
-  * [Nuevos campos compuestos en el modelo de empleados.](#Nuevos-campos-compuestos-en-el-modelo-de-empleados.)
+  * [Nuevos campos compuestos en el modelo de empleados](#Nuevos-campos-compuestos-en-el-modelo-de-empleados)
 * [4 El método UpdateView](#4-El-método-UpdateView)
 * [5 El método DeleteView](#5-El-método-DeleteView)
 
