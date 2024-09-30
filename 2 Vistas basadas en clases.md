@@ -15,7 +15,7 @@
 
 * [2 El método DetailView](#2-El-método-DetailView)
 * [3 El método CreateView](#3-El-método-CreateView)
- * [Nuevos campos compuestos en el modelo de empleados.](#Nuevos-campos-compuestos-en-el-modelo-de-empleados.)
+  * [Nuevos campos compuestos en el modelo de empleados.](#Nuevos-campos-compuestos-en-el-modelo-de-empleados.)
 
  
 * [4 El método UpdateView](#4-El-método-UpdateView)
