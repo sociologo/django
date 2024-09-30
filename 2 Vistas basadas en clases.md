@@ -324,19 +324,6 @@ def form_valid(self,form):
 
 ![image](https://github.com/user-attachments/assets/92ab934a-34fb-4491-aa3a-57ca6454e22b)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## 4 El método UpdateView
 
 El método UpdateView en Django es una vista genérica basada en clases que se utiliza para actualizar una instancia existente de un modelo en la base de datos. Hace:
@@ -366,19 +353,28 @@ No olvidemos acceder a esta URL adjuntado la pk asociada a un registro específi
 ![image](https://github.com/user-attachments/assets/7c8f15cc-868e-462b-8296-955a81920876)
 ![image](https://github.com/user-attachments/assets/d374f642-abea-4da1-94cf-02fa31063ccc)
 
-
-
-
-
-
-
-
-
-
-
-
-
 ## 5 El método DeleteView
+
+1 Creamos una vista basada en clases EmpleadoDeleteView e importamos DeleteView
+![image](https://github.com/user-attachments/assets/c81711e4-e789-4571-b1ab-0322de05f335)
+![image](https://github.com/user-attachments/assets/8a7501de-a768-4741-8712-85e1705d6a99)
+
+2 Creamos el html asociado
+![image](https://github.com/user-attachments/assets/488df7a0-aba4-4cd2-805c-3e47d85a586a)
+
+3 Activamos la vista asociándola con un &lt;pk&gt.
+![image](https://github.com/user-attachments/assets/aa5bb9fb-185f-4688-b808-1fe2f3cd80ef)
+
+4 Seleccionemos un registro a eliminar
+![image](https://github.com/user-attachments/assets/102ee2dc-439b-4173-a35a-10f397103db1)
+
+5 Ejecutemos la acción de nuestra vista Eliminar.
+![image](https://github.com/user-attachments/assets/626b550a-0069-4ef0-aab6-6c2a6010d9e8)
+
+6 Verifiquemos:
+![image](https://github.com/user-attachments/assets/569a39b5-d229-42dd-a027-5fc420e37f60)
+
+
 
 
 
