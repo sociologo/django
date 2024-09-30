@@ -15,6 +15,9 @@
 
 * [2 El método DetailView](#2-El-método-DetailView)
 * [3 El método CreateView](#3-El-método-CreateView)
+ * [Nuevos campos compuestos en el modelo de empleados.](#Nuevos-campos-compuestos-en-el-modelo-de-empleados.)
+
+ 
 * [4 El método UpdateView](#4-El-método-UpdateView)
 * [5 El método DeleteView](#5-El-método-DeleteView)
 
@@ -290,9 +293,9 @@ El paquete reverse_lazy en Django es una versión evaluada de forma diferida de 
 
 ![image](https://github.com/user-attachments/assets/7a5c9965-781b-49de-a900-b63d267b37a0)
 
+### Nuevos campos compuestos en el modelo de empleados.
 
-
-
+Supongamos 
 
 
 
