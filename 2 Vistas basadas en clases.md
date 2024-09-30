@@ -295,9 +295,8 @@ El paquete reverse_lazy en Django es una versión evaluada de forma diferida de 
 Supongamos que deseamos un nuevo campo compuesto de los elementos unicos 'nombre' y 'apellido' de un empleado. Para ello:
 
 1 en el modelo de empleados construímos un nuevo campo llamado **full_name** no obligatorio.\
-2 ejecutamos la migracion (makemigrations y migrate).\
-3 en el html eliminamos el nuevo campo y el campo avatar (lo dejaremos en suspenso).\
-4 interceptamos el guardado de first y last name en el template CreateView para generar el contenido del nuevo campo con el método **form_valid()**. Sólo cuando los datos ingresados son válidos se accede al método **form_valid()**.
+2 en la vista eliminamos el nuevo campo y el campo avatar (lo dejaremos en suspenso).\
+3 interceptamos el guardado de first y last name en el template CreateView para generar el contenido del nuevo campo con el método **form_valid()**. Sólo cuando los datos ingresados son válidos se accede al método **form_valid()**.
 ```
 def form_valid(self,form):
  empleado = form.save()
@@ -313,7 +312,22 @@ def form_valid(self,form):
  empleado.save()
  return super(EmpleadoCreateView, self).form_valid(form)
 ```
-5 ejecutamos el servidor, registramos un nuevo empleado y verificamos.\
+4 guardamos los cambios, ejecutamos la migración (makemigrations y migrate), el servidor, registramos un nuevo empleado y verificamos.\
+
+![image](https://github.com/user-attachments/assets/f62285f5-9625-45e5-b18c-3f895297d61a)
+
+![image](https://github.com/user-attachments/assets/64977318-e521-4d28-bfe7-0595cd51e613)
+
+![image](https://github.com/user-attachments/assets/d0e8a3b4-eef5-4910-a830-5f33cb26b78b)
+
+![image](https://github.com/user-attachments/assets/998e40d0-d085-4eb5-be10-7d7b3c2a690d)
+
+![image](https://github.com/user-attachments/assets/92ab934a-34fb-4491-aa3a-57ca6454e22b)
+
+
+
+
+
 
 
 
