@@ -19,9 +19,11 @@
 ![image](https://github.com/user-attachments/assets/d1810929-1867-442f-8798-730cdc95cb93)
 
 4 Construímos los htmls asociados:
+![image](https://github.com/user-attachments/assets/491f46cb-a2db-4bc5-9977-eeb8aa5b8dcc)
+![image](https://github.com/user-attachments/assets/05cd132a-e58e-4a81-8252-fa7234aae89a)
 
-
-
+5 Agregamos un archivo forms.py
+![image](https://github.com/user-attachments/assets/6642b583-61dc-4e5a-9c7d-e9a9aad11193)
 
 Dentro del archivo **forms.py** escribiremos la personalización para los campos de nuestos modelos que se visualizarán en los **htmls**. El código dentro de éste archivo es lo que en Django llamaremos formularios. Para ello:
 
