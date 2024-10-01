@@ -10,6 +10,9 @@
 
 ## 1 El archivo forms.py
 
+Dentro del archivo **forms.py** escribiremos la personalización para los campos de nuestos modelos que se visualizaran en los **htmls**. Parwa ello:
+
+1 Definamos la estructura basica completa para un modelo y comencemos a trabajar dentro de un archivo **forms.py**
 
 
 ### a) Listar todos los empleados.
