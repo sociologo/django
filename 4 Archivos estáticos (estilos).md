@@ -1,6 +1,6 @@
 # Archivos estáticos.
 
-[Fundation framework](https://get.foundation/)
+[Fundation framework](https://get.foundation/sites/getting-started.html)
 
 ## Índice
 
