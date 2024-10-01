@@ -24,7 +24,9 @@
 ![image](https://github.com/user-attachments/assets/05cd132a-e58e-4a81-8252-fa7234aae89a)
 
 5 Levantemos el servidor y vayamos a la vista:
+
 ![image](https://github.com/user-attachments/assets/bb2df9bd-4dd2-4599-aa06-907021f33076)
+
 
 ---
 
