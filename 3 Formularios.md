@@ -12,11 +12,11 @@
 1 Trabajemos en forma experimental dentro de nuestra aplicación **exp**. En ella, construyamos el siguiente modelo:
 ![image](https://github.com/user-attachments/assets/2e9fc619-686b-4022-bb51-879a9b9c0184)
 
-2 Le asociamos una vista **CreateView**:
-![image](https://github.com/user-attachments/assets/aca8fd35-60b2-41e0-a9c0-8f2d4bf551c1)
+2 Le asociamos una vista **CreateView** y **SuccessView**:
+![image](https://github.com/user-attachments/assets/e0d6a6fd-cae8-4674-a1dd-34f331aca7d5)
 
 3 Construimos una url que active la vista:
-![image](https://github.com/user-attachments/assets/d87dc82f-a1eb-4fb9-9dba-edf220c34ed6)
+![image](https://github.com/user-attachments/assets/fcb1a751-1ba9-4bde-a881-b90f20c59a0f)
 
 4 Construímos los htmls asociados:
 
