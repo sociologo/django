@@ -22,4 +22,8 @@ Conectamos el modelo con el formulario y la vista.
 
 4 Personalizaciones de los campos.
 
-### a) Listar todos los empleados.
+Para hacer ésto utilizamos widgets.
+
+Los formularios simples(FormView) no dependen de un modelo y nos permiten hacer registros vinculados a dos tablas.
+
+### a) Listar todos los emp
