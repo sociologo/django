@@ -16,5 +16,7 @@ Dentro del archivo **forms.py** escribiremos la personalización para los campos
 
 2 Comencemos a trabajar dentro de un archivo **forms.py**.
 
+Conectamos el modelo con el formulario y la vista.
+
 
 ### a) Listar todos los empleados.
