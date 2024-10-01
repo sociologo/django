@@ -18,5 +18,6 @@ Dentro del archivo **forms.py** escribiremos la personalización para los campos
 
 Conectamos el modelo con el formulario y la vista.
 
+3 Aplicamos validaciones a los formularios.
 
 ### a) Listar todos los empleados.
