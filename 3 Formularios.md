@@ -26,8 +26,6 @@
 5 Levantemos el servidor y vayamos a la vista:
 ![image](https://github.com/user-attachments/assets/bb2df9bd-4dd2-4599-aa06-907021f33076)
 
-
-
 ---
 
 5 Agregamos un archivo forms.py
