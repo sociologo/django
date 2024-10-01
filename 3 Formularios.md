@@ -17,10 +17,18 @@
 
 3 Construimos las urls que activen las vistas:
 ![image](https://github.com/user-attachments/assets/d1810929-1867-442f-8798-730cdc95cb93)
+![image](https://github.com/user-attachments/assets/b36a2e8b-36d7-4628-8369-7c914491cbb7)
 
 4 Construímos los htmls asociados:
 ![image](https://github.com/user-attachments/assets/491f46cb-a2db-4bc5-9977-eeb8aa5b8dcc)
 ![image](https://github.com/user-attachments/assets/05cd132a-e58e-4a81-8252-fa7234aae89a)
+
+5 Levantemos el servidor y vayamos a la vista:
+![image](https://github.com/user-attachments/assets/bb2df9bd-4dd2-4599-aa06-907021f33076)
+
+
+
+---
 
 5 Agregamos un archivo forms.py
 ![image](https://github.com/user-attachments/assets/6642b583-61dc-4e5a-9c7d-e9a9aad11193)
