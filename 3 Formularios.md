@@ -7,8 +7,21 @@
 * [1 El archivo forms.py](#1-El-archivo-forms.py)
   * [a) Listar todos los empleados](#a-Listar-todos-los-empleados)
 
-
 ## 1 El archivo forms.py
+
+1 Trabajemos en forma experimental dentro de nuestra aplicación **exp**. En ella, construyamos el siguiente modelo:
+![image](https://github.com/user-attachments/assets/2e9fc619-686b-4022-bb51-879a9b9c0184)
+
+2 Le asociamos una vista **CreateView**:
+![image](https://github.com/user-attachments/assets/aca8fd35-60b2-41e0-a9c0-8f2d4bf551c1)
+
+3 Construimos una url que active la vista:
+![image](https://github.com/user-attachments/assets/d87dc82f-a1eb-4fb9-9dba-edf220c34ed6)
+
+4 Construímos los htmls asociados:
+
+
+
 
 Dentro del archivo **forms.py** escribiremos la personalización para los campos de nuestos modelos que se visualizarán en los **htmls**. El código dentro de éste archivo es lo que en Django llamaremos formularios. Para ello:
 
