@@ -15,8 +15,8 @@
 2 Le asociamos una vista **CreateView** y **SuccessView**:
 ![image](https://github.com/user-attachments/assets/e0d6a6fd-cae8-4674-a1dd-34f331aca7d5)
 
-3 Construimos una url que active la vista:
-![image](https://github.com/user-attachments/assets/fcb1a751-1ba9-4bde-a881-b90f20c59a0f)
+3 Construimos las urls que activen las vistas:
+![image](https://github.com/user-attachments/assets/d1810929-1867-442f-8798-730cdc95cb93)
 
 4 Construímos los htmls asociados:
 
