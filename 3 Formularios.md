@@ -27,19 +27,36 @@
 
 ![image](https://github.com/user-attachments/assets/bb2df9bd-4dd2-4599-aa06-907021f33076)
 
+6 Agregamos un archivo forms.py
+![image](https://github.com/user-attachments/assets/631a515d-e257-485c-82cc-297bb1f5cf53)
 
----
-
-5 Agregamos un archivo forms.py
-![image](https://github.com/user-attachments/assets/6642b583-61dc-4e5a-9c7d-e9a9aad11193)
 
 Dentro del archivo **forms.py** escribiremos la personalización para los campos de nuestos modelos que se visualizarán en los **htmls**. El código dentro de éste archivo es lo que en Django llamaremos formularios. Para ello:
+En él conectamos el modelo con el formulario y la vista.
 
-1 Definamos la estructura básica completa para un modelo.
+7 Modificamos nuestra vista importando el formulario:
 
-2 Comencemos a trabajar dentro de un archivo **forms.py**.
+![image](https://github.com/user-attachments/assets/ef700024-45c2-423b-836d-0f6419d584b5)
 
-Conectamos el modelo con el formulario y la vista.
+8 Validaciones
+
+Supongamos que deseamos que nuestra cantidad sea igual o superior a 10:
+
+Modificamos la clase PruebaForm y ejecutamos la aplicación:
+![image](https://github.com/user-attachments/assets/eaf054ff-d8ae-48a7-a55a-cb05c5cb0320)
+![image](https://github.com/user-attachments/assets/03bb6857-4e0a-4463-ae97-6a16b155a602)
+
+
+
+
+
+
+
+
+
+
+
+
 
 3 validaciones.
 
