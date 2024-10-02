@@ -5,8 +5,8 @@
 ## Índice
 
 * [El archivo forms.py](#1-El-archivo-forms.py)
-  * [1 Formularios forms.ModelForm](#1-Formularios forms.ModelForm)
-  * [2 Formularios forms.Form](#2-Formularios forms.Form)
+  * [1 Formularios forms.ModelForm](#1-Formularios-forms.ModelForm)
+  * [2 Formularios forms.Form](#2-Formularios-forms.Form)
     
 ## El archivo forms.py
 
