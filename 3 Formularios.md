@@ -6,7 +6,7 @@
 
 * [El archivo forms.py](#1-El-archivo-forms.py)
   * [1 Formularios forms.ModelForm](#1-Formularios-formsModelForm)
-  * [2 Formularios forms.Form](#2-Formularios-forms.Form)
+  * [2 Formularios forms.Form](#2-Formularios-formsForm)
     
 ## El archivo forms.py
 
@@ -51,7 +51,7 @@ Modificamos la clase PruebaForm y ejecutamos la aplicación:
 9 Personalizaciones de los campos.
 ![image](https://github.com/user-attachments/assets/3ebc5d75-bd44-4782-82ae-eae09c5a0450)
 
-### 2 Formularios forms.Form
+### 2 Formularios formsForm
 
 Los formularios Form no están vinculados directamente a un modelo, lo que nos sirve cuando deseamos hacer el ingreso de un registro asociados a dos modelos dostintos. Es algo que vamos a hacer sobre el proyecto que hemos venido desarrollando y que contiene los modelos **empleado** y **departamento**:
 
