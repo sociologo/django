@@ -9,6 +9,10 @@
 
 ## 1 El archivo forms.py
 
+### Formularios forms.ModelForm
+
+Los formularios ModelForm están vinculados directamente a un modelo.
+
 1 Trabajemos en forma experimental dentro de nuestra aplicación **exp**. En ella, construyamos el siguiente modelo:
 ![image](https://github.com/user-attachments/assets/2e9fc619-686b-4022-bb51-879a9b9c0184)
 
@@ -24,18 +28,15 @@
 ![image](https://github.com/user-attachments/assets/05cd132a-e58e-4a81-8252-fa7234aae89a)
 
 5 Levantemos el servidor y vayamos a la vista:
-
 ![image](https://github.com/user-attachments/assets/bb2df9bd-4dd2-4599-aa06-907021f33076)
 
 6 Agregamos un archivo forms.py
 ![image](https://github.com/user-attachments/assets/631a515d-e257-485c-82cc-297bb1f5cf53)
 
-
 Dentro del archivo **forms.py** escribiremos la personalización para los campos de nuestos modelos que se visualizarán en los **htmls**. El código dentro de éste archivo es lo que en Django llamaremos formularios. Para ello:
 En él conectamos el modelo con el formulario y la vista.
 
 7 Modificamos nuestra vista importando el formulario:
-
 ![image](https://github.com/user-attachments/assets/ef700024-45c2-423b-836d-0f6419d584b5)
 
 8 Validaciones
@@ -46,9 +47,14 @@ Modificamos la clase PruebaForm y ejecutamos la aplicación:
 ![image](https://github.com/user-attachments/assets/eaf054ff-d8ae-48a7-a55a-cb05c5cb0320)
 ![image](https://github.com/user-attachments/assets/03bb6857-4e0a-4463-ae97-6a16b155a602)
 
+9 Personalizaciones de los campos.
+![image](https://github.com/user-attachments/assets/3ebc5d75-bd44-4782-82ae-eae09c5a0450)
 
+### Formularios forms.Form
 
+Los formularios Form no están vinculados directamente a un modelo.
 
+Para hacer ésto utilizamos widgets.
 
 
 
@@ -60,9 +66,9 @@ Modificamos la clase PruebaForm y ejecutamos la aplicación:
 
 3 validaciones.
 
-4 Personalizaciones de los campos.
+4 
 
-Para hacer ésto utilizamos widgets.
+
 
 Los formularios simples(FormView) no dependen de un modelo y nos permiten hacer registros vinculados a dos tablas.
 
