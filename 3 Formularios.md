@@ -4,12 +4,12 @@
 
 ## Índice
 
-* [1 El archivo forms.py](#1-El-archivo-forms.py)
-  * [a) Listar todos los empleados](#a-Listar-todos-los-empleados)
+* [El archivo forms.py](#1-El-archivo-forms.py)
+  * [1 Formularios forms.ModelForm](#1-Formularios forms.ModelForm)
+  * [2 Formularios forms.Form](#2-Formularios forms.Form)
+## El archivo forms.py
 
-## 1 El archivo forms.py
-
-### Formularios forms.ModelForm
+### 1 Formularios forms.ModelForm
 
 Los formularios ModelForm están vinculados directamente a un modelo.
 
@@ -50,9 +50,9 @@ Modificamos la clase PruebaForm y ejecutamos la aplicación:
 9 Personalizaciones de los campos.
 ![image](https://github.com/user-attachments/assets/3ebc5d75-bd44-4782-82ae-eae09c5a0450)
 
-### Formularios forms.Form
+### 2 Formularios forms.Form
 
-Los formularios Form no están vinculados directamente a un modelo.
+Los formularios Form no están vinculados directamente a un modelo, lo que nos sirve cuando deseamos hacer el ingreso de un registro asociados a dos modelos dostintos. Es algo que vamos a hacer sobre el proyecto que hemos venido desarrollando y que contiene los modelos **empleado** y **departamento**:
 
 Para hacer ésto utilizamos widgets.
 
@@ -64,12 +64,6 @@ Para hacer ésto utilizamos widgets.
 
 
 
-3 validaciones.
-
-4 
 
 
 
-Los formularios simples(FormView) no dependen de un modelo y nos permiten hacer registros vinculados a dos tablas.
-
-### a) Listar todos los emp
