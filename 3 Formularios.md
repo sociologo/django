@@ -53,9 +53,49 @@ Modificamos la clase PruebaForm y ejecutamos la aplicación:
 
 ### 2 Formularios Form
 
-Los formularios Form no están vinculados directamente a un solo modelo, lo que nos sirve cuando deseamos hacer el ingreso de un registro asociado a dos modelos distintos. Es algo que vamos a hacer sobre el proyecto que hemos venido desarrollando y que contiene los modelos **empleado** y **departamento**.
+Los formularios Form no están vinculados directamente a un solo modelo, por lo que nos sirven cuando deseamos ingresar registros asociados a modelos distintos. Lo vamos a hacer sobre el proyecto que hemos venido desarrollando y que contiene los modelos **empleado** y **departamento**.
 
-1 En la aplicacion **departamento** construiremos un nuevo forms.py en el que registraremos un departamento y un empleado asociado a el:
+1 En la aplicación **departamento** construiremos un nuevo forms.py en el que registraremos campos de un departamento y un empleado asociado a él:
+![image](https://github.com/user-attachments/assets/6a881efe-9557-45e6-b2cd-5eee8b64bd78)
+
+2 En la aplicación **departamento** construiremos la vista NewDepartmentView en el que registraremos campos de un departamento y un empleado asociado a él:
+
+Primero, el código importa varias herramientas y componentes necesarios para trabajar con Django, incluyendo funciones para renderizar plantillas, manejar URLs, y vistas genéricas que facilitan la creación de formularios y plantillas.
+
+Luego, se define una vista llamada SuccessView que simplemente muestra una página de éxito cuando se accede a ella. Esta página se utiliza para informar al usuario que una operación se ha completado correctamente.
+
+La parte principal del código es una vista llamada NewDepartmentView. Esta vista se encarga de mostrar un formulario al usuario para que pueda crear un nuevo departamento. Cuando el usuario envía el formulario, la vista verifica que los datos sean válidos.
+
+Si los datos son válidos, la vista crea un nuevo departamento utilizando la información proporcionada por el usuario. Además, también crea un nuevo empleado asociado a este departamento, utilizando otros datos del formulario. Una vez que ambos registros se han guardado correctamente en la base de datos, el usuario es redirigido a una página de éxito.
+
+En resumen, este código maneja la creación de un nuevo departamento y un empleado asociado, asegurándose de que ambos se guarden correctamente en la base de datos y proporcionando retroalimentación al usuario sobre el éxito de la operación.
+
+![image](https://github.com/user-attachments/assets/ccc97b4f-ae20-4e5a-a1a8-e44b39c4dfdb)
+
+3 Construímos las URLS para activar las vistas.
+![image](https://github.com/user-attachments/assets/d9628226-345e-40d6-894b-43305563e431)
+![image](https://github.com/user-attachments/assets/d8cbc229-9544-45a8-943a-53162980ec38)
+
+4 Creamos los htmls asociados a las vistas:
+![image](https://github.com/user-attachments/assets/b505c12d-6305-47b1-8965-da79b552bd15)
+![image](https://github.com/user-attachments/assets/4cbcdcd3-e31b-42e6-bf52-2def56165ad5)
+
+5 Ingresamos un nuevo registro y verificamos:
+![image](https://github.com/user-attachments/assets/51177aae-b6f2-42f8-8f37-5e921b7333c4)
+![image](https://github.com/user-attachments/assets/9b3de7a6-dc54-4b63-a78f-d5ffeda6a009)
+![image](https://github.com/user-attachments/assets/3b296643-d1d4-40fb-9b08-52ec787d6b50)
+
+
+
+
+
+
+
+
+
+
+
+
 
 1.1 Construiremos el formulario forms.Form
 
