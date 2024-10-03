@@ -84,34 +84,3 @@ En resumen, este código maneja la creación de un nuevo departamento y un emple
 ![image](https://github.com/user-attachments/assets/51177aae-b6f2-42f8-8f37-5e921b7333c4)
 ![image](https://github.com/user-attachments/assets/9b3de7a6-dc54-4b63-a78f-d5ffeda6a009)
 ![image](https://github.com/user-attachments/assets/3b296643-d1d4-40fb-9b08-52ec787d6b50)
-
-
-
-
-
-
-
-
-
-
-
-
-
-1.1 Construiremos el formulario forms.Form
-
-2 En la aplicacion departamento construiremos un nuevo forms.py en el que:
-2.1 hacemos la clase en la vista importando FormView, render, el formulario, la aplicacion empleado y los modelos
-2.2 en la vista basada en clases sobreescribimos el metodo form_valid
-
-3 En la aplicacion departamento construiremos la url importando views:
-
-4 En la aplicacion departamento creamos el template:
-
-
-
-
-
-
-
-
-
