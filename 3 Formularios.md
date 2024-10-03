@@ -51,13 +51,13 @@ Modificamos la clase PruebaForm y ejecutamos la aplicación:
 9 Personalizaciones de los campos.
 ![image](https://github.com/user-attachments/assets/3ebc5d75-bd44-4782-82ae-eae09c5a0450)
 
-### 2 Formularios formsForm
+### 2 Formularios Form
 
-Los formularios Form no están vinculados directamente a un modelo, lo que nos sirve cuando deseamos hacer el ingreso de un registro asociados a dos modelos dostintos. Es algo que vamos a hacer sobre el proyecto que hemos venido desarrollando y que contiene los modelos **empleado** y **departamento**:
+Los formularios Form no están vinculados directamente a un solo modelo, lo que nos sirve cuando deseamos hacer el ingreso de un registro asociado a dos modelos distintos. Es algo que vamos a hacer sobre el proyecto que hemos venido desarrollando y que contiene los modelos **empleado** y **departamento**.
 
-1 En la aplicacion departamento construiremos un nuevo forms.py en el que:
-1.1 Importaremos forms
-1.2 construiremos el formulario forms.Form
+1 En la aplicacion **departamento** construiremos un nuevo forms.py en el que registraremos un departamento y un empleado asociado a el:
+
+1.1 Construiremos el formulario forms.Form
 
 2 En la aplicacion departamento construiremos un nuevo forms.py en el que:
 2.1 hacemos la clase en la vista importando FormView, render, el formulario, la aplicacion empleado y los modelos
