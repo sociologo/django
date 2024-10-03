@@ -55,10 +55,17 @@ Modificamos la clase PruebaForm y ejecutamos la aplicación:
 
 Los formularios Form no están vinculados directamente a un modelo, lo que nos sirve cuando deseamos hacer el ingreso de un registro asociados a dos modelos dostintos. Es algo que vamos a hacer sobre el proyecto que hemos venido desarrollando y que contiene los modelos **empleado** y **departamento**:
 
-Para hacer ésto utilizamos widgets.
+1 En la aplicacion departamento construiremos un nuevo forms.py en el que:
+1.1 Importaremos forms
+1.2 construiremos el formulario forms.Form
 
+2 En la aplicacion departamento construiremos un nuevo forms.py en el que:
+2.1 hacemos la clase en la vista importando FormView, render, el formulario, la aplicacion empleado y los modelos
+2.2 en la vista basada en clases sobreescribimos el metodo form_valid
 
+3 En la aplicacion departamento construiremos la url importando views:
 
+4 En la aplicacion departamento creamos el template:
 
 
 
