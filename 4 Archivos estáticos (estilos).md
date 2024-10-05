@@ -10,9 +10,9 @@
 
 ## 1 Configurar Django para la lectura de archivos estaticos.
 
-1 Vamos a [Fundation Zurb](https://get.foundation/sites/getting-started.html)*
+1 Vamos a [Fundation Zurb](https://get.foundation/sites/getting-started.html)* y descargamos su version Sass.
 
-2 En nuestro proyecto creamos una carpeta donde alojaremos los archivos estáticos llamado **static**.
+2 En nuestro proyecto creamos una carpeta donde alojaremos los archivos estáticos llamado **static**, y dentro de ella las carpetas **css**, **img** y **js**.
 
 ![image](https://github.com/user-attachments/assets/c8de2d00-f605-43a7-b8a6-592541eed97f)
 
