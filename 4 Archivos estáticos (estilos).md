@@ -27,4 +27,4 @@
 
 
 
-* Foundation es un conjunto de frameworks front-end responsivos desarrollados originalmente por ZURB. Está diseñado para facilitar la creación de sitios web, aplicaciones y correos electrónicos que se vean bien en cualquier dispositivo. Foundation for Sites proporciona HTML, CSS y JavaScript para ayudarte a prototipar rápidamente y construir sitios web centrados en el contenido. Es fácil de personalizar y extender
+\* Foundation es un conjunto de frameworks front-end responsivos desarrollados originalmente por ZURB. Está diseñado para facilitar la creación de sitios web, aplicaciones y correos electrónicos que se vean bien en cualquier dispositivo. Foundation for Sites proporciona HTML, CSS y JavaScript para ayudarte a prototipar rápidamente y construir sitios web centrados en el contenido. Es fácil de personalizar y extender
