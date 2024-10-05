@@ -5,7 +5,7 @@
 ## Índice
 
 * [1 Configurar Django para la lectura de archivos estaticos](#1-Configurar-Django-para-la-lectura-de-archivos-estaticos)
-  * [a) Listar todos los empleados](#a-Listar-todos-los-empleados)
+* [2 Implementando Includes](#2-Implementando-Includes)
 
 
 ## 1 Configurar Django para la lectura de archivos estaticos.
@@ -24,7 +24,9 @@
 
 ![image](https://github.com/user-attachments/assets/78757686-9aeb-4eb1-a9c2-270e0e6643bd)
 
-4 En templates construímos una carpeta llamada includes:
+## 2 Implementando Includes.
+
+4 En templates construímos una carpeta llamada includes (En Django, la etiqueta include se utiliza dentro de las plantillas para incluir el contenido de otra plantilla en la plantilla actual. Esto es útil para reutilizar componentes comunes en varias páginas, como encabezados, pies de página o menús de navegación):
 
 
 
