@@ -24,9 +24,13 @@
 
 ![image](https://github.com/user-attachments/assets/78757686-9aeb-4eb1-a9c2-270e0e6643bd)
 
-## 2 Implementando Includes.
+## 2 Implementando Includes y herencia.
 
-4 En templates construímos una carpeta llamada includes (En Django, la etiqueta include se utiliza dentro de las plantillas para incluir el contenido de otra plantilla en la plantilla actual. Esto es útil para reutilizar componentes comunes en varias páginas, como encabezados, pies de página o menús de navegación):
+1 Dentro de la carpeta templates construímos una nueva carpeta llamada includes (en Django, la etiqueta include se utiliza dentro de las plantillas para incluir el contenido de otra plantilla en la plantilla actual. Esto es útil para reutilizar componentes comunes en varias páginas, como encabezados, pies de página o menús de navegación) y un **base.html**, de donde heredaremos la estructura html basica de nuestros templates.
+
+2 En la aplicacion **empleados** creamos una nueva vista llamada **InicioView** asociada a un **inicio.html** dentro de la carpeta **templates**
+
+3 Activamos la vista.
 
 
 
