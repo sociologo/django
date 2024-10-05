@@ -20,9 +20,10 @@
 ![image](https://github.com/user-attachments/assets/d396c2b5-a7a6-40be-af96-d080577c1691)
 
 
-3 Vamos a las configuraciones de nuestro proyecto ubicadas en **local.py** dentro de **settings** y declaramos la variable **STATICFILES_DIR**
+3 Vamos a las configuraciones de nuestro proyecto ubicadas en **local.py** dentro de **settings** y declaramos la variable **STATICFILES_DIRS**
 
-![image](https://github.com/user-attachments/assets/bda7d27b-e8ea-4d23-82be-4aff6efc6176)
+![image](https://github.com/user-attachments/assets/78757686-9aeb-4eb1-a9c2-270e0e6643bd)
+
 
 
 
