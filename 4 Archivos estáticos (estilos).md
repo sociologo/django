@@ -24,6 +24,10 @@
 
 ![image](https://github.com/user-attachments/assets/78757686-9aeb-4eb1-a9c2-270e0e6643bd)
 
+4 En templates construímos una carpeta llamada includes:
+
+
+
 
 
 
