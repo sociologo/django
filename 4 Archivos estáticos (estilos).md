@@ -21,8 +21,8 @@
 
 Hay un error, por lo que por el momento comentaremos la siguiente linea hasta descubrir que pasa. No afectara lo que sigue.
 
-![image](https://github.com/user-attachments/assets/78757686-9aeb-4eb1-a9c2-270e0e6643bd)
-![image](https://github.com/user-attachments/assets/f5af2bfc-e908-4a77-b52e-149b6ab93f52)
+![image](https://github.com/user-attachments/assets/7afcbc3d-faaf-4912-a282-d32520a4f360)
+
 
 ## 2 Implementando Includes y herencia.
 
