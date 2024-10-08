@@ -23,8 +23,25 @@ Apariencia de nuestro prototipo.
 ![image](https://github.com/user-attachments/assets/334bc422-7c4c-415a-a3fe-550fb1086ac5)
 ![image](https://github.com/user-attachments/assets/8b1b3f8c-713e-40e0-bd9b-d9ae768c6c55)
 
-6 Agregamos otro lienzo de Fundation centrado con una caja Callout de Fundation.
+6 Agregamos otro **bloque** de Fundation centrado con una caja Callout de Fundation.
+![image](https://github.com/user-attachments/assets/869b897b-efe2-4511-be66-da8a0f64b540)
+![image](https://github.com/user-attachments/assets/bb738792-6471-4551-82c9-00d621a5fb23)
+![image](https://github.com/user-attachments/assets/012babb1-1232-474f-9db0-298ea9ca115d)
 
 7 Le damos funcionalidad al listar del inicio utilizando nuestra vista ListAllEmpleados accediendo a la url por su nombre.
 
-8 Diseñamos el listado
+Consideremos la vista **ListAllEmpleados**. Accedamos a su url por su nombre **empleados-all** y diseñemos **list_all.html** copiando un button y una tabla de foundation.
+
+![image](https://github.com/user-attachments/assets/09ca4d27-8823-4216-aafc-264b97bf521b)
+![image](https://github.com/user-attachments/assets/b14f1c08-acd9-484b-b719-c2901a99063c)
+![image](https://github.com/user-attachments/assets/b93f1154-12dc-482f-a21c-fefbd82273de)
+![image](https://github.com/user-attachments/assets/eca40001-77cd-4bf7-8663-c2297565e635)
+
+8 Accedamos a listar:
+
+![image](https://github.com/user-attachments/assets/0c9c0e61-b046-4882-b64f-c8b492666544)
+
+
+
+
+
