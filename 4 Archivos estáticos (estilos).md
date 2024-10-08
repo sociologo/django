@@ -19,10 +19,9 @@
 
 3 Vamos a las configuraciones de nuestro proyecto ubicadas en **local.py** dentro de **settings** y declaramos la variable **STATICFILES_DIRS**
 
-Hay un error, por lo que por el momento comentaremos la siguiente linea hasta descubrir que pasa. No afectara lo que sigue.
+Es de fundamental importancia declarar bien la variable **STATICFILES_DIRS** para que nuestro javascript funcione.
 
 ![image](https://github.com/user-attachments/assets/7afcbc3d-faaf-4912-a282-d32520a4f360)
-
 
 ## 2 Implementando Includes y herencia.
 
