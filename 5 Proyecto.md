@@ -61,7 +61,30 @@ Consideremos la vista **ListAllEmpleados**. Accedamos a su url por su nombre **e
 
 2.2 En el boton de list_all.html asociado al ver vinculamos la url **empleado_detail** asociandole el identificador de un empleado en especifico.
 
-3 agreguemos a nuestras vistas una paginacion
+3 agreguemos a nuestra vista una paginacion
+
+3.1 En nuestra vista basada en clases del tipo ListView **ListAllEmpleados** agregamos el atributo paginate_by
+
+3.2 En Foundation descargamos pagination y los llevamos a nuestro **list_all.html** y lo editamos estableciendo condicionales sobre los objetos **is_paginated** y **page_obj** y una iteracion sobre el objeto **paginator.page_range**:
+
+3.3 Adjuntamos de Foundation **Pagination** para pintar el numero de nuestra paginacion actual.
+
+4 Agreguemos una pagina para listar departamentos:
+
+4.1 En el archivo **views.py** de nuestra aplicacion **departamento** creamos la vista basada en clases **DepartamentoListView** (importando ListView) con su correspondiente **lista.html** en la carpeta de templates departamento y la url que active la lista:
+
+4.2 Agregamos una tabla en **lista.html**
+
+4.3 Añadimos funcionalidad para desplegar los empleados de un departamento:
+
+4.3.1 Necesitamos la vista basada en clases ListByAreaEmpleado y asignamos correctamente al url al boton de listado de empleados por departamento
+
+4.3.2 Le damos diseño a **list_by_area.html**
+
+
+
+
+
 
 
 
