@@ -41,6 +41,32 @@ Consideremos la vista **ListAllEmpleados**. Accedamos a su url por su nombre **e
 
 ![image](https://github.com/user-attachments/assets/0c9c0e61-b046-4882-b64f-c8b492666544)
 
+***
+
+1 demosle funcionalidad al boton buscar
+
+1.1 identifiquemos nuestra vista basada en clases ListEmpeladosByKword en la que copiamos la funcion get_queryset y la pegamos en la clase ListAllEmpleados. 
+
+1.2 Ya no es necesario el parametro model = Empleado. 
+
+1.3 En el html list_all debemos agregar los parametros id y name.
+
+1.4 en el html list_all debemos encerrar el codigo en un formulario, especificar el metodo GET, agregar el token y establecer el button type como tipo **submit**.
+
+1.5 filtramos el full_name utilizando en atributo de Django **icontains** en base a palabra_clave
+
+2 demosle funcionalidad al boton listar
+
+2.1 Identifiquemos la vista basada en clases EmpleadoDetailView y le asignamos a su url el nombre **empleado_detail**
+
+2.2 En el boton de list_all.html asociado al ver vinculamos la url **empleado_detail** asociandole el identificador de un empleado en especifico.
+
+3 agreguemos a nuestras vistas una paginacion
+
+
+
+
+
 
 
 
