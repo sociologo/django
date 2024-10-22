@@ -62,8 +62,25 @@ En el boton de **list_all.html** asociado al **Ver** vinculamos la url **emplead
 
 ## 3 Dandole paginacion a la vista
 
+buscamos en la pagina de foundation un codigo para la paginacion
+https://get.foundation/sites/docs/pagination.html
+![image](https://github.com/user-attachments/assets/43306d89-0641-410c-955b-9c1717c42e22)
 
+pegamos en el siguiente sitio el codigo
+![image](https://github.com/user-attachments/assets/00113110-6495-4db5-aa60-40e1553d2269)
 
+Debemos darle paginacion a nuestra vista
+![image](https://github.com/user-attachments/assets/c3c51605-86dd-4042-9cbc-10513f70ad47)
+
+Agregamos un condicional para la existencia de la paginacion, agregamos condicionales para determinar la existencia de los objetos de paginacion previos y posteriores, 
+construimos un for para desplegar toda la cantidad de paginaciones y le asignamos un color para la paginacion actual.
+
+![image](https://github.com/user-attachments/assets/7349f529-f130-492e-a70d-2ff147f8c6b8)
+
+![image](https://github.com/user-attachments/assets/665129b9-3a02-443f-a55a-e44bbefc9fff)
+
+***
+aca voy martes
 
 
 
