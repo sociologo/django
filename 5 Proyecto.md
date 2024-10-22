@@ -54,9 +54,13 @@ En el list_all.html asociado debemos agregar los parametros **id** y **name** al
 2 Dándole funcionalidad al botón **Ver** el detale del empleado.
 
 Identifiquemos la vista basada en clases **EmpleadoDetailView** y le asignamos a su url el nombre **empleado_detail**
+![image](https://github.com/user-attachments/assets/78da1654-07c3-4f35-be62-1a08d9bd48c9)
 
-2.2 En el boton de **list_all.html** asociado al **Ver** vinculamos la url **empleado_detail** asociandole el identificador de un empleado en especifico (e.id).
+En el boton de **list_all.html** asociado al **Ver** vinculamos la url **empleado_detail** asociandole el identificador de un empleado en especifico (e.id).
+![image](https://github.com/user-attachments/assets/8f4df555-a90b-4f08-8774-2d1405851b84)
+***
 
+voy aca
 
 
 
