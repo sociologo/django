@@ -42,24 +42,25 @@ Consideremos la vista **ListAllEmpleados**. Accedamos a su url por su nombre **e
 ![image](https://github.com/user-attachments/assets/0c9c0e61-b046-4882-b64f-c8b492666544)
 
 ***
+***
+1 Dándole funcionalidad al botón **Buscar**.
 
-1 demosle funcionalidad al boton buscar
+En el archivo **views.py** de la aplicacion **persona** identifiquemos la vista basada en clases **ListEmpeladosByKword**. De ella, copiamos la funcion **get_queryset** y la pegamos en la clase **ListAllEmpleados**, en la que estamos trabajando actualmente. Como estamos sobreescribiendo el metodo **get_queryset**, ya no es necesario el parametro model = Empleado. Filtramos el full_name utilizando en atributo de Django **icontains** en base a palabra_clave.
+![image](https://github.com/user-attachments/assets/f64a9c2d-79b7-4e71-a315-fa81174c0bcd)
 
-1.1 identifiquemos nuestra vista basada en clases ListEmpeladosByKword en la que copiamos la funcion get_queryset y la pegamos en la clase ListAllEmpleados. 
+En el list_all.html asociado debemos agregar los parametros **id** y **name** al **input**, debemos encerrar el codigo en un formulario, especificar el metodo GET, agregar el token y establecer el button type como tipo **submit**.
+![image](https://github.com/user-attachments/assets/d055d064-502a-454c-8449-79cbfe0507f4)
 
-1.2 Ya no es necesario el parametro model = Empleado. 
+2 Dándole funcionalidad al botón **Ver** el detale del empleado.
 
-1.3 En el html list_all debemos agregar los parametros id y name.
+Identifiquemos la vista basada en clases **EmpleadoDetailView** y le asignamos a su url el nombre **empleado_detail**
 
-1.4 en el html list_all debemos encerrar el codigo en un formulario, especificar el metodo GET, agregar el token y establecer el button type como tipo **submit**.
+2.2 En el boton de **list_all.html** asociado al **Ver** vinculamos la url **empleado_detail** asociandole el identificador de un empleado en especifico (e.id).
 
-1.5 filtramos el full_name utilizando en atributo de Django **icontains** en base a palabra_clave
 
-2 demosle funcionalidad al boton listar
 
-2.1 Identifiquemos la vista basada en clases EmpleadoDetailView y le asignamos a su url el nombre **empleado_detail**
 
-2.2 En el boton de list_all.html asociado al ver vinculamos la url **empleado_detail** asociandole el identificador de un empleado en especifico.
+
 
 3 agreguemos a nuestra vista una paginacion
 
