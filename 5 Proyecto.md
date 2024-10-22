@@ -43,7 +43,7 @@ Consideremos la vista **ListAllEmpleados**. Accedamos a su url por su nombre **e
 
 ***
 ***
-1 Dándole funcionalidad al botón **Buscar**.
+## 1 Dándole funcionalidad al botón **Buscar**.
 
 En el archivo **views.py** de la aplicacion **persona** identifiquemos la vista basada en clases **ListEmpeladosByKword**. De ella, copiamos la funcion **get_queryset** y la pegamos en la clase **ListAllEmpleados**, en la que estamos trabajando actualmente. Como estamos sobreescribiendo el metodo **get_queryset**, ya no es necesario el parametro model = Empleado. Filtramos el full_name utilizando en atributo de Django **icontains** en base a palabra_clave.
 ![image](https://github.com/user-attachments/assets/f64a9c2d-79b7-4e71-a315-fa81174c0bcd)
@@ -51,7 +51,7 @@ En el archivo **views.py** de la aplicacion **persona** identifiquemos la vista 
 En el list_all.html asociado debemos agregar los parametros **id** y **name** al **input**, debemos encerrar el codigo en un formulario, especificar el metodo GET, agregar el token y establecer el button type como tipo **submit**.
 ![image](https://github.com/user-attachments/assets/d055d064-502a-454c-8449-79cbfe0507f4)
 
-2 Dándole funcionalidad al botón **Ver** el detale del empleado.
+## 2 Dándole funcionalidad al botón **Ver** el detale del empleado.
 
 Identifiquemos la vista basada en clases **EmpleadoDetailView** y le asignamos a su url el nombre **empleado_detail**
 ![image](https://github.com/user-attachments/assets/78da1654-07c3-4f35-be62-1a08d9bd48c9)
@@ -60,7 +60,9 @@ En el boton de **list_all.html** asociado al **Ver** vinculamos la url **emplead
 ![image](https://github.com/user-attachments/assets/8f4df555-a90b-4f08-8774-2d1405851b84)
 ***
 
-voy aca
+## 3 Dandole paginacion a la vista
+
+
 
 
 
