@@ -80,18 +80,33 @@ construimos un for para desplegar toda la cantidad de paginaciones y le asignamo
 ![image](https://github.com/user-attachments/assets/665129b9-3a02-443f-a55a-e44bbefc9fff)
 
 ***
-aca voy martes
+## Construyendo la pagina de listado de departamentos con la funcionalidad de ver todos los empleados por departamento.
+
+1 Construimos dentro del archivo views.py de nuestra aplicacion departamentos la vista basada en clases **DepartamentoView**, importando ListView. Cramos la vista con sus hmtl y rutas de activacion asociados.
+
+
+
+2 hacemos el vinculo de la cabecera dirigirse a la url de departamentos, donde seran listados. Por lo que modificamos header.html de la siguiente manera:
+
+Recordemos asignarle un nombre al conjunto de urls de departamentos y hagamos editable el campo name del modelo Departamento agregandole nombres:
 
 
 
 
-3 agreguemos a nuestra vista una paginacion
 
-3.1 En nuestra vista basada en clases del tipo ListView **ListAllEmpleados** agregamos el atributo paginate_by
 
-3.2 En Foundation descargamos pagination y los llevamos a nuestro **list_all.html** y lo editamos estableciendo condicionales sobre los objetos **is_paginated** y **page_obj** y una iteracion sobre el objeto **paginator.page_range**:
 
-3.3 Adjuntamos de Foundation **Pagination** para pintar el numero de nuestra paginacion actual.
+
+
+
+
+
+
+
+
+
+
+
 
 4 Agreguemos una pagina para listar departamentos:
 
