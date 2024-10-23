@@ -119,17 +119,6 @@ Recordemos asignarle un nombre al conjunto de urls de departamentos y hagamos ed
 
 
 
-4 Agreguemos una pagina para listar departamentos:
-
-4.1 En el archivo **views.py** de nuestra aplicacion **departamento** creamos la vista basada en clases **DepartamentoListView** (importando ListView) con su correspondiente **lista.html** en la carpeta de templates departamento y la url que active la lista:
-
-4.2 Agregamos una tabla en **lista.html**
-
-4.3 Añadimos funcionalidad para desplegar los empleados de un departamento:
-
-4.3.1 Necesitamos la vista basada en clases ListByAreaEmpleado y asignamos correctamente al url al boton de listado de empleados por departamento
-
-4.3.2 Le damos diseño a **list_by_area.html**
 
 
 
