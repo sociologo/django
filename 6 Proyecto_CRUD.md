@@ -42,6 +42,12 @@ Vamos a construir la funcionalidad al boton **administrar**, con el que podremos
 ![image](https://github.com/user-attachments/assets/57e8beeb-dcda-4837-9e87-6b4040462440)
 ![image](https://github.com/user-attachments/assets/9ca0da0c-2f51-4298-9b60-065dea8ce53e)
 
+# Dandole funcionalidad al boton Registrar nuevo y añadiendo multimedia.
+
+1 Recordemos que la vista que nos permitia registrar nuevos empleados es **EmpleadoCreateView** y que la url que la activa es **'empleado_app: empleado_add'** . Agregamos una etiqueta <a> al header.html con esta ruta.
+
+2 Le damos estilos al template **add.html** basicamente copiando la estructura del update.
+
 
 
 
