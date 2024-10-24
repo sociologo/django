@@ -99,6 +99,13 @@ Recordemos asignarle un nombre al conjunto de urls de departamentos y hagamos ed
 ![image](https://github.com/user-attachments/assets/1dbd2420-8d60-4fb2-9c70-e134b980f390)
 ![image](https://github.com/user-attachments/assets/4754ee9d-3dd1-4a53-a810-0ad9f7bc8cff)
 
+4 Veamos los resultados
+
+![image](https://github.com/user-attachments/assets/a8264b03-a15c-4af2-89a3-c27aa0dbf9b0)
+![image](https://github.com/user-attachments/assets/b71f0529-d9bf-4dff-bd33-1bae0771002f)
+
+
+
 
 
 
