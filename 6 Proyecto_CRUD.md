@@ -29,3 +29,27 @@ Vamos a construir la funcionalidad al boton **administrar**, con el que podremos
 ![image](https://github.com/user-attachments/assets/01f7aae0-521a-40a7-a86e-005304bb2e23)
 
 # Dandole formato a la pagina Eliminar.
+
+1 Para ello hacemos uso de un Callout de Foundation, agregamos la funcionalidad de traer el nombre del registro a eliminar y redigiminos a nuestra pagina de administración.
+
+![image](https://github.com/user-attachments/assets/793e7ed4-e6e3-4c86-8b28-39940eb6aa83)
+![image](https://github.com/user-attachments/assets/24f25a35-383f-4091-861d-31ea1685ee83)
+![image](https://github.com/user-attachments/assets/bc8ab931-015d-41af-a71c-2c3155efe785)
+
+2 Vamos como queda:
+
+![image](https://github.com/user-attachments/assets/82c6c3b5-6e79-400e-b8b6-34f1dcfd458e)
+![image](https://github.com/user-attachments/assets/57e8beeb-dcda-4837-9e87-6b4040462440)
+![image](https://github.com/user-attachments/assets/9ca0da0c-2f51-4298-9b60-065dea8ce53e)
+
+
+
+
+
+
+
+
+
+
+
+
