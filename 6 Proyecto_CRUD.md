@@ -28,4 +28,4 @@ Vamos a construir la funcionalidad al boton **administrar**, con el que podremos
 ![image](https://github.com/user-attachments/assets/2c33d19d-a918-48c1-b69b-c43a93ddd0ce)
 ![image](https://github.com/user-attachments/assets/01f7aae0-521a-40a7-a86e-005304bb2e23)
 
-# 
+# Dandole formato a la pagina Eliminar.
