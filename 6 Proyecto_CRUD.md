@@ -47,25 +47,25 @@ Vamos a construir la funcionalidad al boton **administrar**, con el que podremos
 1 Recordemos que la vista que nos permitia registrar nuevos empleados es **EmpleadoCreateView** y que la url que la activa es **'empleado_app:empleado_add'**. Le damos estilos al template **add.html** basicamente copiando la estructura del update.
 ![image](https://github.com/user-attachments/assets/31011b3e-af44-4073-ac51-d38d28ca386f)
 ![image](https://github.com/user-attachments/assets/ac83f2ad-b9e3-4dad-88ca-8739e50a514b)
-![image](https://github.com/user-attachments/assets/375e8864-a7a8-4e7e-bd16-8d29b3b3e3d1)
+![image](https://github.com/user-attachments/assets/489bc0e2-6501-46e2-83b5-a20ce04ccaea)
 
-
-
-2 Agregamos una etiqueta <a> al header.html con la ruta 'empleado_app:empleado_add'.
+2 Agregamos una etiqueta <a> al **header.html** con la ruta **'empleado_app:empleado_add'**.
 ![image](https://github.com/user-attachments/assets/d7d1d08d-cd08-4385-aea9-1f53fdbaa004)
-![image](https://github.com/user-attachments/assets/5c660d4e-f28a-48e8-b074-93de419221f8)
-
 
 3 Nos aseguramos de que una vez ingresado un nuevo registro seamos redireccionados a la vista del administrador.
+![image](https://github.com/user-attachments/assets/8dd4f9b8-36b8-4304-981c-515a4466f831)
 
 4 Creamos una carpeta llamada **media** en la raiz de nuestro proyecto
+![image](https://github.com/user-attachments/assets/d29e5acc-b89b-4d67-aa8e-77f159cdba29)
 
 5 Ahora ingresaremos una imagen asociada a un empleado. Vamos a su modelo y le asignamos una carpeta **empleado**.
+![image](https://github.com/user-attachments/assets/05e0dfd9-1a8f-410b-8e14-b51485df9cf5)
 
 6 Deseamos que toda nuestra multimedia sea almacenada en la misma carpeta, por que vamos al archivo **local.py** de la carpeta **settings** de la aplicacion general **empleado** y agregamos las lineas:
 
-MEDIA_URL = "/media/"
+MEDIA_URL = "/media/"\
 MEDIA_ROOT = BASE_DIR / ("media")
+![image](https://github.com/user-attachments/assets/077267fb-53b1-4bfa-8672-c71fea98cfea)
 
 7 Vamos al archivo **urls.py** de la carpeta **settings** de la aplicacion general **empleado** donde importamos settings y static y 
 al conjunto de urls le concatenamos la siguiente ruta para nuestra media:
@@ -74,12 +74,26 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+![image](https://github.com/user-attachments/assets/29b820fb-1247-4891-bf76-48571a458ab8)
 
 8 Agregamos el nuevo campo tanto a la vista **EmpleadoCreateView** como al template **add.html**
+![image](https://github.com/user-attachments/assets/e8f99e3d-1f01-4836-98f6-1c20771735be)
+![image](https://github.com/user-attachments/assets/a6f3d48c-f485-4eeb-af35-56f444d40e72)
 
 9 Debemos agregar la siguiente configuracion extra al formulario:
 
 enctype = "multipart/form-data"
+![image](https://github.com/user-attachments/assets/61d8878c-92cc-42d5-84b4-8d8381cecde0)
+
+10 Veamos como queda:
+![image](https://github.com/user-attachments/assets/90059ab0-5342-4ca2-93a9-0aed063fa976)
+![image](https://github.com/user-attachments/assets/921af3a8-f0c5-409a-8322-80f7cf12896a)
+![image](https://github.com/user-attachments/assets/6490acf4-a800-4d4d-8048-fa293b3f1176)
+![image](https://github.com/user-attachments/assets/f48bfdc1-48c6-485b-8b01-5650b9ce86dc)
+![image](https://github.com/user-attachments/assets/985c4f67-f17f-4902-9fb7-72359571f91f)
+![image](https://github.com/user-attachments/assets/cfc0c3df-1e93-43c1-b5af-3a43d3f07339)
+![image](https://github.com/user-attachments/assets/59ba7969-9f6a-4b30-acfc-36cf48899367)
+
 
 
 
