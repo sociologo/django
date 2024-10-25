@@ -109,7 +109,8 @@ Recordemos que un departamento nuevo lo creamos mediante un formulario:
 ![image](https://github.com/user-attachments/assets/de634b1f-cbcc-460e-9548-35893b90186c)
 ![image](https://github.com/user-attachments/assets/ffb816a9-06ba-404f-8cbd-82962440951d)
 
-
+# Dandole formato a la pagina de detalle del empleado.
+![image](https://github.com/user-attachments/assets/ecfc682a-aa6a-43c5-bbec-99a073f394b1)
 
 
 
