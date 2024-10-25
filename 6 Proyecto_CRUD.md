@@ -94,6 +94,29 @@ enctype = "multipart/form-data"
 ![image](https://github.com/user-attachments/assets/cfc0c3df-1e93-43c1-b5af-3a43d3f07339)
 ![image](https://github.com/user-attachments/assets/59ba7969-9f6a-4b30-acfc-36cf48899367)
 
+# Construyendo la funcionalidad para crear un nuevo departamento.
+
+Recordemos que un departamento nuevo lo creamos mediante un formulario:
+![image](https://github.com/user-attachments/assets/b6ceea50-80ed-4a8e-8116-a79af4d8a570)
+
+1 Agregamos el link para agregar un nuevo departamento al template header.html y lo vinculados a la url ad-hoc:
+![image](https://github.com/user-attachments/assets/666e766d-d475-419d-97e8-d4077f9ac53a)
+
+2 Le damos formato al template **new_department.html**
+![image](https://github.com/user-attachments/assets/0be78fca-47ab-4fe2-8a39-3e7b78196595)
+
+3 Veamos como queda
+![image](https://github.com/user-attachments/assets/de634b1f-cbcc-460e-9548-35893b90186c)
+![image](https://github.com/user-attachments/assets/ffb816a9-06ba-404f-8cbd-82962440951d)
+
+
+
+
+
+
+
+
+
 
 
 
