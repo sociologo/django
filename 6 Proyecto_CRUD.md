@@ -44,15 +44,34 @@ Vamos a construir la funcionalidad al boton **administrar**, con el que podremos
 
 # Dandole funcionalidad al boton Registrar nuevo y añadiendo multimedia.
 
-1 Recordemos que la vista que nos permitia registrar nuevos empleados es **EmpleadoCreateView** y que la url que la activa es **'empleado_app: empleado_add'** . Agregamos una etiqueta <a> al header.html con esta ruta.
+1 Recordemos que la vista que nos permitia registrar nuevos empleados es **EmpleadoCreateView** y que la url que la activa es **'empleado_app:empleado_add'**. Le damos estilos al template **add.html** basicamente copiando la estructura del update.
 
-2 Le damos estilos al template **add.html** basicamente copiando la estructura del update.
+2 Agregamos una etiqueta <a> al header.html con la ruta 'empleado_app:empleado_add'.
 
+3 Nos aseguramos de que una vez ingresado un nuevo registro seamos redireccionados a la vista del administrador.
 
+4 Creamos una carpeta llamada **media** en la raiz de nuestro proyecto
 
+5 Ahora ingresaremos una imagen asociada a un empleado. Vamos a su modelo y le asignamos una carpeta **empleado**.
 
+6 Deseamos que toda nuestra multimedia sea almacenada en la misma carpeta, por que vamos al archivo **local.py** de la carpeta **settings** de la aplicacion general **empleado** y agregamos las lineas:
 
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR.child("media")
 
+7 Vamos al archivo **urls.py** de la carpeta **settings** de la aplicacion general **empleado** donde importamos settings y static y 
+al conjunto de urls le concatenamos la siguiente ruta para nuestra media:
+
+from django.conf import settings
+from django.conf.urls.static import static
+
++ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
+8 Agregamos el nuevo campo tanto a la vista **EmpleadoCreateView** como al template **add.html**
+
+9 Debemos agregar la siguiente configuracion extra al formulario:
+
+enctype = "multipart/form-data"
 
 
 
