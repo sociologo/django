@@ -45,8 +45,16 @@ Vamos a construir la funcionalidad al boton **administrar**, con el que podremos
 # Dandole funcionalidad al boton Registrar nuevo y añadiendo multimedia.
 
 1 Recordemos que la vista que nos permitia registrar nuevos empleados es **EmpleadoCreateView** y que la url que la activa es **'empleado_app:empleado_add'**. Le damos estilos al template **add.html** basicamente copiando la estructura del update.
+![image](https://github.com/user-attachments/assets/31011b3e-af44-4073-ac51-d38d28ca386f)
+![image](https://github.com/user-attachments/assets/ac83f2ad-b9e3-4dad-88ca-8739e50a514b)
+![image](https://github.com/user-attachments/assets/375e8864-a7a8-4e7e-bd16-8d29b3b3e3d1)
+
+
 
 2 Agregamos una etiqueta <a> al header.html con la ruta 'empleado_app:empleado_add'.
+![image](https://github.com/user-attachments/assets/d7d1d08d-cd08-4385-aea9-1f53fdbaa004)
+![image](https://github.com/user-attachments/assets/5c660d4e-f28a-48e8-b074-93de419221f8)
+
 
 3 Nos aseguramos de que una vez ingresado un nuevo registro seamos redireccionados a la vista del administrador.
 
@@ -57,7 +65,7 @@ Vamos a construir la funcionalidad al boton **administrar**, con el que podremos
 6 Deseamos que toda nuestra multimedia sea almacenada en la misma carpeta, por que vamos al archivo **local.py** de la carpeta **settings** de la aplicacion general **empleado** y agregamos las lineas:
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR.child("media")
+MEDIA_ROOT = BASE_DIR / ("media")
 
 7 Vamos al archivo **urls.py** de la carpeta **settings** de la aplicacion general **empleado** donde importamos settings y static y 
 al conjunto de urls le concatenamos la siguiente ruta para nuestra media:
