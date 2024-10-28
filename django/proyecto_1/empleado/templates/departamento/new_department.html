@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+        Registrar departamento.
+{% endblock title %}
+        
+{% block content %}
+        {% include 'includes/header.html' %}
+        <div class = "grid-container">
+                <div class = "grid-x">
+                        <h1 class = "cell">
+                                Registrar departamento.
+                        </h1>
+                        <div class = "cell">
+                                <form class = "cell callout grid-x grid-margin-x" method="post">{% csrf_token %}
+                                        <div class = "cell large-6">
+                                                <label>
+                                                        Nombres:
+                                                        {{ form.nombre }}
+                                                </label>
+                                        </div>
+                                        <div class = "cell large-6">
+                                                <label>
+                                                        Apellidos:
+                                                        {{ form.apellido }}
+                                                </label>
+                                        </div>    
+                                        <div class = "cell large-6">
+                                                <label>
+                                                        Trabajo:
+                                                        {{ form.departamento }}
+                                                </label>
+                                        </div>    
+                                        <div class = "cell large-6">
+                                                <label>
+                                                        Area:
+                                                        {{ form.shortname }}
+                                                </label>
+
+                                        <div class = "cell large-6">
+                                                <button type = "submit" class = "success button"> Guardar </button>
+                                        </div>                                  
+                                        
+                                </form>
+                        </div>
+                </div>
+        </div>
+{% endblock content %}

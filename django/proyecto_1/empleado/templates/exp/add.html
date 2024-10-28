@@ -1,0 +1,12 @@
+<h1>
+    Agregar un registro.
+</h1>
+
+<hr style="border: none; height: 2px; background-color: red; width: 90%;">
+
+<br>
+
+<form action="" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <button type = "submit"> Agregar </button>
+</form>

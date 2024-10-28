@@ -1,0 +1,14 @@
+<h1> Listando los elementos de nuestra primera base de datos</h1>
+
+{{lista_prueba}}
+
+<ul>
+
+    {% for pru in lista_prueba %}
+        <li>
+            {{pru.titulo}}  <br>
+            {{pru.subtitulo}} 
+        </li>
+    {% endfor %}
+
+</ul>
