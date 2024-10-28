@@ -112,6 +112,27 @@ Recordemos que un departamento nuevo lo creamos mediante un formulario:
 # Dandole formato a la pagina de detalle del empleado.
 ![image](https://github.com/user-attachments/assets/ecfc682a-aa6a-43c5-bbec-99a073f394b1)
 
+# Personalizando el ddl habilidades.
+
+1 Observemos que se despliega de una forma un tanto incomoda las habilidades de un empleados al registrarlo:
+![image](https://github.com/user-attachments/assets/295c3323-bb6d-4bb3-b12b-fa8cf1216d0c)
+
+2 Para solucionar ello, creamos un formulario dentro de nuestra aplicacion empleados:
+![image](https://github.com/user-attachments/assets/0e9a53b0-64e7-4b78-9026-262a54ca49f4)
+
+3 En el archivo views.py importamos el form y adaptamos nuestra vista Empleado creatView al formulario que hemos construido:
+![image](https://github.com/user-attachments/assets/dace20c0-0d7c-4482-ae71-d9c82e84a254)
+![image](https://github.com/user-attachments/assets/3c60a98d-ac14-4c53-a352-17db7f2e568b)
+
+4 Veamos ahora como queda el ingreso de un nuevo empleado:
+![image](https://github.com/user-attachments/assets/7cc53432-1353-469d-971b-9a71734d2c8a)
+![image](https://github.com/user-attachments/assets/7c0a5026-7091-49c0-a5e2-c7e5c0756317)
+![image](https://github.com/user-attachments/assets/61779f8f-2851-4cbf-87e9-a06eb0d6f6b7)
+
+
+
+
+
 
 
 
