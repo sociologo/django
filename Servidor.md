@@ -3,3 +3,6 @@
 
 2 Me aparece un error:
 ![image](https://github.com/user-attachments/assets/f308020c-d45f-4ae1-b6aa-00e37fedb72e)
+
+Cómo configurar Django con Postgres, Nginx y Gunicorn en Ubuntu.
+
