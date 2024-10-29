@@ -86,6 +86,12 @@ christian@django:~$
 
 ## 7 Creación de la base de datos y el usuario de PostgreSQL
 
+Crear el usuario
+otorgar los permisos necesarios al usuario
+GRANT USAGE, CREATE ON SCHEMA public TO yo1;
+ALTER USER yo1 WITH SUPERUSER;
+GRANT ALL PRIVILEGES ON DATABASE nombre_de_tu_base_de_datos TO yo1;
+
 
 
 
