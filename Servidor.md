@@ -16,7 +16,7 @@ adduser christian
 contraseña: 123456
 ```
 
-# 3 Concesión de privilegios administrativos
+## 3 Concesión de privilegios administrativos
 
 Ahora tienes una nueva cuenta de usuario con privilegios de cuenta normales. Sin embargo, a veces tendrás que realizar tareas administrativas como usuario root .
 
@@ -30,9 +30,63 @@ usermod -aG sudo christian
 ```
 Ahora puedes escribir sudo antes los comandos para ejecutarlos con privilegios de superusuario cuando inicias sesión como tu usuario habitual.
 
+## 4 Configuración de un firewall
+
+Los servidores Ubuntu pueden usar el firewall UFW para garantizar que solo se permitan conexiones a determinados servicios. Puede configurar un firewall básico con esta aplicación.
+
+Las aplicaciones pueden registrar sus perfiles en UFW durante la instalación. Estos perfiles permiten que UFW administre estas aplicaciones por nombre. OpenSSH, el servicio que le permite conectarse a su servidor, tiene un perfil registrado en UFW.
+
+Puede examinar la lista de perfiles UFW instalados escribiendo:
+```
+ufw app list
+```
+Deberá asegurarse de que el firewall permita conexiones SSH para poder iniciar sesión en su servidor la próxima vez. Permita estas conexiones escribiendo:
+```
+ufw allow OpenSSH
+```
+Ahora habilite el firewall escribiendo:
+```
+ufw enable
+```
+Puedes ver que las conexiones SSH aún están permitidas si escribes:
+```
+ufw status
+```
+Actualmente, el firewall está bloqueando todas las conexiones excepto SSH. Si instalas y configura servicios adicionales, deberá ajustar la configuración del firewall para permitir el nuevo tráfico en su servidor.
+
+## 5 Habilitar el acceso externo para el usuario habitual
+
+Ahora que tienes un usuario regular para uso diario, deberás asegurarte de poder acceder a la cuenta mediante SSH directamente.
+
+Nota: hasta verificar que puede iniciar sesión y usar sudo su nuevo usuario, le recomendamos permanecer conectado como root . Si tiene problemas para conectarse, puede solucionar problemas y realizar los cambios necesarios como root. Si utiliza un Droplet de DigitalOcean y tiene problemas con su conexión SSH root , puede recuperar el acceso a los Droplets mediante la Consola de recuperación.
+
+La configuración del acceso SSH para su nuevo usuario depende de si la cuenta raíz de su servidor utiliza una contraseña o claves SSH para la autenticación.
+
+### Si la cuenta raíz utiliza autenticación con contraseña
+
+Si inició sesión en su cuenta raíz con una contraseña , la autenticación con contraseña estará habilitada para SSH. Puedes iniciar sesión con SSH en su nueva cuenta de usuario abriendo una nueva sesión de terminal y usando SSH con su nuevo nombre de usuario:
+```
+ssh christian@your_server_ip
+contraseña: 123456
+```
+Después de ingresar tu contraseña de usuario habitual, iniciarás sesión. Recuerda, si necesitas ejecutar un comando con privilegios administrativos, escríbelo sudoantes de hacerlo de la siguiente manera:
+```
+sudo command_to_run
+```
+Recibirá una solicitud para su contraseña de usuario habitual sudola primera vez que utilice cada sesión (y periódicamente después).
+
+Para mejorar la seguridad de su servidor, le recomendamos encarecidamente configurar claves SSH en lugar de usar autenticación con contraseña . Siga nuestra guía sobre cómo configurar claves SSH en Ubuntu para aprender a configurar la autenticación basada en claves.
+
+![image](https://github.com/user-attachments/assets/5ab0ccf2-b354-4ec3-b995-5e47b523285e)
+
+
+
+
+
 <br>
 <br>
 <br>
+***
 
 https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu
 
