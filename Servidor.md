@@ -4,17 +4,17 @@ Acerca de root
 ```
 root@django:~# 
 ```
-El usuario root es el usuario administrativo en un entorno Linux con privilegios elevados. Debido a los privilegios elevados de la cuenta root , se desaconseja su uso habitual. La cuenta root puede realizar cambios muy destructivos, incluso por accidente.
-
-El siguiente paso es configurar una nueva cuenta de usuario con privilegios reducidos para el uso diario. Más adelante, le mostraremos cómo obtener privilegios mayores temporalmente para los momentos en que los necesite.
+El usuario root es el usuario administrativo en un entorno Linux con privilegios elevados. Debido a ello, se desaconseja su uso habitual. La cuenta root puede realizar cambios muy destructivos, incluso por accidente. Debes configurar una nueva cuenta de usuario con privilegios reducidos para el uso diario. 
 
 Crear un nuevo usuario
 
 Una vez que inicie sesión como root , podrá agregar la nueva cuenta de usuario. En el futuro, iniciaremos sesión con esta nueva cuenta en lugar de root .
 
-Este ejemplo crea un nuevo usuario llamado sammy , pero debes reemplazarlo con un nombre de usuario que te guste:
-
-
+Este ejemplo crea un nuevo usuario llamado christian:
+```
+adduser sammy
+contraseña: 123456
+```
 
 https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu
 
