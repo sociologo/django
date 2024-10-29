@@ -28,10 +28,11 @@ Como root, ejecute este comando para agregar su nuevo usuario al grupo sudo:
 ```
 usermod -aG sudo christian
 ```
-Ahora puedes escribir sudoantes los comandos para ejecutarlos con privilegios de superusuario cuando inicias sesión como tu usuario habitual.
+Ahora puedes escribir sudo antes los comandos para ejecutarlos con privilegios de superusuario cuando inicias sesión como tu usuario habitual.
 
-
-
+<br>
+<br>
+<br>
 
 https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu
 
