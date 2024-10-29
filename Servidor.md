@@ -77,6 +77,10 @@ Recibirá una solicitud para su contraseña de usuario habitual sudola primera v
 
 Para mejorar la seguridad de su servidor, le recomendamos encarecidamente configurar claves SSH en lugar de usar autenticación con contraseña . Siga nuestra guía sobre cómo configurar claves SSH en Ubuntu para aprender a configurar la autenticación basada en claves.
 
+Ahora estamos como:
+```
+christian@django:~$
+```
 
 
 
