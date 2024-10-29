@@ -179,7 +179,36 @@ Cree una excepción para el puerto 8000 escribiendo:
 sudo ufw allow 8000
 ```
 
-Recuerda que has creado un usuario administrativo y su contraseña es 123456
+Arrancamos el proyecto:
+```
+(env3) christian@django:~/midir3$ python manage.py runserver 0.0.0.0:8000
+```
+
+Recuerda que has creado un usuario administrativo linux y su contraseña es 123456
+
+Creamos un super usuario con contraseña 123456
+```
+(env3) christian@django:~/midir3$ python manage.py create superuser
+Unknown command: 'create'. Did you mean migrate?
+Type 'manage.py help' for usage.
+(env3) christian@django:~/midir3$ ~/manage.py create superuser
+-bash: /home/christian/manage.py: No such file or directory
+(env3) christian@django:~/midir3$ python manage.py create superuser
+Unknown command: 'create'. Did you mean migrate?
+Type 'manage.py help' for usage.
+(env3) christian@django:~/midir3$ python manage.py createsuperuser
+Username (leave blank to use 'christian'):
+Email address: tarredwall@gmail.com
+Password:
+Password (again):
+This password is too short. It must contain at least 8 characters.
+This password is too common.
+This password is entirely numeric.
+Bypass password validation and create user anyway? [y/N]: y
+Superuser created successfully.
+(env3) christian@django:~/midir3$
+```
+
 
 Para matar el proceso asociado al puerto 8000:
 
