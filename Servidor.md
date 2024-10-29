@@ -83,13 +83,27 @@ Para mejorar la seguridad de su servidor, le recomendamos encarecidamente config
 
 
 
+
+
+
+
 <br>
 <br>
 <br>
 ***
 
+How To Set Up Django with Postgres, Nginx, and Gunicorn on Ubuntu
+
+https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu
+
+Initial Server Setup with Ubuntu
+
 https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu
 
+<br>
+<br>
+<br>
+***
 
 1 Creamos un entorno virtual:
 ![image](https://github.com/user-attachments/assets/b954f28f-e764-4a6d-803d-16aa65f27df6)
