@@ -83,14 +83,61 @@ christian@django:~$
 ```
 
 ## 6 Instalación de los paquetes desde los repositorios de Ubuntu
+```
+sudo apt update
+sudo apt install python3-venv python3-dev libpq-dev postgresql postgresql-contrib nginx curl
+```
 
 ## 7 Creación de la base de datos y el usuario de PostgreSQL
 
-Crear el usuario
-otorgar los permisos necesarios al usuario
-GRANT USAGE, CREATE ON SCHEMA public TO yo1;
-ALTER USER yo1 WITH SUPERUSER;
-GRANT ALL PRIVILEGES ON DATABASE nombre_de_tu_base_de_datos TO yo1;
+Inicie sesión en una sesión interactiva de Postgres escribiendo:
+```
+sudo -u postgres psql
+```
+
+crea una base de datos para tu proyecto:
+```
+CREATE DATABASE mibded3;
+```
+
+crea un usuario de base de datos para nuestro proyecto. Asegúrate de seleccionar una contraseña segura:
+```
+CREATE USER yo3 WITH PASSWORD '123456';
+```
+
+modificará algunos de los parámetros de conexión del usuario que acaba de crear.
+```
+ALTER ROLE yo3 SET client_encoding TO 'utf8';
+ALTER ROLE yo3 SET default_transaction_isolation TO 'read committed';
+ALTER ROLE yo3 SET timezone TO 'UTC';
+```
+
+darle al nuevo usuario acceso para administrar la nueva base de datos:
+```
+GRANT USAGE, CREATE ON SCHEMA public TO yo3;
+ALTER USER yo3 WITH SUPERUSER;
+GRANT ALL PRIVILEGES ON DATABASE mibded2 TO yo3;
+```
+
+salga del indicador de PostgreSQL escribiendo:
+```
+\q
+```
+
+## Creación de un entorno virtual de Python para su proyecto
+
+```
+mkdir mipro3
+cd mipro3
+~/mipro3$ python -m venv env3
+~/mipro3$ source env3/bin/activate
+```
+
+Debe aparecer lo siguiente:
+```
+(env3)christian@django: ~/mipro3$
+```
+
 
 
 
