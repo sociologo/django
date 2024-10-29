@@ -92,45 +92,48 @@ sudo apt install python3-venv python3-dev libpq-dev postgresql postgresql-contri
 
 Inicie sesión en una sesión interactiva de Postgres escribiendo:
 ```
-sudo -u postgres psql
+christian@django:~$ sudo -u postgres psql
 ```
 
 crea una base de datos para tu proyecto:
 ```
-CREATE DATABASE mibded3;
+postgres=# CREATE DATABASE mibded3;
 ```
 
 crea un usuario de base de datos para nuestro proyecto. Asegúrate de seleccionar una contraseña segura:
 ```
-CREATE USER yo3 WITH PASSWORD '123456';
+postgres=# CREATE USER yo3 WITH PASSWORD '123456';
 ```
 
-modificará algunos de los parámetros de conexión del usuario que acaba de crear.
+modifica algunos de los parámetros de conexión del usuario que acaba de crear.
 ```
-ALTER ROLE yo3 SET client_encoding TO 'utf8';
-ALTER ROLE yo3 SET default_transaction_isolation TO 'read committed';
-ALTER ROLE yo3 SET timezone TO 'UTC';
+postgres=# ALTER ROLE yo3 SET client_encoding TO 'utf8';
+postgres=# ALTER ROLE yo3 SET default_transaction_isolation TO 'read committed';
+postgres=# ALTER ROLE yo3 SET timezone TO 'UTC';
 ```
 
 darle al nuevo usuario acceso para administrar la nueva base de datos:
 ```
-GRANT USAGE, CREATE ON SCHEMA public TO yo3;
-ALTER USER yo3 WITH SUPERUSER;
-GRANT ALL PRIVILEGES ON DATABASE mibded2 TO yo3;
+postgres=# GRANT USAGE, CREATE ON SCHEMA public TO yo3;
+postgres=# ALTER USER yo3 WITH SUPERUSER;
+postgres=# GRANT ALL PRIVILEGES ON DATABASE mibded3 TO yo3;
 ```
 
 salga del indicador de PostgreSQL escribiendo:
 ```
-\q
+postgres=# \q
 ```
+
+
+
 
 ## Creación de un entorno virtual de Python para su proyecto
 
 ```
-mkdir midir3
-cd midir3
-~/midir3$ python -m venv env3
-~/midir3$ source env3/bin/activate
+christian@django:~$ mkdir midir3
+christian@django:~$ cd midir3
+christian@django:~/midir3$ python3 -m venv env3
+christian@django:~/midir3$ source env3/bin/activate
 ```
 
 Debe aparecer lo siguiente:
@@ -147,6 +150,37 @@ Configuremos el archivo **settings.py**:
 ```
 (env3)christian@django:~$ nano ~/midir3/pro3/settings.py
 ```
+```
+ALLOWED_HOSTS = ['164.92.107.9', 'localhost']
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'mibded3',
+        'USER': 'yo3',
+        'PASSWORD': '123456',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+import os
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+```
+
+## Terminando la configuracion inicial del proyecto:
+```
+(env3) christian@django:~$ ~/midir3/manage.py makemigrations
+```
+```
+(env3) christian@django:~$ ~/midir3/manage.py migrate
+```
+
+Cree una excepción para el puerto 8000 escribiendo:
+```
+sudo ufw allow 8000
+```
+
+Recuerda que has creado un usuario administrativo y su contraseña es 123456
+
 
 
 
