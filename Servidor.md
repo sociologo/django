@@ -181,7 +181,11 @@ sudo ufw allow 8000
 
 Recuerda que has creado un usuario administrativo y su contraseña es 123456
 
+Para matar el proceso asociado al puerto 8000:
 
+```
+sudo fuser -k 8000/tcp
+```
 
 
 
