@@ -12,7 +12,7 @@ Una vez que inicie sesión como root , podrá agregar la nueva cuenta de usuario
 
 Este ejemplo crea un nuevo usuario llamado christian:
 ```
-adduser sammy
+adduser christian
 contraseña: 123456
 ```
 
