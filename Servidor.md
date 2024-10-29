@@ -127,17 +127,26 @@ salga del indicador de PostgreSQL escribiendo:
 ## Creación de un entorno virtual de Python para su proyecto
 
 ```
-mkdir mipro3
-cd mipro3
-~/mipro3$ python -m venv env3
-~/mipro3$ source env3/bin/activate
+mkdir midir3
+cd midir3
+~/midir3$ python -m venv env3
+~/midir3$ source env3/bin/activate
 ```
 
 Debe aparecer lo siguiente:
 ```
-(env3)christian@django: ~/mipro3$
+(env3)christian@django:~/midir3$ cd..
 ```
 
+Creemos un nuevo proyecto:
+```
+(env3)christian@django:~$ django-admin startproject pro3 ~/midir3
+```
+
+Configuremos el archivo **settings.py**:
+```
+(env3)christian@django:~$ nano ~/midir3/pro3/settings.py
+```
 
 
 
