@@ -82,9 +82,9 @@ Ahora estamos como:
 christian@django:~$
 ```
 
+## 6 Instalación de los paquetes desde los repositorios de Ubuntu
 
-
-
+## 7 Creación de la base de datos y el usuario de PostgreSQL
 
 
 
