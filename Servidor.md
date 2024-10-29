@@ -77,7 +77,7 @@ Recibirá una solicitud para su contraseña de usuario habitual sudola primera v
 
 Para mejorar la seguridad de su servidor, le recomendamos encarecidamente configurar claves SSH en lugar de usar autenticación con contraseña . Siga nuestra guía sobre cómo configurar claves SSH en Ubuntu para aprender a configurar la autenticación basada en claves.
 
-![image](https://github.com/user-attachments/assets/5ab0ccf2-b354-4ec3-b995-5e47b523285e)
+
 
 
 
@@ -105,11 +105,6 @@ https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubunt
 <br>
 ***
 
-1 Creamos un entorno virtual:
-![image](https://github.com/user-attachments/assets/b954f28f-e764-4a6d-803d-16aa65f27df6)
-
-2 Me aparece un error:
-![image](https://github.com/user-attachments/assets/f308020c-d45f-4ae1-b6aa-00e37fedb72e)
 
 
 
