@@ -225,6 +225,22 @@ sudo fuser -k 8000/tcp
 <br>
 ***
 
+Creemos un directorio para clonar nuestro proyecto desde GitHub a nuestro servidor:
+
+```
+christian@django:~$ sudo mkdir /proyecto_1
+christian@django:~$ cd /proyecto_1
+christian@django:/proyecto_1$ sudo git clone https://github.com/sociologo/django.git
+```
+
+
+
+<br>
+<br>
+<br>
+***
+
+
 How To Set Up Django with Postgres, Nginx, and Gunicorn on Ubuntu
 
 https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu
