@@ -66,7 +66,7 @@ La configuración del acceso SSH para su nuevo usuario depende de si la cuenta r
 
 Si inició sesión en su cuenta raíz con una contraseña , la autenticación con contraseña estará habilitada para SSH. Puedes iniciar sesión con SSH en su nueva cuenta de usuario abriendo una nueva sesión de terminal y usando SSH con su nuevo nombre de usuario:
 ```
-ssh christian@your_server_ip
+C:\Windows\System32>ssh christian@your_server_ip
 contraseña: 123456
 ```
 Después de ingresar tu contraseña de usuario habitual, iniciarás sesión. Recuerda, si necesitas ejecutar un comando con privilegios administrativos, escríbelo sudoantes de hacerlo de la siguiente manera:
