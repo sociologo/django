@@ -237,7 +237,25 @@ christian@django:~/proyecto_4$ source env4/bin/activate
 ```
 
 
-
+Configuremos el archivo **settings.py**:
+```
+(env3)christian@django:~$ nano ~/proyecto_4/pro3/settings.py
+```
+```
+ALLOWED_HOSTS = ['164.92.107.9', 'localhost']
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'mibded3',
+        'USER': 'yo3',
+        'PASSWORD': '123456',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+import os
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+```
 
 
 
