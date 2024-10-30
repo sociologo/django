@@ -259,6 +259,10 @@ import os
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 ```
 
+Asegúrate de que estás en el directorio correcto donde se encuentra manage.py.
+```
+sudo cd django/django/proyecto_1/empleado/empleado
+```
 
 
 
