@@ -271,19 +271,7 @@ sudo apt install python3-venv python3-dev libpq-dev postgresql postgresql-contri
 python manage.py makemigrations
 ```
 
-NO PUEDO SOLUCIONAR ESTE ERROR:
-```
-(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$ python manage.py makemigrations
-System check identified some issues:
 
-WARNINGS:
-?: (ckeditor.W001) django-ckeditor bundles CKEditor 4.22.1 which isn't supported anmyore and which does have unfixed security issues, see for example https://ckeditor.com/cke4/release/CKEditor-4.24.0-LTS . You should consider strongly switching to a different editor (maybe CKEditor 5 respectively django-ckeditor-5 after checking whether the CKEditor 5 license terms work for you) or switch to the non-free CKEditor 4 LTS package. See https://ckeditor.com/ckeditor-4-support/ for more on this. (Note! This notice has been added by the django-ckeditor developers and we are not affiliated with CKSource and were not involved in the licensing change, so please refrain from complaining to us. Thanks.)
-/proyecto_5/env5/lib/python3.12/site-packages/django/core/management/commands/makemigrations.py:160: RuntimeWarning: Got an error checking a consistent migration history performed for database connection 'default': connection to server at "localhost" (::1), port 5432 failed: FATAL:  password authentication failed for user "christian"
-connection to server at "localhost" (::1), port 5432 failed: FATAL:  password authentication failed for user "christian"
-
-  warnings.warn(
-No changes detected
-```
 
 
 ```
