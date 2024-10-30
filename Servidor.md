@@ -97,26 +97,26 @@ christian@django:~$ sudo -u postgres psql
 
 crea una base de datos para tu proyecto:
 ```
-postgres=# CREATE DATABASE bded4;
+postgres=# CREATE DATABASE bded5;
 ```
 
 crea un usuario de base de datos para nuestro proyecto. Asegúrate de seleccionar una contraseña segura:
 ```
-postgres=# CREATE USER yo4 WITH PASSWORD '123456';
+postgres=# CREATE USER christian WITH PASSWORD '123456';
 ```
 
 modifica algunos de los parámetros de conexión del usuario que acaba de crear.
 ```
-postgres=# ALTER ROLE yo4 SET client_encoding TO 'utf8';
-postgres=# ALTER ROLE yo4 SET default_transaction_isolation TO 'read committed';
-postgres=# ALTER ROLE yo4 SET timezone TO 'UTC';
+postgres=# ALTER ROLE christian SET client_encoding TO 'utf8';
+postgres=# ALTER ROLE christian SET default_transaction_isolation TO 'read committed';
+postgres=# ALTER ROLE christian SET timezone TO 'UTC';
 ```
 
 darle al nuevo usuario acceso para administrar la nueva base de datos:
 ```
-postgres=# GRANT USAGE, CREATE ON SCHEMA public TO yo4;
-postgres=# ALTER USER yo4 WITH SUPERUSER;
-postgres=# GRANT ALL PRIVILEGES ON DATABASE bded4 TO yo4;
+postgres=# GRANT USAGE, CREATE ON SCHEMA public TO christian;
+postgres=# ALTER USER christian WITH SUPERUSER;
+postgres=# GRANT ALL PRIVILEGES ON DATABASE bded5 TO christian;
 ```
 
 salga del indicador de PostgreSQL escribiendo:
