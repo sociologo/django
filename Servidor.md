@@ -263,6 +263,15 @@ Asegúrate de que estás en el directorio correcto donde se encuentra manage.py.
 ```
 (env5) christian@django:/proyecto_5$ cd django/django/proyecto_1/empleado
 ```
+
+
+```
+python3 manage.py runserver 0.0.0.0:8000
+```
+
+
+
+
 ```
 sudo apt update
 sudo apt install python3-venv python3-dev libpq-dev postgresql postgresql-contrib nginx curl
