@@ -233,12 +233,15 @@ christian@django:~$ cd /proyecto_5
 christian@django:~/proyecto_5$ sudo python3 -m venv env5
 christian@django:~/proyecto_5$ source env5/bin/activate
 (env4)christian@django:~/proyecto_5$ sudo git clone https://github.com/sociologo/django.git
+(env5) christian@django:/proyecto_5$ ls
+django  env5
+(env5) christian@django:/proyecto_5$ 
 ```
 
 
 Configuremos el archivo **settings.py**:
 ```
-(env3)christian@django:~$ nano ~/proyecto_4/pro3/settings.py
+(env5) christian@django:/proyecto_5$ sudo nano django/django/proyecto_1/empleado/empleado/settings/local.py
 ```
 ```
 ALLOWED_HOSTS = ['164.92.107.9', 'localhost']
