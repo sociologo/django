@@ -232,8 +232,8 @@ christian@django:~$ sudo mkdir /proyecto_4
 christian@django:~$ cd /proyecto_4
 christian@django:~/proyecto_4$ python3 -m venv env4
 christian@django:~/proyecto_4$ source env4/bin/activate
-(env3)christian@django:~/proyecto_4$ cd..
-(env3)christian@django:~$ sudo git clone https://github.com/sociologo/django.git ~/proyecto_4
+(env4)christian@django:~/proyecto_4$ cd..
+(env4)christian@django:~$ sudo git clone https://github.com/sociologo/django.git ~/proyecto_4
 ```
 
 
