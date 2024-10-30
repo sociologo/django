@@ -225,12 +225,12 @@ sudo fuser -k 8000/tcp
 <br>
 ***
 
-Creemos un directorio para clonar nuestro proyecto desde GitHub a nuestro servidor:
+# Creemos un directorio para clonar nuestro proyecto desde GitHub a nuestro servidor:
 
 ```
 christian@django:~$ sudo mkdir /proyecto_4
 christian@django:~$ cd /proyecto_4
-christian@django:~/proyecto_4$ python3 -m venv env4
+christian@django:~/proyecto_4$ sudo python3 -m venv env4
 christian@django:~/proyecto_4$ source env4/bin/activate
 (env4)christian@django:~/proyecto_4$ cd..
 (env4)christian@django:~$ sudo git clone https://github.com/sociologo/django.git ~/proyecto_4
