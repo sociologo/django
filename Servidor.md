@@ -309,6 +309,12 @@ Initial Server Setup with Ubuntu
 
 https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu
 
+
+superusuario de la aplicacion Django:
+```
+user: christian
+contraseña: 123456
+```
 <br>
 <br>
 <br>
