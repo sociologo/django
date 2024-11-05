@@ -260,6 +260,19 @@ christian@django:/proyecto_5/django/django/proyecto_1/empleado$ python3 manage.p
 
 - El proyecto esta levantado en **http://164.92.107.9:8000/**
 - Desconéctate de la sesión de tmux sin detener el servidor presionando Ctrl + B seguido de D.
+- Puedes cerrar simplemente tu sesion tmux.
+
+Para ingresar a una sesión de tmux ya existente, puedes usar el comando tmux attach:
+
+Listar las sesiones de tmux para ver las sesiones activas:
+```
+(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$ tmux ls
+```
+Ingresar a la sesión de tmux usando el nombre o el número de identificación de la sesión. Por ejemplo, si la sesión se llama mi_sesion, usa el siguiente comando:
+```
+(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$ tmux attach -t mi_sesion
+```
+
 
 Para cerrar tu sesión de tmux y detener cualquier proceso que esté ejecutándose en ella:
 ```
