@@ -248,7 +248,7 @@ sudo apt install tmux
 ```
 - Inicia una nueva sesión de tmux:
 ```
-tmux new -s mi_sesion
+tmux new -s **mi_sesion**
 ```
 - Inicia tu servidor Django dentro de la sesión de tmux:
 ```
