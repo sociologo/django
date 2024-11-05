@@ -10,11 +10,6 @@ password: xxxxxxxx
 root@django:~# exit
 ```
 
-Si queremos cambiar la contraseña:
-```
-sudo passwd christian
-```
-
 El usuario root es el usuario administrativo en un entorno Linux con privilegios elevados. Debido a ello, se desaconseja su uso habitual. La cuenta root puede realizar cambios muy destructivos, incluso por accidente. Por ello debemos configurar una nueva cuenta de usuario con privilegios reducidos para el uso diario. 
 
 ## 2 Crear un nuevo usuario
@@ -27,11 +22,16 @@ adduser christian
 contraseña: 123456
 ```
 
+Si queremos cambiar la contraseña de un usuario:
+```
+sudo passwd christian
+```
+
 ## 3 Concesión de privilegios administrativos
 
-Ahora tienes una nueva cuenta de usuario con privilegios de cuenta normales. Sin embargo, a veces tendrás que realizar tareas administrativas como usuario root .
+Ahora tienes una nueva cuenta de usuario con privilegios de cuenta normales. Sin embargo, a veces tendrás que realizar tareas administrativas como usuario root.
 
-Para evitar cerrar la sesión de su usuario habitual y volver a iniciarla como cuenta raíz , puede configurar lo que se conoce como privilegios de superusuario o raíz para la cuenta habitual de su usuario. Estos privilegios le permitirán a su usuario normal ejecutar comandos con privilegios administrativos colocando la palabra **sudo** antes del comando.
+Para evitar cerrar la sesión de su usuario habitual y volver a iniciarla como cuenta raíz, puedes configurar lo que se conoce como privilegios de superusuario o root para la cuenta habitual de su usuario. Estos privilegios le permitirán a tu usuario normal ejecutar comandos con privilegios administrativos colocando la palabra **sudo** antes del comando.
 
 Para agregar estos privilegios a su nuevo usuario, deberá agregarlo al grupo del sistema sudo. De manera predeterminada, en Ubuntu, los usuarios que son miembros del grupo sudo pueden usar el comando **sudo**.
 
@@ -69,7 +69,7 @@ Actualmente, el firewall está bloqueando todas las conexiones excepto SSH. Si i
 
 Ahora que tienes un usuario regular para uso diario, deberás asegurarte de poder acceder a la cuenta mediante SSH directamente.
 
-Nota: hasta verificar que puede iniciar sesión y usar sudo su nuevo usuario, le recomendamos permanecer conectado como root . Si tiene problemas para conectarse, puede solucionar problemas y realizar los cambios necesarios como root. Si utiliza un Droplet de DigitalOcean y tiene problemas con su conexión SSH root , puede recuperar el acceso a los Droplets mediante la Consola de recuperación.
+Nota: hasta verificar que puede iniciar sesión y usar sudo su nuevo usuario, le recomendamos permanecer conectado como root. Si tiene problemas para conectarse, puede solucionar problemas y realizar los cambios necesarios como root. 
 
 La configuración del acceso SSH para su nuevo usuario depende de si la cuenta raíz de su servidor utiliza una contraseña o claves SSH para la autenticación.
 
@@ -80,13 +80,13 @@ Si inició sesión en su cuenta raíz con una contraseña , la autenticación co
 C:\Windows\System32>ssh christian@your_server_ip
 contraseña: 123456
 ```
-Después de ingresar tu contraseña de usuario habitual, iniciarás sesión. Recuerda, si necesitas ejecutar un comando con privilegios administrativos, escríbelo sudoantes de hacerlo de la siguiente manera:
+Después de ingresar tu contraseña de usuario habitual, iniciarás sesión. Recuerda, si necesitas ejecutar un comando con privilegios administrativos, escríbelo sudo antes de hacerlo de la siguiente manera:
 ```
-sudo command_to_run
+sudo **comando**
 ```
 Recibirá una solicitud para su contraseña de usuario habitual sudola primera vez que utilice cada sesión (y periódicamente después).
 
-Para mejorar la seguridad de su servidor, le recomendamos encarecidamente configurar claves SSH en lugar de usar autenticación con contraseña . Siga nuestra guía sobre cómo configurar claves SSH en Ubuntu para aprender a configurar la autenticación basada en claves.
+**Para mejorar la seguridad de su servidor, le recomendamos encarecidamente configurar claves SSH en lugar de usar autenticación con contraseña.**
 
 Ahora estamos como:
 ```
