@@ -162,13 +162,6 @@ Debe aparecer lo siguiente:
 ```
 (env5) christian@django:/proyecto_5$ 
 ```
-***
-***
-***
-<br>
-<br>
-<br>
-***
 
 ## 9 Clonar nuestro proyecto desde GitHub a nuestro servidor
 
