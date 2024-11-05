@@ -240,7 +240,7 @@ Bypass password validation and create user anyway? [y/N]: y
 Superuser created successfully.
 ```
 
-# 13 Manteniendo arriba el servidor usando tmux:
+## 13 Manteniendo arriba el servidor usando tmux:
 
 - Instala tmux:
 ```
@@ -280,10 +280,6 @@ christian@django:~$ ps aux | grep runserver
 christian@django:~$ kill 136730
 ```
 
-***
-***
-<br>
-<br>
 <br>
 ***
 
@@ -295,10 +291,6 @@ Initial Server Setup with Ubuntu
 
 https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu
 
-***
-***
-<br>
-<br>
 <br>
 ***
 
