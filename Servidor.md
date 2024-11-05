@@ -228,7 +228,7 @@ Arrancamos el proyecto. Asegúrate de que estás en el directorio correcto donde
 
 ## 12 Super usuario para nuestro proyecto.
 ```
-(env3) christian@django:~/midir3$ python manage.py createsuperuser
+(env5) christian@django:/proyecto_5$ python3 manage.py createsuperuser
 Username (leave blank to use 'christian'):
 Email address: tarredwall@gmail.com
 Password:
@@ -238,33 +238,23 @@ This password is too common.
 This password is entirely numeric.
 Bypass password validation and create user anyway? [y/N]: y
 Superuser created successfully.
-(env3) christian@django:~/midir3$
 ```
 
+# 13 Manteniendo arriba el servidor usando tmux:
 
-
-
-
-
-
-
-<br>
-<br>
-<br>
-***
-
-
-
-
-
-
-
-
-
-
-
-
-
+- Instala tmux:
+```
+sudo apt install tmux
+```
+- Inicia una nueva sesión de tmux:
+```
+tmux new -s mi_sesion
+```
+- Inicia tu servidor Django dentro de la sesión de tmux:
+```
+python manage.py runserver 0.0.0.0:8000
+```
+- Desconéctate de la sesión de tmux sin detener el servidor presionando Ctrl + B seguido de D.
 
 How To Set Up Django with Postgres, Nginx, and Gunicorn on Ubuntu
 
@@ -274,12 +264,8 @@ Initial Server Setup with Ubuntu
 
 https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu
 
-
-superusuario de la aplicacion Django:
-```
-user: christian
-contraseña: 123456
-```
+***
+***
 <br>
 <br>
 <br>
@@ -287,44 +273,24 @@ contraseña: 123456
 
 # Levantando nuestro nuestro proyecto.
 
-Iniciamos nuestra terminal en windows como administrador:
+- Iniciamos nuestra terminal en windows como administrador:
 ```
 C:\Windows\System32>ssh christian@xxx.xx.xxx.x
 password: xxxxxx
 ```
-Activamos el entorno virtual accediendo a las rutas adecuadas y levantamos el servicio:
+- Activamos el entorno virtual accediendo a las rutas adecuadas y levantamos el servicio:
 ```
 christian@django:/$ cd /proyecto_5
-christian@django:/proyecto_5$ sudo python3 -m venv env5
-[sudo] password for christian:
 christian@django:/proyecto_5$ source env5/bin/activate
 (env5) christian@django:/proyecto_5$ cd django/django/proyecto_1/empleado
 (env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$ python3 manage.py runserver 0.0.0.0:8000
 ```
-
-Vamos a un navegador:
+- Vamos a un navegador:
 ```
 http://164.92.107.9:8000/
 ```
 
-# Manteniendo arriba el servidor usando tmux:
 
-Instala tmux:
-
-```
-sudo apt install tmux
-```
-Inicia una nueva sesión de tmux:
-
-```
-tmux new -s mi_sesion
-```
-Inicia tu servidor Django dentro de la sesión de tmux:
-
-```
-python manage.py runserver 0.0.0.0:8000
-```
-Desconéctate de la sesión de tmux sin detener el servidor presionando Ctrl + B seguido de D.
 
 
 
