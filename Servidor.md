@@ -172,8 +172,8 @@ Debe aparecer lo siguiente:
 
 ## 9 Clonar nuestro proyecto desde GitHub a nuestro servidor
 
-```
-(env4)christian@django:~/proyecto_5$ sudo git clone https://github.com/sociologo/django.git
+```python
+(env5) christian@django:/proyecto_5$ sudo git clone https://github.com/sociologo/django.git
 (env5) christian@django:/proyecto_5$ ls
 django  env5
 (env5) christian@django:/proyecto_5$ 
@@ -213,65 +213,28 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / ("media")
 ```
 
-
-
-
-
-Creemos un nuevo proyecto:
-```
-(env3)christian@django:~$ django-admin startproject pro3 ~/midir3
-```
-
-Configuremos el archivo **settings.py**:
-```
-(env3)christian@django:~$ nano ~/midir3/pro3/settings.py
-```
-```
-ALLOWED_HOSTS = ['164.92.107.9', 'localhost']
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mibded3',
-        'USER': 'yo3',
-        'PASSWORD': '123456',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
-import os
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-```
-
-## Terminando la configuracion inicial del proyecto:
+## 11 Haciendo las migraciones y arrancando el servidor proyecto:
 ```
 (env3) christian@django:~$ ~/midir3/manage.py makemigrations
-```
-```
 (env3) christian@django:~$ ~/midir3/manage.py migrate
 ```
 
-Cree una excepción para el puerto 8000 escribiendo:
+Crea una excepción para el puerto 8000 escribiendo:
 ```
 sudo ufw allow 8000
 ```
-
-Arrancamos el proyecto:
+Para matar el proceso asociado al puerto 8000:
 ```
-(env3) christian@django:~/midir3$ python manage.py runserver 0.0.0.0:8000
+sudo fuser -k 8000/tcp
+```
+Arrancamos el proyecto. Asegúrate de que estás en el directorio correcto donde se encuentra manage.py.
+```
+(env5) christian@django:/proyecto_5$ cd django/django/proyecto_1/empleado
+(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$ python3 manage.py runserver 0.0.0.0:8000
 ```
 
-Recuerda que has creado un usuario administrativo linux y su contraseña es 123456
-
-Creamos un super usuario con contraseña 123456
+## 12 Super usuario para nuestro proyecto.
 ```
-(env3) christian@django:~/midir3$ python manage.py create superuser
-Unknown command: 'create'. Did you mean migrate?
-Type 'manage.py help' for usage.
-(env3) christian@django:~/midir3$ ~/manage.py create superuser
--bash: /home/christian/manage.py: No such file or directory
-(env3) christian@django:~/midir3$ python manage.py create superuser
-Unknown command: 'create'. Did you mean migrate?
-Type 'manage.py help' for usage.
 (env3) christian@django:~/midir3$ python manage.py createsuperuser
 Username (leave blank to use 'christian'):
 Email address: tarredwall@gmail.com
@@ -286,11 +249,7 @@ Superuser created successfully.
 ```
 
 
-Para matar el proceso asociado al puerto 8000:
 
-```
-sudo fuser -k 8000/tcp
-```
 
 
 
@@ -335,13 +294,7 @@ import os
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 ```
 
-Asegúrate de que estás en el directorio correcto donde se encuentra manage.py.
-```
-(env5) christian@django:/proyecto_5$ cd django/django/proyecto_1/empleado
-```
-```
-(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$ python3 manage.py runserver 0.0.0.0:8000
-```
+
 
 
 
