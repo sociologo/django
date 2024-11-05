@@ -215,8 +215,8 @@ MEDIA_ROOT = BASE_DIR / ("media")
 
 ## 11 Haciendo las migraciones y arrancando el servidor proyecto:
 ```
-(env3) christian@django:~$ ~/midir3/manage.py makemigrations
-(env3) christian@django:~$ ~/midir3/manage.py migrate
+(env5) christian@django:/proyecto_5$ python3 manage.py makemigrations
+(env5) christian@django:/proyecto_5$ python3 manage.py migrate
 ```
 
 Crea una excepción para el puerto 8000 escribiendo:
@@ -260,74 +260,17 @@ Superuser created successfully.
 <br>
 ***
 
-# Creemos un directorio para clonar nuestro proyecto desde GitHub a nuestro servidor:
-
-```
-christian@django:~$ sudo mkdir /proyecto_5
-christian@django:~$ cd /proyecto_5
-christian@django:~/proyecto_5$ sudo python3 -m venv env5
-christian@django:~/proyecto_5$ source env5/bin/activate
-(env4)christian@django:~/proyecto_5$ sudo git clone https://github.com/sociologo/django.git
-(env5) christian@django:/proyecto_5$ ls
-django  env5
-(env5) christian@django:/proyecto_5$ 
-```
-
-
-Configuremos el archivo **settings.py**:
-```
-(env5) christian@django:/proyecto_5$ sudo nano django/django/proyecto_1/empleado/empleado/settings/local.py
-```
-```
-ALLOWED_HOSTS = ['164.92.107.9', 'localhost']
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mibded3',
-        'USER': 'yo3',
-        'PASSWORD': '123456',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
-import os
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-```
 
 
 
 
 
 
-```
-sudo apt update
-sudo apt install python3-venv python3-dev libpq-dev postgresql postgresql-contrib nginx curl
-```
-```
-python manage.py makemigrations
-```
 
 
 
 
-```
-(env3) christian@django:~$ ~/midir3/manage.py migrate
-```
 
-Cree una excepción para el puerto 8000 escribiendo:
-```
-sudo ufw allow 8000
-```
-
-Arrancamos el proyecto:
-```
-(env3) christian@django:~/midir3$ python manage.py runserver 0.0.0.0:8000
-```
-
-<br>
-<br>
-<br>
-***
 
 
 How To Set Up Django with Postgres, Nginx, and Gunicorn on Ubuntu
