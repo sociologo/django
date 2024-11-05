@@ -256,6 +256,31 @@ python manage.py runserver 0.0.0.0:8000
 ```
 - Desconéctate de la sesión de tmux sin detener el servidor presionando Ctrl + B seguido de D.
 
+Para cerrar tu sesión de tmux y detener cualquier proceso que esté ejecutándose en ella, puedes seguir estos pasos:
+
+-Reanudar la sesión de tmux si no estás actualmente en ella:
+```
+tmux attach -t mi_sesion
+```
+-Cerrar la sesión de tmux y detener todos los procesos en ejecución dentro de ella:
+```
+exit
+```
+Alternativamente, puedes presionar Ctrl + D para cerrar la sesión.
+- Si deseas cerrar todas las sesiones de tmux activas, puedes usar el siguiente comando:
+```
+tmux kill-server
+```
+Esto cerrará todas las sesiones de tmux y detendrá cualquier proceso en ejecución dentro de ellas.
+
+
+***
+***
+<br>
+<br>
+<br>
+***
+
 How To Set Up Django with Postgres, Nginx, and Gunicorn on Ubuntu
 
 https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu
