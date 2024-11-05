@@ -322,10 +322,12 @@ contraseña: 123456
 
 # Levantando nuestro nuestro proyecto.
 
+Iniciamos nuestra terminal en windows como administrador:
 ```
 C:\Windows\System32>ssh christian@xxx.xx.xxx.x
 password: xxxxxx
 ```
+Activamos el entorno virtual accediendo a las rutas adecuadas y levantamos el servicio:
 ```
 christian@django:/$ cd /proyecto_5
 christian@django:/proyecto_5$ sudo python3 -m venv env5
@@ -335,6 +337,10 @@ christian@django:/proyecto_5$ source env5/bin/activate
 (env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$ python3 manage.py runserver 0.0.0.0:8000
 ```
 
+Vamos a un navegador:
+```
+http://164.92.107.9:8000/
+```
 
 
 
