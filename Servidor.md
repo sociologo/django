@@ -320,6 +320,21 @@ contraseña: 123456
 <br>
 ***
 
+# Levantando nuestro nuestro proyecto.
+
+```
+C:\Windows\System32>ssh christian@xxx.xx.xxx.x
+password: xxxxxx
+```
+```
+christian@django:/$ cd /proyecto_5
+christian@django:/proyecto_5$ sudo python3 -m venv env5
+[sudo] password for christian:
+christian@django:/proyecto_5$ source env5/bin/activate
+(env5) christian@django:/proyecto_5$ cd django/django/proyecto_1/empleado
+(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$ python3 manage.py runserver 0.0.0.0:8000
+```
+
 
 
 
