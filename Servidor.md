@@ -1,16 +1,20 @@
 # Cómo configurar Django con Postgres, Nginx y Gunicorn en Ubuntu.
 
 ## 1 Acerca de root
+
+Podemos acceder a un droplet de **DigitalOcean** desde una terminal windows local ejecutada como administrador con:
 ```
-root@django:~# 
+C:\Windows\System32>ssh root@xxx.xx.xxx.x
+password: xxxxxxxx
+root@django:~# exit
 ```
-El usuario root es el usuario administrativo en un entorno Linux con privilegios elevados. Debido a ello, se desaconseja su uso habitual. La cuenta root puede realizar cambios muy destructivos, incluso por accidente. Debes configurar una nueva cuenta de usuario con privilegios reducidos para el uso diario. 
+El usuario root es el usuario administrativo en un entorno Linux con privilegios elevados. Debido a ello, se desaconseja su uso habitual. La cuenta root puede realizar cambios muy destructivos, incluso por accidente. Por ello debemos configurar una nueva cuenta de usuario con privilegios reducidos para el uso diario. 
 
 ## 2 Crear un nuevo usuario
 
-Una vez que inicie sesión como root , podrá agregar la nueva cuenta de usuario. En el futuro, iniciaremos sesión con esta nueva cuenta en lugar de root .
+Una vez que inicie sesión como root, podrá agregar la nueva cuenta de usuario. En el futuro, iniciaremos sesión con esta nueva cuenta en lugar de root.
 
-Este ejemplo crea un nuevo usuario llamado christian:
+Crearemos un nuevo usuario llamado christian:
 ```
 adduser christian
 contraseña: 123456
