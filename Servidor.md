@@ -162,6 +162,19 @@ Debe aparecer lo siguiente:
 ```
 (env5) christian@django:/proyecto_5$ 
 ```
+***
+***
+***
+<br>
+<br>
+<br>
+***
+
+
+
+
+
+
 
 Creemos un nuevo proyecto:
 ```
