@@ -137,7 +137,7 @@ postgres=# GRANT ALL PRIVILEGES ON DATABASE bded5 TO christian;
 postgres=# \q
 ```
 
-## Creación de un entorno virtual de Python para su proyecto
+## 8 Creación de un entorno virtual de Python para su proyecto
 
 ```
 christian@django:~$ mkdir proyecto_5
@@ -170,7 +170,48 @@ Debe aparecer lo siguiente:
 <br>
 ***
 
+## 9 Clonar nuestro proyecto desde GitHub a nuestro servidor
 
+```
+(env4)christian@django:~/proyecto_5$ sudo git clone https://github.com/sociologo/django.git
+(env5) christian@django:/proyecto_5$ ls
+django  env5
+(env5) christian@django:/proyecto_5$ 
+```
+
+## 10 Configuracion del archivo settings.py
+
+```python
+(env5) christian@django:/proyecto_5$ sudo nano django/django/proyecto_1/empleado/empleado/settings/local.py
+```
+
+```bash
+from .base import *
+
+DEBUG = True
+
+ALLOWED_HOSTS = ['164.92.107.9', 'localhost']
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'bded5',
+        'USER ': 'christian',
+        'PASSWORD': '123456',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+
+STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / ("media")
+```
 
 
 
