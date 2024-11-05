@@ -244,11 +244,14 @@ Superuser created successfully.
 
 - Instala tmux:
 ```
-sudo apt install tmux
+christian@django:/$ cd /proyecto_5
+christian@django:/proyecto_5$ source env5/bin/activate
+(env5) christian@django:/proyecto_5$ cd django/django/proyecto_1/empleado
+(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$ sudo apt install tmux
 ```
 - Inicia una nueva sesión de tmux:
 ```
-tmux new -s mi_sesion
+(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$ tmux new -s mi_sesion
 ```
 - Inicia tu servidor Django dentro de la sesión de tmux:
 ```
@@ -257,7 +260,7 @@ christian@django:/proyecto_5/django/django/proyecto_1/empleado$ python3 manage.p
 
 - El proyecto esta levantado en **http://164.92.107.9:8000/**
 - Desconéctate de la sesión de tmux sin detener el servidor presionando Ctrl + B seguido de D.
-- 
+
 Para cerrar tu sesión de tmux y detener cualquier proceso que esté ejecutándose en ella:
 ```
 christian@django:~$ ps aux | grep runserver
