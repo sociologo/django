@@ -342,5 +342,24 @@ Vamos a un navegador:
 http://164.92.107.9:8000/
 ```
 
+# Manteniendo arriba el servidor usando tmux:
+
+Instala tmux:
+
+```
+sudo apt install tmux
+```
+Inicia una nueva sesión de tmux:
+
+```
+tmux new -s mi_sesion
+```
+Inicia tu servidor Django dentro de la sesión de tmux:
+
+```
+python manage.py runserver 0.0.0.0:8000
+```
+Desconéctate de la sesión de tmux sin detener el servidor presionando Ctrl + B seguido de D.
+
 
 
