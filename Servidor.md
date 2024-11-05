@@ -258,11 +258,11 @@ python manage.py runserver 0.0.0.0:8000
 
 Para cerrar tu sesión de tmux y detener cualquier proceso que esté ejecutándose en ella, puedes seguir estos pasos:
 
--Reanudar la sesión de tmux si no estás actualmente en ella:
+- Reanudar la sesión de tmux si no estás actualmente en ella:
 ```
 tmux attach -t mi_sesion
 ```
--Cerrar la sesión de tmux y detener todos los procesos en ejecución dentro de ella:
+- Cerrar la sesión de tmux y detener todos los procesos en ejecución dentro de ella:
 ```
 exit
 ```
