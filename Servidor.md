@@ -108,50 +108,59 @@ sudo apt install python3-venv python3-dev libpq-dev postgresql postgresql-contri
 christian@django:~$ sudo -u postgres psql
 ```
 
-crea una base de datos para tu proyecto:
+- Crea una base de datos para tu proyecto:
 ```
 postgres=# CREATE DATABASE bded5;
 ```
 
-crea un usuario de base de datos para nuestro proyecto. Asegúrate de seleccionar una contraseña segura:
+- Crea un usuario de base de datos para nuestro proyecto. Asegúrate de seleccionar una contraseña segura:
 ```
 postgres=# CREATE USER christian WITH PASSWORD '123456';
 ```
 
-modifica algunos de los parámetros de conexión del usuario que acaba de crear.
+- Modifica algunos de los parámetros de conexión del usuario que acabas de crear.
 ```
 postgres=# ALTER ROLE christian SET client_encoding TO 'utf8';
 postgres=# ALTER ROLE christian SET default_transaction_isolation TO 'read committed';
 postgres=# ALTER ROLE christian SET timezone TO 'UTC';
 ```
 
-darle al nuevo usuario acceso para administrar la nueva base de datos:
+- Dale al nuevo usuario acceso para administrar la nueva base de datos:
 ```
 postgres=# GRANT USAGE, CREATE ON SCHEMA public TO christian;
 postgres=# ALTER USER christian WITH SUPERUSER;
 postgres=# GRANT ALL PRIVILEGES ON DATABASE bded5 TO christian;
 ```
 
-salga del indicador de PostgreSQL escribiendo:
+- Sale del prompt de PostgreSQL escribiendo:
 ```
 postgres=# \q
 ```
 
-
-
-
 ## Creación de un entorno virtual de Python para su proyecto
 
 ```
-christian@django:~$ mkdir midir3
-christian@django:~$ cd midir3
-christian@django:~/midir3$ python3 -m venv env3
-christian@django:~/midir3$ source env3/bin/activate
+christian@django:~$ mkdir proyecto_5
+christian@django:~$ cd /proyecto_5
+```
+
+Puede que el fichero **proyecto_5** quede ubicado en el directorio raiz del sistema en vez del directorio de inicio de usuario. Si es así debemos preceder al comando con una barra:
+
+```
+christian@django:~$ ls /
+christian@django:~$ cd /proyecto_5
+christian@django:/proyecto_5$
+```
+
+Creamos y activamos el entorno virtual
+```
+christian@django:/proyecto_5$ python3 -m venv env3
+christian@django:/proyecto_5$ source env5/bin/activate
 ```
 
 Debe aparecer lo siguiente:
 ```
-(env3)christian@django:~/midir3$ cd..
+(env5) christian@django:/proyecto_5$ 
 ```
 
 Creemos un nuevo proyecto:
