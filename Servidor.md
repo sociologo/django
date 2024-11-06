@@ -366,6 +366,7 @@ Necesitamos configurar un archivo **gunicorn_start**. El archivo gunicorn_start 
 
 ```
 (env5) christian@django:/proyecto_5/env5/bin$ touch gunicorn_start
+(env5) christian@django:/proyecto_5/env5/bin$ nano gunicorn_start
 ```
 
 
@@ -373,14 +374,18 @@ Necesitamos configurar un archivo **gunicorn_start**. El archivo gunicorn_start 
 ```bash
 #!/bin/bash
 
-NAME="name_app"                                            # Name of the application
-DJANGODIR=/webapps/entorno_name/django_dir                 # Django project directory
-SOCKFILE=/webapps/swnsoccer/run/gunicorn.sock              # we will communicte using this unix socket
-USER=root                                                  # the user to run as
-GROUP=root                                                 # the group to run as
-NUM_WORKERS=3                                              # how many worker processes should Gunicorn spawn
-DJANGO_SETTINGS_MODULE=django_dir.settings.prod            # which settings file should Django use
-DJANGO_WSGI_MODULE=django_dir.wsgi                         # WSGI module name
+NAME="empleado"                                            # Name of the application
+
+(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$
+
+DJANGODIR=/proyecto_5/django/django/proyecto_1/empleado            # Django project directory
+SOCKFILE=/proyecto_5/django/django/proyecto_1/run/gunicorn.sock    # we will communicte using this unix socket
+USER=root                                                          # the user to run as
+GROUP=root                                                         # the group to run as
+NUM_WORKERS=3                                                      # how many worker processes should 
+                                                                   # Gunicorn spawn
+DJANGO_SETTINGS_MODULE=empleado.settings.prod                    # which settings file should Django use
+DJANGO_WSGI_MODULE=empleado.wsgi                                 # WSGI module name
 
 echo "Starting $NAME as `whoami`"
 
