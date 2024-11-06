@@ -297,6 +297,106 @@ Initial Server Setup with Ubuntu
 
 https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu
 
+## 14 Instalar **nginex** y **gunicorn**:
+
+Nginx y Gunicorn son herramientas esenciales para desplegar aplicaciones web en producción, especialmente cuando se trata de aplicaciones basadas en Python como Django o Flask. Son herramientas que solo utilizamos en produccion.
+
+*Nginx*
+
+Nginx es un servidor web y proxy inverso de alto rendimiento. Sus principales funciones incluyen:
+
+- Servir contenido estático: Nginx es muy eficiente para servir archivos estáticos como imágenes, CSS y JavaScript.
+
+- Proxy inverso: Actúa como intermediario entre los clientes y el servidor de aplicaciones, manejando las solicitudes entrantes y distribuyéndolas a los servidores de aplicaciones.
+
+- Balanceo de carga: Distribuye el tráfico entre varios servidores de aplicaciones para mejorar el rendimiento y la disponibilidad.
+
+- Seguridad: Proporciona características de seguridad como la limitación de la tasa de solicitudes y la protección contra ataques DDoS.
+
+*Gunicorn*
+
+Gunicorn (Green Unicorn) es un servidor de aplicaciones WSGI (Web Server Gateway Interface) para aplicaciones Python. Sus principales funciones incluyen:
+
+- Manejo de solicitudes: Gunicorn se encarga de recibir las solicitudes HTTP y pasarlas a la aplicación Python para su procesamiento.
+
+- Multiprocesamiento: Puede manejar múltiples solicitudes simultáneamente utilizando múltiples trabajadores, lo que mejora el rendimiento de la aplicación.
+
+- Compatibilidad: Es compatible con cualquier aplicación que siga la especificación WSGI, lo que lo hace ideal para aplicaciones Django y Flask.
+
+Nginx y Gunicorn se complementan muy bien debido a sus respectivas fortalezas:
+
+-Separación de responsabilidades: Nginx maneja las solicitudes HTTP, el contenido estático y la seguridad, mientras que Gunicorn se enfoca en ejecutar la aplicación Python y manejar las solicitudes dinámicas.
+
+-Rendimiento: Nginx puede manejar una gran cantidad de conexiones simultáneas y distribuirlas eficientemente a Gunicorn, que a su vez puede manejar múltiples solicitudes concurrentes.
+
+-Escalabilidad: Esta combinación permite escalar la aplicación fácilmente, añadiendo más instancias de Gunicorn detrás de Nginx para manejar un mayor tráfico.
+
+-Seguridad: Nginx actúa como una capa de seguridad adicional, protegiendo la aplicación de ataques directos y manejando la terminación de SSL/TLS.
+
+En resumen, Nginx y Gunicorn forman un equipo poderoso para desplegar aplicaciones web en producción, combinando eficiencia, rendimiento y seguridad.
+
+```
+(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$ sudo apt install nginx
+(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$ pip install gunicorn
+```
+```
+(env5) christian@django:/$  cd /proyecto_5
+(env5) christian@django:/proyecto_5$  source env5/bin/activate
+(env5) christian@django:/proyecto_5$ ls
+django  env5
+(env5) christian@django:/proyecto_5$ cd env5
+(env5) christian@django:/proyecto_5/env5$ ls
+bin  include  lib  lib64  pyvenv.cfg
+(env5) christian@django:/proyecto_5/env5$ cd bin
+(env5) christian@django:/proyecto_5/env5/bin$ ls
+Activate.ps1  activate.csh   django-admin  pip   pip3.12  python3     sqlformat
+activate      activate.fish  gunicorn      pip3  python   python3.12
+(env5) christian@django:/proyecto_5/env5/bin$
+```
+```
+(env5) christian@django:/proyecto_5/env5/bin$ touch gunicorn_start
+```
+
+
+
+```
+#!/bin/bash
+
+NAME="name_app"                                  # Name of the application
+DJANGODIR=/webapps/entorno_name/django_dir             # Django project directory
+SOCKFILE=/webapps/swnsoccer/run/gunicorn.sock  # we will communicte using this unix socket
+USER=root                                        # the user to run as
+GROUP=root                                     # the group to run as
+NUM_WORKERS=3                                     # how many worker processes should Gunicorn spawn
+DJANGO_SETTINGS_MODULE=django_dir.settings.prod             # which settings file should Django use
+DJANGO_WSGI_MODULE=django_dir.wsgi                     # WSGI module name
+
+echo "Starting $NAME as `whoami`"
+
+# Activate the virtual environment
+cd $DJANGODIR
+source ../bin/activate
+export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
+export PYTHONPATH=$DJANGODIR:$PYTHONPATH
+
+# Create the run directory if it doesn't exist
+RUNDIR=$(dirname $SOCKFILE)
+test -d $RUNDIR || mkdir -p $RUNDIR
+
+# Start your Django Unicorn
+# Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)
+exec ../bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
+  --name $NAME \
+  --workers $NUM_WORKERS \
+  --user=$USER --group=$GROUP \
+  --bind=unix:$SOCKFILE \
+  --log-level=debug \
+  --log-file=-
+
+```
+
+
+
 <br>
 ***
 
