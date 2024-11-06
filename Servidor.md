@@ -359,17 +359,17 @@ activate      activate.fish  gunicorn      pip3  python   python3.12
 
 
 
-```
+```bash
 #!/bin/bash
 
-NAME="name_app"                                  # Name of the application
-DJANGODIR=/webapps/entorno_name/django_dir             # Django project directory
-SOCKFILE=/webapps/swnsoccer/run/gunicorn.sock  # we will communicte using this unix socket
-USER=root                                        # the user to run as
-GROUP=root                                     # the group to run as
-NUM_WORKERS=3                                     # how many worker processes should Gunicorn spawn
-DJANGO_SETTINGS_MODULE=django_dir.settings.prod             # which settings file should Django use
-DJANGO_WSGI_MODULE=django_dir.wsgi                     # WSGI module name
+NAME="name_app"                                            # Name of the application
+DJANGODIR=/webapps/entorno_name/django_dir                 # Django project directory
+SOCKFILE=/webapps/swnsoccer/run/gunicorn.sock              # we will communicte using this unix socket
+USER=root                                                  # the user to run as
+GROUP=root                                                 # the group to run as
+NUM_WORKERS=3                                              # how many worker processes should Gunicorn spawn
+DJANGO_SETTINGS_MODULE=django_dir.settings.prod            # which settings file should Django use
+DJANGO_WSGI_MODULE=django_dir.wsgi                         # WSGI module name
 
 echo "Starting $NAME as `whoami`"
 
