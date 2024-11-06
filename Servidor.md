@@ -172,6 +172,9 @@ django  env5
 (env5) christian@django:/proyecto_5$ 
 ```
 
+![git](https://github.com/user-attachments/assets/70a62360-3e03-429e-83a5-c751f8667241)
+
+
 ## 10 Configuracion del archivo settings.py
 
 ```python
