@@ -205,7 +205,7 @@ STATICFILES_DIRS = [
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / ("media")
 ```
-
+<span style="color: red;">Este es un texto en rojo usando HTML.</span> ```html <!-- También puedes usar HTML para bloques de código --> <p style="color: blue;">Este es un párrafo en azul.</p>
 ## 11 Haciendo las migraciones y arrancando el servidor proyecto:
 ```
 (env5) christian@django:/proyecto_5$ python3 manage.py makemigrations
