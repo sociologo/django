@@ -208,12 +208,8 @@ MEDIA_ROOT = BASE_DIR / ("media")
 
 > ES MUY IMPORTANTE QUE EL **USER** DE LA BASE DE DATOS SEA EL MISMO QUE EL **NOMBRE DEL USUARIO** LINUX CON EL QUE ESTAS TRABAJANDO. SI NO, NO TE PODRAS CONECTAR!
 
-<span style="color: red;">Este es un texto en rojo usando HTML.</span> 
-
-```html <!-- También puedes usar HTML para bloques de código --> <p style="color: blue;">Este es un párrafo en azul.</p>
-
-
 ## 11 Haciendo las migraciones y arrancando el servidor proyecto:
+
 ```
 (env5) christian@django:/proyecto_5$ python3 manage.py makemigrations
 (env5) christian@django:/proyecto_5$ python3 manage.py migrate
