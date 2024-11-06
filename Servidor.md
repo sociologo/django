@@ -376,8 +376,6 @@ Necesitamos configurar un archivo **gunicorn_start**. El archivo gunicorn_start 
 
 NAME="empleado"                                            # Name of the application
 
-(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$
-
 DJANGODIR=/proyecto_5/django/django/proyecto_1/empleado            # Django project directory
 SOCKFILE=/proyecto_5/django/django/proyecto_1/run/gunicorn.sock    # we will communicte using this unix socket
 USER=root                                                          # the user to run as
