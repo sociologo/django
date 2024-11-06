@@ -409,7 +409,12 @@ exec ../bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
 
 ```
 
+Le damos permisos de lectura a **gunicorn_start**:
 
+```
+(env5) christian@django:/proyecto_5/env5/bin$ chmod u+x gunicorn_start
+```
+Ahora le entregamos contenido al archivo **prod.py**
 
 <br>
 ***
