@@ -450,6 +450,13 @@ origin  https://github.com/sociologo/django.git (push)
 christian@django:/proyecto_5/django$
 ```
 
+Queda asi:
+```
+(env5) christian@django:/proyecto_5/env5/bin$ gunicorn_start
+```
+![image](https://github.com/user-attachments/assets/e6bd7d75-3c40-4f5c-a0c8-01938b5a0146)
+
+
 
 
 <br>
