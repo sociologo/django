@@ -174,6 +174,8 @@ django  env5
 
 ![git](https://github.com/user-attachments/assets/70a62360-3e03-429e-83a5-c751f8667241)
 
+**IMPORTANTE: GITHUB VIA SHH YA NO ACEPTA CREDENCIALES PASSWORD, SINO QUE NECESITARAS UN TOKEN **
+![token2](https://github.com/user-attachments/assets/13d02687-8652-4663-bf74-5d11f65bb13c)
 
 ## 10 Configuracion del archivo settings.py
 
@@ -480,7 +482,40 @@ Al usar Supervisor, puedes asegurarte de que tu aplicación web esté siempre en
 
 Supervisor también facilita la administración de múltiples procesos Gunicorn en un solo servidor, lo que es útil para aplicaciones web de gran escala.
 
+```
+(env5) christian@django:/proyecto_5/env5/bin$ sudo apt install supervisor
+(env5) christian@django:/proyecto_5/env5/bin$ cd /etc/supervisor/conf.d/
+(env5) christian@django:/etc/supervisor/conf.d$ sudo touch /etc/supervisor/conf.d/empleado.conf
+(env5) christian@django:/etc/supervisor/conf.d$ sudo nano empleado.conf
+```
 
+```bash
+[program:empleado]
+command = /proyecto_5/env5/bin/gunicorn_start                    ; Command to start app
+user = christian                                                          ; User to run as
+stdout_logfile = /proyecto_5/env5/logs/gunicorn_supervisor.log   ; Where to write log messages
+redirect_stderr = true                                                ; Save stderr in the same log
+environment=LANG=en_US.UTF-8,LC_ALL=en_US.UTF-8                       ; Set UTF-8 as default encoding
+```
+
+```
+(env5) christian@django:/proyecto_5/env5$ mkdir logs
+(env5) christian@django:/proyecto_5/env5$ touch logs/gunicorn_supervisor.log
+```
+
+```
+(env5) christian@django:/proyecto_5/env5$ sudo supervisorctl reread
+empleado: available
+```
+
+```
+(env5) christian@django:/proyecto_5/env5$ sudo supervisorctl update
+empleado: added process group
+```
+
+Ahora lo que necesitamos ahora es configurar que cuando **nginx** detecte una peticion hacia nuestro proyecto,  sirva la aplicacion que acabamos de configurar con gunicorne y supervisor.
+
+## 16 Configurar nginx
 
 
 <br>
