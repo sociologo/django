@@ -446,6 +446,15 @@ MEDIA_ROOT = BASE_DIR / ("media")
 
 actualizamos nuestro repositorio a GitHub y lo clonamos a nuestro servidor:
 
+```
+christian@django:/$ cd /proyecto_5
+christian@django:/proyecto_5$ cd django
+christian@django:/proyecto_5/django$ git remote -v
+origin  https://github.com/sociologo/django.git (fetch)
+origin  https://github.com/sociologo/django.git (push)
+christian@django:/proyecto_5/django$
+```
+
 
 
 <br>
