@@ -517,6 +517,67 @@ Ahora lo que necesitamos ahora es configurar que cuando **nginx** detecte una pe
 
 ## 16 Configurar nginx
 
+```
+(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$
+```
+
+(env5) christian@django:/$ cd etc
+(env5) christian@django:/etc$ cd nginx
+(env5) christian@django:/etc/nginx$
+
+(env5) christian@django:/etc/nginx$ cd sites-available/
+
+(env5) christian@django:/etc/nginx/sites-available$ ls
+default
+
+(env5) christian@django:/etc/nginx/sites-available$ sudo touch empleado
+(env5) christian@django:/etc/nginx/sites-available$ sudo nano empleado
+
+
+
+
+```bash
+upstream empleado_app {
+  server unix:/proyecto_5/env5/run/gunicorn.sock fail_timeout=0;
+}
+ 
+server {
+ 
+    listen   80;
+    server_name sociolab.cl;
+ 
+    access_log /proyecto_5/env5/logs/nginx-access.log;
+    error_log /proyecto_5/env5/logs/nginx-error.log;
+ 
+    location /static/ {
+        alias   /proyecto_5/env5/empleado/static/;
+    }
+    
+    location /media/ {
+        alias   /proyecto_5/env5/empleado/media/;
+    }
+ 
+    location / {
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+
+        if (!-f $request_filename) {
+            proxy_pass http://empleado_app;
+            break;
+        }
+    }
+}
+```
+
+##  Creando un enlace simbolico
+
+```
+(env5) christian@django:/$ sudo ln -s /etc/nginx/sites-available/empleado /etc/nginx/sites-enabled/empleado
+# si queremos borrarlo y hacer otro:
+(env5) christian@django:/$ rm -f /etc/nginx/sites-enabled/empleado
+```
+
 
 <br>
 ***
