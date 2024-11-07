@@ -369,27 +369,23 @@ Necesitamos configurar un archivo **gunicorn_start**. El archivo gunicorn_start 
 (env5) christian@django:/proyecto_5/env5/bin$ nano gunicorn_start
 ```
 
-
-
 ```bash
 #!/bin/bash
 
-NAME="empleado"                                            # Name of the application
-
-DJANGODIR=/proyecto_5/django/django/proyecto_1/empleado            # Django project directory
-SOCKFILE=/proyecto_5/django/django/proyecto_1/run/gunicorn.sock    # we will communicte using this unix socket
-USER=root                                                          # the user to run as
-GROUP=root                                                         # the group to run as
-NUM_WORKERS=3                                                      # how many worker processes should 
-                                                                   # Gunicorn spawn
-DJANGO_SETTINGS_MODULE=empleado.settings.prod                    # which settings file should Django use
-DJANGO_WSGI_MODULE=empleado.wsgi                                 # WSGI module name
+NAME="empleado"                                  # Name of the application
+DJANGODIR=/proyecto_5/django/django/proyecto_1/empleado           # Django project directory
+SOCKFILE=/proyecto_5/django/django/proyecto_1/run/gunicorn.sock  # we will communicte using this unix socket
+USER=christian                                        # the user to run as
+GROUP=christian                                     # the group to run as
+NUM_WORKERS=3                                     # how many worker processes should Gunicorn spawn
+DJANGO_SETTINGS_MODULE=empleado.settings.prod             # which settings file should Django use
+DJANGO_WSGI_MODULE=empleado.wsgi                     # WSGI module name
 
 echo "Starting $NAME as `whoami`"
 
 # Activate the virtual environment
 cd $DJANGODIR
-source ../bin/activate
+source /proyecto_5/env5/bin/activate
 export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
 export PYTHONPATH=$DJANGODIR:$PYTHONPATH
 
@@ -399,14 +395,13 @@ test -d $RUNDIR || mkdir -p $RUNDIR
 
 # Start your Django Unicorn
 # Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)
-exec ../bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
+exec /proyecto_5/env5/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
   --name $NAME \
   --workers $NUM_WORKERS \
   --user=$USER --group=$GROUP \
   --bind=unix:$SOCKFILE \
   --log-level=debug \
   --log-file=-
-
 ```
 
 Le damos permisos de lectura a **gunicorn_start**:
