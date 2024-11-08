@@ -108,7 +108,7 @@ Ahora estamos como:
 ```
 christian@django:~$
 ```
-Nota algo importante. El carácter final del prompt es un símbolo dolar, lo que indica que eres un usuario y no el root, el que termina con una virgulilla: root@django:~#
+Nota algo importante. El carácter final del prompt es un símbolo dolar, lo que indica que eres un usuario y no el root, el que termina con un signo gato: root@django:~#
 
 ## 4 Configuración de un firewall
 
@@ -202,7 +202,42 @@ postgres=# \q
 ```
 
 
-## 4 Instalación de paquetes necesarios desde los repositorios de Ubuntu
+## 6 Organización de ficheros y entornos virtuales
+
+Crearemos una carpeta donde almacenaremos todos nuestros proyectos llamada **mis_proyectos**, utilizando
+**sudo** para ejecutar el comando **mkdir** con permisos de superusuario que crea un nuevo directorio llamado **mis_proyectos** en el directorio raíz (/).
+```
+christian1@django:~$ sudo mkdir /mis_proyectos
+[sudo] password for christian1:
+christian1@django:~$
+```
+
+Veamos lo que hay en el directorio raiz:
+```
+christian1@django:~$ cd /
+christian1@django:/$ ls
+bin                lib                mnt         root                sys
+bin.usr-is-merged  lib.usr-is-merged  opt         run                 tmp
+boot               lib64              proc        sbin                usr
+dev                lost+found         proyecto_1  sbin.usr-is-merged  var
+etc                media              proyecto_4  snap                webapps
+home               mis_proyectos      proyecto_5  srv
+christian1@django:/$
+```
+Observemos que hemos salido del directorio de nuestro usuario (~) y hemos entrado al directorio raíz (/)
+
+
+
+
+
+
+
+
+
+
+
+
+## 6 Instalación de paquetes necesarios desde los repositorios de Ubuntu
 ```
 sudo apt update
 sudo apt install python3-venv python3-dev libpq-dev postgresql postgresql-contrib nginx curl
