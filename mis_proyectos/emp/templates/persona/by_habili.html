@@ -1,0 +1,24 @@
+<h1>
+    Buscar empleados por Habilidad
+</h1>
+
+<hr style="border: none; height: 2px; background-color: red; width: 90%;">
+<br>
+<form method="GET">{% csrf_token %}
+    <input type="text" id="kword" name="kword" placeholder="Ingresa id del empleado">
+    <button type="submit"> Buscar </button>
+</form>
+<h3>
+    Lista resultado
+</h3>
+<ul>
+    {% for e in empleados_by_habili %}
+        <li>{{ e }}</li>
+    {% endfor %}
+</ul>
+
+
+
+
+
+

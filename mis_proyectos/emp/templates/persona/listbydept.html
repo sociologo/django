@@ -1,0 +1,41 @@
+{% extends 'base.html' %}        
+
+{% block title %}
+       Lista de trabajadores por departamento. 
+{% endblock title %}
+
+{% block content %}
+
+        {% include 'includes/header.html' %}
+<br>
+<br>
+        <div class ="grid-container">
+                <div class = "grid-x">
+                        <div class = "cell">Empleados por area:</div>
+                        <div class = "cell">
+                                <table>
+                                        <thead>
+                                                <tr>
+                                                        <th>ID</th>
+                                                        <th>Nombres</th>
+                                                        <th>Apellidos</th>
+                                                        <th>Departamento</th>
+                                                </tr>
+                                        </thead>
+                                        <tbody>                                          
+                                                {% for e in  empleadosbydept %}
+                                                        <tr> 
+                                                                <td>{{e.id}}</td>
+                                                                <td>{{e.first_name}}</td>
+                                                                <td>{{e.last_name}}</td>
+                                                                <td>{{e.departamento}}</td>
+                                                        </tr>    
+                                                {% endfor %}
+                                        </tbody>
+                                </table>
+
+                        </div>
+                </div>
+        </div>
+{% endblock content %}
+        
