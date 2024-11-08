@@ -303,43 +303,20 @@ veamos todo lo que tenemos instalado:
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-```
-
-
-
 ## 10 Configuracion del archivo settings.py
-
-```python
-(env5) christian@django:/proyecto_5$ sudo nano django/django/proyecto_1/empleado/empleado/settings/local.py
-```
 
 ```bash
 from .base import *
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['164.92.107.9', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'bded5',
-        'USER ': 'christian',
+        'NAME': 'bded6',
+        'USER ': 'christian1',
         'PASSWORD': '123456',
         'HOST': 'localhost',
         'PORT': '',
