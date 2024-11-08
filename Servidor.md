@@ -204,7 +204,7 @@ postgres=# \q
 
 ## 6 Organización de ficheros y entornos virtuales
 
-Crearemos una carpeta donde almacenaremos todos nuestros proyectos llamada **mis_proyectos**, utilizando
+6.1 Creamos una carpeta donde almacenaremos todos nuestros proyectos llamada **mis_proyectos**, utilizando
 **sudo** para ejecutar el comando **mkdir** con permisos de superusuario que crea un nuevo directorio llamado **mis_proyectos** en el directorio raíz (/).
 ```
 christian1@django:~$ sudo mkdir /mis_proyectos
@@ -224,7 +224,27 @@ etc                media              proyecto_4  snap                webapps
 home               mis_proyectos      proyecto_5  srv
 christian1@django:/$
 ```
-Observemos que hemos salido del directorio de nuestro usuario (~) y hemos entrado al directorio raíz (/)
+Observemos que hemos salido del directorio de nuestro usuario christian1 **(~)** y hemos entrado al directorio raíz **(/)**.
+
+6.2 Creamos un entorno virtual dentro del fichero **mis_proyectos**
+```
+christian1@django:/$ cd /mis_proyectos
+christian1@django:/mis_proyectos$ sudo python3 -m venv entorno_1
+christian1@django:/mis_proyectos$
+```
+
+6.3 Clonar Git
+Iremos a la carpeta que se ha creado con el entorno virtual y dentro de ella clonaremos nuestro repositorio Git.
+```
+christian1@django:/mis_proyectos$ ls
+entorno_1
+christian1@django:/mis_proyectos$ cd entorno_1
+christian1@django:/mis_proyectos/entorno_1$ sudo git clone https://github.com/sociologo/emp1.git
+Cloning into 'emp1'...
+Username for 'https://github.com':
+```
+
+
 
 
 
