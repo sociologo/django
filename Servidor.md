@@ -263,8 +263,30 @@ christian1@django:/mis_proyectos/entorno_1$
 christian1@django:/mis_proyectos/entorno_1$ ls
 bin  emp1  include  lib  lib64  pyvenv.cfg
 
-christian1@django:/mis_proyectos/entorno_1$
+christian1@django:/mis_proyectos/entorno_1$  source bin/activate
+(entorno_1) christian1@django:/mis_proyectos/entorno_1$
 ```
+
+6.5 Instalamos y actualizamos paquetes:
+```
+(entorno_1) christian1@django:/mis_proyectos/entorno_1$ pip install django
+(entorno_1) christian1@django:/mis_proyectos/entorno_1$ python.exe -m pip install --upgrade pip
+(entorno_1) christian1@django:/mis_proyectos/entorno_1$ pip install unipath
+(entorno_1) christian1@django:/mis_proyectos/entorno_1$ pip install django-ckeditor
+(entorno_1) christian1@django:/mis_proyectos/entorno_1$ pip install psycopg2-binary
+(entorno_1) christian1@django:/mis_proyectos/entorno_1$ pip install pillow
+```
+
+veamos todo lo que tenemos instalado:
+```
+(entorno_1) christian1@django:/mis_proyectos/entorno_1$ pip freeze --local
+```
+
+6.6 Ejecutando el proyecto.
+```
+(entorno_1) christian1@django:/mis_proyectos/entorno_1$ python manage.py runserver
+```
+
 <br>
 <br>
 <br>
