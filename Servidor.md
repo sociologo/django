@@ -9,6 +9,7 @@ C:\Windows\System32>ssh root@xxx.xx.xxx.x
 password: xxxxxxxxxx
 root@django:~#
 ```
+donde xxx.xx.xxx.x es la IP asociada a tu droplet por DigitalOcean.
 
 El usuario **root** es el usuario administrativo con privilegios elevados en un entorno Linux. Debido a ello, se desaconseja su uso habitual. La cuenta root puede realizar cambios muy destructivos, incluso por accidente. Por ello debemos configurar una nueva cuenta de usuario con privilegios reducidos para el uso diario. 
 
@@ -16,15 +17,33 @@ El usuario **root** es el usuario administrativo con privilegios elevados en un 
 
 Una vez que inicies sesión como root, podrás agregar una nueva cuenta de usuario. En el futuro, iniciaremos sesión con esta nueva cuenta en lugar de **root**.
 
-Crearemos un nuevo usuario llamado christian:
+Crearemos un nuevo usuario llamado christian1:
 ```
-adduser christian
-contraseña: 123456
+root@django:~# adduser christian1
+info: Adding user `christian1' ...
+info: Selecting UID/GID from range 1000 to 59999 ...
+info: Adding new group `christian1' (1001) ...
+info: Adding new user `christian1' (1001) with group `christian1 (1001)' ...
+info: Creating home directory `/home/christian1' ...
+info: Copying files from `/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for christian1
+Enter the new value, or press ENTER for the default
+        Full Name []:
+        Room Number []:
+        Work Phone []:
+        Home Phone []:
+        Other []:
+Is the information correct? [Y/n] Y
+info: Adding new user `christian1' to supplemental / extra groups `users' ...
+info: Adding user `christian1' to group `users' ...
+root@django:~#
 ```
-
 Si queremos cambiar la contraseña de un usuario:
 ```
-sudo passwd christian
+sudo passwd christian1
 ```
 
 ## 3 Concesión de privilegios administrativos
@@ -37,65 +56,112 @@ Para agregar estos privilegios a su nuevo usuario, deberás agregarlo al grupo d
 
 Como root, ejecuta este comando para agregar tu nuevo usuario al grupo sudo:
 ```
-usermod -aG sudo christian
+root@django:~# usermod -aG sudo christian1
 ```
-Ahora puedes escribir sudo antes los comandos para ejecutarlos con privilegios de superusuario cuando inicias sesión como tu usuario habitual.
+Ahora puedes escribir **sudo** antes de los comandos para ejecutarlos con privilegios de superusuario cuando inicias sesión como usuario.
 
-## 4 Configuración de un firewall
-
-Los servidores Ubuntu pueden usar el firewall UFW (Uncomplicated Firewall) para garantizar que solo se permitan conexiones a determinados servicios. Puedes configurar un firewall básico con esta aplicación.
-
-Las aplicaciones pueden registrar sus perfiles en UFW durante la instalación. Estos perfiles permiten que UFW administre estas aplicaciones por nombre. OpenSSH, el servicio que le permite conectarse a su servidor, tiene un perfil registrado en UFW.
-
-Puedes examinar la lista de perfiles UFW instalados escribiendo:
+Ahora cierra la terminal y accede como christian1.
 ```
-ufw app list
-```
-Deberás asegurarte de que el firewall permita conexiones SSH para poder iniciar sesión en su servidor la próxima vez. Permite estas conexiones escribiendo:
-```
-ufw allow OpenSSH
-```
-Ahora habilita el firewall escribiendo:
-```
-ufw enable
-```
-Puedes ver que las conexiones SSH aún están permitidas si escribes:
-```
-ufw status
-```
-Actualmente, el firewall está bloqueando todas las conexiones excepto SSH. Si instalas y configuras servicios adicionales, deberás ajustar la configuración del firewall para permitir el nuevo tráfico en tu servidor.
-
-## 5 Habilitar el acceso externo para el usuario habitual
-
-Ahora que tienes un usuario regular para uso diario, deberás asegurarte de poder acceder a la cuenta mediante SSH directamente.
-
-Hasta verificar que puede iniciar sesión y usar sudo su nuevo usuario, es recomendable permanecer conectado como root. Si tienes problemas para conectarte, puedes solucionar problemas y realizar los cambios necesarios como root. 
-
-La configuración del acceso SSH para su nuevo usuario depende de si la cuenta raíz de su servidor utiliza una contraseña o claves SSH para la autenticación.
-
-### Si la cuenta raíz utiliza autenticación con contraseña
-
-Si iniciaste sesión en tu cuenta raíz con una contraseña, la autenticación con contraseña estará habilitada para SSH. Puedes iniciar sesión con SSH en su nueva cuenta de usuario abriendo una nueva sesión de terminal y usando SSH con tu nuevo nombre de usuario:
-```
-C:\Windows\System32>ssh christian@xxx.xx.xxx.x
-contraseña: xxxxxxxxxx
+root@django:~# exit
+logout
+Connection to xxx.xx.xxx.x closed.
 ```
 
-Recibirás una solicitud para su contraseña de usuario habitual sudola primera vez que utilice cada sesión (y periódicamente después).
-
-Después de ingresar tu contraseña de usuario habitual, iniciarás sesión. Recuerda, si necesitas ejecutar un comando con privilegios administrativos, escribe sudo antes de hacerlo de la siguiente manera:
 ```
-sudo comando
+C:\Windows\System32>ssh christian1@xxx.xx.xxx.x
+christian1@164.92.107.9's password:
+Welcome to Ubuntu 24.04.1 LTS (GNU/Linux 6.8.0-47-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Fri Nov  8 17:24:29 UTC 2024
+
+  System load:  0.01               Processes:             131
+  Usage of /:   19.1% of 23.17GB   Users logged in:       1
+  Memory usage: 53%                IPv4 address for eth0: xxx.xx.xxx.x
+  Swap usage:   0%                 IPv4 address for eth0: xx.xx.x.x
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+*** System restart required ***
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+christian1@django:~$
 ```
-
-**Para mejorar la seguridad de su servidor, es recomendable configurar claves SSH en lugar de usar autenticación con contraseña.**
-
 Ahora estamos como:
 ```
 christian@django:~$
 ```
+Nota algo importante. El carácter final del prompt es un símbolo dolar, lo que indica que eres un usuario y no el root, el que termina con una virgulilla: root@django:~#
+## 4 Configuración de un firewall
 
-## 6 Instalación de paquetes necesarios desde los repositorios de Ubuntu
+Los servidores Ubuntu pueden usar el firewall UFW (Uncomplicated Firewall) para garantizar que solo se permitan conexiones a determinados servicios. Puedes configurar un firewall básico con esta aplicación.
+
+Las aplicaciones pueden registrar sus perfiles en UFW durante la instalación. Estos perfiles permiten que UFW administre estas aplicaciones por nombre. OpenSSH, el servicio que te permite conectarte a tu servidor, tiene un perfil registrado en UFW.
+
+Puedes examinar la lista de perfiles UFW instalados con:
+```
+christian1@django:~$ sudo ufw app list
+[sudo] password for christian1:
+Available applications:
+  Nginx Full
+  Nginx HTTP
+  Nginx HTTPS
+  OpenSSH
+christian1@django:~$
+```
+Deberás asegurarte de que el firewall permita conexiones SSH para poder iniciar sesión en su servidor la próxima vez. Permite estas conexiones escribiendo:
+```
+christian1@django:~$ sudo  ufw allow OpenSSH
+Skipping adding existing rule
+Skipping adding existing rule (v6)
+christian1@django:~$
+```
+Ahora habilita el firewall escribiendo:
+```
+christian1@django:~$  sudo ufw enable
+Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
+Firewall is active and enabled on system startup
+christian1@django:~$
+```
+Puedes ver que las conexiones SSH aún están permitidas si escribes:
+```
+christian1@django:~$  sudo ufw status
+Status: active
+
+To                         Action      From
+--                         ------      ----
+8000                       ALLOW       Anywhere
+5432                       ALLOW       Anywhere
+OpenSSH                    ALLOW       Anywhere
+8000 (v6)                  ALLOW       Anywhere (v6)
+5432 (v6)                  ALLOW       Anywhere (v6)
+OpenSSH (v6)               ALLOW       Anywhere (v6)
+
+christian1@django:~$
+```
+Actualmente, el firewall está bloqueando todas las conexiones excepto SSH. Si instalas y configuras servicios adicionales, deberás ajustar la configuración del firewall para permitir el nuevo tráfico en tu servidor.
+
+**Para mejorar la seguridad de su servidor, es recomendable configurar claves SSH en lugar de usar autenticación con contraseña.**
+
+## 4 Instalación de paquetes necesarios desde los repositorios de Ubuntu
 ```
 sudo apt update
 sudo apt install python3-venv python3-dev libpq-dev postgresql postgresql-contrib nginx curl
