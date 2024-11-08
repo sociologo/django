@@ -257,6 +257,16 @@ bin  emp1  include  lib  lib64  pyvenv.cfg
 
 christian1@django:/mis_proyectos/entorno_1$
 ```
+![git](https://github.com/user-attachments/assets/70a62360-3e03-429e-83a5-c751f8667241)
+
+https://github.com/settings/tokens
+
+<br>
+---
+**IMPORTANTE: GITHUB VIA SHH YA NO ACEPTA CREDENCIALES PASSWORD, SINO QUE NECESITARAS UN TOKEN **
+<br>
+
+![token2](https://github.com/user-attachments/assets/13d02687-8652-4663-bf74-5d11f65bb13c)
 
 6.4 Activamos el entorno.
 ```
@@ -269,19 +279,18 @@ christian1@django:/mis_proyectos/entorno_1$  source bin/activate
 
 6.5 Instalamos y actualizamos paquetes:
 ```
+(entorno_1) christian1@django:/mis_proyectos/entorno_1$ sudo apt update
 (entorno_1) christian1@django:/mis_proyectos/entorno_1$ pip install django
-(entorno_1) christian1@django:/mis_proyectos/entorno_1$ python.exe -m pip install --upgrade pip
-(entorno_1) christian1@django:/mis_proyectos/entorno_1$ pip install unipath
 (entorno_1) christian1@django:/mis_proyectos/entorno_1$ pip install django-ckeditor
-(entorno_1) christian1@django:/mis_proyectos/entorno_1$ pip install psycopg2-binary
+(entorno_1) christian1@django:/mis_proyectos/entorno_1$ sudo apt install python3-psycopg2-binary
+(entorno_1) christian1@django:/mis_proyectos/entorno_1$ pip install psycopg2
 (entorno_1) christian1@django:/mis_proyectos/entorno_1$ pip install pillow
+(entorno_1) christian1@django:/mis_proyectos/entorno_1$ sudo apt install python3-venv python3-dev libpq-dev postgresql postgresql-contrib nginx curl
 ```
-
 veamos todo lo que tenemos instalado:
 ```
 (entorno_1) christian1@django:/mis_proyectos/entorno_1$ pip freeze --local
 ```
-
 6.6 Ejecutando el proyecto.
 ```
 (entorno_1) christian1@django:/mis_proyectos/entorno_1$ python manage.py runserver
@@ -290,8 +299,8 @@ veamos todo lo que tenemos instalado:
 <br>
 <br>
 <br>
-***
-***
+---
+---
 
 
 
@@ -305,53 +314,13 @@ veamos todo lo que tenemos instalado:
 
 
 
-## 6 Instalación de paquetes necesarios desde los repositorios de Ubuntu
-```
-sudo apt update
-sudo apt install python3-venv python3-dev libpq-dev postgresql postgresql-contrib nginx curl
-```
-## 8 Creación de un entorno virtual de Python para su proyecto
+
+
+
 
 ```
-christian@django:~$ mkdir proyecto_5
-christian@django:~$ cd /proyecto_5
-```
-
-Puede que el fichero **proyecto_5** quede ubicado en el directorio raiz del sistema en vez del directorio de inicio de usuario. Si es así debemos preceder al comando con una barra:
-
-```
-christian@django:~$ ls /
-christian@django:~$ cd /proyecto_5
-christian@django:/proyecto_5$
-```
-
-Creamos y activamos el entorno virtual
-```
-christian@django:/proyecto_5$ python3 -m venv env3
-christian@django:/proyecto_5$ source env5/bin/activate
-```
-
-Debe aparecer lo siguiente:
-```
-(env5) christian@django:/proyecto_5$ 
-```
-
-## 9 Clonar nuestro proyecto desde GitHub a nuestro servidor
-
-```python
-(env5) christian@django:/proyecto_5$ sudo git clone https://github.com/sociologo/django.git
-(env5) christian@django:/proyecto_5$ ls
-django  env5
-(env5) christian@django:/proyecto_5$ 
-```
-
-![git](https://github.com/user-attachments/assets/70a62360-3e03-429e-83a5-c751f8667241)
 
 
-https://github.com/settings/tokens
-
-**IMPORTANTE: GITHUB VIA SHH YA NO ACEPTA CREDENCIALES PASSWORD, SINO QUE NECESITARAS UN TOKEN **
-![token2](https://github.com/user-attachments/assets/13d02687-8652-4663-bf74-5d11f65bb13c)
 
 ## 10 Configuracion del archivo settings.py
 
