@@ -241,7 +241,15 @@ entorno_1
 christian1@django:/mis_proyectos$ cd entorno_1
 christian1@django:/mis_proyectos/entorno_1$ sudo git clone https://github.com/sociologo/emp1.git
 Cloning into 'emp1'...
-Username for 'https://github.com':
+Username for 'https://github.com': sociologo
+Password for 'https://sociologo@github.com':
+remote: Enumerating objects: 153, done.
+remote: Counting objects: 100% (153/153), done.
+remote: Compressing objects: 100% (113/113), done.
+remote: Total 153 (delta 36), reused 153 (delta 36), pack-reused 0 (from 0)
+Receiving objects: 100% (153/153), 939.05 KiB | 8.03 MiB/s, done.
+Resolving deltas: 100% (36/36), done.
+christian1@django:/mis_proyectos/entorno_1$
 ```
 
 
@@ -298,6 +306,9 @@ django  env5
 ```
 
 ![git](https://github.com/user-attachments/assets/70a62360-3e03-429e-83a5-c751f8667241)
+
+
+https://github.com/settings/tokens
 
 **IMPORTANTE: GITHUB VIA SHH YA NO ACEPTA CREDENCIALES PASSWORD, SINO QUE NECESITARAS UN TOKEN **
 ![token2](https://github.com/user-attachments/assets/13d02687-8652-4663-bf74-5d11f65bb13c)
