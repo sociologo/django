@@ -204,7 +204,7 @@ postgres=# \q
 
 ## 6 Organización de ficheros y entornos virtuales
 
-6.1 Creamos una carpeta donde almacenaremos todos nuestros proyectos llamada **mis_proyectos**, utilizando
+- 6.1 Creamos una carpeta donde almacenaremos todos nuestros proyectos llamada **mis_proyectos**, utilizando
 **sudo** para ejecutar el comando **mkdir** con permisos de superusuario que crea un nuevo directorio llamado **mis_proyectos** en el directorio raíz (/).
 ```
 christian1@django:~$ sudo mkdir /mis_proyectos
@@ -226,14 +226,14 @@ christian1@django:/$
 ```
 Observemos que hemos salido del directorio de nuestro usuario christian1 **(~)** y hemos entrado al directorio raíz **(/)**.
 
-6.2 Creamos un entorno virtual dentro del fichero **mis_proyectos**
+- 6.2 Creamos un entorno virtual dentro del fichero **mis_proyectos**
 ```
 christian1@django:/$ cd /mis_proyectos
 christian1@django:/mis_proyectos$ sudo python3 -m venv entorno_1
 christian1@django:/mis_proyectos$
 ```
 
-6.3 Clonar Git
+- 6.3 Clonar Git
 **Iremos a la carpeta que se ha creado con el entorno virtual** y dentro de ella clonaremos nuestro repositorio Git.
 ```
 christian1@django:/mis_proyectos$ ls
@@ -268,7 +268,7 @@ https://github.com/settings/tokens
 
 ![token2](https://github.com/user-attachments/assets/13d02687-8652-4663-bf74-5d11f65bb13c)
 
-6.4 Activamos el entorno.
+- 6.4 Activamos el entorno.
 ```
 christian1@django:/mis_proyectos/entorno_1$ ls
 bin  emp1  include  lib  lib64  pyvenv.cfg
@@ -277,7 +277,7 @@ christian1@django:/mis_proyectos/entorno_1$  source bin/activate
 (entorno_1) christian1@django:/mis_proyectos/entorno_1$
 ```
 
-6.5 Instalamos y actualizamos paquetes:
+- 6.5 Instalamos y actualizamos paquetes:
 ```
 (entorno_1) christian1@django:/mis_proyectos/entorno_1$ sudo apt update
 (entorno_1) christian1@django:/mis_proyectos/entorno_1$ pip install django
@@ -291,19 +291,12 @@ veamos todo lo que tenemos instalado:
 ```
 (entorno_1) christian1@django:/mis_proyectos/entorno_1$ pip freeze --local
 ```
-6.6 Ejecutando el proyecto.
+
+- 6.6 Configuracion del archivo local.py
 ```
-(entorno_1) christian1@django:/mis_proyectos/entorno_1$ cd emp1/empleado/settings
+(entorno_1) christian1@django:/mis_proyectos/entorno_1$  cd emp1/empleado/settings
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/emp1/empleado/settings$ nano local.py
 ```
-
-<br>
-<br>
-<br>
----
----
-
-
-## 10 Configuracion del archivo settings.py
 
 ```bash
 from .base import *
@@ -335,11 +328,21 @@ MEDIA_ROOT = BASE_DIR / ("media")
 
 > ES MUY IMPORTANTE QUE EL **USER** DE LA BASE DE DATOS SEA EL MISMO QUE EL **NOMBRE DEL USUARIO** LINUX CON EL QUE ESTAS TRABAJANDO. SI NO, NO TE PODRAS CONECTAR!
 
-## 11 Haciendo las migraciones y arrancando el servidor proyecto:
+- 6.7 Ejecutando el proyecto.
+```
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/emp1$ python3 manage.py runserver 0.0.0.0:8000
+```
+
+Y se ve la pantalla principal.
+http://164.92.107.9:8000/
+
+Nos resta hacer las migraciones:
+
+- 6.8 Haciendo las migraciones y arrancando el servidor proyecto:
 
 ```
-(env5) christian@django:/proyecto_5$ python3 manage.py makemigrations
-(env5) christian@django:/proyecto_5$ python3 manage.py migrate
+ python3 manage.py makemigrations
+ python3 manage.py migrate
 ```
 
 Crea una excepción para el puerto 8000 escribiendo:
