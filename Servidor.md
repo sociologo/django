@@ -174,6 +174,8 @@ django  env5
 
 ![git](https://github.com/user-attachments/assets/70a62360-3e03-429e-83a5-c751f8667241)
 
+**IMPORTANTE: GITHUB VIA SHH YA NO ACEPTA CREDENCIALES PASSWORD, SINO QUE NECESITARAS UN TOKEN **
+![token2](https://github.com/user-attachments/assets/13d02687-8652-4663-bf74-5d11f65bb13c)
 
 ## 10 Configuracion del archivo settings.py
 
@@ -369,27 +371,23 @@ Necesitamos configurar un archivo **gunicorn_start**. El archivo gunicorn_start 
 (env5) christian@django:/proyecto_5/env5/bin$ nano gunicorn_start
 ```
 
-
-
 ```bash
 #!/bin/bash
 
-NAME="empleado"                                            # Name of the application
-
-DJANGODIR=/proyecto_5/django/django/proyecto_1/empleado            # Django project directory
-SOCKFILE=/proyecto_5/django/django/proyecto_1/run/gunicorn.sock    # we will communicte using this unix socket
-USER=root                                                          # the user to run as
-GROUP=root                                                         # the group to run as
-NUM_WORKERS=3                                                      # how many worker processes should 
-                                                                   # Gunicorn spawn
-DJANGO_SETTINGS_MODULE=empleado.settings.prod                    # which settings file should Django use
-DJANGO_WSGI_MODULE=empleado.wsgi                                 # WSGI module name
+NAME="empleado"                                  # Name of the application
+DJANGODIR=/proyecto_5/django/django/proyecto_1/empleado           # Django project directory
+SOCKFILE=/proyecto_5/django/django/proyecto_1/run/gunicorn.sock  # we will communicte using this unix socket
+USER=christian                                        # the user to run as
+GROUP=christian                                     # the group to run as
+NUM_WORKERS=3                                     # how many worker processes should Gunicorn spawn
+DJANGO_SETTINGS_MODULE=empleado.settings.prod             # which settings file should Django use
+DJANGO_WSGI_MODULE=empleado.wsgi                     # WSGI module name
 
 echo "Starting $NAME as `whoami`"
 
 # Activate the virtual environment
 cd $DJANGODIR
-source ../bin/activate
+source /proyecto_5/env5/bin/activate
 export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
 export PYTHONPATH=$DJANGODIR:$PYTHONPATH
 
@@ -399,14 +397,13 @@ test -d $RUNDIR || mkdir -p $RUNDIR
 
 # Start your Django Unicorn
 # Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)
-exec ../bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
+exec /proyecto_5/env5/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
   --name $NAME \
   --workers $NUM_WORKERS \
   --user=$USER --group=$GROUP \
   --bind=unix:$SOCKFILE \
   --log-level=debug \
   --log-file=-
-
 ```
 
 Le damos permisos de lectura a **gunicorn_start**:
@@ -415,6 +412,177 @@ Le damos permisos de lectura a **gunicorn_start**:
 (env5) christian@django:/proyecto_5/env5/bin$ chmod u+x gunicorn_start
 ```
 Ahora le entregamos contenido al archivo **prod.py**
+
+```bash
+from .base import *
+
+DEBUG = True
+
+ALLOWED_HOSTS = ['164.92.107.9', 'localhost']
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'bded5',
+        'USER ': 'christian',
+        'PASSWORD': '123456',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+
+STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / ("media")
+```
+
+actualizamos nuestro repositorio a GitHub y lo clonamos a nuestro servidor:
+
+```
+christian@django:/$ cd /proyecto_5
+christian@django:/proyecto_5$ cd django
+christian@django:/proyecto_5/django$ git remote -v
+origin  https://github.com/sociologo/django.git (fetch)
+origin  https://github.com/sociologo/django.git (push)
+christian@django:/proyecto_5/django$
+```
+
+Queda asi:
+```
+(env5) christian@django:/proyecto_5/env5/bin$ gunicorn_start
+```
+![image](https://github.com/user-attachments/assets/e6bd7d75-3c40-4f5c-a0c8-01938b5a0146)
+
+## 15 Supervisor
+
+Supervisor y Gunicorn son dos herramientas que se utilizan comúnmente juntas para desplegar aplicaciones web en producción.
+
+- Gunicorn es un servidor WSGI para aplicaciones web Python. Se utiliza para ejecutar aplicaciones web Django, Flask y otras aplicaciones WSGI.
+
+Gunicorn maneja múltiples solicitudes simultáneamente mediante la creación de varios procesos de trabajo (workers). Esto mejora el rendimiento y la capacidad de respuesta de la aplicación.
+
+Gunicorn se ejecuta en primer plano y no tiene capacidades de administración de procesos integradas, lo que significa que no puede reiniciarse automáticamente si falla.
+
+- Supervisor es una herramienta de administración de procesos que se utiliza para controlar y monitorear procesos en un sistema Unix.
+
+Supervisor puede iniciar, detener y reiniciar procesos automáticamente. También puede monitorear los procesos y reiniciarlos si fallan.
+
+Supervisor se ejecuta en segundo plano y proporciona una interfaz web y de línea de comandos para administrar los procesos.
+
+Relación entre Supervisor y Gunicorn:
+
+Supervisor se utiliza para administrar el proceso de Gunicorn. Esto significa que Supervisor se encarga de iniciar Gunicorn, monitorear su estado y reiniciarlo si falla.
+
+Al usar Supervisor, puedes asegurarte de que tu aplicación web esté siempre en funcionamiento, incluso si Gunicorn falla por alguna razón.
+
+Supervisor también facilita la administración de múltiples procesos Gunicorn en un solo servidor, lo que es útil para aplicaciones web de gran escala.
+
+```
+(env5) christian@django:/proyecto_5/env5/bin$ sudo apt install supervisor
+(env5) christian@django:/proyecto_5/env5/bin$ cd /etc/supervisor/conf.d/
+(env5) christian@django:/etc/supervisor/conf.d$ sudo touch /etc/supervisor/conf.d/empleado.conf
+(env5) christian@django:/etc/supervisor/conf.d$ sudo nano empleado.conf
+```
+
+```bash
+[program:empleado]
+command = /proyecto_5/env5/bin/gunicorn_start                    ; Command to start app
+user = christian                                                          ; User to run as
+stdout_logfile = /proyecto_5/env5/logs/gunicorn_supervisor.log   ; Where to write log messages
+redirect_stderr = true                                                ; Save stderr in the same log
+environment=LANG=en_US.UTF-8,LC_ALL=en_US.UTF-8                       ; Set UTF-8 as default encoding
+```
+
+```
+(env5) christian@django:/proyecto_5/env5$ mkdir logs
+(env5) christian@django:/proyecto_5/env5$ touch logs/gunicorn_supervisor.log
+```
+
+```
+(env5) christian@django:/proyecto_5/env5$ sudo supervisorctl reread
+empleado: available
+```
+
+```
+(env5) christian@django:/proyecto_5/env5$ sudo supervisorctl update
+empleado: added process group
+```
+
+Ahora lo que necesitamos ahora es configurar que cuando **nginx** detecte una peticion hacia nuestro proyecto,  sirva la aplicacion que acabamos de configurar con gunicorne y supervisor.
+
+## 16 Configurar nginx
+
+```
+(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$
+```
+
+(env5) christian@django:/$ cd etc
+(env5) christian@django:/etc$ cd nginx
+(env5) christian@django:/etc/nginx$
+
+(env5) christian@django:/etc/nginx$ cd sites-available/
+
+(env5) christian@django:/etc/nginx/sites-available$ ls
+default
+
+(env5) christian@django:/etc/nginx/sites-available$ sudo touch empleado
+(env5) christian@django:/etc/nginx/sites-available$ sudo nano empleado
+
+
+
+
+```bash
+upstream empleado_app {
+  server unix:/proyecto_5/env5/run/gunicorn.sock fail_timeout=0;
+}
+ 
+server {
+ 
+    listen   80;
+    server_name sociolab.cl;
+ 
+    access_log /proyecto_5/env5/logs/nginx-access.log;
+    error_log /proyecto_5/env5/logs/nginx-error.log;
+ 
+    location /static/ {
+        alias   /proyecto_5/env5/empleado/static/;
+    }
+    
+    location /media/ {
+        alias   /proyecto_5/env5/empleado/media/;
+    }
+ 
+    location / {
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+
+        if (!-f $request_filename) {
+            proxy_pass http://empleado_app;
+            break;
+        }
+    }
+}
+```
+
+(env5) christian@django:/proyecto_5/env5/logs$ sudo nginx-error.log
+(env5) christian@django:/proyecto_5/env5/logs$ sudo touch nginx-error.log
+
+##  Creando un enlace simbolico
+
+```
+(env5) christian@django:/$ sudo ln -s /etc/nginx/sites-available/empleado /etc/nginx/sites-enabled/empleado
+# si queremos borrarlo y hacer otro:
+(env5) christian@django:/$ rm -f /etc/nginx/sites-enabled/empleado
+```
+
+
+
 
 <br>
 ***
