@@ -18,6 +18,10 @@ Este manual está diseñado tanto para principiantes como para desarrolladores c
 
 ¡Empecemos este emocionante viaje hacia el desarrollo de aplicaciones web con Django!
 
+                                          Christian Castro
+                                          Sociólogo U. de Chile
+                                          Analista ptogramador Inacap
+
 ## Índice
 
 * [1 Crear un proyecto Django](#1-crear-un-proyecto-django)
