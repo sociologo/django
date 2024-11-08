@@ -6,8 +6,8 @@ Podemos acceder a un droplet de **DigitalOcean** desde una terminal windows loca
 
 ```
 C:\Windows\System32>ssh root@xxx.xx.xxx.x
-password: xxxxxxxx
-root@django:~# exit
+password: xxxxxxxxxx
+root@django:~#
 ```
 
 El usuario **root** es el usuario administrativo con privilegios elevados en un entorno Linux. Debido a ello, se desaconseja su uso habitual. La cuenta root puede realizar cambios muy destructivos, incluso por accidente. Por ello debemos configurar una nueva cuenta de usuario con privilegios reducidos para el uso diario. 
