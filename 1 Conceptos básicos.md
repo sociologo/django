@@ -82,24 +82,31 @@ C:\mis_entornos>
 
 
 
-### 1.4 Nos dirigimos a la carpeta Scripts del entorno_1:
-cd \Users\chris\django\proyecto_1\entorno_1\Scripts
+### 1.3 Activamos en entorno virtual recien creado:
+```
+C:\mis_entornos>cd entorno_1/Scripts
+C:\mis_entornos\entorno_1\Scripts>activate
+(entorno_1) C:\mis_entornos\entorno_1\Scripts>
+```
 
-### 1.5 Activamos el entorno con **activate**:
+
+### 1.4 Activamos el entorno con **activate**:
 C:\Users\chris\django\proyecto_1\entorno_1\Scripts> activate\
 (entorno_1) C:\Users\chris\django\proyecto_1\entorno_1\Scripts>
+(entorno_1) C:\mis_entornos\entorno_1\Scripts>cd /
+(entorno_1) C:\>
 
-### 1.6 Instalamos Django:
+### 1.5 Instalamos Django:
 (entorno_1) C:\Users\chris\django\proyecto_1\entorno_1\Scripts> pip install django
 
-### 1.7 Ahora, en el entorno activo, nos dirigimos a la carpeta donde vamos a construir nuestro proyecto:
+### 1.6 Ahora, en el entorno activo, nos dirigimos a la carpeta donde vamos a construir nuestro proyecto:
 (entorno_1) C:\Users\chris\django\proyecto_1\entorno_1\Scripts>cd \Users\chris\django\proyecto_1\
 (entorno_1) C:\Users\chris\django\proyecto_1>
 
-### 1.8 En ella, creamos nuestro proyecto **empleado**:
+### 1.7 En ella, creamos nuestro proyecto **empleado**:
 (entorno_1) C:\Users\chris\django\proyecto_1> django-admin startproject empleado
 
-### 1.9 Abrimos el proyecto empleado con Visual Studio:
+### 1.8 Abrimos el proyecto empleado con Visual Studio:
 
 ![image](https://github.com/user-attachments/assets/2e9cee98-5375-4b48-9033-b116c59d4823)
 
