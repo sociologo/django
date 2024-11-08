@@ -73,35 +73,33 @@ Escribe el snippet: Djaneiro proporciona varios snippets útiles. Para una estru
 Construiremos dos carpetas en C. Una para nuestros proyectos **mis_proyectos** y otra para nuestros entornos virtuales **mis_entornos**
 
 
-### 1.2 Entramos a la terminal escribiendo CMD en el cuadro de búsqueda de windows y creamos nuestro primer entorno:
+### 1.2 Creamos nuestro primer entorno y lo activamos:
 ```
 C:\>cd mis_entornos
 C:\mis_entornos>python -m venv entorno_1
-C:\mis_entornos>
-```
-
-
-
-### 1.3 Activamos en entorno virtual recien creado:
-```
 C:\mis_entornos>cd entorno_1/Scripts
 C:\mis_entornos\entorno_1\Scripts>activate
 (entorno_1) C:\mis_entornos\entorno_1\Scripts>
+(entorno_1) C:\mis_entornos\entorno_1\Scripts>cd /
+(entorno_1) C:\>
+```
+
+### 1.3 Instalamos y actualizamos paquetes:
+```
+(entorno_1) C:\> pip install django
+(entorno_1) C:\> python.exe -m pip install --upgrade pip
+(entorno_1) C:\>cd \mis_proyectos\emp1
+(entorno_1) C:\mis_proyectos\emp1>pip install django-ckeditor
+(entorno_1) C:\mis_proyectos\emp1>pip install psycopg2-binary
+(entorno_1) C:\mis_proyectos\emp1>pip install Pillow
+```
+
+### 1.4 corremos el servidor:
+```
+(entorno_1) C:\mis_proyectos\emp1>python manage.py runserver
 ```
 
 
-### 1.4 Activamos el entorno con **activate**:
-C:\Users\chris\django\proyecto_1\entorno_1\Scripts> activate\
-(entorno_1) C:\Users\chris\django\proyecto_1\entorno_1\Scripts>
-(entorno_1) C:\mis_entornos\entorno_1\Scripts>cd /
-(entorno_1) C:\>
-
-### 1.5 Instalamos Django:
-(entorno_1) C:\Users\chris\django\proyecto_1\entorno_1\Scripts> pip install django
-
-### 1.6 Ahora, en el entorno activo, nos dirigimos a la carpeta donde vamos a construir nuestro proyecto:
-(entorno_1) C:\Users\chris\django\proyecto_1\entorno_1\Scripts>cd \Users\chris\django\proyecto_1\
-(entorno_1) C:\Users\chris\django\proyecto_1>
 
 ### 1.7 En ella, creamos nuestro proyecto **empleado**:
 (entorno_1) C:\Users\chris\django\proyecto_1> django-admin startproject empleado
