@@ -14,7 +14,7 @@ El usuario **root** es el usuario administrativo con privilegios elevados en un 
 
 ## 2 Crear un nuevo usuario
 
-Una vez que inicies sesión como root, podrás agregar la nueva cuenta de usuario. En el futuro, iniciaremos sesión con esta nueva cuenta en lugar de **root**.
+Una vez que inicies sesión como root, podrás agregar una nueva cuenta de usuario. En el futuro, iniciaremos sesión con esta nueva cuenta en lugar de **root**.
 
 Crearemos un nuevo usuario llamado christian:
 ```
