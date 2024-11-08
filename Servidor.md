@@ -570,6 +570,9 @@ server {
 }
 ```
 
+(env5) christian@django:/proyecto_5/env5/logs$ sudo nginx-error.log
+(env5) christian@django:/proyecto_5/env5/logs$ sudo touch nginx-error.log
+
 ##  Creando un enlace simbolico
 
 ```
@@ -577,6 +580,8 @@ server {
 # si queremos borrarlo y hacer otro:
 (env5) christian@django:/$ rm -f /etc/nginx/sites-enabled/empleado
 ```
+
+
 
 
 <br>
