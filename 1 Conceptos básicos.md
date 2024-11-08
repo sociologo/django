@@ -1,9 +1,5 @@
 # Django
 
-[Vistas basadas en clases](https://github.com/sociologo/django/blob/main/Vistas%20basadas%20en%20clases.md)
-
-[Levantando el servicio](https://github.com/sociologo/django/blob/main/levantando%20el%20servicio)
-
 https://docs.djangoproject.com/en/5.1/
 
 Christian Castro
@@ -12,11 +8,12 @@ Bienvenido a este manual sobre el desarrollo de aplicaciones web completas utili
 
 En este manual, te guiaremos paso a paso a través del proceso de creación de una aplicación web completa. Desde la configuración inicial del entorno de desarrollo hasta la implementación de funcionalidades avanzadas, aprenderás a:
 
-Configurar tu entorno de desarrollo: Instalación de Django y configuración de tu proyecto.
-Crear y gestionar modelos de datos: Definir las estructuras de datos y cómo interactuar con la base de datos.
-Desarrollar vistas y plantillas: Crear la lógica de negocio y las interfaces de usuario.
-Implementar autenticación y autorización: Gestionar usuarios y permisos.
-Desplegar tu aplicación: Preparar y lanzar tu aplicación en un entorno de producción.
+- Configurar tu entorno de desarrollo: Instalación de Django y configuración de tu proyecto.
+- Crear y gestionar modelos de datos: Definir las estructuras de datos y cómo interactuar con la base de datos.
+- Desarrollar vistas y plantillas: Crear la lógica de negocio y las interfaces de usuario.
+- Implementar autenticación y autorización: Gestionar usuarios y permisos.
+- Desplegar tu aplicación: Preparar y lanzar tu aplicación en un entorno de producción.
+
 Este manual está diseñado tanto para principiantes como para desarrolladores con experiencia previa en otros frameworks. A lo largo del camino, proporcionaremos ejemplos prácticos y mejores prácticas para asegurarnos de que puedas aprovechar al máximo las capacidades de Django.
 
 ¡Empecemos este emocionante viaje hacia el desarrollo de aplicaciones web con Django!
