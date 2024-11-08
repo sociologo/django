@@ -293,7 +293,7 @@ veamos todo lo que tenemos instalado:
 ```
 6.6 Ejecutando el proyecto.
 ```
-(entorno_1) christian1@django:/mis_proyectos/entorno_1$ python manage.py runserver
+(entorno_1) christian1@django:/mis_proyectos/entorno_1$ cd emp1/empleado/settings
 ```
 
 <br>
