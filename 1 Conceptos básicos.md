@@ -53,24 +53,34 @@ Este manual está diseñado tanto para principiantes como para desarrolladores c
 Para instalar Djaneiro en Visual Studio Code, sigue estos pasos:
 
 Abre Visual Studio Code.
+
 Accede a la barra de extensiones: Puedes hacerlo haciendo clic en el ícono de extensiones en la barra lateral izquierda o presionando Ctrl+Shift+X.
+
 Busca “Djaneiro”: En la barra de búsqueda de extensiones, escribe “Djaneiro”.
-Instala la extensión: Cuando encuentres “Djaneiro - Django Snippets”, haz clic en el botón de instalar1.
+
+Instala la extensión: Cuando encuentres “Djaneiro - Django Snippets”, haz clic en el botón de instalar.
+
 Reinicia Visual Studio Code: Para asegurarte de que la extensión se ha instalado correctamente, reinicia Visual Studio Code.
 
 Para crear una estructura básica de HTML utilizando Djaneiro en Visual Studio Code, sigue estos pasos:
 
 Abre un archivo HTML: Crea un nuevo archivo con la extensión .html o abre uno existente.
+
 Escribe el snippet: Djaneiro proporciona varios snippets útiles. Para una estructura básica de HTML, puedes usar el snippet html5. Simplemente escribe html5 y presiona Tab.
 
-### 11 Creemos una carpeta donde vamos a alojar todo nuestro trabajo:
-C:\Users\chris\django\proyecto_1
+### 1.1 Creamos carpetas de trabajo:
 
-### 1.2 Entramos a la terminal escribiendo CMD en el cuadro de búsqueda de windows y vamos a nuestra carpeta:
-cd \Users\chris\django\proyecto_1
+Construiremos dos carpetas en C. Una para nuestros proyectos **mis_proyectos** y otra para nuestros entornos virtuales **mis_entornos**
 
-### 1.3 Creamos un entorno virtual dentro de ella:
-python -m venv entorno_1
+
+### 1.2 Entramos a la terminal escribiendo CMD en el cuadro de búsqueda de windows y creamos nuestro primer entorno:
+```
+C:\>cd mis_entornos
+C:\mis_entornos>python -m venv entorno_1
+C:\mis_entornos>
+```
+
+
 
 ### 1.4 Nos dirigimos a la carpeta Scripts del entorno_1:
 cd \Users\chris\django\proyecto_1\entorno_1\Scripts
