@@ -250,8 +250,18 @@ remote: Total 153 (delta 36), reused 153 (delta 36), pack-reused 0 (from 0)
 Receiving objects: 100% (153/153), 939.05 KiB | 8.03 MiB/s, done.
 Resolving deltas: 100% (36/36), done.
 christian1@django:/mis_proyectos/entorno_1$
+christian1@django:/mis_proyectos/entorno_1$ ls
+bin  emp1  include  lib  lib64  pyvenv.cfg
+christian1@django:/mis_proyectos/entorno_1$
 ```
 
+6.4 Activamos el entorno.
+
+<br>
+<br>
+<br>
+***
+***
 
 
 
