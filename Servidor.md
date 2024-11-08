@@ -46,7 +46,7 @@ Si queremos cambiar la contraseña de un usuario:
 sudo passwd christian1
 ```
 
-## 3 Concesión de privilegios administrativos
+## 3 Configurar la cuenta de usuario linux.
 
 Ahora tienes una nueva cuenta de usuario con privilegios de cuenta normales. Sin embargo, a veces tendrás que realizar tareas administrativas como usuario **root**.
 
@@ -66,7 +66,6 @@ root@django:~# exit
 logout
 Connection to xxx.xx.xxx.x closed.
 ```
-
 ```
 C:\Windows\System32>ssh christian1@xxx.xx.xxx.x
 christian1@164.92.107.9's password:
@@ -110,6 +109,7 @@ Ahora estamos como:
 christian@django:~$
 ```
 Nota algo importante. El carácter final del prompt es un símbolo dolar, lo que indica que eres un usuario y no el root, el que termina con una virgulilla: root@django:~#
+
 ## 4 Configuración de un firewall
 
 Los servidores Ubuntu pueden usar el firewall UFW (Uncomplicated Firewall) para garantizar que solo se permitan conexiones a determinados servicios. Puedes configurar un firewall básico con esta aplicación.
@@ -161,41 +161,39 @@ Actualmente, el firewall está bloqueando todas las conexiones excepto SSH. Si i
 
 **Para mejorar la seguridad de su servidor, es recomendable configurar claves SSH en lugar de usar autenticación con contraseña.**
 
-## 4 Instalación de paquetes necesarios desde los repositorios de Ubuntu
-```
-sudo apt update
-sudo apt install python3-venv python3-dev libpq-dev postgresql postgresql-contrib nginx curl
-```
-
-## 7 Creación de la base de datos y el usuario de PostgreSQL
+## 5 Creación de la base de datos y el usuario de PostgreSQL
 
 - Inicia sesión en una sesión interactiva de Postgres escribiendo:
 ```
-christian@django:~$ sudo -u postgres psql
+christian1@django:~$ sudo -u postgres psql
 ```
 
 - Crea una base de datos para tu proyecto:
 ```
-postgres=# CREATE DATABASE bded5;
+postgres=# CREATE DATABASE bded6;
+CREATE DATABASE
+postgres=#
 ```
 
 - Crea un usuario de base de datos para nuestro proyecto. Asegúrate de seleccionar una contraseña segura:
 ```
-postgres=# CREATE USER christian WITH PASSWORD '123456';
+postgres=#  CREATE USER christian1 WITH PASSWORD '123456';
+CREATE ROLE
+postgres=#
 ```
 
 - Modifica algunos de los parámetros de conexión del usuario que acabas de crear.
 ```
-postgres=# ALTER ROLE christian SET client_encoding TO 'utf8';
-postgres=# ALTER ROLE christian SET default_transaction_isolation TO 'read committed';
-postgres=# ALTER ROLE christian SET timezone TO 'UTC';
+postgres=# ALTER ROLE christian1 SET client_encoding TO 'utf8';
+postgres=# ALTER ROLE christian1 SET default_transaction_isolation TO 'read committed';
+postgres=# ALTER ROLE christian1 SET timezone TO 'UTC';
 ```
 
 - Dale al nuevo usuario acceso para administrar la nueva base de datos:
 ```
-postgres=# GRANT USAGE, CREATE ON SCHEMA public TO christian;
-postgres=# ALTER USER christian WITH SUPERUSER;
-postgres=# GRANT ALL PRIVILEGES ON DATABASE bded5 TO christian;
+postgres=# GRANT USAGE, CREATE ON SCHEMA public TO christian1;
+postgres=# ALTER USER christian1 WITH SUPERUSER;
+postgres=# GRANT ALL PRIVILEGES ON DATABASE bded5 TO christian1;
 ```
 
 - Sale del prompt de PostgreSQL escribiendo:
@@ -203,6 +201,12 @@ postgres=# GRANT ALL PRIVILEGES ON DATABASE bded5 TO christian;
 postgres=# \q
 ```
 
+
+## 4 Instalación de paquetes necesarios desde los repositorios de Ubuntu
+```
+sudo apt update
+sudo apt install python3-venv python3-dev libpq-dev postgresql postgresql-contrib nginx curl
+```
 ## 8 Creación de un entorno virtual de Python para su proyecto
 
 ```
