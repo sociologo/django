@@ -389,22 +389,36 @@ Necesitamos configurar un archivo **gunicorn_start**. El archivo gunicorn_start 
 
 - Mantenimiento: Centraliza la configuración de Gunicorn en un solo archivo, lo que facilita el mantenimiento y las actualizaciones.
 
+### 7.1 Configurar **gunicorn**:
+
+Debemos configurar **gunicorn** para que comience a servir nuestra aplicacion a **nginx**
+
 ```
-(env5) christian@django:/proyecto_5/env5/bin$ touch gunicorn_start
-(env5) christian@django:/proyecto_5/env5/bin$ nano gunicorn_start
-```
+(entorno_1) christian1@django:/mis_proyectos/entorno_1$  cd bin/
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ ls
+
+Activate.ps1  activate.csh   django-admin  pip   pip3.12  python3     sqlformat
+activate      activate.fish  gunicorn      pip3  python   python3.12
+
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ touch gunicorn_start
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ ls
+
+Activate.ps1  activate.csh   django-admin  gunicorn_start  pip3     python   python3.12
+activate      activate.fish  gunicorn      pip             pip3.12  python3  sqlformat
+
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ nano gunicorn_start
 
 ```bash
 #!/bin/bash
 
-NAME="empleado"                                  # Name of the application
-DJANGODIR=/proyecto_5/django/django/proyecto_1/empleado           # Django project directory
-SOCKFILE=/proyecto_5/django/django/proyecto_1/run/gunicorn.sock  # we will communicte using this unix socket
-USER=christian                                        # the user to run as
-GROUP=christian                                     # the group to run as
-NUM_WORKERS=3                                     # how many worker processes should Gunicorn spawn
-DJANGO_SETTINGS_MODULE=empleado.settings.prod             # which settings file should Django use
-DJANGO_WSGI_MODULE=empleado.wsgi                     # WSGI module name
+NAME="empleado"                                  
+DJANGODIR=/mis_proyectos/entorno_1/emp1        
+SOCKFILE=/mis_proyectos/entorno_1/run/gunicorn.sock 
+USER=christian1                                      
+GROUP=christian1                                    
+NUM_WORKERS=3                                     
+DJANGO_SETTINGS_MODULE=emp1/empleado/settings/prod          
+DJANGO_WSGI_MODULE=empleado.wsgi                    
 
 echo "Starting $NAME as `whoami`"
 
@@ -429,12 +443,51 @@ exec /proyecto_5/env5/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
   --log-file=-
 ```
 
+
 Le damos permisos de lectura a **gunicorn_start**:
 
 ```
-(env5) christian@django:/proyecto_5/env5/bin$ chmod u+x gunicorn_start
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ chmod u+x gunicorn_start
 ```
+
 Ahora le entregamos contenido al archivo **prod.py**
+```
+from .base import *
+
+DEBUG = True
+
+ALLOWED_HOSTS = ['*']
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'bded6',
+        'USER ': 'christian1',
+        'PASSWORD': '123456',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+
+STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / ("media")
+```
+
+Actualizamos desde nuestro repositorio GitHub
+
+```
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ cd ..
+```
+
+
+
+
 
 
 <br>
@@ -450,13 +503,7 @@ Ahora le entregamos contenido al archivo **prod.py**
 
 
 
-<br>
-<br>
-<br>
-<br>
-<br>
----
----
+
 
 
 
