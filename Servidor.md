@@ -334,92 +334,9 @@ MEDIA_ROOT = BASE_DIR / ("media")
 ```
 
 Y se ve la pantalla principal.
-http://164.92.107.9:8000/
+**http://164.92.107.9:8000/**
 
-Nos resta hacer las migraciones:
-
-- 6.8 Haciendo las migraciones y arrancando el servidor proyecto:
-
-```
- python3 manage.py makemigrations
- python3 manage.py migrate
-```
-
-Crea una excepción para el puerto 8000 escribiendo:
-```
-sudo ufw allow 8000
-```
-Para matar el proceso asociado al puerto 8000:
-```
-sudo fuser -k 8000/tcp
-```
-
-## 12 Super usuario para nuestro proyecto.
-```
-(env5) christian@django:/proyecto_5$ python3 manage.py createsuperuser
-Username (leave blank to use 'christian'):
-Email address: tarredwall@gmail.com
-Password:
-Password (again):
-This password is too short. It must contain at least 8 characters.
-This password is too common.
-This password is entirely numeric.
-Bypass password validation and create user anyway? [y/N]: y
-Superuser created successfully.
-```
-
-## 13 Manteniendo arriba el servidor usando tmux:
-
-- Instala tmux:
-```
-christian@django:/$ cd /proyecto_5
-christian@django:/proyecto_5$ source env5/bin/activate
-(env5) christian@django:/proyecto_5$ cd django/django/proyecto_1/empleado
-(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$ sudo apt install tmux
-```
-- Inicia una nueva sesión de tmux:
-```
-(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$ tmux new -s mi_sesion
-```
-- Inicia tu servidor Django dentro de la sesión de tmux:
-```
-christian@django:/proyecto_5/django/django/proyecto_1/empleado$ python3 manage.py runserver 164.92.107.9:8000
-```
-
-- El proyecto esta levantado en **http://164.92.107.9:8000/**
-- Desconéctate de la sesión de tmux sin detener el servidor presionando Ctrl + B seguido de D.
-- Puedes cerrar simplemente tu sesion tmux.
-
-Para ingresar a una sesión de tmux ya existente, puedes usar el comando tmux attach:
-
-Listar las sesiones de tmux para ver las sesiones activas:
-```
-(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$ tmux ls
-```
-Ingresar a la sesión de tmux usando el nombre o el número de identificación de la sesión. Por ejemplo, si la sesión se llama mi_sesion, usa el siguiente comando:
-```
-(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$ tmux attach -t mi_sesion
-```
-
-
-Para cerrar tu sesión de tmux y detener cualquier proceso que esté ejecutándose en ella:
-```
-christian@django:~$ ps aux | grep runserver
-christian@django:~$ kill 136730
-```
-
-<br>
-***
-
-How To Set Up Django with Postgres, Nginx, and Gunicorn on Ubuntu
-
-https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu
-
-Initial Server Setup with Ubuntu
-
-https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu
-
-## 14 Instalar **nginex** y **gunicorn**:
+## 7 Instalar **nginex** y **gunicorn**:
 
 Nginx y Gunicorn son herramientas esenciales para desplegar aplicaciones web en producción, especialmente cuando se trata de aplicaciones basadas en Python como Django o Flask. Son herramientas que solo utilizamos en produccion.
 
@@ -518,6 +435,119 @@ Le damos permisos de lectura a **gunicorn_start**:
 (env5) christian@django:/proyecto_5/env5/bin$ chmod u+x gunicorn_start
 ```
 Ahora le entregamos contenido al archivo **prod.py**
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+---
+---
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+---
+---
+
+
+
+
+
+
+
+
+Nos resta hacer las migraciones:
+
+- 6.8 Haciendo las migraciones y arrancando el servidor proyecto:
+
+```
+ python3 manage.py makemigrations
+ python3 manage.py migrate
+```
+
+Crea una excepción para el puerto 8000 escribiendo:
+```
+sudo ufw allow 8000
+```
+Para matar el proceso asociado al puerto 8000:
+```
+sudo fuser -k 8000/tcp
+```
+
+## 12 Super usuario para nuestro proyecto.
+```
+(env5) christian@django:/proyecto_5$ python3 manage.py createsuperuser
+Username (leave blank to use 'christian'):
+Email address: tarredwall@gmail.com
+Password:
+Password (again):
+This password is too short. It must contain at least 8 characters.
+This password is too common.
+This password is entirely numeric.
+Bypass password validation and create user anyway? [y/N]: y
+Superuser created successfully.
+```
+
+## 13 Manteniendo arriba el servidor usando tmux:
+
+- Instala tmux:
+```
+christian@django:/$ cd /proyecto_5
+christian@django:/proyecto_5$ source env5/bin/activate
+(env5) christian@django:/proyecto_5$ cd django/django/proyecto_1/empleado
+(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$ sudo apt install tmux
+```
+- Inicia una nueva sesión de tmux:
+```
+(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$ tmux new -s mi_sesion
+```
+- Inicia tu servidor Django dentro de la sesión de tmux:
+```
+christian@django:/proyecto_5/django/django/proyecto_1/empleado$ python3 manage.py runserver 164.92.107.9:8000
+```
+
+- El proyecto esta levantado en **http://164.92.107.9:8000/**
+- Desconéctate de la sesión de tmux sin detener el servidor presionando Ctrl + B seguido de D.
+- Puedes cerrar simplemente tu sesion tmux.
+
+Para ingresar a una sesión de tmux ya existente, puedes usar el comando tmux attach:
+
+Listar las sesiones de tmux para ver las sesiones activas:
+```
+(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$ tmux ls
+```
+Ingresar a la sesión de tmux usando el nombre o el número de identificación de la sesión. Por ejemplo, si la sesión se llama mi_sesion, usa el siguiente comando:
+```
+(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$ tmux attach -t mi_sesion
+```
+
+
+Para cerrar tu sesión de tmux y detener cualquier proceso que esté ejecutándose en ella:
+```
+christian@django:~$ ps aux | grep runserver
+christian@django:~$ kill 136730
+```
+
+<br>
+***
+
+How To Set Up Django with Postgres, Nginx, and Gunicorn on Ubuntu
+
+https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu
+
+Initial Server Setup with Ubuntu
+
+https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu
+
 
 ```bash
 from .base import *
