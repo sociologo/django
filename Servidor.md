@@ -353,11 +353,6 @@ Para matar el proceso asociado al puerto 8000:
 ```
 sudo fuser -k 8000/tcp
 ```
-Arrancamos el proyecto. Asegúrate de que estás en el directorio correcto donde se encuentra manage.py.
-```
-(env5) christian@django:/proyecto_5$ cd django/django/proyecto_1/empleado
-(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$ python3 manage.py runserver 0.0.0.0:8000
-```
 
 ## 12 Super usuario para nuestro proyecto.
 ```
@@ -463,7 +458,9 @@ Nginx y Gunicorn se complementan muy bien debido a sus respectivas fortalezas:
 En resumen, Nginx y Gunicorn forman un equipo poderoso para desplegar aplicaciones web en producción, combinando eficiencia, rendimiento y seguridad.
 
 ```
-(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$ sudo apt install nginx
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/emp1$ sudo apt install nginx
+
+
 (env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$ pip install gunicorn
 ```
 ```
