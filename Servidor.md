@@ -459,23 +459,7 @@ En resumen, Nginx y Gunicorn forman un equipo poderoso para desplegar aplicacion
 
 ```
 (entorno_1) christian1@django:/mis_proyectos/entorno_1/emp1$ sudo apt install nginx
-
-
-(env5) christian@django:/proyecto_5/django/django/proyecto_1/empleado$ pip install gunicorn
-```
-```
-(env5) christian@django:/$  cd /proyecto_5
-(env5) christian@django:/proyecto_5$  source env5/bin/activate
-(env5) christian@django:/proyecto_5$ ls
-django  env5
-(env5) christian@django:/proyecto_5$ cd env5
-(env5) christian@django:/proyecto_5/env5$ ls
-bin  include  lib  lib64  pyvenv.cfg
-(env5) christian@django:/proyecto_5/env5$ cd bin
-(env5) christian@django:/proyecto_5/env5/bin$ ls
-Activate.ps1  activate.csh   django-admin  pip   pip3.12  python3     sqlformat
-activate      activate.fish  gunicorn      pip3  python   python3.12
-(env5) christian@django:/proyecto_5/env5/bin$
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/emp1$  pip install gunicorn
 ```
 
 Necesitamos configurar un archivo **gunicorn_start**. El archivo gunicorn_start es un script de inicio personalizado que se utiliza para configurar y ejecutar Gunicorn, el *servidor de aplicaciones* WSGI para aplicaciones Python. Este archivo es especialmente útil cuando deseas automatizar y estandarizar el proceso de inicio de Gunicorn en un entorno de producción. Aquí tienes algunas razones por las que podrías querer crear un archivo gunicorn_start:
