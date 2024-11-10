@@ -479,13 +479,34 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / ("media")
 ```
 
-Actualizamos desde nuestro repositorio GitHub
+Hicimos los cambios en el repositorio de GitHub. Ahora actualicemos con ellos nuestro proyecto en el servidor de DigitalOcean:
 
 ```
-(entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ cd ..
+christian1@django:/mis_proyectos/entorno_1/emp1$ git pull origin main
+remote: Enumerating objects: 25, done.
+remote: Counting objects: 100% (25/25), done.
+remote: Compressing objects: 100% (20/20), done.
+remote: Total 20 (delta 13), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (20/20), 6.64 KiB | 618.00 KiB/s, done.
+From https://github.com/sociologo/emp1
+ * branch            main       -> FETCH_HEAD
+   3c46398..1b9bfa1  main       -> origin/main
+Updating 3c46398..1b9bfa1
+Fast-forward
+ README.md                 | 109 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ empleado/settings/prod.py |  10 +++---
+ 2 files changed, 113 insertions(+), 6 deletions(-)
+christian1@django:/mis_proyectos/entorno_1/emp1$
 ```
 
+### 7.2 Ejecutemos gunicorn:
 
+```
+christian1@django:/mis_proyectos/entorno_1/emp1$ cd ..
+christian1@django:/mis_proyectos/entorno_1$  source bin/activate
+(entorno_1) christian1@django:/mis_proyectos/entorno_1$ cd bin
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ gunicorn_start
+```
 
 
 
@@ -636,9 +657,7 @@ christian@django:/proyecto_5/django$
 ```
 
 Queda asi:
-```
-(env5) christian@django:/proyecto_5/env5/bin$ gunicorn_start
-```
+
 ![image](https://github.com/user-attachments/assets/e6bd7d75-3c40-4f5c-a0c8-01938b5a0146)
 
 ## 15 Supervisor
