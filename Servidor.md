@@ -411,20 +411,20 @@ activate      activate.fish  gunicorn      pip             pip3.12  python3  sql
 ```bash
 #!/bin/bash
 
-NAME="empleado"                                  
-DJANGODIR=/mis_proyectos/entorno_1/emp1        
-SOCKFILE=/mis_proyectos/entorno_1/run/gunicorn.sock 
-USER=christian1                                      
-GROUP=christian1                                    
-NUM_WORKERS=3                                     
-DJANGO_SETTINGS_MODULE=emp1/empleado/settings/prod          
-DJANGO_WSGI_MODULE=empleado.wsgi                    
+NAME="empleado"
+DJANGODIR=/mis_proyectos/entorno_1/emp1
+SOCKFILE=/mis_proyectos/entorno_1/run/gunicorn.sock
+USER=christian1
+GROUP=christian1
+NUM_WORKERS=3
+DJANGO_SETTINGS_MODULE=empleado/settings/prod
+DJANGO_WSGI_MODULE=empleado.wsgi
 
 echo "Starting $NAME as `whoami`"
 
 # Activate the virtual environment
 cd $DJANGODIR
-source /proyecto_5/env5/bin/activate
+source /mis_proyectos/entorno_1/bin/activate
 export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
 export PYTHONPATH=$DJANGODIR:$PYTHONPATH
 
@@ -433,14 +433,14 @@ RUNDIR=$(dirname $SOCKFILE)
 test -d $RUNDIR || mkdir -p $RUNDIR
 
 # Start your Django Unicorn
-# Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)
-exec /proyecto_5/env5/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
+# Programs meant to be run under supervisor should not daemonize themselves (do no>exec /mis_proyectos/entorno_1/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
   --name $NAME \
   --workers $NUM_WORKERS \
   --user=$USER --group=$GROUP \
   --bind=unix:$SOCKFILE \
   --log-level=debug \
   --log-file=-
+
 ```
 
 
