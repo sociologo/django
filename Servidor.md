@@ -407,7 +407,7 @@ activate      activate.fish  gunicorn      pip             pip3.12  python3  sql
 ```
 
 ```
-(entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ nano gunicorn_start
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ gunicorn_start
 (entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ nano gunicorn_start
 ```
 
