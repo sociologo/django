@@ -397,17 +397,7 @@ Debemos configurar **gunicorn** para que comience a servir nuestra aplicacion a 
 christian1@django:/$ cd /mis_proyectos/entorno_1/bin
 christian1@django:/mis_proyectos/entorno_1/bin$ source activate
 (entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ ls
-
-Activate.ps1  activate.fish  gunicorn_start  pip3.12  python3.12
-activate      django-admin   pip             python   sqlformat
-activate.csh  gunicorn       pip3            python3
-
-Activate.ps1  activate.csh   django-admin  gunicorn_start  pip3     python   python3.12
-activate      activate.fish  gunicorn      pip             pip3.12  python3  sqlformat
-```
-
-```
-(entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ gunicorn_start
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ touch gunicorn_start
 (entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ nano gunicorn_start
 ```
 
@@ -420,9 +410,8 @@ SOCKFILE=/mis_proyectos/entorno_1/run/gunicorn.sock
 USER=christian1
 GROUP=christian1
 NUM_WORKERS=3
-DJANGO_SETTINGS_MODULE=empleado/settings/prod
+DJANGO_SETTINGS_MODULE=empleado.settings.prod
 DJANGO_WSGI_MODULE=empleado.wsgi
-
 echo "Starting $NAME as `whoami`"
 
 # Activate the virtual environment
@@ -436,7 +425,7 @@ RUNDIR=$(dirname $SOCKFILE)
 test -d $RUNDIR || mkdir -p $RUNDIR
 
 # Start your Django Unicorn
-# Programs meant to be run under supervisor should not daemonize themselves (do no>exec /mis_proyectos/entorno_1/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
+# Programs meant to be run under supervisor should not daemonize themselves (do n>exec /mis_proyectos/entorno_1/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
   --name $NAME \
   --workers $NUM_WORKERS \
   --user=$USER --group=$GROUP \
@@ -445,6 +434,8 @@ test -d $RUNDIR || mkdir -p $RUNDIR
   --log-file=-
 ```
 
+La línea: DJANGO_SETTINGS_MODULE=empleado.settings.prod es delicada.
+La literatura nos dice que debemos utilizar barras, pero no nos ejecutaba gunicorn; con puntos sí.
 
 Le damos permisos de lectura a **gunicorn_start**:
 
@@ -453,6 +444,11 @@ Le damos permisos de lectura a **gunicorn_start**:
 ```
 
 Ahora le entregamos contenido al archivo **prod.py**
+
+```
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ cd /mis_proyectos/entorno_1/emp1/empleado/settings
+```
+
 ```
 from .base import *
 
@@ -504,11 +500,11 @@ christian1@django:/mis_proyectos/entorno_1/emp1$
 ### 7.2 Ejecutemos gunicorn:
 
 ```
-christian1@django:/mis_proyectos/entorno_1/emp1$ cd ..
-christian1@django:/mis_proyectos/entorno_1$  source bin/activate
-(entorno_1) christian1@django:/mis_proyectos/entorno_1$ cd bin
 (entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ gunicorn_start
 ```
+
+Debe verse así:
+![image](https://github.com/user-attachments/assets/97f5c2e0-e0df-4279-9a23-84fc2da42e54)
 
 
 
