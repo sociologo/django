@@ -394,19 +394,22 @@ Necesitamos configurar un archivo **gunicorn_start**. El archivo gunicorn_start 
 Debemos configurar **gunicorn** para que comience a servir nuestra aplicacion a **nginx**
 
 ```
-(entorno_1) christian1@django:/mis_proyectos/entorno_1$  cd bin/
+christian1@django:/$ cd /mis_proyectos/entorno_1/bin
+christian1@django:/mis_proyectos/entorno_1/bin$ source activate
 (entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ ls
 
-Activate.ps1  activate.csh   django-admin  pip   pip3.12  python3     sqlformat
-activate      activate.fish  gunicorn      pip3  python   python3.12
-
-(entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ touch gunicorn_start
-(entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ ls
+Activate.ps1  activate.fish  gunicorn_start  pip3.12  python3.12
+activate      django-admin   pip             python   sqlformat
+activate.csh  gunicorn       pip3            python3
 
 Activate.ps1  activate.csh   django-admin  gunicorn_start  pip3     python   python3.12
 activate      activate.fish  gunicorn      pip             pip3.12  python3  sqlformat
+```
 
+```
 (entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ nano gunicorn_start
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ nano gunicorn_start
+```
 
 ```bash
 #!/bin/bash
@@ -440,7 +443,6 @@ test -d $RUNDIR || mkdir -p $RUNDIR
   --bind=unix:$SOCKFILE \
   --log-level=debug \
   --log-file=-
-
 ```
 
 
