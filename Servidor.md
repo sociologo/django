@@ -336,7 +336,9 @@ MEDIA_ROOT = BASE_DIR / ("media")
 Y se ve la pantalla principal.
 **http://164.92.107.9:8000/**
 
-## 7 Instalar **nginex** y **gunicorn**:
+## 7 Instalar **nginex**, **gunicorn** y **supervisor**.
+
+### 7.1 Introducción.
 
 Nginx y Gunicorn son herramientas esenciales para desplegar aplicaciones web en producción, especialmente cuando se trata de aplicaciones basadas en Python como Django o Flask. Son herramientas que solo utilizamos en produccion.
 
@@ -389,7 +391,7 @@ Necesitamos configurar un archivo **gunicorn_start**. El archivo gunicorn_start 
 
 - Mantenimiento: Centraliza la configuración de Gunicorn en un solo archivo, lo que facilita el mantenimiento y las actualizaciones.
 
-### 7.1 Configurar **gunicorn**:
+### 7.2 Configurar **gunicorn**:
 
 Debemos configurar **gunicorn** para que comience a servir nuestra aplicacion a **nginx**
 
@@ -497,16 +499,145 @@ Fast-forward
 christian1@django:/mis_proyectos/entorno_1/emp1$
 ```
 
-### 7.2 Ejecutemos gunicorn:
+#### 7.2.1 Ejecutando gunicorn.
 
 ```
 (entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ gunicorn_start
 ```
-
 Debe verse así:
 ![image](https://github.com/user-attachments/assets/97f5c2e0-e0df-4279-9a23-84fc2da42e54)
 
 
+### 7.3 Instalando y configurando **supervisor**:
+
+Supervisor y Gunicorn son dos herramientas que se utilizan comúnmente juntas para desplegar aplicaciones web en producción.
+
+- Gunicorn es un servidor WSGI para aplicaciones web Python. Se utiliza para ejecutar aplicaciones web Django, Flask y otras aplicaciones WSGI.
+
+Gunicorn maneja múltiples solicitudes simultáneamente mediante la creación de varios procesos de trabajo (workers). Esto mejora el rendimiento y la capacidad de respuesta de la aplicación.
+
+Gunicorn se ejecuta en primer plano y no tiene capacidades de administración de procesos integradas, lo que significa que no puede reiniciarse automáticamente si falla.
+
+- Supervisor es una herramienta de administración de procesos que se utiliza para controlar y monitorear procesos en un sistema Unix.
+
+Supervisor puede iniciar, detener y reiniciar procesos automáticamente. También puede monitorear los procesos y reiniciarlos si fallan.
+
+Supervisor se ejecuta en segundo plano y proporciona una interfaz web y de línea de comandos para administrar los procesos.
+
+Relación entre Supervisor y Gunicorn:
+
+Supervisor se utiliza para administrar el proceso de Gunicorn. Esto significa que Supervisor se encarga de iniciar Gunicorn, monitorear su estado y reiniciarlo si falla.
+
+Al usar Supervisor, puedes asegurarte de que tu aplicación web esté siempre en funcionamiento, incluso si Gunicorn falla por alguna razón.
+
+Supervisor también facilita la administración de múltiples procesos Gunicorn en un solo servidor, lo que es útil para aplicaciones web de gran escala.
+
+**gunicorn_start** ejecutará el proyecto cuando detecte que nginx le solicite servir nuestra aplicación. Ahora, no pdemos estar ejecutandolo todo el tiempo desde la terminal cada vez que queramos levantar el servidor, para ello existe **supervisor**. Lo instalamos:
+```
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ sudo apt install supervisor
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ sudo apt upgrade supervisor
+```
+
+Configuramos supervisor:
+```
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ cd /etc/supervisor/conf.d
+(entorno_1) christian1@django:/etc/supervisor/conf.d$ sudo touch empleado.conf
+(entorno_1) christian1@django:/etc/supervisor/conf.d$ sudo nano empleado.conf
+```
+
+
+```bash
+[program:empleado]
+command = /mis_proyectos/entorno_1/bin/gunicorn_start                    ; Command to start app
+user = christian1                                                          ; User to run as
+stdout_logfile = /mis_proyectos/entorno_1/logs/gunicorn_supervisor.log   ; Where to write log messages
+redirect_stderr = true                                                ; Save stderr in the same log
+environment=LANG=en_US.UTF-8,LC_ALL=en_US.UTF-8                       ; Set UTF-8 as default encoding
+```
+
+```
+(entorno_1) christian1@django:/etc/supervisor/conf.d$ cd /mis_proyectos/entorno_1
+(entorno_1) christian1@django:/mis_proyectos/entorno_1$ mkdir logs
+(entorno_1) christian1@django:/mis_proyectos/entorno_1$ touch logs/gunicorn_supervisor.log
+(entorno_1) christian1@django:/mis_proyectos/entorno_1$ ls
+bin  emp1  include  lib  lib64  logs  pyvenv.cfg  run
+
+(entorno_1) christian1@django:/mis_proyectos/entorno_1$ sudo supervisorctl reread
+empleado: changed
+
+(entorno_1) christian1@django:/mis_proyectos/entorno_1$ sudo supervisorctl update
+empleado: stopped
+empleado: updated process group
+```
+
+**empleado: changed:** Esto indica que Supervisor ha detectado cambios en la configuración del programa empleado.
+
+**empleado: stopped:** Esto indica que el proceso empleado se ha detenido.
+
+**empleado: updated process group:** Esto indica que Supervisor ha actualizado el grupo de procesos para empleado con la nueva configuración.
+
+### 7.4 Configurando **nginx**.
+
+```
+(entorno_1) christian1@django:/mis_proyectos/entorno_1$ cd /etc/nginx/
+(entorno_1) christian1@django:/etc/nginx$ ls
+conf.d          koi-utf     modules-available  proxy_params     sites-enabled  win-utf
+fastcgi.conf    koi-win     modules-enabled    scgi_params      snippets
+fastcgi_params  mime.types  nginx.conf         sites-available  uwsgi_params
+
+(entorno_1) christian1@django:/etc/nginx$ cd sites-available/
+(entorno_1) christian1@django:/etc/nginx/sites-available$ ls
+default  empleado
+
+(entorno_1) christian1@django:/etc/nginx/sites-available$ sudo touch empleado
+(entorno_1) christian1@django:/etc/nginx/sites-available$ sudo nano empleado
+```
+
+```bash
+upstream empleado_app {
+  server unix:/mis_proyectos/entorno_1/run/gunicorn.sock fail_timeout=0;
+}
+ 
+server {
+ 
+    listen   80;
+    server_name sociolab.cl;
+ 
+    access_log /mis_proyectos/entorno_1/logs/nginx-access.log;
+    error_log /mis_proyectos/entorno_1/logs/nginx-error.log;
+ 
+    location /static/ {
+        alias   /mis_proyectos/entorno_1/emp1/static/;
+    }
+    
+    location /media/ {
+        alias   /mis_proyectos/entorno_1/emp1/media/empleado;
+    }
+ 
+    location / {
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+
+        if (!-f $request_filename) {
+            proxy_pass http://empleado_app;
+            break;
+        }
+    }
+}
+```
+
+#### 7.4.1 Enlace simbólico de **nginx** 
+
+**nginx** no va a leer el archivo **empleado** ubicado en:
+
+(entorno_1) christian1@django:/etc/nginx/sites-available$
+
+
+
+
+
+### 7.5 Migraciones y archivos estaticos
 
 
 <br>
@@ -660,43 +791,7 @@ Queda asi:
 
 ## 15 Supervisor
 
-Supervisor y Gunicorn son dos herramientas que se utilizan comúnmente juntas para desplegar aplicaciones web en producción.
 
-- Gunicorn es un servidor WSGI para aplicaciones web Python. Se utiliza para ejecutar aplicaciones web Django, Flask y otras aplicaciones WSGI.
-
-Gunicorn maneja múltiples solicitudes simultáneamente mediante la creación de varios procesos de trabajo (workers). Esto mejora el rendimiento y la capacidad de respuesta de la aplicación.
-
-Gunicorn se ejecuta en primer plano y no tiene capacidades de administración de procesos integradas, lo que significa que no puede reiniciarse automáticamente si falla.
-
-- Supervisor es una herramienta de administración de procesos que se utiliza para controlar y monitorear procesos en un sistema Unix.
-
-Supervisor puede iniciar, detener y reiniciar procesos automáticamente. También puede monitorear los procesos y reiniciarlos si fallan.
-
-Supervisor se ejecuta en segundo plano y proporciona una interfaz web y de línea de comandos para administrar los procesos.
-
-Relación entre Supervisor y Gunicorn:
-
-Supervisor se utiliza para administrar el proceso de Gunicorn. Esto significa que Supervisor se encarga de iniciar Gunicorn, monitorear su estado y reiniciarlo si falla.
-
-Al usar Supervisor, puedes asegurarte de que tu aplicación web esté siempre en funcionamiento, incluso si Gunicorn falla por alguna razón.
-
-Supervisor también facilita la administración de múltiples procesos Gunicorn en un solo servidor, lo que es útil para aplicaciones web de gran escala.
-
-```
-(env5) christian@django:/proyecto_5/env5/bin$ sudo apt install supervisor
-(env5) christian@django:/proyecto_5/env5/bin$ cd /etc/supervisor/conf.d/
-(env5) christian@django:/etc/supervisor/conf.d$ sudo touch /etc/supervisor/conf.d/empleado.conf
-(env5) christian@django:/etc/supervisor/conf.d$ sudo nano empleado.conf
-```
-
-```bash
-[program:empleado]
-command = /proyecto_5/env5/bin/gunicorn_start                    ; Command to start app
-user = christian                                                          ; User to run as
-stdout_logfile = /proyecto_5/env5/logs/gunicorn_supervisor.log   ; Where to write log messages
-redirect_stderr = true                                                ; Save stderr in the same log
-environment=LANG=en_US.UTF-8,LC_ALL=en_US.UTF-8                       ; Set UTF-8 as default encoding
-```
 
 ```
 (env5) christian@django:/proyecto_5/env5$ mkdir logs
@@ -736,39 +831,7 @@ default
 
 
 
-```bash
-upstream empleado_app {
-  server unix:/proyecto_5/env5/run/gunicorn.sock fail_timeout=0;
-}
- 
-server {
- 
-    listen   80;
-    server_name sociolab.cl;
- 
-    access_log /proyecto_5/env5/logs/nginx-access.log;
-    error_log /proyecto_5/env5/logs/nginx-error.log;
- 
-    location /static/ {
-        alias   /proyecto_5/env5/empleado/static/;
-    }
-    
-    location /media/ {
-        alias   /proyecto_5/env5/empleado/media/;
-    }
- 
-    location / {
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header Host $http_host;
-        proxy_redirect off;
 
-        if (!-f $request_filename) {
-            proxy_pass http://empleado_app;
-            break;
-        }
-    }
-}
-```
 
 (env5) christian@django:/proyecto_5/env5/logs$ sudo nginx-error.log
 (env5) christian@django:/proyecto_5/env5/logs$ sudo touch nginx-error.log
