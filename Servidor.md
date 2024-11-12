@@ -469,14 +469,12 @@ DATABASES = {
     }
 }
 
-STATIC_URL = 'static/'
-
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR.child('static')]
+STATIC_ROOT = BASE_DIR.child('staticfiles')
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / ("media")
+MEDIA_ROOT = BASE_DIR.child('media')
 ```
 
 Hicimos los cambios en el repositorio de GitHub. Ahora actualicemos con ellos nuestro proyecto en el servidor de DigitalOcean:
