@@ -378,7 +378,7 @@ En resumen, Nginx y Gunicorn forman un equipo poderoso para desplegar aplicacion
 
 ```
 (entorno_1) christian1@django:/mis_proyectos/entorno_1/emp1$ sudo apt install nginx
-(entorno_1) christian1@django:/mis_proyectos/entorno_1/emp1$  pip install gunicorn
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/emp1$ pip install gunicorn
 ```
 
 Necesitamos configurar un archivo **gunicorn_start**. El archivo gunicorn_start es un script de inicio personalizado que se utiliza para configurar y ejecutar Gunicorn, el *servidor de aplicaciones* WSGI para aplicaciones Python. Este archivo es especialmente útil cuando deseas automatizar y estandarizar el proceso de inicio de Gunicorn en un entorno de producción. Aquí tienes algunas razones por las que podrías querer crear un archivo gunicorn_start:
