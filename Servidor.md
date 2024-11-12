@@ -657,9 +657,14 @@ Creemos los archivos para los registros de errores:
 (entorno_1) christian1@django:/$ cd /mis_proyectos/entorno_1/logs
 (entorno_1) christian1@django:/mis_proyectos/entorno_1/logs$ sudo touch nginx-access.log
 (entorno_1) christian1@django:/mis_proyectos/entorno_1/logs$ sudo touch nginx-error.log
-
 ```
 
+Cuando modificamos algún archivo de nuestro proyecto, debemos borrar el enlace simbólico antes creado y volverlo a escribir:
+```
+(entorno_1) christian1@django:/$ sudo rm -f /etc/nginx/sites-enabled/empleado
+(entorno_1) christian1@django:/$ sudo ln -s /etc/nginx/sites-available/empleado /etc/nginx/sites-enabled/empleado
+(entorno_1) christian1@django:/$ service nginx restart
+```
 
 
 
