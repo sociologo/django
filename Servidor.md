@@ -627,6 +627,40 @@ server {
 }
 ```
 
+```
+upstream empleado_app {
+    server unix:/mis_proyectos/entorno_1/run/gunicorn.sock fail_timeout=0;
+}
+
+server {
+    listen 80;
+    server_name sociolab.cl www.sociolab.cl;
+
+    access_log /mis_proyectos/entorno_1/logs/nginx-access.log;
+    error_log /mis_proyectos/entorno_1/logs/nginx-error.log;
+
+    location /static/ {
+        alias /mis_proyectos/entorno_1/emp1/static/;
+    }
+
+    location /media/ {
+        alias /mis_proyectos/entorno_1/emp1/media/empleado;
+    }
+
+    location / {
+        try_files $uri @proxy_to_app;
+    }
+
+    location @proxy_to_app {
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+        proxy_pass http://empleado_app;
+    }
+}
+
+```
+
 #### 7.4.1 Enlace simbólico de **nginx** 
 
 Nginx utiliza enlaces simbólicos para gestionar la configuración de los sitios de manera eficiente. Los archivos de configuración de los sitios se almacenan en el directorio /etc/nginx/sites-available/, pero para que Nginx los reconozca y los utilice, es necesario crear un enlace simbólico en el directorio /etc/nginx/sites-enabled/2.
