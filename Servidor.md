@@ -607,7 +607,7 @@ server {
     error_log /mis_proyectos/entorno_1/logs/nginx-error.log;
  
     location /static/ {
-        alias   /mis_proyectos/entorno_1/emp1/static/;
+        alias   /mis_proyectos/entorno_1/emp1/staticfiles/;
     }
     
     location /media/ {
