@@ -545,7 +545,6 @@ Configuramos supervisor:
 (entorno_1) christian1@django:/etc/supervisor/conf.d$ sudo nano empleado.conf
 ```
 
-
 ```bash
 [program:empleado]
 command = /mis_proyectos/entorno_1/bin/gunicorn_start                    ; Command to start app
@@ -629,10 +628,39 @@ server {
 
 #### 7.4.1 Enlace simbólico de **nginx** 
 
-**nginx** no va a leer el archivo **empleado** ubicado en:
+Nginx utiliza enlaces simbólicos para gestionar la configuración de los sitios de manera eficiente. Los archivos de configuración de los sitios se almacenan en el directorio /etc/nginx/sites-available/, pero para que Nginx los reconozca y los utilice, es necesario crear un enlace simbólico en el directorio /etc/nginx/sites-enabled/2.
 
-(entorno_1) christian1@django:/etc/nginx/sites-available$
+Esto permite activar o desactivar sitios fácilmente sin necesidad de modificar los archivos de configuración directamente. Simplemente se crea o elimina el enlace simbólico correspondiente. Además, esto ayuda a mantener una estructura de configuración organizada y facilita la administración de múltiples sitios en un solo servidor.
 
+```
+(entorno_1) christian1@django:/$ sudo ln -s /etc/nginx/sites-available/empleado /etc/nginx/site
+s-enabled/empleado
+(entorno_1) christian1@django:/$ service nginx restart
+==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ====
+Authentication is required to restart 'nginx.service'.
+Multiple identities can be used for authentication:
+ 1.  ,,, (christian)
+ 2.  ,,, (christian1)
+Choose identity to authenticate as (1-2): 2
+Password:
+==== AUTHENTICATION COMPLETE ====
+(entorno_1) christian1@django:/$
+```
+
+```
+(entorno_1) christian1@django:/$ sudo supervisorctl restart empleado
+empleado: stopped
+empleado: started
+(entorno_1) christian1@django:/$
+```
+
+Creemos los archivos para los registros de errores:
+```
+(entorno_1) christian1@django:/$ cd /mis_proyectos/entorno_1/logs
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/logs$ sudo touch nginx-access.log
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/logs$ sudo touch nginx-error.log
+
+```
 
 
 
