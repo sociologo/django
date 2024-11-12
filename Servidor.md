@@ -478,6 +478,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 ```
 
+**staticfiles** sera la ruta principal para nuestros archivos estáticos en producción.
+
 Hicimos los cambios en el repositorio de GitHub. Ahora actualicemos con ellos nuestro proyecto en el servidor de DigitalOcean:
 
 ```
@@ -660,7 +662,7 @@ Creemos los archivos para los registros de errores:
 (entorno_1) christian1@django:/mis_proyectos/entorno_1/logs$ sudo touch nginx-error.log
 ```
 
-Cuando modificamos algún archivo de nuestro proyecto, debemos borrar el enlace simbólico antes creado y volverlo a escribir:
+Cuando modificamos el archivo **empleado** de ngixn, debemos borrar el enlace simbólico antes creado y volverlo a escribir:
 ```
 (entorno_1) christian1@django:/$ sudo rm -f /etc/nginx/sites-enabled/empleado
 (entorno_1) christian1@django:/$ sudo ln -s /etc/nginx/sites-available/empleado /etc/nginx/sites-enabled/empleado
@@ -673,13 +675,39 @@ Carguemos los estilos en producción:
 
 ```
 (entorno_1) christian1@django:/$ cd mis_proyectos/entorno_1/emp1
-
 (entorno_1) christian1@django:/mis_proyectos/entorno_1/emp1$ python manage.py collectstatic --settings=empleado.settings.prod
 
+1394 static files copied to '/mis_proyectos/entorno_1/emp1/staticfiles'.
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/emp1$
 ```
 
+Siempre ante cualquier cambio en nuestro proyecto debemos escribir:
 
+```
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/emp1$ sudo supervisorctl restart empleado
+empleado: stopped
+empleado: started
+```
+```
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/emp1$ python manage.py makemigrations --settings=empleado.settings.prod
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/emp1$ python manage.py migrate --settings=empleado.settings.prod
+```
 
+### 8 Super usuario para nuestro proyecto.
+
+```
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/emp1$  python3 manage.py createsuperuser  --settings=empleado.settings.prod
+System check identified some issues:
+
+WARNINGS:
+?: (ckeditor.W001) django-ckeditor bundles CKEditor 4.22.1 which isn't supported anmyore and which does have unfixed security issues, see for example https://ckeditor.com/cke4/release/CKEditor-4.24.0-LTS . You should consider strongly switching to a different editor (maybe CKEditor 5 respectively django-ckeditor-5 after checking whether the CKEditor 5 license terms work for you) or switch to the non-free CKEditor 4 LTS package. See https://ckeditor.com/ckeditor-4-support/ for more on this. (Note! This notice has been added by the django-ckeditor developers and we are not affiliated with CKSource and were not involved in the licensing change, so please refrain from complaining to us. Thanks.)
+Username (leave blank to use 'christian1'):
+Email address:
+Password:
+Password (again):
+Superuser created successfully.
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/emp1$
+```
 
 <br>
 <br>
@@ -688,7 +716,13 @@ Carguemos los estilos en producción:
 <br>
 ---
 ---
-
+***
+***
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 
@@ -721,19 +755,7 @@ Para matar el proceso asociado al puerto 8000:
 sudo fuser -k 8000/tcp
 ```
 
-## 12 Super usuario para nuestro proyecto.
-```
-(env5) christian@django:/proyecto_5$ python3 manage.py createsuperuser
-Username (leave blank to use 'christian'):
-Email address: tarredwall@gmail.com
-Password:
-Password (again):
-This password is too short. It must contain at least 8 characters.
-This password is too common.
-This password is entirely numeric.
-Bypass password validation and create user anyway? [y/N]: y
-Superuser created successfully.
-```
+
 
 ## 13 Manteniendo arriba el servidor usando tmux:
 
