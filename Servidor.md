@@ -593,40 +593,6 @@ default  empleado
 (entorno_1) christian1@django:/etc/nginx/sites-available$ sudo nano empleado
 ```
 
-```bash
-upstream empleado_app {
-  server unix:/mis_proyectos/entorno_1/run/gunicorn.sock fail_timeout=0;
-}
- 
-server {
- 
-    listen   80;
-    server_name sociolab.cl;
- 
-    access_log /mis_proyectos/entorno_1/logs/nginx-access.log;
-    error_log /mis_proyectos/entorno_1/logs/nginx-error.log;
- 
-    location /static/ {
-        alias   /mis_proyectos/entorno_1/emp1/staticfiles/;
-    }
-    
-    location /media/ {
-        alias   /mis_proyectos/entorno_1/emp1/media/empleado;
-    }
- 
-    location / {
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header Host $http_host;
-        proxy_redirect off;
-
-        if (!-f $request_filename) {
-            proxy_pass http://empleado_app;
-            break;
-        }
-    }
-}
-```
-
 ```
 upstream empleado_app {
     server unix:/mis_proyectos/entorno_1/run/gunicorn.sock fail_timeout=0;
@@ -640,7 +606,7 @@ server {
     error_log /mis_proyectos/entorno_1/logs/nginx-error.log;
 
     location /static/ {
-        alias /mis_proyectos/entorno_1/emp1/static/;
+        alias /mis_proyectos/entorno_1/emp1/staticfiles/;
     }
 
     location /media/ {
@@ -741,6 +707,16 @@ Password:
 Password (again):
 Superuser created successfully.
 (entorno_1) christian1@django:/mis_proyectos/entorno_1/emp1$
+```
+
+Listo
+
+No olvides desbloquear el puerto 80:
+
+```
+(entorno_1) christian1@django:/$ sudo ufw allow 80/tcp
+(entorno_1) christian1@django:/$ sudo ufw reload
+(entorno_1) christian1@django:/$ sudo ufw status
 ```
 
 <br>
