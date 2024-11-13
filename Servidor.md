@@ -305,7 +305,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['sociolab.cl', 'www.sociolab.cl']
 
-CSRF_TRUSTED_ORIGINS = ['https://sociolab.cl']
+CSRF_TRUSTED_ORIGINS = ['https://sociolab.cl', 'https://www.sociolab.cl']
 
 DATABASES = {
     'default': {
