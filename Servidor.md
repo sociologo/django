@@ -627,6 +627,65 @@ server {
 
 ```
 
+```
+upstream empleado_app {
+    server unix:/mis_proyectos/entorno_1/run/gunicorn.sock fail_timeout=0;
+}
+
+server {
+    listen 80;
+    server_name sociolab.cl www.sociolab.cl;
+
+    access_log /mis_proyectos/entorno_1/logs/nginx-access.log;
+    error_log /mis_proyectos/entorno_1/logs/nginx-error.log;
+
+    location /static/ {
+        alias /mis_proyectos/entorno_1/emp1/staticfiles/;
+    }
+
+    location /media/ {
+        alias /mis_proyectos/entorno_1/emp1/media/empleado;
+    }
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+server {
+    listen 443 ssl;
+    server_name sociolab.cl www.sociolab.cl;
+
+    ssl_certificate /etc/letsencrypt/live/sociolab.cl/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/sociolab.cl/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    access_log /mis_proyectos/entorno_1/logs/nginx-access.log;
+    error_log /mis_proyectos/entorno_1/logs/nginx-error.log;
+
+    location /static/ {
+        alias /mis_proyectos/entorno_1/emp1/staticfiles/;
+    }
+
+    location /media/ {
+        alias /mis_proyectos/entorno_1/emp1/media/empleado;
+    }
+
+    location / {
+        try_files $uri @proxy_to_app;
+    }
+
+    location @proxy_to_app {
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+        proxy_pass http://empleado_app;
+    }
+}
+
+```
+
 #### 7.4.1 Enlace simbólico de **nginx** 
 
 Nginx utiliza enlaces simbólicos para gestionar la configuración de los sitios de manera eficiente. Los archivos de configuración de los sitios se almacenan en el directorio /etc/nginx/sites-available/, pero para que Nginx los reconozca y los utilice, es necesario crear un enlace simbólico en el directorio /etc/nginx/sites-enabled/2.
