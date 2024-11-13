@@ -292,10 +292,10 @@ veamos todo lo que tenemos instalado:
 (entorno_1) christian1@django:/mis_proyectos/entorno_1$ pip freeze --local
 ```
 
-- 6.6 Configuracion del archivo local.py
+- 6.6 Configuracion del archivo prod.py
 ```
 (entorno_1) christian1@django:/mis_proyectos/entorno_1$  cd emp1/empleado/settings
-(entorno_1) christian1@django:/mis_proyectos/entorno_1/emp1/empleado/settings$ nano local.py
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/emp1/empleado/settings$ nano prod.py
 ```
 
 ```bash
@@ -303,7 +303,9 @@ from .base import *
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['sociolab.cl', 'www.sociolab.cl']
+
+CSRF_TRUSTED_ORIGINS = ['https://sociolab.cl']
 
 DATABASES = {
     'default': {
@@ -312,29 +314,30 @@ DATABASES = {
         'USER ': 'christian1',
         'PASSWORD': '123456',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '5432',
     }
 }
 
-STATIC_URL = 'static/'
-
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / ("media")
+MEDIA_ROOT = BASE_DIR / 'media'
+
 ```
+son muy importantes las lineas:
+```bash
+ALLOWED_HOSTS = ['sociolab.cl', 'www.sociolab.cl']
+CSRF_TRUSTED_ORIGINS = ['https://sociolab.cl']
+```
+para que al editar un registro no surja el siguiente error:
+
+![image](https://github.com/user-attachments/assets/c6da0125-a937-4758-bfa6-e39770c670f5)
+
+**staticfiles** sera la ruta principal para nuestros archivos estáticos en producción.
 
 > ES MUY IMPORTANTE QUE EL **USER** DE LA BASE DE DATOS SEA EL MISMO QUE EL **NOMBRE DEL USUARIO** LINUX CON EL QUE ESTAS TRABAJANDO. SI NO, NO TE PODRAS CONECTAR!
-
-- 6.7 Ejecutando el proyecto.
-```
-(entorno_1) christian1@django:/mis_proyectos/entorno_1/emp1$ python3 manage.py runserver 0.0.0.0:8000
-```
-
-Y se ve la pantalla principal.
-**http://164.92.107.9:8000/**
 
 ## 7 Instalar **nginex**, **gunicorn** y **supervisor**.
 
@@ -444,41 +447,6 @@ Le damos permisos de lectura a **gunicorn_start**:
 ```
 (entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ chmod u+x gunicorn_start
 ```
-
-Ahora le entregamos contenido al archivo **prod.py**
-
-```
-(entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ cd /mis_proyectos/entorno_1/emp1/empleado/settings
-```
-
-```
-from .base import *
-
-DEBUG = True
-
-ALLOWED_HOSTS = ['*']
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'bded6',
-        'USER ': 'christian1',
-        'PASSWORD': '123456',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
-
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-
-MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / 'media'
-
-```
-
-**staticfiles** sera la ruta principal para nuestros archivos estáticos en producción.
 
 Hicimos los cambios en el repositorio de GitHub. Ahora actualicemos con ellos nuestro proyecto en el servidor de DigitalOcean:
 
@@ -799,9 +767,7 @@ Por ultimo debemos reiniciar nuestro servicio nginx:
 ```
 (entorno_1) christian1@django:/$ service nginx start
 ```
-Al editar un registro puede surgir el siguiente error:
 
-![image](https://github.com/user-attachments/assets/c6da0125-a937-4758-bfa6-e39770c670f5)
 
 <br>
 <br>
