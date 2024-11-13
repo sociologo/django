@@ -831,6 +831,9 @@ Por ultimo debemos reiniciar nuestro servicio nginx:
 ```
 (entorno_1) christian1@django:/$ service nginx start
 ```
+Al editar un registro puede surgir el siguiente error:
+
+![image](https://github.com/user-attachments/assets/c6da0125-a937-4758-bfa6-e39770c670f5)
 
 <br>
 <br>
