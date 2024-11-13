@@ -768,21 +768,19 @@ Por ultimo debemos reiniciar nuestro servicio nginx:
 (entorno_1) christian1@django:/$ service nginx start
 ```
 
+Y ejecutar gunicorn:
+
+```
+(entorno_1) christian1@django:~$  sudo supervisorctl restart empleado
+empleado: stopped
+empleado: started
+```
 
 <br>
 <br>
-<br>
-<br>
-<br>
----
----
 ***
 ***
-<br>
-<br>
-<br>
-<br>
-<br>
+
 
 
 
