@@ -719,6 +719,60 @@ No olvides desbloquear el puerto 80:
 (entorno_1) christian1@django:/$ sudo ufw status
 ```
 
+## 9 Certificado SSL.
+
+9.1 Debemos verificar que nuestro status sea active:
+
+Cuando el estado de ufw (Uncomplicated Firewall) es "active", significa que el firewall está habilitado y funcionando en tu sistema. Esto implica que las reglas de firewall que has configurado están siendo aplicadas para controlar el tráfico de red hacia y desde tu servidor.
+```
+(entorno_1) christian1@django:/$ sudo ufw status
+[sudo] password for christian1:
+Status: active
+
+To                         Action      From
+--                         ------      ----
+8000                       ALLOW       Anywhere
+5432                       ALLOW       Anywhere
+OpenSSH                    ALLOW       Anywhere
+80/tcp                     ALLOW       Anywhere
+8000 (v6)                  ALLOW       Anywhere (v6)
+5432 (v6)                  ALLOW       Anywhere (v6)
+OpenSSH (v6)               ALLOW       Anywhere (v6)
+80/tcp (v6)                ALLOW       Anywhere (v6)
+```
+La siguiente linea esta DEPRECATED
+```
+(entorno_1) christian1@django:/$ sudo add-apt-repository ppa:certbot/certbot
+```
+por lo que hacemos lo siguiente:
+```
+sudo add-apt-repository --remove ppa:certbot/certbot
+sudo apt update
+sudo apt install snapd
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo certbot --nginx
+sudo certbot renew --dry-run
+```
+
+Notemos que todo marcha bien para sociolab.cl pero que algo fallo con www.sociolab.cl
+
+La línea de comando **sudo certbot --nginx -d sociolab.cl** se utiliza para obtener y configurar un certificado SSL para tu dominio sociolab.cl utilizando Certbot y Nginx.
+```
+(entorno_1) christian1@django:/$ sudo certbot --nginx -d sociolab.cl
+```
+
+comando sudo certbot renew --dry-run se utiliza para simular el proceso de renovación de los certificados SSL gestionados por Certbot sin realizar cambios reales.
+```
+(entorno_1) christian1@django:/$ sudo certbot renew --dry-run
+```
+
+Por ultimo debemos reiniciar nuestro servicio nginx:
+
+```
+(entorno_1) christian1@django:/$ service nginx start
+```
+
 <br>
 <br>
 <br>
