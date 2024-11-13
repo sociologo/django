@@ -593,39 +593,7 @@ default  empleado
 (entorno_1) christian1@django:/etc/nginx/sites-available$ sudo nano empleado
 ```
 
-```
-upstream empleado_app {
-    server unix:/mis_proyectos/entorno_1/run/gunicorn.sock fail_timeout=0;
-}
-
-server {
-    listen 80;
-    server_name sociolab.cl www.sociolab.cl;
-
-    access_log /mis_proyectos/entorno_1/logs/nginx-access.log;
-    error_log /mis_proyectos/entorno_1/logs/nginx-error.log;
-
-    location /static/ {
-        alias /mis_proyectos/entorno_1/emp1/staticfiles/;
-    }
-
-    location /media/ {
-        alias /mis_proyectos/entorno_1/emp1/media/empleado;
-    }
-
-    location / {
-        try_files $uri @proxy_to_app;
-    }
-
-    location @proxy_to_app {
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header Host $http_host;
-        proxy_redirect off;
-        proxy_pass http://empleado_app;
-    }
-}
-
-```
+Es muy importante habilitar el **puerto 443** porque es el que le da acceso a https:
 
 ```
 upstream empleado_app {
