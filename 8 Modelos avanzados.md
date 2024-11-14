@@ -52,20 +52,22 @@ C:\mis_entornos\entorno_2\Scripts> activate
 
 2.5.2 Copiamos todo de settings.py a base.py con la excepcion de la configuracion de la base de datos(con DEBUG = True y ALLOWED_HOSTS = []) y STATIC_URL = '/static/', que llevamos a local.py.
 
-![image](https://github.com/user-attachments/assets/d5667a2d-ee72-4670-90fc-fc0a969bcb50)
-![image](https://github.com/user-attachments/assets/a7d2c572-91bd-4578-ab6c-f1821a1f2e79)
-![image](https://github.com/user-attachments/assets/064f61df-2470-4c94-ade0-2e890a6f7b78)
-![image](https://github.com/user-attachments/assets/0e40987e-cd77-4f88-93b5-688de87afa37)
+![image](https://github.com/user-attachments/assets/c9e01425-aab3-43fe-9bf7-9c7926c9eb68)
+![image](https://github.com/user-attachments/assets/4cd8c6b4-d596-4c81-a471-a8cd8496af83)
+![image](https://github.com/user-attachments/assets/b75fe7b3-87e3-4f59-abc2-25010bab7cfd)
+![image](https://github.com/user-attachments/assets/0ad357b7-e82b-4ec3-bffb-e93bb243f61a)
 
-2.5.3 En local.py importamos en base.py
+2.5.3 En base.py cambiamos las configuraciones de acuerdo a unipath.
 
-2.5.4 En base.py cambiamos las configuraciones de acuerdo a unipath.
+2.5.4 En local.py importamos en base.py
 
 Unipath es una biblioteca de Python que proporciona una interfaz orientada a objetos para trabajar con rutas de archivos y directorios. Simplifica muchas de las operaciones comunes que se realizan con archivos y directorios, haciendo que el código sea más legible y fácil de mantener.
 
 2.5.5 Creamos una carpeta templates a la altura del **manage.py** y configuramos la variable TEMPLATES en base.py
 
 2.5.6 Configuramos postgresql en local.py
+
+
 
 2.5.7 Creamos la base de datos en postgres
 
