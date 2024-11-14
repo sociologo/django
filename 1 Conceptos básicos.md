@@ -88,23 +88,23 @@ C:\mis_entornos\entorno_1\Scripts>activate
 ```
 (entorno_1) C:\> pip install django
 (entorno_1) C:\> python.exe -m pip install --upgrade pip
-(entorno_1) C:\>cd \mis_proyectos\emp1
-(entorno_1) C:\mis_proyectos\emp1>pip install django-ckeditor
-(entorno_1) C:\mis_proyectos\emp1>pip install psycopg2-binary
-(entorno_1) C:\mis_proyectos\emp1>pip install Pillow
+(entorno_1) C:\> cd \mis_proyectos\emp1
+(entorno_1) C:\mis_proyectos\emp1> pip install django-ckeditor
+(entorno_1) C:\mis_proyectos\emp1> pip install psycopg2-binary
+(entorno_1) C:\mis_proyectos\emp1> pip install Pillow
 ```
 
-### 1.4 corremos el servidor:
+### 1.4 En ella, creamos nuestro proyecto **empleado**:
 ```
-(entorno_1) C:\mis_proyectos\emp1>python manage.py runserver
+(entorno_1) C:\mis_proyectos\emp1>  django-admin startproject empleado
 ```
 
+### 1.5 corremos el servidor:
+```
+(entorno_1) C:\mis_proyectos\emp1> python manage.py runserver
+```
 
-
-### 1.7 En ella, creamos nuestro proyecto **empleado**:
-(entorno_1) C:\Users\chris\django\proyecto_1> django-admin startproject empleado
-
-### 1.8 Abrimos el proyecto empleado con Visual Studio:
+### 1.6 Abrimos el proyecto empleado con Visual Studio:
 
 ![image](https://github.com/user-attachments/assets/2e9cee98-5375-4b48-9033-b116c59d4823)
 
