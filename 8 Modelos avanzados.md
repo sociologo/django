@@ -69,46 +69,83 @@ Unipath es una biblioteca de Python que proporciona una interfaz orientada a obj
 
 
 
-2.5.7 Creamos la base de datos en postgres
+2.5.7 Creamos la base de datos en postgres 
 
-su postgres
-createdb dbbiblioteca
-psql dbbiblioteca
-alter user christian with password '123456';
+vamos a la shell de postgres 16 en Windows:
 
-2.6 Ejecutamos nuestra aplicacion
+Damos enter hasta Contraseña para usuario postgres: para indicarle que cargue las opciones por defecto. Ingresamos 123456 y creamos nuestra base de datos.
+
+Creamos un usuario y le damos permisos para acceder a la base de datos recien creada:
+
+```bash
+Server [localhost]:
+Database [postgres]:
+Port [5432]:
+Username [postgres]:
+Contraseña para usuario postgres:
+
+psql (16.4)
+ADVERTENCIA: El código de página de la consola (850) difiere del código
+            de página de Windows (1252).
+            Los caracteres de 8 bits pueden funcionar incorrectamente.
+            Vea la página de referencia de psql «Notes for Windows users»
+            para obtener más detalles.
+Digite «help» para obtener ayuda.
+
+postgres=# CREATE DATABASE dbbiblioteca;
+CREATE DATABASE
+postgres=# \c dbbiblioteca
+Ahora está conectado a la base de datos «dbbiblioteca» con el usuario «postgres».
+dbbiblioteca=# ALTER ROLE chris WITH PASSWORD '123456';
+ALTER ROLE
+dbbiblioteca=#
 ```
-(entorno_2) C:\mis_proyectos\biblio> python manage.py runserver --settings=biblioteca.setttings.local
+
+Entregale permisos totales a la base de datos a tu ususrio:
+```
+postgres=# \c dbbiblioteca
+Ahora está conectado a la base de datos «dbbiblioteca» con el usuario «postgres».
+dbbiblioteca=# GRANT USAGE ON SCHEMA public TO chris;
+GRANT
+dbbiblioteca=# GRANT CREATE ON SCHEMA public TO chris;
+GRANT
+dbbiblioteca=# GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO chris;
+GRANT
+dbbiblioteca=# GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO chris;
+GRANT
+dbbiblioteca=#
 ```
 
-2.7 Configuraciones para evitar **python manage.py runserver --settings=biblioteca.setttings.local**
+para linux es:
+```bash
+$ su postgres
+Contraseña:
+postgres$ createdb dbbiblioteca
+postgres$ psql  dbbiblioteca
+dbbiblioteca# alter user chris with password '123456';
+```
+
+2.6 Configuraciones para evitar **python manage.py runserver --settings=biblioteca.setttings.local**
 
 Cambiamos en manage.py lo siguiente:
 
 Cambiamos en wsgi.py lo siguiente:
 
-2.8 Hacemos las migraciones
+2.7 Hacemos las migraciones
 ```
-(entorno_2) C:\mis_proyectos\biblio> python manage.py makemigrations
-(entorno_2) C:\mis_proyectos\biblio> python manage.py migrate
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py makemigrations
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py migrate
 ```
 
-2.9 Creamos un superusuario para nuestra aplicacion
+2.8 Creamos un superusuario para nuestra aplicacion
 ```
-(entorno_2) C:\mis_proyectos\biblio> python manage.py  createsuperuser
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py  createsuperuser
 ```
-christian
+chris
 123456
 
-2.10 Ejecutamos nuestra aplicacion
+2.9 Ejecutamos nuestra aplicacion
 
-Configuraciones para evitar **python manage.py runserver --settings=biblioteca.setttings.local**
-
-Cambiamos en manage.py lo siguiente:
-
-Cambiamos en wsgi.py lo siguiente:
-
-y ejecutamos:
 ```
 (entorno_2) C:\mis_proyectos\biblio> python manage.py runserver 
 ```
