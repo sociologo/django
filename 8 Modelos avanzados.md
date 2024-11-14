@@ -17,12 +17,11 @@ Características principales:
 
 2.1 Creamos el entorno virtual **entorno_2**
 ```
-C:\>cd mis_entornos
-C:\mis_entornos>python -m venv entorno_2
-C:\mis_entornos>cd entorno_2/Scripts
-C:\mis_entornos\entorno_2\Scripts>activate
-(entorno_2) C:\mis_entornos\entorno_2\Scripts>
-(entorno_2) C:\mis_entornos\entorno_2\Scripts>cd /
+C:\> cd mis_entornos
+C:\mis_entornos> python -m venv entorno_2
+C:\mis_entornos> cd entorno_2/Scripts
+C:\mis_entornos\entorno_2\Scripts> activate
+(entorno_2) C:\mis_entornos\entorno_2\Scripts> cd /
 (entorno_2) C:\>
 ```
 
@@ -32,67 +31,74 @@ C:\mis_entornos\entorno_2\Scripts>activate
 (entorno_2) C:\> pip install unipath
 (entorno_2) C:\> python.exe -m pip install --upgrade pip
 (entorno_2) C:\> pip install psycopg2-binary
+(entorno_2) C:\> pip install django-ckeditor
+(entorno_2) C:\> pip install Pillow
+```
+2.3 Creamos una carpeta de trabajo y vamos a ella:
 
-
+```
 (entorno_2) C:\> cd \mis_proyectos\biblio
-(entorno_2) C:\mis_proyectos\biblio> pip install django-ckeditor
-(entorno_2) C:\mis_proyectos\biblio> pip install psycopg2-binary
-(entorno_2) C:\mis_proyectos\biblio> pip install Pillow
 ```
 
-2.3 Creamos el proyecto:
+2.4 Creamos el proyecto:
 ```
 (entorno_2) C:\mis_proyectos\biblio> django-admin startproject biblioteca
 ```
 
-2.4 Configuracion del proyecto:
+2.5 Configuracion del proyecto:
 
-2.4.1 Creamos una nueva carpeta llamada **settings** y dentro de ella los archivos **base.py**, **local.py** y **prod.py**. en esta carpeta creamos un archivo __init__.py para indicarle que dentro existira codigo python.
+2.5.1 Creamos una nueva carpeta llamada **settings** y dentro de ella los archivos **base.py**, **local.py** y **prod.py**. en esta carpeta creamos un archivo __init__.py para indicarle que dentro existira codigo python.
+![image](https://github.com/user-attachments/assets/b73bf092-6ac2-4e24-ac24-60f6945329b8)
 
-2.4.2 En base.py cortamos todo a excepcion de la configuracion de la base de datos y STATIC_URL = '/static/', que llevamos a local.py.
+2.5.2 Copiamos todo de settings.py a base.py con la excepcion de la configuracion de la base de datos(con DEBUG = True y ALLOWED_HOSTS = []) y STATIC_URL = '/static/', que llevamos a local.py.
 
-2.4.3 En local.py importamos en base.py
+![image](https://github.com/user-attachments/assets/d5667a2d-ee72-4670-90fc-fc0a969bcb50)
+![image](https://github.com/user-attachments/assets/a7d2c572-91bd-4578-ab6c-f1821a1f2e79)
+![image](https://github.com/user-attachments/assets/064f61df-2470-4c94-ade0-2e890a6f7b78)
+![image](https://github.com/user-attachments/assets/0e40987e-cd77-4f88-93b5-688de87afa37)
 
-2.4.4 En base.py cambiamos las configuraciones de acuerdo a unipath.
+2.5.3 En local.py importamos en base.py
+
+2.5.4 En base.py cambiamos las configuraciones de acuerdo a unipath.
 
 Unipath es una biblioteca de Python que proporciona una interfaz orientada a objetos para trabajar con rutas de archivos y directorios. Simplifica muchas de las operaciones comunes que se realizan con archivos y directorios, haciendo que el código sea más legible y fácil de mantener.
 
-2.4.5 Creamos una carpeta templates a la altura del **manage.py** y configuramos la variable TEMPLATES en base.py
+2.5.5 Creamos una carpeta templates a la altura del **manage.py** y configuramos la variable TEMPLATES en base.py
 
-2.4.6 Configuramos postgresql en local.py
+2.5.6 Configuramos postgresql en local.py
 
-2.4.7 Creamos la base de datos en postgres
+2.5.7 Creamos la base de datos en postgres
 
 su postgres
 createdb dbbiblioteca
 psql dbbiblioteca
 alter user christian with password '123456';
 
-2.5 Ejecutamos nuestra aplicacion
+2.6 Ejecutamos nuestra aplicacion
 ```
 (entorno_2) C:\mis_proyectos\biblio> python manage.py runserver --settings=biblioteca.setttings.local
 ```
 
-2.6 Configuraciones para evitar **python manage.py runserver --settings=biblioteca.setttings.local**
+2.7 Configuraciones para evitar **python manage.py runserver --settings=biblioteca.setttings.local**
 
 Cambiamos en manage.py lo siguiente:
 
 Cambiamos en wsgi.py lo siguiente:
 
-2.7 Hacemos las migraciones
+2.8 Hacemos las migraciones
 ```
 (entorno_2) C:\mis_proyectos\biblio> python manage.py makemigrations
 (entorno_2) C:\mis_proyectos\biblio> python manage.py migrate
 ```
 
-2.8 Creamos un superusuario para nuestra aplicacion
+2.9 Creamos un superusuario para nuestra aplicacion
 ```
 (entorno_2) C:\mis_proyectos\biblio> python manage.py  createsuperuser
 ```
 christian
 123456
 
-2.9 Ejecutamos nuestra aplicacion
+2.10 Ejecutamos nuestra aplicacion
 
 Configuraciones para evitar **python manage.py runserver --settings=biblioteca.setttings.local**
 
