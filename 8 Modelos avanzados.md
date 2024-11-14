@@ -1,15 +1,47 @@
 # Trabajando en profundidad con modelos en django
 
-## La base de datos biblioteca
+## 1 La base de datos biblioteca
 
 ![image](https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7)
 
 
-## Construyendo la aplicacion **biblioteca**
+## 2 Construyendo la aplicacion **biblioteca**
+
+2.1 Creamos el entorno virtual **entorno_2**
+```
+C:\>cd mis_entornos
+C:\mis_entornos>python -m venv entorno_2
+C:\mis_entornos>cd entorno_2/Scripts
+C:\mis_entornos\entorno_2\Scripts>activate
+(entorno_2) C:\mis_entornos\entorno_2\Scripts>
+(entorno_2) C:\mis_entornos\entorno_2\Scripts>cd /
+(entorno_2) C:\>
+```
+
+2.2 Creamos nuestro directorio de trabajo **biblio** e instalamos las aplicaciones necesarias:
+```
+(entorno_2) C:\> pip install django
+(entorno_2) C:\> pip install unipath
+(entorno_2) C:\> python.exe -m pip install --upgrade pip
+(entorno_2) C:\> cd \mis_proyectos\biblio
+(entorno_2) C:\mis_proyectos\biblio> pip install django-ckeditor
+(entorno_2) C:\mis_proyectos\biblio> pip install psycopg2-binary
+(entorno_2) C:\mis_proyectos\biblio> pip install Pillow
+```
+
+2.3 Creamos el proyecto:
+```
+(entorno_2) C:\mis_proyectos\biblio> django-admin startproject biblioteca
+```
+
+2.4 Configuracion del proyecto:
+
+Creamos una nueva carpeta llamada **settings** y dentro de ella los archivos **base.py**, **local.py** y **prod.py**.
 
 
+Unipath es una biblioteca de Python que proporciona una interfaz orientada a objetos para trabajar con rutas de archivos y directorios. Simplifica muchas de las operaciones comunes que se realizan con archivos y directorios, haciendo que el código sea más legible y fácil de mantener.
 
-## Managers
+## 3 Managers
 
 
 
