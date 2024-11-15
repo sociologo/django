@@ -248,8 +248,6 @@ class Autor(models.Model):
 ```
 ```
 from django.apps import AppConfig # type: ignore
-
-
 class AutorConfig(AppConfig):
    default_auto_field = 'django.db.models.BigAutoField'
    name = 'applications.autor'
@@ -279,8 +277,6 @@ class Libro(models.Model):
 ```
 ```
 from django.apps import AppConfig # type: ignore
-
-
 class LibroConfig(AppConfig):
    default_auto_field = 'django.db.models.BigAutoField'
    name = 'applications.libro'
@@ -312,8 +308,6 @@ class Prestamo(models.Model):
 ```
 ```
 from django.apps import AppConfig # type: ignore
-
-
 class LectorConfig(AppConfig):
    default_auto_field = 'django.db.models.BigAutoField'
    name = 'applications.lector'
