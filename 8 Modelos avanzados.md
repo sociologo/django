@@ -46,9 +46,9 @@ C:\mis_entornos\entorno_2\Scripts> activate
 
 2.5 Configuracion del proyecto:
 
-2.5.1 Creamos una nueva carpeta llamada **settings** y dentro de ella los archivos **base.py**, **local.py** y **prod.py**. en esta carpeta creamos un archivo __init__.py para indicarle que dentro existira codigo python.
+2.5.1 Creamos una nueva carpeta llamada **settings** y dentro de ella los archivos **base.py**, **local.py** y **prod.py**. En esta carpeta también creamos un archivo __init__.py para indicarle que dentro existirá código python.
 
-![image](https://github.com/user-attachments/assets/b73bf092-6ac2-4e24-ac24-60f6945329b8)
+![image](https://github.com/user-attachments/assets/7ab8f9bd-7f2e-4e20-a35c-648a45905d4c)
 
 2.5.2 Copiamos todo de **settings.py** a **base.py** con la excepción de:
 
