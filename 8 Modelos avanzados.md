@@ -49,8 +49,11 @@ C:\mis_entornos\entorno_2\Scripts> activate
 2.5.1 Creamos una nueva carpeta llamada **settings** y dentro de ella los archivos **base.py**, **local.py** y **prod.py**. en esta carpeta creamos un archivo __init__.py para indicarle que dentro existira codigo python.
 ![image](https://github.com/user-attachments/assets/b73bf092-6ac2-4e24-ac24-60f6945329b8)
 
-2.5.2 Copiamos todo de settings.py a base.py con la excepcion de la configuracion de la base de datos(con DEBUG = True y ALLOWED_HOSTS = []) y STATIC_URL = '/static/', que llevamos a local.py.
+2.5.2 Copiamos todo de **settings.py** a **base.py** con la excepción de:
 
+- la configuración de la base de datos(con DEBUG = True y ALLOWED_HOSTS = []) y
+- STATIC_URL = '/static/', 
+- ambas que llevamos a local.py.
 ![image](https://github.com/user-attachments/assets/c9e01425-aab3-43fe-9bf7-9c7926c9eb68)
 ![image](https://github.com/user-attachments/assets/4cd8c6b4-d596-4c81-a471-a8cd8496af83)
 ![image](https://github.com/user-attachments/assets/b75fe7b3-87e3-4f59-abc2-25010bab7cfd)
