@@ -329,10 +329,10 @@ El orden en el que declaras las aplicaciones en el archivo settings.py de Django
 
 
 3.4 Hacemos las migraciones:
-
+```
 (entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py makemigrations
 (entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py migrate
-
+```
 
 
 
