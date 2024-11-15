@@ -194,6 +194,25 @@ chris\
 
 Haremos tres aplicaciones asociadas a los colores de las tablas de la base de datos.
 
+Aplicación para la gestión de libros (rosa):
+
+Tablas **Libro** y **Categoria**: Esta aplicación se encargará de todas las operaciones relacionadas con los libros y sus categorías. Incluirá modelos, vistas y formularios específicos para gestionar los detalles de los libros, como título, categoría, fecha de lanzamiento, portada, visitas, etc. También gestionará las categorías de los libros, permitiendo crear, actualizar y eliminar categorías.
+
+Aplicación para la gestión de autores (azul):
+
+Tabla **Autor**: Esta aplicación se centrará en la gestión de los autores. Incluirá funcionalidades para añadir, editar y eliminar autores, así como para gestionar sus detalles, como nombre, apellido, nacionalidad y edad. Esto permite una separación clara de responsabilidades y facilita la gestión de los datos de los autores de manera independiente.
+
+Aplicación para la gestión de préstamos y lectores (verde):
+
+Tablas **Prestamo** y **Lector**: Esta aplicación manejará todo lo relacionado con los préstamos de libros y la gestión de los lectores. Incluirá modelos y vistas para registrar préstamos, gestionar fechas de préstamo y devolución, y controlar si un libro ha sido devuelto. También gestionará los datos de los lectores, como nombre, apellido, nacionalidad y edad.
+
+Ventajas de esta separación:
+
+- Modularidad: Cada aplicación se encarga de una parte específica del sistema, lo que facilita el mantenimiento y la escalabilidad del proyecto.
+- Reutilización: Las aplicaciones pueden ser reutilizadas en otros proyectos si es necesario.
+- Separación de responsabilidades: Claramente define qué parte del código se encarga de qué funcionalidad, lo que facilita la colaboración en equipos de desarrollo.
+Facilidad de pruebas: Puedes probar cada aplicación de manera independiente, lo que simplifica la detección y corrección de errores.
+
 
 ## 4 Managers
 
