@@ -164,7 +164,11 @@ dbbiblioteca# alter user chris with password '123456';
 
 Cambiamos en manage.py lo siguiente:
 
+![image](https://github.com/user-attachments/assets/469aa24c-fec6-437c-ae7e-8c259ed8f412)
+
 Cambiamos en wsgi.py lo siguiente:
+
+![image](https://github.com/user-attachments/assets/25010979-847f-4010-bc2f-fa3a6dc9ac5a)
 
 2.7 Hacemos las migraciones
 ```
@@ -172,11 +176,12 @@ Cambiamos en wsgi.py lo siguiente:
 (entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py migrate
 ```
 
-2.8 Creamos un superusuario para nuestra aplicacion
+2.8 Creamos un superusuario para nuestra aplicación
 ```
 (entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py  createsuperuser
 ```
-chris
+
+chris\
 123456
 
 2.9 Ejecutamos nuestra aplicacion
@@ -186,6 +191,9 @@ chris
 ```
 
 ## 3 Implementando la base de datos
+
+Haremos tres aplicaciones asociadas a los colores de las tablas de la base de datos.
+
 
 ## 4 Managers
 
