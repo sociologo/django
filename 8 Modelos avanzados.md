@@ -25,7 +25,7 @@ C:\mis_entornos\entorno_2\Scripts> activate
 (entorno_2) C:\>
 ```
 
-2.2 Creamos nuestro directorio de trabajo **biblio** e instalamos las aplicaciones necesarias:
+2.2 Instalamos las aplicaciones necesarias:
 ```
 (entorno_2) C:\> pip install django
 (entorno_2) C:\> pip install unipath
@@ -34,8 +34,7 @@ C:\mis_entornos\entorno_2\Scripts> activate
 (entorno_2) C:\> pip install django-ckeditor
 (entorno_2) C:\> pip install Pillow
 ```
-2.3 Creamos una carpeta de trabajo y vamos a ella:
-
+2.3 Creamos nuestro directorio de trabajo **biblio** y vamos a él:
 ```
 (entorno_2) C:\> cd \mis_proyectos\biblio
 ```
