@@ -190,9 +190,11 @@ chris\
 (entorno_2) C:\mis_proyectos\biblio> python manage.py runserver 
 ```
 
-## 3 Implementando la base de datos
+## 3 Creación de las aplicaciones
 
 Haremos tres aplicaciones asociadas a los colores de las tablas de la base de datos.
+
+<img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="60%">
 
 Aplicación para la gestión de libros (rosa):
 
