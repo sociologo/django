@@ -235,6 +235,7 @@ django-admin startapp lector
 ```
 # models.py
 from django.db import models
+from applications.autor.models import Autor
 
 class Categoria(models.Model):
     nombre = models.CharField(max_length=100)
@@ -243,15 +244,16 @@ class Categoria(models.Model):
         return self.nombre
 
 class Libro(models.Model):
-    titulo = models.CharField(max_length=200)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-    fecha_lanzamiento = models.DateField()
+    autores =  models.ManytoManyField(Autor)
+    titulo = models.CharField(max_length=200)
+    
+    fecha_lanzamiento = models.DateField('Fecha de lanzamiento')
     portada = models.ImageField(upload_to='portadas/')
-    visitas = models.IntegerField(default=0)
+    visitas = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.titulo
-
 ```
 
 3.3.2 en models.py de la aplicacion autor:
@@ -262,43 +264,73 @@ from django.db import models
 class Autor(models.Model):
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
-    nacionalidad = models.BooleanField()  # True para nacional, False para internacional
-    edad = models.IntegerField()
+    nacionalidad = models.CharField(max_length=100)
+    edad = models.PositiveIntegerField()
 
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
-
 ```
 
 3.3.3 en models.py de la aplicacion lector:
 ```
 # models.py
 from django.db import models
+from applications.libro.models import Libro
 
 class Lector(models.Model):
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
-    nacionalidad = models.BooleanField()  # True para nacional, False para internacional
-    edad = models.IntegerField()
+    nacionalidad = models.CharField(max_length=100)
+    edad = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
 
 class Prestamo(models.Model):
     lector = models.ForeignKey(Lector, on_delete=models.CASCADE)
-    libro = models.ForeignKey('Libro', on_delete=models.CASCADE)
+    libro = models.ForeignKey(Libro, on_delete=models.CASCADE)
     fecha_prestamo = models.DateField()
-    fecha_devolucion = models.DateField()
+    fecha_devolucion = models.DateField(blank=True, null=True)
     devuelto = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"Prestamo de {self.libro} a {self.lector}"
+        return self.libro.titulo
+```
+
+3.4 Agregar las aplicaciones a base.py de la carpeta settings:
+
+**Resulta delicado el orden con el que se declaren las aplicaciones aca**
+
+El orden en el que declaras las aplicaciones en el archivo settings.py de Django es importante por varias razones:
+
+- Dependencias entre aplicaciones: Algunas aplicaciones pueden depender de otras. Por ejemplo, si tienes una aplicación que extiende la funcionalidad de django.contrib.auth, esta debe ser declarada después de django.contrib.auth en INSTALLED_APPS.
+- Sobrescritura de modelos: Si tienes aplicaciones que sobrescriben modelos de otras aplicaciones, el orden determinará cuál sobrescritura es efectiva. La última aplicación en la lista que sobrescriba un modelo será la que prevalezca.
+- Migraciones: El orden puede afectar cómo se aplican las migraciones. Si una aplicación depende de los modelos de otra para sus migraciones, debe ser listada después de la aplicación de la que depende.
+- Carga de señales: Las señales en Django se registran cuando la aplicación se carga. Si una señal depende de un modelo de otra aplicación, la aplicación que define el modelo debe ser cargada primero.
+- Configuración de middleware: Aunque no es directamente parte de INSTALLED_APPS, el orden de las aplicaciones puede influir en cómo se configuran y aplican los middlewares, ya que algunos middlewares pueden depender de aplicaciones específicas.
 
 ```
+# local apps
+'applications.autor'
+'applications.libro'
+'applications.lector'
+```
+
+3.4 Hacemos las migraciones:
+
+python manage.py makemigrations
+python manage.py migrate
+
+
+
+
 
 
 
 ## 4 Managers
+
+Creando las vistas
+
 
 
 
