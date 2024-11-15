@@ -339,7 +339,9 @@ El orden en el que declaras las aplicaciones en el archivo settings.py de Django
 
 ## 4 Managers
 
-Creando las vistas
+4.1 Creando las vistas.
+
+
 
 
 
