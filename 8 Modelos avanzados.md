@@ -47,6 +47,7 @@ C:\mis_entornos\entorno_2\Scripts> activate
 2.5 Configuracion del proyecto:
 
 2.5.1 Creamos una nueva carpeta llamada **settings** y dentro de ella los archivos **base.py**, **local.py** y **prod.py**. en esta carpeta creamos un archivo __init__.py para indicarle que dentro existira codigo python.
+
 ![image](https://github.com/user-attachments/assets/b73bf092-6ac2-4e24-ac24-60f6945329b8)
 
 2.5.2 Copiamos todo de **settings.py** a **base.py** con la excepción de:
@@ -54,20 +55,24 @@ C:\mis_entornos\entorno_2\Scripts> activate
 - la configuración de la base de datos(con DEBUG = True y ALLOWED_HOSTS = []) y
 - STATIC_URL = '/static/', 
 - ambas que llevamos a local.py.
+  
 ![image](https://github.com/user-attachments/assets/c9e01425-aab3-43fe-9bf7-9c7926c9eb68)
 ![image](https://github.com/user-attachments/assets/4cd8c6b4-d596-4c81-a471-a8cd8496af83)
 ![image](https://github.com/user-attachments/assets/b75fe7b3-87e3-4f59-abc2-25010bab7cfd)
 ![image](https://github.com/user-attachments/assets/0ad357b7-e82b-4ec3-bffb-e93bb243f61a)
 
 2.5.3 En **base.py** cambiamos las configuraciones de acuerdo a **unipath**.
+
 ![image](https://github.com/user-attachments/assets/29f9cecd-d948-4705-81aa-eda995e60ce3)
 
 2.5.4 En **local.py** importamos en **base.py**
+
 ![image](https://github.com/user-attachments/assets/6029279a-18ee-42b8-9fdc-6ddd444efd29)
 
 Unipath es una biblioteca de Python que proporciona una interfaz orientada a objetos para trabajar con rutas de archivos y directorios. Simplifica muchas de las operaciones comunes que se realizan con archivos y directorios, haciendo que el código sea más legible y fácil de mantener.
 
 2.5.5 Creamos una carpeta templates a la altura del **manage.py** y configuramos la variable TEMPLATES en **base.py**
+
 ![image](https://github.com/user-attachments/assets/cd5792af-10d6-4612-849a-24a6e0cfaaee)
 ![image](https://github.com/user-attachments/assets/5c2d7225-9a46-4173-8427-c6c1b4ed7f30)
 
