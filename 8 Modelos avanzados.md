@@ -196,15 +196,15 @@ Haremos tres aplicaciones asociadas a los colores de las tablas de la base de da
 
 <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="60%">
 
-Aplicación para la gestión de libros (rosa):
+1 Aplicación para la gestión de libros (rosa):
 
 Tablas **Libro** y **Categoria**: Esta aplicación se encargará de todas las operaciones relacionadas con los libros y sus categorías. Incluirá modelos, vistas y formularios específicos para gestionar los detalles de los libros, como título, categoría, fecha de lanzamiento, portada, visitas, etc. También gestionará las categorías de los libros, permitiendo crear, actualizar y eliminar categorías.
 
-Aplicación para la gestión de autores (azul):
+2 Aplicación para la gestión de autores (azul):
 
 Tabla **Autor**: Esta aplicación se centrará en la gestión de los autores. Incluirá funcionalidades para añadir, editar y eliminar autores, así como para gestionar sus detalles, como nombre, apellido, nacionalidad y edad. Esto permite una separación clara de responsabilidades y facilita la gestión de los datos de los autores de manera independiente.
 
-Aplicación para la gestión de préstamos y lectores (verde):
+3 Aplicación para la gestión de préstamos y lectores (verde):
 
 Tablas **Prestamo** y **Lector**: Esta aplicación manejará todo lo relacionado con los préstamos de libros y la gestión de los lectores. Incluirá modelos y vistas para registrar préstamos, gestionar fechas de préstamo y devolución, y controlar si un libro ha sido devuelto. También gestionará los datos de los lectores, como nombre, apellido, nacionalidad y edad.
 
@@ -214,6 +214,88 @@ Ventajas de esta separación:
 - Reutilización: Las aplicaciones pueden ser reutilizadas en otros proyectos si es necesario.
 - Separación de responsabilidades: Claramente define qué parte del código se encarga de qué funcionalidad, lo que facilita la colaboración en equipos de desarrollo.
 - Facilidad de pruebas: Puedes probar cada aplicación de manera independiente, lo que simplifica la detección y corrección de errores.
+
+3.1 Carpeta applications
+
+Construimos dentro de nuestro proyecto una carpeta llamada **aplications** a la altura de manage.py, con un archivo __init__.py.
+
+3.2 Construccion de aplicaciones
+
+Para construir aplicaciones lo hacemos desde la terminal ubicandonos en la carpeta **applications** con:
+
+```
+django-admin startapp libro
+django-admin startapp autor
+django-admin startapp lector
+```
+
+3.3 Implementando los modelos de la base de datos en las aplicaciones:
+
+3.3.1 en models.py de la aplicacion libro:
+```
+# models.py
+from django.db import models
+
+class Categoria(models.Model):
+    nombre = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.nombre
+
+class Libro(models.Model):
+    titulo = models.CharField(max_length=200)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    fecha_lanzamiento = models.DateField()
+    portada = models.ImageField(upload_to='portadas/')
+    visitas = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.titulo
+
+```
+
+3.3.2 en models.py de la aplicacion autor:
+```
+# models.py
+from django.db import models
+
+class Autor(models.Model):
+    nombre = models.CharField(max_length=100)
+    apellido = models.CharField(max_length=100)
+    nacionalidad = models.BooleanField()  # True para nacional, False para internacional
+    edad = models.IntegerField()
+
+    def __str__(self):
+        return f"{self.nombre} {self.apellido}"
+
+```
+
+3.3.3 en models.py de la aplicacion lector:
+```
+# models.py
+from django.db import models
+
+class Lector(models.Model):
+    nombre = models.CharField(max_length=100)
+    apellido = models.CharField(max_length=100)
+    nacionalidad = models.BooleanField()  # True para nacional, False para internacional
+    edad = models.IntegerField()
+
+    def __str__(self):
+        return f"{self.nombre} {self.apellido}"
+
+class Prestamo(models.Model):
+    lector = models.ForeignKey(Lector, on_delete=models.CASCADE)
+    libro = models.ForeignKey('Libro', on_delete=models.CASCADE)
+    fecha_prestamo = models.DateField()
+    fecha_devolucion = models.DateField()
+    devuelto = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Prestamo de {self.libro} a {self.lector}"
+
+```
+
 
 
 ## 4 Managers
