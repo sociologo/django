@@ -213,7 +213,7 @@ Ventajas de esta separación:
 - Modularidad: Cada aplicación se encarga de una parte específica del sistema, lo que facilita el mantenimiento y la escalabilidad del proyecto.
 - Reutilización: Las aplicaciones pueden ser reutilizadas en otros proyectos si es necesario.
 - Separación de responsabilidades: Claramente define qué parte del código se encarga de qué funcionalidad, lo que facilita la colaboración en equipos de desarrollo.
-Facilidad de pruebas: Puedes probar cada aplicación de manera independiente, lo que simplifica la detección y corrección de errores.
+- Facilidad de pruebas: Puedes probar cada aplicación de manera independiente, lo que simplifica la detección y corrección de errores.
 
 
 ## 4 Managers
