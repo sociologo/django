@@ -187,7 +187,7 @@ chris\
 2.9 Ejecutamos nuestra aplicacion
 
 ```
-(entorno_2) C:\mis_proyectos\biblio> python manage.py runserver 
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py runserver 
 ```
 
 ## 3 Creación de las aplicaciones
