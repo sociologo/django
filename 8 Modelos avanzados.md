@@ -219,47 +219,23 @@ Ventajas de esta separación:
 
 Construimos dentro de nuestro proyecto una carpeta llamada **aplications** a la altura de manage.py, con un archivo __init__.py.
 
+![image](https://github.com/user-attachments/assets/e3ec54c0-b2d1-4c01-ba81-ae7fcf7f1619)
+
 3.2 Construccion de aplicaciones
 
 Para construir aplicaciones lo hacemos desde la terminal ubicandonos en la carpeta **applications** con:
 
 ```
-django-admin startapp libro
-django-admin startapp autor
-django-admin startapp lector
+(entorno_2) C:\mis_proyectos\biblio\biblioteca\applications> django-admin startapp libro
+(entorno_2) C:\mis_proyectos\biblio\biblioteca\applications> django-admin startapp autor
+(entorno_2) C:\mis_proyectos\biblio\biblioteca\applications> django-admin startapp lector
 ```
 
-3.3 Implementando los modelos de la base de datos en las aplicaciones:
+3.3 Implementando los modelos de la base de datos y modificando el archivo apps.py en cada una de las aplicaciones:
 
-3.3.1 en models.py de la aplicacion libro:
+3.3.1 en models.py y apps.py de la aplicacion autor:
 ```
-# models.py
-from django.db import models
-from applications.autor.models import Autor
-
-class Categoria(models.Model):
-    nombre = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.nombre
-
-class Libro(models.Model):
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-    autores =  models.ManytoManyField(Autor)
-    titulo = models.CharField(max_length=200)
-    
-    fecha_lanzamiento = models.DateField('Fecha de lanzamiento')
-    portada = models.ImageField(upload_to='portadas/')
-    visitas = models.PositiveIntegerField(default=0)
-
-    def __str__(self):
-        return self.titulo
-```
-
-3.3.2 en models.py de la aplicacion autor:
-```
-# models.py
-from django.db import models
+from django.db import models # type: ignore
 
 class Autor(models.Model):
     nombre = models.CharField(max_length=100)
@@ -270,11 +246,49 @@ class Autor(models.Model):
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
 ```
-
-3.3.3 en models.py de la aplicacion lector:
 ```
-# models.py
-from django.db import models
+from django.apps import AppConfig # type: ignore
+
+
+class AutorConfig(AppConfig):
+   default_auto_field = 'django.db.models.BigAutoField'
+   name = 'applications.autor'
+```
+
+3.3.2 en models.py y apps.py de la aplicacion libro:
+```
+from django.db import models # type: ignore
+from applications.autor.models import Autor
+
+class Categoria(models.Model):
+    nombre = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.nombre
+
+class Libro(models.Model):
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    autores =  models.ManyToManyField(Autor)
+    titulo = models.CharField(max_length=200)
+    fecha_lanzamiento = models.DateField('Fecha de lanzamiento')
+    portada = models.ImageField(upload_to='portadas/')
+    visitas = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return self.titulo
+```
+```
+from django.apps import AppConfig # type: ignore
+
+
+class LibroConfig(AppConfig):
+   default_auto_field = 'django.db.models.BigAutoField'
+   name = 'applications.libro'
+```
+
+3.3.3 en models.py y apps.py de la aplicacion lector:
+```
+from django.db import models # type: ignore
 from applications.libro.models import Libro
 
 class Lector(models.Model):
@@ -296,8 +310,16 @@ class Prestamo(models.Model):
     def __str__(self):
         return self.libro.titulo
 ```
+```
+from django.apps import AppConfig # type: ignore
 
-3.4 Agregar las aplicaciones a base.py de la carpeta settings:
+
+class LectorConfig(AppConfig):
+   default_auto_field = 'django.db.models.BigAutoField'
+   name = 'applications.lector'
+```
+
+3.4 Agregar las aplicaciones a **base.py** de la carpeta **settings**:
 
 **Resulta delicado el orden con el que se declaren las aplicaciones aca**
 
@@ -309,19 +331,13 @@ El orden en el que declaras las aplicaciones en el archivo settings.py de Django
 - Carga de señales: Las señales en Django se registran cuando la aplicación se carga. Si una señal depende de un modelo de otra aplicación, la aplicación que define el modelo debe ser cargada primero.
 - Configuración de middleware: Aunque no es directamente parte de INSTALLED_APPS, el orden de las aplicaciones puede influir en cómo se configuran y aplican los middlewares, ya que algunos middlewares pueden depender de aplicaciones específicas.
 
-```
-# local apps
-'applications.autor'
-'applications.libro'
-'applications.lector'
-```
+![image](https://github.com/user-attachments/assets/918db0e9-a2e9-4797-8aed-4d26e6fbe8c2)
+
 
 3.4 Hacemos las migraciones:
 
-python manage.py makemigrations
-python manage.py migrate
-
-
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py makemigrations
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py migrate
 
 
 
