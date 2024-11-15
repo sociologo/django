@@ -59,17 +59,45 @@ C:\mis_entornos\entorno_2\Scripts> activate
 ![image](https://github.com/user-attachments/assets/b75fe7b3-87e3-4f59-abc2-25010bab7cfd)
 ![image](https://github.com/user-attachments/assets/0ad357b7-e82b-4ec3-bffb-e93bb243f61a)
 
-2.5.3 En base.py cambiamos las configuraciones de acuerdo a unipath.
+2.5.3 En **base.py** cambiamos las configuraciones de acuerdo a **unipath**.
+![image](https://github.com/user-attachments/assets/29f9cecd-d948-4705-81aa-eda995e60ce3)
 
-2.5.4 En local.py importamos en base.py
+2.5.4 En **local.py** importamos en **base.py**
+![image](https://github.com/user-attachments/assets/6029279a-18ee-42b8-9fdc-6ddd444efd29)
 
 Unipath es una biblioteca de Python que proporciona una interfaz orientada a objetos para trabajar con rutas de archivos y directorios. Simplifica muchas de las operaciones comunes que se realizan con archivos y directorios, haciendo que el código sea más legible y fácil de mantener.
 
-2.5.5 Creamos una carpeta templates a la altura del **manage.py** y configuramos la variable TEMPLATES en base.py
+2.5.5 Creamos una carpeta templates a la altura del **manage.py** y configuramos la variable TEMPLATES en **base.py**
+![image](https://github.com/user-attachments/assets/cd5792af-10d6-4612-849a-24a6e0cfaaee)
+![image](https://github.com/user-attachments/assets/5c2d7225-9a46-4173-8427-c6c1b4ed7f30)
 
 2.5.6 Configuramos postgresql en local.py
+```
+# Database
+# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+# SECURITY WARNING: don't run with debug turned on in production!
+from .base import *
 
+DEBUG = True
 
+ALLOWED_HOSTS = []
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dbbiblioteca',
+        'USER': 'chris',
+        'PASSWORD': '123456',
+        'HOST': 'localhost',
+        'PORT': '5432'
+    }
+}
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/5.1/howto/static-files/
+
+STATIC_URL = 'static/'
+```
 
 2.5.7 Creamos la base de datos en postgres 
 
