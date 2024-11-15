@@ -76,7 +76,7 @@ Unipath es una biblioteca de Python que proporciona una interfaz orientada a obj
 ![image](https://github.com/user-attachments/assets/cd5792af-10d6-4612-849a-24a6e0cfaaee)
 ![image](https://github.com/user-attachments/assets/5c2d7225-9a46-4173-8427-c6c1b4ed7f30)
 
-2.5.6 Configuramos postgresql en local.py
+2.5.6 Configuramos **postgresql** en **local.py**
 ```
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
