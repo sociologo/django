@@ -104,13 +104,13 @@ DATABASES = {
 STATIC_URL = 'static/'
 ```
 
-2.5.7 Creamos la base de datos en postgres 
+2.5.7 Creamos la base de datos en **postgres** 
 
-vamos a la shell de postgres 16 en Windows:
+- Vamos a la shell de postgres 16 en Windows:
 
-Damos enter hasta Contraseña para usuario postgres: para indicarle que cargue las opciones por defecto. Ingresamos 123456 y creamos nuestra base de datos.
+- Damos enter hasta Contraseña para usuario postgres: para indicarle que cargue las opciones por defecto. Ingresamos 123456 y creamos nuestra base de datos.
 
-Creamos un usuario y le damos permisos para acceder a la base de datos recien creada:
+- Creamos un usuario y le damos permisos para acceder a la base de datos recien creada:
 
 ```bash
 Server [localhost]:
@@ -136,7 +136,7 @@ ALTER ROLE
 dbbiblioteca=#
 ```
 
-Entregale permisos totales a la base de datos a tu ususrio:
+- Le damos permisos totales a la base de datos a tu ususrio:
 ```
 postgres=# \c dbbiblioteca
 Ahora está conectado a la base de datos «dbbiblioteca» con el usuario «postgres».
