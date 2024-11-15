@@ -136,7 +136,7 @@ ALTER ROLE
 dbbiblioteca=#
 ```
 
-- Le damos permisos totales a la base de datos a tu ususrio:
+- Le damos al usuario permisos totales a la base de datos:
 ```
 postgres=# \c dbbiblioteca
 Ahora está conectado a la base de datos «dbbiblioteca» con el usuario «postgres».
