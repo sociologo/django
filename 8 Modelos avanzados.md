@@ -334,12 +334,27 @@ El orden en el que declaras las aplicaciones en el archivo settings.py de Django
 (entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py migrate
 ```
 
-
-
-
 ## 4 Managers
 
-4.1 Creando las vistas.
+4.1 Comencemos trabajando sobre la aplicacion autor.
+
+- Creamos el archivo urls.py y dentro de él una url que apunte a la vista **ListAutores**:
+  
+![image](https://github.com/user-attachments/assets/45eed91b-2443-4863-bf9a-7d8945e9005e)
+
+- En views creamos la vista ListAutores
+
+- Dentro de la carpeta **templates** creamos un base.html y una carpeta autor dentro de la que construiremos lista.html
+
+- Incluimos las urls dentro de las urls principales
+
+- Creamos un archivo **managers.py**
+
+- Editamos el archivo admin.py para poder ingresar datos desde el administrador de django
+
+- Veamos el resultado
+
+4.2 Filtros por nombre de autor
 
 
 
