@@ -348,7 +348,7 @@ El orden en el que declaras las aplicaciones en el archivo settings.py de Django
 
 - Dentro de la carpeta **templates** creamos un **base.html** y una carpeta **autor** dentro de la que construiremos **lista.html**:
 
-![image](https://github.com/user-attachments/assets/74c4d628-f546-4f3c-9ef3-72c5ad371a59)
+![image](https://github.com/user-attachments/assets/44a262ae-8b4f-491e-aa13-0e9f335a139d)
 
 - Incluimos las urls dentro de las urls principales importando re_path e include:
 
