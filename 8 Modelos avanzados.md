@@ -358,6 +358,12 @@ El orden en el que declaras las aplicaciones en el archivo settings.py de Django
 
 ![image](https://github.com/user-attachments/assets/c1b84918-6669-4e6a-8418-db5dee461f5d)
 
+- Conectando el modelo con los la clase del manager:
+
+Necesitamos indicarle al modelo que, mediante un atributo, se conecte a la clase que acabamos de construir en **managers.py**:
+
+![image](https://github.com/user-attachments/assets/ef3c3865-ac16-4ddc-b9e5-d1834f4a39ae)
+
 - Editamos el archivo admin.py para poder ingresar datos desde el administrador de django:
 
 ![image](https://github.com/user-attachments/assets/f50fdf2e-23f0-4c60-9e80-4f8a131dc1ce)
