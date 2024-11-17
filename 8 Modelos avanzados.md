@@ -342,7 +342,9 @@ El orden en el que declaras las aplicaciones en el archivo settings.py de Django
   
 ![image](https://github.com/user-attachments/assets/45eed91b-2443-4863-bf9a-7d8945e9005e)
 
-- En views creamos la vista ListAutores
+- En views creamos la vista **ListAutores**:
+
+![image](https://github.com/user-attachments/assets/cc4f4cd1-6dfa-44b0-bb9c-b86c03c6b5e5)
 
 - Dentro de la carpeta **templates** creamos un base.html y una carpeta autor dentro de la que construiremos lista.html
 
