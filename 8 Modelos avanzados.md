@@ -336,9 +336,9 @@ El orden en el que declaras las aplicaciones en el archivo settings.py de Django
 
 ## 4 Managers
 
-4.1 Comencemos trabajando sobre la aplicacion autor.
+4.1 Comencemos trabajando sobre la aplicación autor.
 
-- Creamos el archivo urls.py y dentro de él una url que apunte a la vista **ListAutores**:
+- Creamos en ella el archivo urls.py y dentro de él una url que apunte a la vista **ListAutores**:
   
 ![image](https://github.com/user-attachments/assets/45eed91b-2443-4863-bf9a-7d8945e9005e)
 
