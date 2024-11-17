@@ -334,6 +334,9 @@ El orden en el que declaras las aplicaciones en el archivo settings.py de Django
 (entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py migrate
 ```
 
+<br>
+---
+
 ## 4 Managers
 
 4.1 Comencemos trabajando sobre la aplicación autor.
@@ -369,6 +372,8 @@ Necesitamos indicarle al modelo que, mediante un atributo, se conecte a la clase
 ![image](https://github.com/user-attachments/assets/f50fdf2e-23f0-4c60-9e80-4f8a131dc1ce)
 
 - Veamos el resultado
+
+![image](https://github.com/user-attachments/assets/c8bbd0a9-3891-4133-a5cf-2e70289edb24)
 
 4.2 Filtros por nombre de autor
 
