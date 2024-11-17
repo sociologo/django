@@ -21,7 +21,7 @@ C:\> cd mis_entornos
 C:\mis_entornos> python -m venv entorno_2
 C:\mis_entornos> cd entorno_2/Scripts
 C:\mis_entornos\entorno_2\Scripts> activate
-(entorno_2) C:\mis_entornos\entorno_2\Scripts> cd /
+(entorno_2) C:\mis_entornos\entorno_2\Scripts> cd \
 (entorno_2) C:\>
 ```
 
