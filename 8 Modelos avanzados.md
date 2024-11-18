@@ -374,6 +374,8 @@ Necesitamos indicarle al modelo que, mediante un atributo, se conecte a la clase
 
 ### 4.2 Filtros por nombre de autor
 
+El lookup **__icontains** en Django se utiliza para realizar búsquedas de texto que no distinguen entre mayúsculas y minúsculas.
+
 - 4.2.1 Modifiquemos la vista para aceptar un parametro.
 
 ![image](https://github.com/user-attachments/assets/6f394e11-aee8-4ca1-947e-78c5b36b3774)
@@ -387,6 +389,8 @@ Necesitamos indicarle al modelo que, mediante un atributo, se conecte a la clase
 ![image](https://github.com/user-attachments/assets/ca399513-c2c9-4b36-bae5-9c28d21f8b24)
 
 ### 4.3 Filtros por nombre o apellido de autor
+
+El objeto **Q** en Django, representado por django.db.models.Q, se utiliza para construir consultas complejas que involucran múltiples condiciones, especialmente cuando necesitas combinar condiciones con operadores lógicos como AND y OR.
 
 - Importamos la funcion Q y construimos la funcion en managers.py:
   
