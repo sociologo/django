@@ -374,6 +374,17 @@ Necesitamos indicarle al modelo que, mediante un atributo, se conecte a la clase
 
 ### 4.2 Filtros por nombre de autor
 
+- 4.2.1 Modifiquemos la vista para aceptar un parametro.
+
+![image](https://github.com/user-attachments/assets/6f394e11-aee8-4ca1-947e-78c5b36b3774)
+
+- 4.2.2 Modificamos la vista para recibir el parametro y para construir la funcion que haga el filtro
+
+![image](https://github.com/user-attachments/assets/c9933373-f82f-43f4-a04b-1fdc9b3d9cdf)
+
+- 4.2.3 Construimos la clase dentro de manager.py utilizando filter() de la ORM de Django.
+
+![image](https://github.com/user-attachments/assets/ca399513-c2c9-4b36-bae5-9c28d21f8b24)
 
 
 
