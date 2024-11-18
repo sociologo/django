@@ -402,7 +402,7 @@ El objeto **Q** en Django, representado por django.db.models.Q, se utiliza para 
 - Corrijamos el html:
 ![image](https://github.com/user-attachments/assets/773d4133-ac8b-45ab-9f68-3e9ddcc99780)
 
-### Exclude()
+### 4.4 Exclude()
 
 El método exclude() en Django se utiliza para filtrar objetos que no coinciden con los parámetros de búsqueda especificados. Es decir, devuelve un nuevo QuerySet que contiene objetos que no cumplen con los criterios dados.
 
