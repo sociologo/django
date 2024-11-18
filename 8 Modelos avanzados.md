@@ -415,6 +415,18 @@ El método exclude() en Django se utiliza para filtrar objetos que no coinciden 
 ![image](https://github.com/user-attachments/assets/645e527b-97d7-48d0-a07a-c7fd07eaf5f8)
 
 
+### Seleccionando por rango de edad y estableciendo criterios de orden en el despliegue:
+
+```
+def buscar_autor4(self, kword):
+  resultado = self.filter(
+     edad__gt = 32,
+     edad__lt = 36,
+     ).order_by('apellido','nombre','id')
+  return resultado
+```
+
+![image](https://github.com/user-attachments/assets/e1c72865-6bae-48d9-9be0-1d5be2409118)
 
 
 
