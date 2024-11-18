@@ -398,4 +398,32 @@ Necesitamos indicarle al modelo que, mediante un atributo, se conecte a la clase
 - Corrijamos el html:
 ![image](https://github.com/user-attachments/assets/773d4133-ac8b-45ab-9f68-3e9ddcc99780)
 
+### Exclude()
+
+El método exclude() en Django se utiliza para filtrar objetos que no coinciden con los parámetros de búsqueda especificados. Es decir, devuelve un nuevo QuerySet que contiene objetos que no cumplen con los criterios dados.
+
+![image](https://github.com/user-attachments/assets/4c920abf-3b88-4e32-910b-95e8102ad134)
+
+![image](https://github.com/user-attachments/assets/7adaeef0-9234-439f-99f9-e678822f261b)
+
+![image](https://github.com/user-attachments/assets/dc00250e-94c0-4e97-b393-3575341fce5e)
+
+![image](https://github.com/user-attachments/assets/645e527b-97d7-48d0-a07a-c7fd07eaf5f8)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
