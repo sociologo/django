@@ -386,8 +386,16 @@ Necesitamos indicarle al modelo que, mediante un atributo, se conecte a la clase
 
 ![image](https://github.com/user-attachments/assets/ca399513-c2c9-4b36-bae5-9c28d21f8b24)
 
+### 4.3 Filtros por nombre o apellido de autor
 
+- Importamos la funcion Q y construimos la funcion en managers.py:
+  
+![image](https://github.com/user-attachments/assets/30275f44-c710-4f5a-906c-86cee0912246)
 
+- Llamamos a la funcion creada en las vistas:
+![image](https://github.com/user-attachments/assets/02f98214-5c54-47ed-9758-2f621606b453)
 
+- Corrijamos el html:
+![image](https://github.com/user-attachments/assets/773d4133-ac8b-45ab-9f68-3e9ddcc99780)
 
 
