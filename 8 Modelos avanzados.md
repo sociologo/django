@@ -558,6 +558,9 @@ urlpatterns = [
 ]
 ```
 
+![image](https://github.com/user-attachments/assets/fa59d82f-a74e-4f88-8a0b-1a22427fecd2)
+![image](https://github.com/user-attachments/assets/0d9d74fe-84c6-4480-afff-ee9d0a96beb2)
+![image](https://github.com/user-attachments/assets/88136279-aff9-4d1f-8312-dcfd43e617b5)
 
 
 
