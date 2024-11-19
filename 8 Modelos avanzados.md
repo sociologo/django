@@ -428,7 +428,9 @@ def buscar_autor4(self, kword):
 
 ![image](https://github.com/user-attachments/assets/e1c72865-6bae-48d9-9be0-1d5be2409118)
 
-### 4.5 Filtros por fechas.
+### 4.6 Llenemos con datos nuestra base de datos:
+
+### 4.5 Filtros por fechas:
 
 - Tenemos en nuestra aplicacion libro un campo llamado fecha de lanzamiento. Vamos a generar un filtro que nos permita listar los libros que han sido lanzados dentro de un rango de fechas.
   
