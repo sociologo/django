@@ -434,7 +434,7 @@ def buscar_autor4(self, kword):
 
 - Tenemos en nuestra aplicacion libro un campo llamado fecha de lanzamiento. Vamos a generar un filtro que nos permita listar los libros que han sido lanzados dentro de un rango de fechas.
   
-- Creamos una url en urls.py de la aplicacion libro:
+- Creamos un archivo urls.py en la aplicacion libro con el siguiente contenido:
 ```
 from django.contrib import admin  # type: ignore
 from django.urls import path  # type: ignore
@@ -468,7 +468,7 @@ class ListLibros(ListView):
          return Libro.objects.listar_libros1(palabra_clave)
 ```
 
-- Creamos el manager en managers.py de la aplicacion libro:
+- Creamos el archivo managers.py en la aplicacion libro con el siguiente contenido:
 ```
 import datetime
 from django.db import models # type: ignore
@@ -479,7 +479,7 @@ class LibroManager(models.Manager):
    def listar_libros1(self, kword):
       resultado = self.filter(
          titulo__icontains = kword,
-         fecha__range('2000-01-01','2010-01-01')
+         fecha_lanzamiento__range=('1400-01-01','2010-01-01')
       )
       return resultado
 
@@ -490,7 +490,7 @@ class LibroManager(models.Manager):
 
       resultado = self.filter(
          titulo__icontains = kword,
-         fecha__range(date1, date2)
+         fecha_lanzamiento__range=(date1, date2)
       )
       return resultado
 ```
@@ -516,7 +516,7 @@ class Libro(models.Model):
    portada = models.ImageField(upload_to='portadas/')
    visitas = models.PositiveIntegerField(default=0)
 
-  objects = LibroManager()
+   objects = LibroManager()
 
    def __str__(self):
       return self.titulo
@@ -530,7 +530,7 @@ class Libro(models.Model):
 
 <p>
    <form method = "GET">{% csrf_token %}
-      <input type = "text" id = "kword" name = "kword" palceholder = "Ingrese nombre">
+      <input type = "text" id = "kword" name = "kword" placeholder = "Ingrese nombre">
       <input type = "date" name = "fecha1" id = "fecha1">
       <input type = "date" name = "fecha2" id = "fecha2">
       <button type = "submit">
@@ -541,7 +541,7 @@ class Libro(models.Model):
 
 <ul>   
    {% for l in lista_libros %}
-      <li>{{l.titulo}} {{l.fecha}}</li>        
+      <li>{{l.titulo}} {{l.fecha_lanzamiento}}</li>        
    {% endfor %}
 </ul>
 ```
