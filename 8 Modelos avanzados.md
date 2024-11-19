@@ -428,6 +428,142 @@ def buscar_autor4(self, kword):
 
 ![image](https://github.com/user-attachments/assets/e1c72865-6bae-48d9-9be0-1d5be2409118)
 
+### 4.5 Filtros por fechas.
+
+- Tenemos en nuestra aplicacion libro un campo llamado fecha de lanzamiento. Vamos a generar un filtro que nos permita listar los libros que han sido lanzados dentro de un rango de fechas.
+  
+- Creamos una url en urls.py de la aplicacion libro:
+```
+from django.contrib import admin  # type: ignore
+from django.urls import path  # type: ignore
+from . import views
+
+urlpatterns = [
+   path('libros/', 
+      views.ListLibros.as_view(),
+      name ='libros'),
+]
+```
+
+- Creamos una vista en views.py de la aplicacion libro:
+```
+from django.shortcuts import render # type: ignore
+from django.views.generic import ListView # type: ignore
+from .models import Libro
+      
+class ListLibros(ListView):
+   context_object_name ='lista_libros'
+   template_name = 'libro/lista.html'
+
+   def get_queryset(self):
+      palabra_clave = self.request.GET.get('kword','')
+      f1 = self.request.GET.get('fecha1','')
+      f2 = self.request.GET.get('fecha2','')
+
+      if f1 and f2:
+         return Libro.objects.listar_libros2(palabra_clave, f1, f2)
+      else:
+         return Libro.objects.listar_libros1(palabra_clave)
+```
+
+- Creamos el manager en managers.py de la aplicacion libro:
+```
+import datetime
+from django.db import models # type: ignore
+from django.db.models import Q # type: ignore
+   
+class LibroManager(models.Manager):
+
+   def listar_libros1(self, kword):
+      resultado = self.filter(
+         titulo__icontains = kword,
+         fecha__range('2000-01-01','2010-01-01')
+      )
+      return resultado
+
+   def listar_libros2(self, kword, fecha1, fecha2):
+
+      date1 = datetime.datetime.strptime(fecha1, '%Y-%m-%d').date()
+      date2 = datetime.datetime.strptime(fecha2, '%Y-%m-%d').date()
+
+      resultado = self.filter(
+         titulo__icontains = kword,
+         fecha__range(date1, date2)
+      )
+      return resultado
+```
+
+- Conectamos el manager con nuestro modelo en models.py de la aplicacion libros:
+```
+from django.db import models # type: ignore
+from applications.autor.models import Autor
+
+from .managers import LibroManager
+
+class Categoria(models.Model):
+   nombre = models.CharField(max_length=100)
+
+   def __str__(self):
+      return self.nombre
+
+class Libro(models.Model):
+   categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+   autores =  models.ManyToManyField(Autor)
+   titulo = models.CharField(max_length=200)
+   fecha_lanzamiento = models.DateField('Fecha de lanzamiento')
+   portada = models.ImageField(upload_to='portadas/')
+   visitas = models.PositiveIntegerField(default=0)
+
+  objects = LibroManager()
+
+   def __str__(self):
+      return self.titulo
+```
+
+- En la carpeta templates creamos una nueva llamada libro y dentro de ella lista.html, donde agregamos dos controles para seleccionar un rango de fechas:
+```
+<h1>
+   Lista de libros
+</h1>
+
+<p>
+   <form method = "GET">{% csrf_token %}
+      <input type = "text" id = "kword" name = "kword" palceholder = "Ingrese nombre">
+      <input type = "date" name = "fecha1" id = "fecha1">
+      <input type = "date" name = "fecha2" id = "fecha2">
+      <button type = "submit">
+         Consultar
+      </button>
+   </form>
+</p>
+
+<ul>   
+   {% for l in lista_libros %}
+      <li>{{l.titulo}} {{l.fecha}}</li>        
+   {% endfor %}
+</ul>
+```
+
+- Incluimos el path en las urls generales:
+```
+from django.contrib import admin # type: ignore
+from django.urls import path, re_path, include # type: ignore
+
+urlpatterns = [
+   path('admin/', admin.site.urls),
+   re_path('', include('applications.autor.urls')),
+   re_path('', include('applications.libro.urls'))
+]
+```
+
+
+
+
+
+
+
+
+
 
 
 
