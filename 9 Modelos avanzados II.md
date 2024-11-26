@@ -90,15 +90,13 @@ listo.
 
 Para hacer esto nos valdremos de un atributo importante dentro de los modelos de django llamado **related_name**.
 
-El atributo **related_name** en el campo ForeignKey de Django se utiliza para definir el nombre del atributo inverso en el modelo relacionado. En el ejemplo, el modelo **Libro** tiene una clave foránea (ForeignKey) que apunta al modelo Categoria. El atributo related_name se establece en **'categoria_libro'**.
+El atributo **related_name** en el campo ForeignKey de Django se utiliza para definir el nombre del atributo inverso en el modelo relacionado. En el ejemplo, el modelo **Libro** tiene una clave foránea (ForeignKey) que apunta al modelo Categoria. 
 
-Aquí, related_name='categoria_libro' define cómo se accederá a los objetos Libro desde un objeto Categoria.
-
-Acceso Inverso:
+Aquí, `related_name='categoria_libro'` define **cómo se accederá a los objetos Libro desde un objeto Categoria**. Es un **acceso inverso**.
 
 Sin related_name: Si no especificas related_name, Django generará automáticamente un nombre para el acceso inverso, generalmente en el formato `<model_name>_set`. Por ejemplo, categoria.libro_set.all() para obtener todos los libros de una categoría.
 
-Con related_name: Al especificar related_name='categoria_libro', puedes acceder a los libros de una categoría usando categoria.categoria_libro.all().
+Con related_name: Al especificar `related_name='categoria_libro'`, puedes acceder a los libros de una categoría usando categoria.categoria_libro.all().
 
 ```
 from django.db import models # type: ignore
@@ -140,6 +138,16 @@ class CategoriaManager (models.Manager):
       categoria_libro__autores__id = autor
       )
 ```
+
+## digresion: la shell de Django
+
+Podemos hacer pruebas sobre los managers que creamos sin necesidad de correr nuevamente el proyecto utilizando solamente la shell de django a la cuakl accedemos con:
+
+```
+python manage.py shell
+```
+
+
 
 
 
