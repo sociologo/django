@@ -9,3 +9,7 @@
 ## 4 ManyToMany agregando elementos
 
 ## 5 Annotate en Consultas con la ORM Django
+
+## 6 Diferencia entre Annotate y Aggregate - ORM Django
+
+## 7 En que caso utilizar un Aggregate - ORM Django
