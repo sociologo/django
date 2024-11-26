@@ -1,4 +1,8 @@
+
+
 # Modelos avanzados II
+
+<img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="60%">
 
 ## 1 Consulta en un FK
 
