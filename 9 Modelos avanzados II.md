@@ -10,7 +10,7 @@
 
 ### 1.1 Queremos filtrar todos los libros pertenecientes a una categoría.
 
-- Creamos el manager **listar_libros_categoria()** en **managers.py** de la aplicación **libro**:
+- 1 Creamos el manager **listar_libros_categoria()** en **managers.py** de la aplicación **libro**:
 
 ```python
 def listar_libros_categoria(self, categoria):
@@ -19,7 +19,7 @@ def listar_libros_categoria(self, categoria):
   ).order_by('titulo')
 ```
 
-- Creamos la vista asociada con un parámetro ingresado en duro:
+- 2 Creamos la vista asociada con un parámetro ingresado en duro:
 
 ```python
 class ListLibros2(ListView):
@@ -30,7 +30,7 @@ class ListLibros2(ListView):
     return Libro.objects.listar_libros_categoria('2')
 ```
 
-- Agreguemos el atributo id en los modelos de libro para que en el administrador de django sepamos cuál elegir:
+- 3 Agreguemos el atributo id en los modelos de libro para que en el administrador de django sepamos cuál elegir:
 
 ```python
 class Categoria(modelos.Model):
@@ -40,7 +40,7 @@ nombre = models.CharField(max_length = 30)
     return str(self.id) + ' - ' + self.nombre
 ```
 
-- Creamos la url que active la vista:
+- 4 Creamos la url que active la vista:
 
 ```python
 urlpatterns = [
@@ -57,7 +57,7 @@ urlpatterns = [
 ]
 ```
 
-- Creamos el template **lista2.html**:
+- 5 Creamos el template **lista2.html**:
 
 ```html
 <h1>
