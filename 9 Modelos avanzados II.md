@@ -139,7 +139,7 @@ class Categoria(models.Model):
   nombre = models.CharField(max_length=100)
   objects = CategoriaManager()
   def __str__(self):
-    return self.nombre
+    return str(self.id) + ' - ' + self.nombre
 ```
 
 - 4 Hacemos las migraciones
