@@ -3,27 +3,15 @@
 ## Índice
 
 * [1 Filtros utilizando dos y tres tablas.](#1-Filtros-utilizando-dos-y-tres-tablas)
-  * [1.1 Filtro de todos los libros pertenecientes a una categoría.](#11-Creemos-una-carpeta-donde-vamos-a-alojar-todo-nuestro-trabajo)
-  * [1.2 Filtrar todos las categorías pertenecientes a un autor.](#11-Creemos-una-carpeta-donde-vamos-a-alojar-todo-nuestro-trabajo)
+ * [1.1 Filtro de todos los libros pertenecientes a una categoría.](#11-Creemos-una-carpeta-donde-vamos-a-alojar-todo-nuestro-trabajo)
+ * [1.2 Filtrar todos las categorías pertenecientes a un autor.](#11-Creemos-una-carpeta-donde-vamos-a-alojar-todo-nuestro-trabajo)
 * [digresión: la shell de Django](#2-Configurar-la-estructura-de-un-proyecto-en-django)
-
-* [3 Ejecutando el archivo localpy en vez del original settingspy](#3-Ejecutando-el-archivo-localpy-en-vez-del-original-settingspy)
-* [4 Aplicaciones](#4-Aplicaciones)
-* [5 Vistas genericas (Views)](#5-Vistas-genericas-Views)
-* [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
-* [7 Haciendo una carpeta parcial para cada app](#7-Haciendo-una-carpeta-parcial-para-cada-app)
-* [8 Vistas genéricas](#8-Vistas-genéricas)
-* [9 Nuestros primeros pasos en MVT](#9-Nuestros-primeros-pasos-en-MVT)
-* [10 el ORM de Django y modelos](#10-el-ORM-de-Django-y-modelos)
-* [11 Implementando la base de datos Empleado](#11-Implementando-la-base-de-datos-Empleado)
-* [12 Claves foráneas](#12-Claves-foráneas)
-* [13 PostgreSQL y Django](#13-PostgreSQL-y-Django)
-* [14 El Administrador de Django](#14-El-Administrador-de-Django)
-  * [14.1 La clase meta](#14.1-La-clase-meta)
-* [15 Creando modelos dentro de una aplicación ya existente](#15-Creando-modelos-dentro-de-una-aplicación-ya-existente)
-* [16 Diseñar un despliegue de registros al administrador de Django para el modelo empleados](#16-Diseñar-un-despliegue-de-registros-al-administrador-de-Django-para-el-modelo-empleados)
-* [17 Algunas apps de terceros](#17-Algunas-apps-de-terceros)
-
+* [2 Trabajar con dos tablas relacionadas muchos a muchos.](#2-Trabajar-con-dos-tablas-relacionadas-muchos-a-muchos)
+* [3 Filtros con operaciones aritméticas.](#3-Filtros-con-operaciones-aritméticas)
+ * [3.1 Listar todas las categorías con el número de libros que cada una posee.](#3.1-Listar-todas-las-categorías-con-el-número-de-libros-que-cada-una-posee)
+ * [3.2 Veces que ha sido prestado un libro utilizando **aggregate()**.](#3.2-Veces-que-ha-sido-prestado-un-libro-utilizando **aggregate()**)
+* [4 Consideraciones sobre annotate() y aggregate().](#4-Consideraciones-sobre-annotate()-y-aggregate())
+ * [4.1 Calcular el promedio de edad de los lectores que piden prestado determinado libro.](#4.1-Calcular-el-promedio-de-edad-de-los-lectores-que-piden-prestado-determinado-libro)
 
 ## 1 Filtros utilizando dos y tres tablas.
 
@@ -411,7 +399,7 @@ from applications.libro.models import *
 Libro.objects.libros_num_prestamos()
 ```
 
-### Consideraciones sobre annotate() y aggregate().
+## 4 Consideraciones sobre annotate() y aggregate().
 
 Las funciones aggregate() y annotate() en Django se utilizan para realizar operaciones de agregación en consultas de bases de datos, pero tienen propósitos y usos diferentes.
 
@@ -434,7 +422,7 @@ Cuándo Usar Cada Una:
 - Usar annotate(): Cuando necesitas agregar información calculada a cada objeto en un queryset, como el número de comentarios por artículo, el total de ventas por producto, etc., y necesitas mantener los datos originales.
 - Usar aggregate(): Cuando necesitas un valor agregado global, como el total de ventas, el promedio de calificaciones, etc., y no necesitas los datos originales.
 
-### 3.3 Calcular el promedio de edad de los lectores que piden prestado determinado libro.
+### 4.1 Calcular el promedio de edad de los lectores que piden prestado determinado libro.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
