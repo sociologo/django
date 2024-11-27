@@ -168,6 +168,31 @@ Nuestro requerimiento será agregar o eliminar un autor registrado a un libro ya
 </p>
 
 - 1 Vamos a los modelos de **libro** y **autor** para que en el administrador se despliegue su id para saber a que libro modificaremos sus autores:
+  
+```python
+from django.db import models # type: ignore
+from applications.autor.models import Autor
+from .managers import LibroManager
+
+class Categoria(models.Model):
+   nombre = models.CharField(max_length=100)
+
+   def __str__(self):
+      return self.nombre
+
+class Libro(models.Model):
+   categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+   autores =  models.ManyToManyField(Autor)
+   titulo = models.CharField(max_length=200)
+   fecha_lanzamiento = models.DateField('Fecha de lanzamiento')
+   portada = models.ImageField(upload_to='portadas/', blank=True, null=True)
+   visitas = models.PositiveIntegerField(default=0)
+
+   objects = LibroManager()
+
+   def __str__(self):
+      return self.titulo + ' - ' + self.titulo
+```
 
 ```python
 from django.db import models # type: ignore
