@@ -2,13 +2,13 @@
 
 # Modelos avanzados II
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
-</p>
-
 ## 1 Filtros utilizando dos y tres tablas (127-128)
 
 ### 1.1 Queremos filtrar todos los libros pertenecientes a una categoría.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
+</p>
 
 - 1 Creamos el manager **listar_libros_categoria()** en **managers.py** de la aplicación **libro**:
 
@@ -72,6 +72,10 @@ urlpatterns = [
 ```
 
 ### 1.2 Queremos filtrar todos las categorias pertenecientes a un autor
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
+</p>
 
 Para hacer esto nos valdremos de un atributo importante dentro de los modelos de django llamado **related_name**.
 
