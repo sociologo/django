@@ -269,9 +269,12 @@ Para eliminar autores bastaria simplemente con reemplazar **add(autor)** por **r
 
 Para estos requerimientos en django se utiliza la funcion **annotate()**.
 
-- Declaramos un nuevo manager dentro de **managers.py** de la app **libro** llamado listar_categoria_libros():
+- Declaramos un nuevo manager dentro de **managers.py** de la app **libro** llamado **listar_categoria_libros()**.
+- No olvidemos importar la funcion **Count**
 
 ```python
+from django.db.models import Q, Count
+
 def listar_categoria_libros(self):
   resultado = self.annotate(
     num_libros = Count('categoria_libro')
@@ -279,15 +282,105 @@ def listar_categoria_libros(self):
     return resultado
 ```
 
+- Solo para hacer pruebas en la shell modificamos el manager como sigue:
 
+```python
+def listar_categoria_libros(self):
+  resultado = self.annotate(
+    num_libros = Count('categoria_libro')
+    )
+    for r in resultado:
+      print('***')
+      print(r, r.num_libros)
+    return resultado
+```
 
+- y probamos:
 
+```bash
+from applications.libro.models import *
+Categoria.objects.listar_categoria_libros()
+```
 
+### 3.2 Veces que ha sido prestado un libro utilizando **aggregate()**
 
+- Declaramos un nuevo manager dentro de **managers.py** de la app **libro** llamado **libros_num_prestamos()**.
 
+```python
+def libros_num_prestamos(self):
+  resultado = self.aggregate(
+    num_lprestamos = Count('libro_prestamo')
+    )
+    return resultado
+```
 
+- No tenemos un related_name.
 
+- como modificamos los modelos debemos hacer migraciones.
 
+Las funciones aggregate() y annotate() en Django se utilizan para realizar operaciones de agregación en consultas de bases de datos, pero tienen propósitos y usos diferentes.
+
+aggregate()
+
+- Propósito: La función aggregate() se utiliza para calcular valores agregados (como sumas, promedios, conteos, etc.) a partir de un conjunto de registros y devolver un solo valor o un diccionario de valores.
+- Resultado: Devuelve un diccionario con los resultados de las agregaciones.
+- Uso: Se utiliza cuando necesitas un resumen global de los datos, sin necesidad de mantener los datos originales.
+
+annotate()
+
+- Propósito: La función annotate() se utiliza para calcular valores agregados para cada objeto en un queryset y agregar estos valores como campos adicionales a cada objeto.
+- Resultado: Devuelve un queryset con los objetos originales, cada uno anotado con los valores agregados.
+- Uso: Se utiliza cuando necesitas mantener los datos originales y agregar información adicional calculada a cada objeto.
+
+Cuándo Usar Cada Una
+
+- Usar aggregate(): Cuando necesitas un valor agregado global, como el total de ventas, el promedio de calificaciones, etc., y no necesitas los datos originales.
+- Usar annotate(): Cuando necesitas agregar información calculada a cada objeto en un queryset, como el número de comentarios por artículo, el total de ventas por producto, etc., y necesitas mantener los datos originales.
+
+### 3.3 Calcular el promedio de edad de los lectores que piden prestado determinado libro.
+
+- Conviene hacer el manager dentro del modelo prestamo en la app lector, por lo que creamos una clase llamada **PrestamoManager(models.Manager)** en el archivo** managers.py** de la app **lector** y dentro de ella el manager **libros_promedio_edades(self)** e ingresamos un valor en duro para un libro. No olvidemos importar la funcion **Avg**:
+
+```
+class PrestamoManager(models.Manager):
+  def libros_promedio_edades(self):
+    resultado = self.filter(
+      libro_id = '15'
+    ).aggregate(
+      promedio_edad = Avg('lector__edad')
+    )
+    return resultado
+```
+
+- En los modelos vinculamos el manager:
+
+- Verificamos en la shell:
+
+```bash
+from applications.lector.models import *
+Prestamo.objects.libros_promedio_edades()
+```
+
+Como aggregate es un diccionario, podemos agregarle mas elementos como por ejemplo la suma total de edades:
+
+```
+class PrestamoManager(models.Manager):
+  def libros_promedio_edades(self):
+    resultado = self.filter(
+      libro_id = '15'
+    ).aggregate(
+      promedio_edad = Avg('lector__edad'),
+      suma_edad - Sum('lector__edad')
+    )
+    return resultado
+```
+
+- Verificamos en la shell:
+
+```bash
+from applications.lector.models import *
+Prestamo.objects.libros_promedio_edades()
+```
 
   
 
