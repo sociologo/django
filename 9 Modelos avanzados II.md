@@ -130,7 +130,7 @@ categoria_libro__autores__id = autor
 
 Dedícale un tiempo a asimilarla.
 
-- 3 Conectamos CategoriaManager() con el modelo de **libro** con:
+- 3 Conectamos CategoriaManager() con el modelo de **libro**:
 
 ```python
 from .managers import LibroManager, CategoriaManager
