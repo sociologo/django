@@ -25,7 +25,7 @@
 
 ## 1 Filtros utilizando dos y tres tablas.
 
-### 1.1 Queremos filtrar todos los libros pertenecientes a una categoría.
+### 1.1 Filtro de todos los libros pertenecientes a una categoría.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
