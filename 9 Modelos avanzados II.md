@@ -30,7 +30,7 @@ class ListLibros2(ListView):
     return Libro.objects.listar_libros_categoria('2')
 ```
 
-- Agreguemos el atributo id en los modelos de libro para que en el administrador de django sepamos cual elegir:
+- Agreguemos el atributo id en los modelos de libro para que en el administrador de django sepamos cuál elegir:
 
 ```python
 class Categoria(modelos.Model):
@@ -52,7 +52,7 @@ urlpatterns = [
   path(
     'libros-2/', 
     views.ListLibros2.as_view(),
-    name ='libros2'
+    name = 'libros2'
   ),
 ]
 ```
@@ -70,8 +70,6 @@ urlpatterns = [
    {% endfor %}
 </ul>
 ```
-
-listo.
 
 ### 1.2 Queremos filtrar todos las categorias pertenecientes a un autor
 
