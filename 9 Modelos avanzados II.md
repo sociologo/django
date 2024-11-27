@@ -279,14 +279,13 @@ donde el primer parámetro es el libro y el segundo el autor.
 
 Para eliminar autores bastaría simplemente con reemplazar **add(autor)** por **remove(autor)**.
 
-## 3 Filtros con operaciones aritmeticas.
+## 3 Filtros con operaciones aritméticas.
 
-### 3.1 listar todas las categorias con el numero de libros que cada una posee.
+### 3.1 Listar todas las categorías con el número de libros que cada una posee.
 
-Para estos requerimientos en django se utiliza la funcion **annotate()**.
+- 1 La función **annotate()**.
 
-- Declaramos un nuevo manager dentro de **managers.py** de la app **libro** llamado **listar_categoria_libros()**.
-- No olvidemos importar la funcion **Count**
+Declaramos un nuevo manager dentro de **managers.py** de la app **libro** llamado **listar_categoria_libros()**. No olvidemos importar la funcion **Count**.
 
 ```python
 from django.db.models import Q, Count
@@ -298,7 +297,7 @@ def listar_categoria_libros(self):
     return resultado
 ```
 
-- Solo para hacer pruebas en la shell modificamos el manager como sigue:
+- 2 Sólo para hacer pruebas en la shell modificamos el manager como sigue:
 
 ```python
 def listar_categoria_libros(self):
@@ -311,7 +310,7 @@ def listar_categoria_libros(self):
     return resultado
 ```
 
-- y probamos:
+- 3 Probamos:
 
 ```bash
 from applications.libro.models import *
@@ -320,7 +319,7 @@ Categoria.objects.listar_categoria_libros()
 
 ### 3.2 Veces que ha sido prestado un libro utilizando **aggregate()**
 
-- Declaramos un nuevo manager dentro de **managers.py** de la app **libro** llamado **libros_num_prestamos()**.
+- 1 Declaramos un nuevo manager dentro de **managers.py** de la app **libro** llamado **libros_num_prestamos()**.
 
 ```python
 def libros_num_prestamos(self):
