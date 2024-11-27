@@ -10,9 +10,9 @@
 
 ### 1.1 Queremos filtrar todos los libros pertenecientes a una categoría.
 
-- Creamos el manager **listar_libros_categoria** en **managers.py** de la aplicación **libro**
+- Creamos el manager **listar_libros_categoria()** en **managers.py** de la aplicación **libro**:
 
-```
+```python
 def listar_libros_categoria(self, categoria):
   return self.filter(
     categoria__id = categoria
