@@ -267,7 +267,7 @@ urlpatterns = [
 </ul>
 ```
 
-- 5 Construímos un manager **add_autor_libro** para agregra un autor en la app **libro**:
+- 5 Construímos un manager **add_autor_libro** dentro de **LibroManager()** para agregar un autor en la app **libro**:
 
 ```python
 def add_autor_libro(self, libro_id, autor):
