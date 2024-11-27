@@ -8,8 +8,8 @@
 * [Digresión: la shell de Django](#Digresión:-la-shell-de-Django)
 * [2 Trabajar con dos tablas relacionadas muchos a muchos.](#2-Trabajar-con-dos-tablas-relacionadas-muchos-a-muchos)
 * [3 Filtros con operaciones aritméticas.](#3-Filtros-con-operaciones-aritméticas)
- * [3.1 Listar todas las categorías con el número de libros que cada una posee.](#3.1-Listar-todas-las-categorías-con-el-número-de-libros-que-cada-una-posee)
- * [3.2 Veces que ha sido prestado un libro utilizando **aggregate()**.](#3.2-Veces-que-ha-sido-prestado-un-libro-utilizando **aggregate()**)
+ * [3.1 Listar todas las categorías con el número de libros que cada una posee.](#31-Listar-todas-las-categorías-con-el-número-de-libros-que-cada-una-posee)
+ * [3.2 Veces que ha sido prestado un libro utilizando aggregate().](#32-Veces-que-ha-sido-prestado-un-libro-utilizando **aggregate()**)
 * [4 Consideraciones sobre annotate() y aggregate().](#4-Consideraciones-sobre-annotate()-y-aggregate())
  * [4.1 Calcular el promedio de edad de los lectores que piden prestado determinado libro.](#4.1-Calcular-el-promedio-de-edad-de-los-lectores-que-piden-prestado-determinado-libro)
 
@@ -294,7 +294,7 @@ Para eliminar autores bastaría simplemente con reemplazar **add(autor)** por **
 
 # 3 Filtros con operaciones aritméticas.
 
-## 3.1 Listar todas las categorías con el número de libros que cada una posee.
+## 31 Listar todas las categorías con el número de libros que cada una posee.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
@@ -335,7 +335,7 @@ from applications.libro.models import *
 Categoria.objects.listar_categoria_libros()
 ```
 
-## 3.2 Veces que ha sido prestado un libro utilizando **aggregate()**.
+## 32 Veces que ha sido prestado un libro utilizando **aggregate()**.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
