@@ -1,6 +1,31 @@
 # Modelos avanzados II
 
-## 1 Filtros utilizando dos y tres tablas (127-128)
+## Índice
+
+* [1 Filtros utilizando dos y tres tablas.](#1-Filtros-utilizando-dos-y-tres-tablas)
+
+
+  * [11 Creemos una carpeta donde vamos a alojar todo nuestro trabajo](#11-Creemos-una-carpeta-donde-vamos-a-alojar-todo-nuestro-trabajo)
+* [2 Configurar la estructura de un proyecto en django](#2-Configurar-la-estructura-de-un-proyecto-en-django)
+* [3 Ejecutando el archivo localpy en vez del original settingspy](#3-Ejecutando-el-archivo-localpy-en-vez-del-original-settingspy)
+* [4 Aplicaciones](#4-Aplicaciones)
+* [5 Vistas genericas (Views)](#5-Vistas-genericas-Views)
+* [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
+* [7 Haciendo una carpeta parcial para cada app](#7-Haciendo-una-carpeta-parcial-para-cada-app)
+* [8 Vistas genéricas](#8-Vistas-genéricas)
+* [9 Nuestros primeros pasos en MVT](#9-Nuestros-primeros-pasos-en-MVT)
+* [10 el ORM de Django y modelos](#10-el-ORM-de-Django-y-modelos)
+* [11 Implementando la base de datos Empleado](#11-Implementando-la-base-de-datos-Empleado)
+* [12 Claves foráneas](#12-Claves-foráneas)
+* [13 PostgreSQL y Django](#13-PostgreSQL-y-Django)
+* [14 El Administrador de Django](#14-El-Administrador-de-Django)
+  * [14.1 La clase meta](#14.1-La-clase-meta)
+* [15 Creando modelos dentro de una aplicación ya existente](#15-Creando-modelos-dentro-de-una-aplicación-ya-existente)
+* [16 Diseñar un despliegue de registros al administrador de Django para el modelo empleados](#16-Diseñar-un-despliegue-de-registros-al-administrador-de-Django-para-el-modelo-empleados)
+* [17 Algunas apps de terceros](#17-Algunas-apps-de-terceros)
+
+
+## 1 Filtros utilizando dos y tres tablas.
 
 ### 1.1 Queremos filtrar todos los libros pertenecientes a una categoría.
 
