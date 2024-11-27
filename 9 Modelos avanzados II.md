@@ -196,7 +196,7 @@ class LibroDetailView(DetailView):
   template_name = 'libro/detalle.html'
 ```
 
-- 3 Creamos una url para desplegar la vista:
+- 3 Creamos la url **libros-detalle/<pk>** para desplegar la vista:
   
 ```python
 urlpatterns = [
