@@ -120,7 +120,7 @@ class CategoriaManager (models.Manager):
       ).distinc()
 ```
 
-distinc() para que no repita categorías para un mismo autor.
+distinc() para que no se repitan categorías para un mismo autor.
 
 ES ABSTRACTO COMPRENDER BIEN LA SIGUIENTE LINEA:
 
@@ -130,7 +130,7 @@ categoria_libro__autores__id = autor
 
 Dedícale un tiempo a asimilarla.
 
-- 3 Conectamos CategoriaManager() con el modelo de **libro**:
+- 3 Conectamos **CategoriaManager()** con el modelo de **libro**:
 
 ```python
 from .managers import LibroManager, CategoriaManager
@@ -142,14 +142,14 @@ class Categoria(models.Model):
     return str(self.id) + ' - ' + self.nombre
 ```
 
-- 4 Hacemos las migraciones
+- 4 Hacemos las migraciones:
 
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 ```
   
-## digresion: la shell de Django
+## digresión: la shell de Django
 
 Podemos hacer pruebas sobre los managers que creamos sin necesidad de correr nuevamente el proyecto utilizando solamente la shell de django a la cual accedemos con:
 
@@ -165,7 +165,7 @@ Nuestro requerimiento sera agregar o eliminar un autor registrado a un libro ya 
 
 - Vamos a los modelos de **libro** y **autor** para que en el administrador se despliegue su id para saber a que libro modificaremos sus autores.
 
-```
+```python
 from django.db import models # type: ignore
 
 from .managers import AutorManager
@@ -184,7 +184,7 @@ class Autor(models.Model):
 
 - Creamos una vista **LibroDetailView** en la app libro, pues queremos ver los detalles de un libro, especificamente sus autores.
 
-```
+```python
 from django.views.generic import LisView, DetailView
 
 class LibroDetailView(DetailView):
@@ -194,7 +194,7 @@ class LibroDetailView(DetailView):
 
 - Creamos una url para desplegar la vista
   
-```
+```python
 urlpatterns = [
   path(
     'libros/', 
@@ -216,7 +216,7 @@ urlpatterns = [
 
 - Construimos la vista detalle.html
   
-```
+```html
 <h1>
    Detalle de libros
 </h1>
@@ -240,7 +240,7 @@ urlpatterns = [
 
 Construimos un manager **add_autor_libro** para agregra un autor en la app **libro**:
 
-```
+```python
 def add_autor_libro(self, libro_id, autor):
   libro = self.get(id = libro_id)
   libro.autores.add(autor)
@@ -336,7 +336,7 @@ Cuándo Usar Cada Una
 
 - Conviene hacer el manager dentro del modelo prestamo en la app lector, por lo que creamos una clase llamada **PrestamoManager(models.Manager)** en el archivo** managers.py** de la app **lector** y dentro de ella el manager **libros_promedio_edades(self)** e ingresamos un valor en duro para un libro. No olvidemos importar la funcion **Avg**:
 
-```
+```python
 class PrestamoManager(models.Manager):
   def libros_promedio_edades(self):
     resultado = self.filter(
@@ -358,7 +358,7 @@ Prestamo.objects.libros_promedio_edades()
 
 Como aggregate es un diccionario, podemos agregarle mas elementos como por ejemplo la suma total de edades:
 
-```
+```python
 class PrestamoManager(models.Manager):
   def libros_promedio_edades(self):
     resultado = self.filter(
