@@ -219,7 +219,6 @@ urlpatterns = [
 ]
 ```
 
-
 - Construimos la vista detalle.html
   
 ```
@@ -255,14 +254,31 @@ def add_autor_libro(self, libro_id, autor):
 
 vamos a la shell django:
 
-```
+```bash
 from applications.libro.models import *
 Libro.objects.add_autor_libro('16', '17')
 ```
 
+donde el primer parámetro es el libro y el segundo el autor.
+
 Para eliminar autores bastaria simplemente con reemplazar **add(autor)** por **remove(autor)**
 
-agregar autores con POST
+## 3 Filtros con operaciones aritmeticas.
+
+### 3.1 listar todas las categorias con el numero de libros que cada una posee.
+
+Para estos requerimientos en django se utiliza la funcion **annotate()**.
+
+- Declaramos un nuevo manager dentro de **managers.py** de la app **libro** llamado listar_categoria_libros():
+
+```python
+def listar_categoria_libros(self):
+  resultado = self.annotate(
+    num_libros = Count('categoria_libro')
+    )
+    return resultado
+```
+
 
 
 
