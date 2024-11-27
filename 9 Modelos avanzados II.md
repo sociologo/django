@@ -13,9 +13,9 @@
 * [4 Consideraciones sobre annotate() y aggregate().](#4-Consideraciones-sobre-annotate()-y-aggregate())
  * [4.1 Calcular el promedio de edad de los lectores que piden prestado determinado libro.](#4.1-Calcular-el-promedio-de-edad-de-los-lectores-que-piden-prestado-determinado-libro)
 
-## 1 Filtros utilizando dos y tres tablas.
+# 1 Filtros utilizando dos y tres tablas.
 
-### 1.1 Filtro de todos los libros pertenecientes a una categoría.
+## 1.1 Filtro de todos los libros pertenecientes a una categoría.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
@@ -82,7 +82,7 @@ urlpatterns = [
 </ul>
 ```
 
-### 1.2 Filtrar todos las categorías pertenecientes a un autor.
+## 1.2 Filtrar todos las categorías pertenecientes a un autor.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
@@ -162,7 +162,7 @@ python manage.py makemigrations
 python manage.py migrate
 ```
   
-## digresión: la shell de Django
+# Digresión: la shell de Django
 
 Podemos hacer pruebas sobre los managers que creamos sin necesidad de correr nuevamente el proyecto utilizando solamente la shell de django a la cual accedemos con:
 
@@ -172,7 +172,7 @@ from applications.libro.models import *
 Categoria.objects.categoria_por_autor('1')
 ```
 
-## 2 Trabajar con dos tablas relacionadas muchos a muchos. (129-130)
+# 2 Trabajar con dos tablas relacionadas muchos a muchos.
 
 Nuestro requerimiento será agregar o eliminar un autor registrado a un libro ya existente.
 
@@ -292,9 +292,9 @@ donde el primer parámetro es el libro y el segundo el autor.
 
 Para eliminar autores bastaría simplemente con reemplazar **add(autor)** por **remove(autor)**.
 
-## 3 Filtros con operaciones aritméticas.
+# 3 Filtros con operaciones aritméticas.
 
-### 3.1 Listar todas las categorías con el número de libros que cada una posee.
+## 3.1 Listar todas las categorías con el número de libros que cada una posee.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
@@ -335,7 +335,7 @@ from applications.libro.models import *
 Categoria.objects.listar_categoria_libros()
 ```
 
-### 3.2 Veces que ha sido prestado un libro utilizando **aggregate()**.
+## 3.2 Veces que ha sido prestado un libro utilizando **aggregate()**.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
@@ -399,7 +399,7 @@ from applications.libro.models import *
 Libro.objects.libros_num_prestamos()
 ```
 
-## 4 Consideraciones sobre annotate() y aggregate().
+# 4 Consideraciones sobre annotate() y aggregate().
 
 Las funciones aggregate() y annotate() en Django se utilizan para realizar operaciones de agregación en consultas de bases de datos, pero tienen propósitos y usos diferentes.
 
@@ -422,7 +422,7 @@ Cuándo Usar Cada Una:
 - Usar annotate(): Cuando necesitas agregar información calculada a cada objeto en un queryset, como el número de comentarios por artículo, el total de ventas por producto, etc., y necesitas mantener los datos originales.
 - Usar aggregate(): Cuando necesitas un valor agregado global, como el total de ventas, el promedio de calificaciones, etc., y no necesitas los datos originales.
 
-### 4.1 Calcular el promedio de edad de los lectores que piden prestado determinado libro.
+## 4.1 Calcular el promedio de edad de los lectores que piden prestado determinado libro.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
