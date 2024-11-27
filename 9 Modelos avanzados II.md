@@ -191,7 +191,7 @@ class Libro(models.Model):
    objects = LibroManager()
 
    def __str__(self):
-      return self.titulo + ' - ' + self.titulo
+      return str(self.id) + ' - ' + self.titulo
 ```
 
 ```python
