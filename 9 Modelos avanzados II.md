@@ -277,7 +277,7 @@ Libro.objects.add_autor_libro('16', '17')
 
 donde el primer parámetro es el libro y el segundo el autor.
 
-Para eliminar autores bastaria simplemente con reemplazar **add(autor)** por **remove(autor)**
+Para eliminar autores bastaría simplemente con reemplazar **add(autor)** por **remove(autor)**.
 
 ## 3 Filtros con operaciones aritmeticas.
 
