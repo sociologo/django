@@ -283,9 +283,13 @@ Para eliminar autores bastaría simplemente con reemplazar **add(autor)** por **
 
 ### 3.1 Listar todas las categorías con el número de libros que cada una posee.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
+</p>
+
 - 1 La función **annotate()**.
 
-Declaramos un nuevo manager dentro de **managers.py** de la app **libro** llamado **listar_categoria_libros()**. No olvidemos importar la funcion **Count**.
+Declaramos un nuevo manager dentro de la class **CategoriaManager()** en **managers.py** de la app **libro** llamado **listar_categoria_libros()**. No olvidemos importar la funcion **Count**.
 
 ```python
 from django.db.models import Q, Count
@@ -313,23 +317,30 @@ def listar_categoria_libros(self):
 - 3 Probamos:
 
 ```bash
+python manage.py shell
 from applications.libro.models import *
 Categoria.objects.listar_categoria_libros()
 ```
 
-### 3.2 Veces que ha sido prestado un libro utilizando **aggregate()**
+### 3.2 Veces que ha sido prestado un libro utilizando **aggregate()**.
 
-- 1 Declaramos un nuevo manager dentro de **managers.py** de la app **libro** llamado **libros_num_prestamos()**.
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
+</p>
+
+- 1 Declaramos un nuevo manager dentro de class **LibroManager()** en **managers.py** de la app **libro** llamado **libros_num_prestamos()**.
 
 ```python
 def libros_num_prestamos(self):
   resultado = self.aggregate(
-    num_lprestamos = Count('libro_prestamo')
+    num_prestamos = Count('libro_prestamo')
     )
     return resultado
 ```
 
-- No tenemos un related_name.
+- No tenemos un **related_name**.
+
+Si vamos al modelo **Prestamo** 
 
 - como modificamos los modelos debemos hacer migraciones.
 
@@ -353,6 +364,10 @@ Cuándo Usar Cada Una
 - Usar annotate(): Cuando necesitas agregar información calculada a cada objeto en un queryset, como el número de comentarios por artículo, el total de ventas por producto, etc., y necesitas mantener los datos originales.
 
 ### 3.3 Calcular el promedio de edad de los lectores que piden prestado determinado libro.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
+</p>
 
 - Conviene hacer el manager dentro del modelo prestamo en la app lector, por lo que creamos una clase llamada **PrestamoManager(models.Manager)** en el archivo** managers.py** de la app **lector** y dentro de ella el manager **libros_promedio_edades(self)** e ingresamos un valor en duro para un libro. No olvidemos importar la funcion **Avg**:
 
