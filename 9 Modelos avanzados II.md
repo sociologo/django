@@ -19,9 +19,9 @@ def listar_libros_categoria(self, categoria):
   ).order_by('titulo')
 ```
 
-- Creamos la vista asociada con un parametro ingresado en duro (2):
+- Creamos la vista asociada con un parámetro ingresado en duro:
 
-```
+```python
 class ListLibros2(ListView):
   context_object_name = 'lista_libros'
   template_name = 'libro/lista2.html'
@@ -32,7 +32,7 @@ class ListLibros2(ListView):
 
 - Agreguemos el atributo id en los modelos de libro para que en el administrador de django sepamos cual elegir:
 
-```
+```python
 class Categoria(modelos.Model):
 nombre = models.CharField(max_length = 30)
 
@@ -42,7 +42,7 @@ nombre = models.CharField(max_length = 30)
 
 - Creamos la url que active la vista:
 
-```
+```python
 urlpatterns = [
   path(
     'libros/', 
@@ -59,7 +59,7 @@ urlpatterns = [
 
 - Creamos el template **lista2.html**:
 
-```
+```html
 <h1>
    Lista de libros
 </h1>
