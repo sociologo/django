@@ -3,7 +3,7 @@
 ## Índice
 
 * [1 Filtros utilizando dos y tres tablas.](#1-Filtros-utilizando-dos-y-tres-tablas)
-  * [1.1 Filtro de todos los libros pertenecientes a una categoría.](#1.1-Filtro-de-todos-los-libros-pertenecientes-a-una-categoria)
+  * [1.1 Filtro de todos los libros pertenecientes a una categoría.](#1-1-Filtro-de-todos-los-libros-pertenecientes-a-una-categoria)
   * [1.2 Filtrar todos las categorías pertenecientes a un autor.](#1.2-Filtrar-todos-las-categorías-pertenecientes-a-un-autor)
 * [Digresión: la shell de Django](#digresión:-la-shell-de-Django)
 * [2 Trabajar con dos tablas relacionadas muchos a muchos.](#2-Trabajar-con-dos-tablas-relacionadas-muchos-a-muchos)
