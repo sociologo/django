@@ -135,6 +135,11 @@ class Categoria(models.Model):
 ```
 
 - Hacemos las migraciones
+
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
   
 ## digresion: la shell de Django
 
