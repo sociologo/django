@@ -161,9 +161,13 @@ Categoria.objects.categoria_por_autor('1')
 
 ## 2 Trabajar con dos tablas relacionadas muchos a muchos. (129-130)
 
-Nuestro requerimiento sera agregar o eliminar un autor registrado a un libro ya existente:
+Nuestro requerimiento sera agregar o eliminar un autor registrado a un libro ya existente.
 
-- Vamos a los modelos de **libro** y **autor** para que en el administrador se despliegue su id para saber a que libro modificaremos sus autores.
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
+</p>
+
+- 1 Vamos a los modelos de **libro** y **autor** para que en el administrador se despliegue su id para saber a que libro modificaremos sus autores.
 
 ```python
 from django.db import models # type: ignore
@@ -182,7 +186,7 @@ class Autor(models.Model):
       return f"{str(self.id)} {self.nombre} {self.apellido}"
 ```
 
-- Creamos una vista **LibroDetailView** en la app libro, pues queremos ver los detalles de un libro, especificamente sus autores.
+- 2 Creamos una vista **LibroDetailView** en la app libro, pues queremos ver los detalles de un libro, especificamente sus autores.
 
 ```python
 from django.views.generic import LisView, DetailView
@@ -192,7 +196,7 @@ class LibroDetailView(DetailView):
   template_name = 'libro/detalle.html'
 ```
 
-- Creamos una url para desplegar la vista
+- 3 Creamos una url para desplegar la vista
   
 ```python
 urlpatterns = [
@@ -214,7 +218,7 @@ urlpatterns = [
 ]
 ```
 
-- Construimos la vista detalle.html
+- 4 Construimos la vista detalle.html
   
 ```html
 <h1>
@@ -238,7 +242,7 @@ urlpatterns = [
 </ul>
 ```
 
-Construimos un manager **add_autor_libro** para agregra un autor en la app **libro**:
+- 5 Construimos un manager **add_autor_libro** para agregra un autor en la app **libro**:
 
 ```python
 def add_autor_libro(self, libro_id, autor):
