@@ -127,8 +127,6 @@ class Libro(models.Model):
     return self.titulo
 ```
 
-- Hacemos las migraciones
-
 - Creamos el manager CategoriaManager:
 
 ```
@@ -136,25 +134,135 @@ class CategoriaManager (models.Manager):
   def categoria_por_autor(self, autor):
     return self.filter(
       categoria_libro__autores__id = autor
-      )
+      ).distinc()
 ```
 
+distinc() para que no repita categorias para un mismo autor.
+
+-conectamos CategoriaManager con el modelo de libro con:
+
+```
+from .managers import LibroManager, CategoriaManager
+
+class Categoria(models.Model):
+  nombre = models.CharField(max_length=100)
+  objects = CategoriaManager()
+  def __str__(self):
+    return self.nombre
+
+```
+
+- Hacemos las migraciones
+- 
 ## digresion: la shell de Django
 
-Podemos hacer pruebas sobre los managers que creamos sin necesidad de correr nuevamente el proyecto utilizando solamente la shell de django a la cuakl accedemos con:
+Podemos hacer pruebas sobre los managers que creamos sin necesidad de correr nuevamente el proyecto utilizando solamente la shell de django a la cual accedemos con:
 
 ```
 python manage.py shell
+from applications.libro.models import *
+Categoria.objects.categoria_por_autor('1')
+```
+
+## 2 Trabajar con dos tablas relacionadas muchos a muchos. (129-130)
+
+Nuestro requerimiento sera agregar o eliminar un autor registrado a un libro ya existente:
+
+- Vamos a los modelos de **libro** y **autor** para que en el administrador se despliegue su id para saber a que libro modificaremos sus autores.
+
+```
+from django.db import models # type: ignore
+
+from .managers import AutorManager
+
+class Autor(models.Model):
+   nombre = models.CharField(max_length=100)
+   apellido = models.CharField(max_length=100)
+   nacionalidad = models.CharField(max_length=100)
+   edad = models.PositiveIntegerField()
+
+   objects = AutorManager()
+
+   def __str__(self):
+      return f"{str(self.id)} {self.nombre} {self.apellido}"
+```
+
+- Creamos una vista **LibroDetailView** en la app libro, pues queremos ver los detalles de un libro, especificamente sus autores.
+
+```
+from django.views.generic import LisView, DetailView
+
+class LibroDetailView(DetailView):
+  model = Libro
+  template_name = 'libro/detalle.html'
+```
+
+- Creamos una url para desplegar la vista
+  
+```
+urlpatterns = [
+  path(
+    'libros/', 
+    views.ListLibros.as_view(),
+    name ='libros'
+  ),
+  path(
+    'libros-2/', 
+    views.ListLibros2.as_view(),
+    name ='libros2'
+  ),
+  path(
+    'libros-detalle/<pk>', 
+    views.LibroDetailView.as_view(),
+    name ='libros-detalle'
+  ),
+]
 ```
 
 
+- Construimos la vista detalle.html
+  
+```
+<h1>
+   Detalle de libros
+</h1>
 
+<p>
+  {{libro.titulo}}
+</p>
+<p>
+  {{libro.fecha}}
+</p>
+<p>
+  {{libro.categoria}}
+</p>
 
+<ul>
+  {% for autor in  libro.autores.all %}
+    <li>{{autor}}</li>
+  {% endfor %}
+</ul>
+```
 
+Construimos un manager **add_autor_libro** para agregra un autor en la app **libro**:
 
+```
+def add_autor_libro(self, libro_id, autor):
+  libro = self.get(id = libro_id)
+  libro.autores.add(autor)
+  return libro
+```
 
+vamos a la shell django:
 
+```
+from applications.libro.models import *
+Libro.objects.add_autor_libro('16', '17')
+```
 
+Para eliminar autores bastaria simplemente con reemplazar **add(autor)** por **remove(autor)**
+
+agregar autores con POST
 
 
 
