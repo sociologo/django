@@ -218,7 +218,7 @@ urlpatterns = [
 ]
 ```
 
-- 4 Construímos la vista detalle.html:
+- 4 Construímos la vista **detalle.html**:
   
 ```html
 <h1>
