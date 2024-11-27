@@ -5,7 +5,7 @@
 * [1 Filtros utilizando dos y tres tablas.](#1-Filtros-utilizando-dos-y-tres-tablas)
   * [1.1 Filtro de todos los libros pertenecientes a una categoría.](#11-Filtro-de-todos-los-libros-pertenecientes-a-una-categoría)
   * [1.2 Filtrar todos las categorías pertenecientes a un autor.](#12-Filtrar-todos-las-categorías-pertenecientes-a-un-autor)
-* [Digresión: la shell de Django](#Digresión:-la-shell-de-Django)
+* [Digresión: la shell de Django](#Digresión-la-shell-de-Django)
 * [2 Trabajar con dos tablas relacionadas muchos a muchos.](#2-Trabajar-con-dos-tablas-relacionadas-muchos-a-muchos)
 * [3 Filtros con operaciones aritméticas.](#3-Filtros-con-operaciones-aritméticas)
  * [3.1 Listar todas las categorías con el número de libros que cada una posee.](#31-Listar-todas-las-categorías-con-el-número-de-libros-que-cada-una-posee)
@@ -162,7 +162,7 @@ python manage.py makemigrations
 python manage.py migrate
 ```
   
-# Digresión: la shell de Django
+# Digresión la shell de Django
 
 Podemos hacer pruebas sobre los managers que creamos sin necesidad de correr nuevamente el proyecto utilizando solamente la shell de django a la cual accedemos con:
 
