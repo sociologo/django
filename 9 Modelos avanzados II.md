@@ -110,7 +110,7 @@ class Libro(models.Model):
     return self.titulo
 ```
 
-- 2 Creamos el manager CategoriaManager:
+- 2 Creamos el manager **CategoriaManager()** en la app **libro**:
 
 ```python
 class CategoriaManager (models.Manager):
