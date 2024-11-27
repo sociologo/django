@@ -71,7 +71,7 @@ urlpatterns = [
 </ul>
 ```
 
-### 1.2 Queremos filtrar todos las categorias pertenecientes a un autor
+### 1.2 Filtrar todos las categorías pertenecientes a un autor.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
