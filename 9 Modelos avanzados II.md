@@ -3,7 +3,7 @@
 # Modelos avanzados II
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="60%">
+  <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
 </p>
 
 ## 1 Filtros utilizando dos y tres tablas (127-128)
