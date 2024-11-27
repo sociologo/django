@@ -437,18 +437,54 @@ class PrestamoManager(models.Manager):
     return resultado
 ```
 
-- En los modelos vinculamos el manager:
+- 2 En los modelos vinculamos el manager:
 
-- Verificamos en la shell:
+```python
+from django.db import models # type: ignore
+from applications.libro.models import Libro
+
+from .managers import PrestamoManager # type: ignore
+
+class Lector(models.Model):
+   nombre = models.CharField(max_length=100)
+   apellido = models.CharField(max_length=100)
+   nacionalidad = models.CharField(max_length=100)
+   edad = models.PositiveIntegerField(default=0)
+
+   def __str__(self):
+      return f"{self.nombre} {self.apellido}"
+
+class Prestamo(models.Model):
+   lector = models.ForeignKey(
+      Lector, 
+      on_delete=models.CASCADE)
+   libro = models.ForeignKey(
+      Libro, 
+      on_delete=models.CASCADE,
+      related_name = 'libro_prestamo')
+   fecha_prestamo = models.DateField()
+   fecha_devolucion = models.DateField(blank=True, null=True)
+   devuelto = models.BooleanField(default=False)
+
+   objects = PrestamoManager()
+
+   def __str__(self):
+      return f"Prestamo de {self.libro.titulo} a {self.lector.nombre} {self.lector.apellido}"
+```
+
+- 3 Verificamos en la shell:
 
 ```bash
 from applications.lector.models import *
 Prestamo.objects.libros_promedio_edades()
 ```
 
-Como aggregate es un diccionario, podemos agregarle mas elementos como por ejemplo la suma total de edades:
+- 4 Como **aggregate()** es un diccionario, podemos agregarle más elementos, como por ejemplo la suma total de edades importando la función **Sum**:
 
 ```python
+from django.db import models
+from django.db.models import Q, Count, Avg, Sum
+
 class PrestamoManager(models.Manager):
   def libros_promedio_edades(self):
     resultado = self.filter(
@@ -460,7 +496,7 @@ class PrestamoManager(models.Manager):
     return resultado
 ```
 
-- Verificamos en la shell:
+- 5 Verificamos en la shell:
 
 ```bash
 from applications.lector.models import *
