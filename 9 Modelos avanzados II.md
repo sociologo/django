@@ -2,7 +2,7 @@
 
 ## Índice
 
-* [1 Filtros utilizando dos y tres tablas.](#1-Filtros-utilizando-dos-y-tres)
+* [1 Filtros utilizando dos y tres tablas.](#1-Filtros-utilizando-dos-y-tres-tablas)
 
 
   * [11 Creemos una carpeta donde vamos a alojar todo nuestro trabajo](#11-Creemos-una-carpeta-donde-vamos-a-alojar-todo-nuestro-trabajo)
