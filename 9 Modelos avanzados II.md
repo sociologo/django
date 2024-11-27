@@ -8,7 +8,7 @@
 
 ## 1 Filtros utilizando dos y tres tablas (127-128)
 
-### 1.1 Queremos filtrar todos los libros pertenecientes a una categoria
+### 1.1 Queremos filtrar todos los libros pertenecientes a una categoría.
 
 - Creamos el manager **listar_libros_categoria** en **managers.py** de la aplicación **libro**
 
