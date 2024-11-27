@@ -167,7 +167,7 @@ Nuestro requerimiento será agregar o eliminar un autor registrado a un libro ya
   <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
 </p>
 
-- 1 Vamos a los modelos de **libro** y **autor** para que en el administrador se despliegue su id para saber a que libro modificaremos sus autores:
+- 1 Vamos a los modelos de **libro** y **autor** para que en el administrador se desplieguen sus id. Asi podremos obtener los parámetros para hacer las pruebas: 
   
 ```python
 from django.db import models # type: ignore
