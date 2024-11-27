@@ -1,5 +1,3 @@
-
-
 # Modelos avanzados II
 
 ## 1 Filtros utilizando dos y tres tablas (127-128)
