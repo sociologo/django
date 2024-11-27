@@ -75,17 +75,13 @@ urlpatterns = [
   <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
 </p>
 
-Para hacer esto nos valdremos de un atributo importante dentro de los modelos de django llamado **related_name**.
+Para hacer ésto utilizaremos un atributo importante dentro de los modelos de django llamado **related_name**.
 
-El atributo **related_name** en el campo ForeignKey de Django se utiliza para definir el nombre del atributo inverso en el modelo relacionado. En el ejemplo, el modelo **Libro** tiene una clave foránea (ForeignKey) que apunta al modelo Categoria. 
+El atributo **related_name** en el campo ForeignKey de Django se utiliza para definir el nombre del atributo inverso en el modelo relacionado. En el ejemplo, el modelo **Libro** tiene una clave foránea (ForeignKey) que apunta al modelo Categoría. Es necesario disponer de una forma para apuntar del modelo Categoría al de Libro.
 
-Aquí, `related_name='categoria_libro'` define **cómo se accederá a los objetos Libro desde un objeto Categoria**. Es un **acceso inverso**.
+Establecemos el atributo: `related_name = 'categoria_libro'` el que define **cómo se accederá a los objetos Libro desde un objeto Categoría**. Es un **acceso inverso**.
 
-Sin related_name: Si no especificas related_name, Django generará automáticamente un nombre para el acceso inverso, generalmente en el formato `<model_name>_set`. Por ejemplo, categoria.libro_set.all() para obtener todos los libros de una categoría.
-
-Con related_name: Al especificar `related_name='categoria_libro'`, puedes acceder a los libros de una categoría usando categoria.categoria_libro.all().
-
-```
+```python
 from django.db import models # type: ignore
 from applications.autor.models import Autor
 from .managers import LibroManager
@@ -116,7 +112,7 @@ class Libro(models.Model):
 
 - Creamos el manager CategoriaManager:
 
-```
+```python
 class CategoriaManager (models.Manager):
   def categoria_por_autor(self, autor):
     return self.filter(
@@ -128,7 +124,7 @@ distinc() para que no repita categorias para un mismo autor.
 
 -conectamos CategoriaManager con el modelo de libro con:
 
-```
+```python
 from .managers import LibroManager, CategoriaManager
 
 class Categoria(models.Model):
@@ -136,11 +132,10 @@ class Categoria(models.Model):
   objects = CategoriaManager()
   def __str__(self):
     return self.nombre
-
 ```
 
 - Hacemos las migraciones
-- 
+  
 ## digresion: la shell de Django
 
 Podemos hacer pruebas sobre los managers que creamos sin necesidad de correr nuevamente el proyecto utilizando solamente la shell de django a la cual accedemos con:
