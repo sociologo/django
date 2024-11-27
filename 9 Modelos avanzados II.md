@@ -246,19 +246,11 @@ urlpatterns = [
 - 4 Construímos la vista **detalle.html**:
   
 ```html
-<h1>
-   Detalle de libros
-</h1>
+<h1>Detalle de libros</h1>
 
-<p>
-  {{libro.titulo}}
-</p>
-<p>
-  {{libro.fecha}}
-</p>
-<p>
-  {{libro.categoria}}
-</p>
+<p>{{libro.titulo}}</p>
+<p>{{libro.fecha}}</p>
+<p>{{libro.categoria}}</p>
 
 <ul>
   {% for autor in  libro.autores.all %}
