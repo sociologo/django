@@ -3,7 +3,7 @@
 ## Índice
 
 * [1 Filtros utilizando dos y tres tablas.](#1-Filtros-utilizando-dos-y-tres-tablas)
-  * [1.1 Filtro de todos los libros pertenecientes a una categoría.](##1.1-Filtro-de-todos-los-libros-pertenecientes-a-una-categoría)
+  * [1.1 Filtro de todos los libros pertenecientes a una categoría.](#1.1-Filtro-de-todos-los-libros-pertenecientes-a-una-categoría)
   * [1.2 Filtrar todos las categorías pertenecientes a un autor.](#1.2-Filtrar-todos-las-categorías-pertenecientes-a-un-autor)
 * [Digresión: la shell de Django](#digresión:-la-shell-de-Django)
 * [2 Trabajar con dos tablas relacionadas muchos a muchos.](#2-Trabajar-con-dos-tablas-relacionadas-muchos-a-muchos)
@@ -13,9 +13,9 @@
 * [4 Consideraciones sobre annotate() y aggregate().](#4-Consideraciones-sobre-annotate()-y-aggregate())
  * [4.1 Calcular el promedio de edad de los lectores que piden prestado determinado libro.](#4.1-Calcular-el-promedio-de-edad-de-los-lectores-que-piden-prestado-determinado-libro)
 
-## 1 Filtros utilizando dos y tres tablas.
+# 1 Filtros utilizando dos y tres tablas.
 
-### 1.1 Filtro de todos los libros pertenecientes a una categoría.
+## 1.1 Filtro de todos los libros pertenecientes a una categoría.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
