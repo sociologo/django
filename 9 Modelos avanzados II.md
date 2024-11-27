@@ -338,34 +338,76 @@ def libros_num_prestamos(self):
     return resultado
 ```
 
-- No tenemos un **related_name**.
+- 2 Debemos construir un **related_name**.
 
-Vemos que tenemos una situación en la que necesitamos obtener una clave inversa. Necesitamos una relación en la que obtengamos una especie de Foreign Key en nuestra tabla **Libro** de **Prestamo**. Para ello, en nuestro modelo **Libro** agregamos un **related_name** como se indica:
+Vemos que tenemos una situación en la que necesitamos obtener una clave inversa. Necesitamos una relación en la que obtengamos una especie de Foreign Key en nuestra tabla **Libro** de **Prestamo**. Para ello, en nuestra app **Lector** agregamos un **related_name** al modelo **Prestamo** tal como se indica:
 
+```python
+from django.db import models # type: ignore
+from applications.libro.models import Libro
 
+class Lector(models.Model):
+   nombre = models.CharField(max_length=100)
+   apellido = models.CharField(max_length=100)
+   nacionalidad = models.CharField(max_length=100)
+   edad = models.PositiveIntegerField(default=0)
 
-Si vamos al modelo **Prestamo** 
+   def __str__(self):
+      return f"{self.nombre} {self.apellido}"
 
-- como modificamos los modelos debemos hacer migraciones.
+class Prestamo(models.Model):
+   lector = models.ForeignKey(
+      Lector, 
+      on_delete=models.CASCADE)
+   libro = models.ForeignKey(
+      Libro, 
+      on_delete=models.CASCADE,
+      related_name = 'libro_prestamo')
+   fecha_prestamo = models.DateField()
+   fecha_devolucion = models.DateField(blank=True, null=True)
+   devuelto = models.BooleanField(default=False)
+
+   def __str__(self):
+      return f"Prestamo de {self.libro.titulo} a {self.lector.nombre} {self.lector.apellido}"
+ ``` 
+
+- 3 Como modificamos los modelos debemos hacer migraciones.
+
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+- 4 Ejecutemos en el shell:
+
+```bash
+python manage.py shell
+from applications.libro.models import *
+Libro.objects.libros_num_prestamos()
+```
+
+### Consideraciones sobre annotate() y aggregate().
 
 Las funciones aggregate() y annotate() en Django se utilizan para realizar operaciones de agregación en consultas de bases de datos, pero tienen propósitos y usos diferentes.
 
-aggregate()
+**annotate()** añade información a cada objeto en el QuerySet, mientras que **aggregate()** realiza cálculos en todo el conjunto de resultados y devuelve un diccionario con los resultados de esos cálculos. Es por eso que en django **annotate()** devuelve un QuerySet y **aggregate()** devuelve diccionario de python.
 
-- Propósito: La función aggregate() se utiliza para calcular valores agregados (como sumas, promedios, conteos, etc.) a partir de un conjunto de registros y devolver un solo valor o un diccionario de valores.
-- Resultado: Devuelve un diccionario con los resultados de las agregaciones.
-- Uso: Se utiliza cuando necesitas un resumen global de los datos, sin necesidad de mantener los datos originales.
+- annotate()
 
-annotate()
+- 1 Propósito: La función annotate() se utiliza para calcular valores agregados para cada objeto en un queryset y agregar estos valores como campos adicionales a cada objeto.
+- 2 Resultado: Devuelve un queryset con los objetos originales, cada uno anotado con los valores agregados.
+- 3 Uso: Se utiliza cuando necesitas mantener los datos originales y agregar información adicional calculada a cada objeto.
 
-- Propósito: La función annotate() se utiliza para calcular valores agregados para cada objeto en un queryset y agregar estos valores como campos adicionales a cada objeto.
-- Resultado: Devuelve un queryset con los objetos originales, cada uno anotado con los valores agregados.
-- Uso: Se utiliza cuando necesitas mantener los datos originales y agregar información adicional calculada a cada objeto.
+- aggregate()
 
-Cuándo Usar Cada Una
+- 1 Propósito: La función aggregate() se utiliza para calcular valores agregados (como sumas, promedios, conteos, etc.) a partir de un conjunto de registros y devolver un solo valor o un diccionario de valores.
+- 2 Resultado: Devuelve un diccionario con los resultados de las agregaciones.
+- 3 Uso: Se utiliza cuando necesitas un resumen global de los datos, sin necesidad de mantener los datos originales.
 
-- Usar aggregate(): Cuando necesitas un valor agregado global, como el total de ventas, el promedio de calificaciones, etc., y no necesitas los datos originales.
+Cuándo Usar Cada Una:
+
 - Usar annotate(): Cuando necesitas agregar información calculada a cada objeto en un queryset, como el número de comentarios por artículo, el total de ventas por producto, etc., y necesitas mantener los datos originales.
+- Usar aggregate(): Cuando necesitas un valor agregado global, como el total de ventas, el promedio de calificaciones, etc., y no necesitas los datos originales.
 
 ### 3.3 Calcular el promedio de edad de los lectores que piden prestado determinado libro.
 
@@ -373,9 +415,18 @@ Cuándo Usar Cada Una
   <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
 </p>
 
-- Conviene hacer el manager dentro del modelo prestamo en la app lector, por lo que creamos una clase llamada **PrestamoManager(models.Manager)** en el archivo** managers.py** de la app **lector** y dentro de ella el manager **libros_promedio_edades(self)** e ingresamos un valor en duro para un libro. No olvidemos importar la funcion **Avg**:
+- 1 manager **libros_promedio_edades(self)**.
+
+Conviene hacer el manager dentro de la app **lector**, en el archivo **managers.py**. Para ello, dentro de él creamos una clase llamada **PrestamoManager()** y dentro de ella el manager **libros_promedio_edades(self)**:
+
+Ingresemos un valor en duro para un libro. 
+
+No olvidemos importar la funcion **Avg**:
 
 ```python
+from django.db import models
+from django.db.models import Q, Count, Avg
+
 class PrestamoManager(models.Manager):
   def libros_promedio_edades(self):
     resultado = self.filter(
