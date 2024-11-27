@@ -340,6 +340,8 @@ def libros_num_prestamos(self):
 
 - No tenemos un **related_name**.
 
+Vemos que tenemos una situación en la que necesitamos obtener una clave inversa. Necesitamos una relación en la que obtengamos una especie de Foreign Key en nuestra tabla Libro de Prestamo.
+
 Si vamos al modelo **Prestamo** 
 
 - como modificamos los modelos debemos hacer migraciones.
