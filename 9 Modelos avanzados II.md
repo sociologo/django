@@ -3,8 +3,10 @@
 ## Índice
 
 * [1 Filtros utilizando dos y tres tablas.](#1-Filtros-utilizando-dos-y-tres-tablas)
-  * [11 Creemos una carpeta donde vamos a alojar todo nuestro trabajo](#11-Creemos-una-carpeta-donde-vamos-a-alojar-todo-nuestro-trabajo)
-* [2 Configurar la estructura de un proyecto en django](#2-Configurar-la-estructura-de-un-proyecto-en-django)
+  * [1.1 Filtro de todos los libros pertenecientes a una categoría.](#11-Creemos-una-carpeta-donde-vamos-a-alojar-todo-nuestro-trabajo)
+  * [1.2 Filtrar todos las categorías pertenecientes a un autor.](#11-Creemos-una-carpeta-donde-vamos-a-alojar-todo-nuestro-trabajo)
+* [digresión: la shell de Django](#2-Configurar-la-estructura-de-un-proyecto-en-django)
+
 * [3 Ejecutando el archivo localpy en vez del original settingspy](#3-Ejecutando-el-archivo-localpy-en-vez-del-original-settingspy)
 * [4 Aplicaciones](#4-Aplicaciones)
 * [5 Vistas genericas (Views)](#5-Vistas-genericas-Views)
