@@ -120,9 +120,17 @@ class CategoriaManager (models.Manager):
       ).distinc()
 ```
 
-distinc() para que no repita categorias para un mismo autor.
+distinc() para que no repita categorías para un mismo autor.
 
-- 3 conectamos CategoriaManager con el modelo de libro con:
+ES ABSTRACTO COMPRENDER BIEN LA SIGUIENTE LINEA:
+
+```
+categoria_libro__autores__id = autor
+```
+
+Dedícale un tiempo a asimilarla.
+
+- 3 Conectamos CategoriaManager() con el modelo de **libro** con:
 
 ```python
 from .managers import LibroManager, CategoriaManager
@@ -145,7 +153,7 @@ python manage.py migrate
 
 Podemos hacer pruebas sobre los managers que creamos sin necesidad de correr nuevamente el proyecto utilizando solamente la shell de django a la cual accedemos con:
 
-```
+```bash
 python manage.py shell
 from applications.libro.models import *
 Categoria.objects.categoria_por_autor('1')
