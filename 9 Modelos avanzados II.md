@@ -49,7 +49,7 @@ class ListLibros2(ListView):
     return Libro.objects.listar_libros_categoria('2')
 ```
 
-- 3 Agreguemos el atributo id en los modelos de libro para que en el administrador de django sepamos cuál elegir:
+- 3 Agreguemos el atributo id en el modelo de categoria para que en el administrador de django sepamos cuál elegir:
 
 ```python
 class Categoria(modelos.Model):
