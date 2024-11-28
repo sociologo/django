@@ -420,17 +420,17 @@ Libro.objects.libros_num_prestamos()
 
 # 4 Consideraciones sobre annotate y aggregate.
 
-Las funciones aggregate() y annotate() en Django se utilizan para realizar operaciones de agregación en consultas de bases de datos, pero tienen propósitos y usos diferentes.
+Las funciones **annotate()** y **aggregate()** en Django se utilizan para realizar operaciones de agregación en consultas de bases de datos, pero tienen propósitos y usos diferentes.
 
 **annotate()** añade información a cada objeto en el QuerySet, mientras que **aggregate()** realiza cálculos en todo el conjunto de resultados y devuelve un diccionario con los resultados de esos cálculos. Es por eso que en django **annotate()** devuelve un QuerySet y **aggregate()** devuelve diccionario de python.
 
-- annotate()
+## annotate()
 
 - 1 Propósito: La función annotate() se utiliza para calcular valores agregados para cada objeto en un queryset y agregar estos valores como campos adicionales a cada objeto.
 - 2 Resultado: Devuelve un queryset con los objetos originales, cada uno anotado con los valores agregados.
 - 3 Uso: Se utiliza cuando necesitas mantener los datos originales y agregar información adicional calculada a cada objeto.
 
-- aggregate()
+## aggregate()
 
 - 1 Propósito: La función aggregate() se utiliza para calcular valores agregados (como sumas, promedios, conteos, etc.) a partir de un conjunto de registros y devolver un solo valor o un diccionario de valores.
 - 2 Resultado: Devuelve un diccionario con los resultados de las agregaciones.
