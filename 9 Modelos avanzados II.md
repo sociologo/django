@@ -182,6 +182,7 @@ Podemos hacer pruebas sobre los managers que creamos sin necesidad de correr nue
 python manage.py shell
 from applications.libro.models import *
 Categoria.objects.categoria_por_autor('1')
+exit()
 ```
 
 # 2 Trabajar con dos tablas relacionadas muchos a muchos.
