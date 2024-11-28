@@ -366,7 +366,7 @@ Categoria.objects.listar_categoria_libros()
 def libros_num_prestamos(self):
   resultado = self.aggregate(
     num_prestamos = Count('libro_prestamo')
-    )
+  )
   return resultado
 ```
 
