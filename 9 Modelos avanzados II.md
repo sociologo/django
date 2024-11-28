@@ -279,7 +279,7 @@ urlpatterns = [
 <p>{{libro.categoria}}</p>
 
 <ul>
-  {% for autor in  libro.autores.all %}
+  {% for autor in libro.autores.all %}
     <li>{{autor}}</li>
   {% endfor %}
 </ul>
