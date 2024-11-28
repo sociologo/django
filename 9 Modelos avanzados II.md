@@ -131,6 +131,14 @@ class Libro(models.Model):
     return self.titulo
 ```
 
+ES ABSTRACTO COMPRENDER BIEN LA SIGUIENTE LINEA:
+
+```
+categoria_libro__autores__id = autor
+```
+
+Dedícale un tiempo a asimilarla.
+
 - 2 Creamos el manager **CategoriaManager()** en la app **libro**:
 
 ```python
@@ -143,13 +151,9 @@ class CategoriaManager (models.Manager):
 
 distinc() para que no se repitan categorías para un mismo autor.
 
-ES ABSTRACTO COMPRENDER BIEN LA SIGUIENTE LINEA:
+Observemos que seguimos la misma lógica de construcción de apps en Django; los managers se agrupan de la misma forma en la que hemos agrupado las tablas:
 
-```
-categoria_libro__autores__id = autor
-```
-
-Dedícale un tiempo a asimilarla.
+![image](https://github.com/user-attachments/assets/7e1ec794-8daa-4301-9c31-4b547a53fcd6)
 
 - 3 Conectamos **CategoriaManager()** con el modelo de **libro**:
 
