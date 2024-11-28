@@ -340,10 +340,10 @@ def listar_categoria_libros(self):
   resultado = self.annotate(
     num_libros = Count('categoria_libro')
     )
-    for r in resultado:
-      print('***')
-      print(r, r.num_libros)
-    return resultado
+  for r in resultado:
+    print('***')
+    print(r, r.num_libros)
+  return resultado
 ```
 
 - 3 Probamos:
