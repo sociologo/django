@@ -456,6 +456,7 @@ Ingresemos un valor en duro para un libro.
 No olvidemos importar la funcion **Avg**:
 
 ```python
+import datetime
 from django.db import models
 from django.db.models import Q, Count, Avg
 
