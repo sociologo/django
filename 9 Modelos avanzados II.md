@@ -2,12 +2,6 @@
 
 ```bash
 cd /
-C:\> cd /mis_entornos/entorno_1/Scripts
-C:\mis_entornos\entorno_1\Scripts> activate
-(entorno_1) C:\mis_entornos\entorno_1\Scripts> cd \mis_proyectos\emp1
-(entorno_1) C:\mis_proyectos\emp1> python manage.py runserver --settings=empleado.settings.local
-
-cd /
 C:\> cd /mis_entornos/entorno_2/Scripts
 C:\mis_entornos\entorno_2\Scripts> activate
 (entorno_2) C:\mis_entornos\entorno_1\Scripts> cd \mis_proyectos\biblio\biblioteca
