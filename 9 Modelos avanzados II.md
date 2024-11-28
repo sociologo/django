@@ -524,7 +524,7 @@ class PrestamoManager(models.Manager):
       libro_id = '15'
     ).aggregate(
       promedio_edad = Avg('lector__edad'),
-      suma_edad - Sum('lector__edad')
+      suma_edad = Sum('lector__edad')
     )
     return resultado
 ```
