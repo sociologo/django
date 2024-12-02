@@ -1,8 +1,3 @@
-
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/63b6eaa8-5b80-4f64-9285-705612903b16" alt="image" width="60%">
-</p>
-
 # Modelos avanzados III
 
 Debo corregir esto. En realidad este archivo es modelos avanzados II, modelos avanzados I debe ser la construccion de la aplicacion biblioteca.
