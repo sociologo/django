@@ -16,12 +16,12 @@ Modelos avanzados II.
 
 ## Índice
 
-* [1 Componentes](#1-Componentes)
+* [1 Values, Group_by en la ORM Django](#1-Values,-Group_by-en-la-ORM-Django)
   * [11 Características](#11-Caracteristicas)
 
 
-# 1 Componentes
+# 1 Values, Group_by en la ORM Django
 
-En React, un componente es una pieza reutilizable y autónoma de código que define una parte de la interfaz de usuario. Los componentes son los bloques de construcción fundamentales de una aplicación React. 
+bla bla
 
 ## 11 Caracteristicas
