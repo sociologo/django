@@ -95,6 +95,8 @@ nombre = models.CharField(max_length = 30)
     return str(self.id) + ' - ' + self.nombre
 ```
 
+![image](https://github.com/user-attachments/assets/68ed9e38-6036-4c6a-9c6e-bb918f8130ae)
+
 - 5 Creamos la url que active la vista:
 
 ```python
@@ -125,6 +127,8 @@ urlpatterns = [
    {% endfor %}
 </ul>
 ```
+
+- 7 listamos todos los libros que pertenezcan a la categoria 'Comedia'.
 
 ## 12 Filtrar todos las categorías pertenecientes a un autor.
 
