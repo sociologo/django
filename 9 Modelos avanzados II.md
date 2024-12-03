@@ -29,7 +29,39 @@ C:\mis_entornos\entorno_2\Scripts> activate
   <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
 </p>
 
-- 1 Creamos el manager **listar_libros_categoria()** en **managers.py** de la aplicación **libro**:
+- 1 La clave foránea
+
+Este ejercicio es simple pues tenemos la clave foránea ya en la definición del modelo de la aplicación libro. Lo que tenemos que hacer es llamarla y hacer el match con un parámetro ingresado a un manager.
+
+ ```python
+from django.db import models # type: ignore
+from applications.autor.models import Autor
+from .managers import LibroManager, CategoriaManager
+
+class Categoria(models.Model):
+   nombre = models.CharField(max_length=100)
+   objects = CategoriaManager()
+   def __str__(self):
+      return str(self.id) + ' - ' + self.nombre
+
+class Libro(models.Model):
+   categoria = models.ForeignKey(
+      Categoria, 
+      on_delete=models.CASCADE,
+      related_name = 'categoria_libro')
+   autores =  models.ManyToManyField(Autor)
+   titulo = models.CharField(max_length=200)
+   fecha_lanzamiento = models.DateField('Fecha de lanzamiento')
+   portada = models.ImageField(upload_to='portadas/', blank=True, null=True)
+   visitas = models.PositiveIntegerField(default=0)
+
+   objects = LibroManager()
+
+   def __str__(self):
+      return str(self.id) + ' - ' + self.titulo
+ ```
+
+- 2 Creamos el manager **listar_libros_categoria()** en **managers.py** de la aplicación **libro**:
 
 ```python
 def listar_libros_categoria(self, categoria):
@@ -38,7 +70,7 @@ def listar_libros_categoria(self, categoria):
   ).order_by('titulo')
 ```
 
-- 2 Creamos la vista asociada con un parámetro ingresado en duro:
+- 3 Creamos la vista asociada con un parámetro ingresado en duro:
 
 ```python
 class ListLibros2(ListView):
@@ -49,7 +81,7 @@ class ListLibros2(ListView):
     return Libro.objects.listar_libros_categoria('2')
 ```
 
-- 3 Agreguemos el atributo id en el modelo de categoria para que en el administrador de django sepamos cuál elegir:
+- 4 Agreguemos el atributo id en el modelo de categoria para que en el administrador de django sepamos cuál elegir:
 
 ```python
 class Categoria(modelos.Model):
@@ -59,7 +91,7 @@ nombre = models.CharField(max_length = 30)
     return str(self.id) + ' - ' + self.nombre
 ```
 
-- 4 Creamos la url que active la vista:
+- 5 Creamos la url que active la vista:
 
 ```python
 urlpatterns = [
@@ -76,7 +108,7 @@ urlpatterns = [
 ]
 ```
 
-- 5 Creamos el template **lista2.html**:
+- 6 Creamos el template **lista2.html**:
 
 ```html
 <h1>
