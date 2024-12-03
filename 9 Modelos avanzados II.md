@@ -182,7 +182,7 @@ class CategoriaManager (models.Manager):
    def categoria_por_autor(self, autor):
       return self.filter(
          categoria_libro__autores__id = autor
-         ).distinc()
+         ).distinct()
 ```
 
 distinc() para que no se repitan categorías para un mismo autor.
