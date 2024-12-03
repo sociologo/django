@@ -409,7 +409,7 @@ Categoria.objects.listar_categoria_libros()
 ## 32 Veces que ha sido prestado un libro utilizando aggregate.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/4ad4f6ec-2016-48de-b21c-0273b8c9faf0" alt="image" width="120%">
+  <img src="https://github.com/user-attachments/assets/4ad4f6ec-2016-48de-b21c-0273b8c9faf0" alt="image" width="60%">
 </p>
 
 - 1 Declaramos un nuevo manager dentro de class **LibroManager()** en **managers.py** de la app **libro** llamado **libros_num_prestamos()**.
