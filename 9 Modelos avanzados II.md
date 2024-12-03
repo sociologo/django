@@ -369,7 +369,7 @@ Para eliminar autores bastaría simplemente con reemplazar **add(autor)** por **
 
 - 1 La función **annotate()**.
 
-Declaramos un nuevo manager dentro de la class **CategoriaManager()** en **managers.py** de la app **libro** llamado **listar_categoria_libros()**. No olvidemos importar la funcion **Count**.
+Declaramos el método **listar_categoria_libros()** dentro del manager **CategoriaManager()** de la app **libro**. No olvidemos importar la funcion **Count**.
 
 ```python
 from django.db.models import Q, Count
