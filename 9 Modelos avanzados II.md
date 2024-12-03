@@ -369,7 +369,9 @@ Para eliminar autores bastaría simplemente con reemplazar **add(autor)** por **
 
 - 1 La función **annotate()**.
 
-Declaramos el método **listar_categoria_libros()** dentro del manager **CategoriaManager()** de la app **libro**. No olvidemos importar la funcion **Count**.
+Declaramos el método **listar_categoria_libros()** dentro del manager **CategoriaManager()** de la app **libro**. Utilizaremos la función **Count** sobre la clave inversa **categoria_libro**. No olvidemos importar la funcion **Count**.
+
+Lo que hace el siguiente método es contar las veces en que cada categoria aparece en la tabla libros:
 
 ```python
 from django.db.models import Q, Count
@@ -377,7 +379,7 @@ from django.db.models import Q, Count
 def listar_categoria_libros(self):
    resultado = self.annotate(
       num_libros = Count('categoria_libro')
-      )
+   )
    return resultado
 ```
 
@@ -387,7 +389,7 @@ def listar_categoria_libros(self):
 def listar_categoria_libros(self):
    resultado = self.annotate(
       num_libros = Count('categoria_libro')
-      )
+   )
    for r in resultado:
       print('***')
       print(r, r.num_libros)
@@ -401,6 +403,8 @@ python manage.py shell
 from applications.libro.models import *
 Categoria.objects.listar_categoria_libros()
 ```
+
+![image](https://github.com/user-attachments/assets/c4a6ae84-857b-48e9-803a-8cd4a81748b5)
 
 ## 32 Veces que ha sido prestado un libro utilizando aggregate.
 
