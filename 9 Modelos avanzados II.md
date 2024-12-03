@@ -140,7 +140,7 @@ urlpatterns = [
 
 Para hacer ésto utilizaremos un atributo importante dentro de los modelos de django llamado **related_name**.
 
-El atributo **related_name** en el campo ForeignKey de Django se utiliza para definir el nombre del atributo inverso en el modelo relacionado. En el ejemplo, el modelo **Libro** tiene una clave foránea (ForeignKey) que apunta al modelo Categoría. Es necesario disponer de una forma para apuntar del modelo Categoría al de Libro.
+El atributo **related_name** en el campo ForeignKey de Django se utiliza para definir el nombre del atributo inverso en el modelo relacionado. En el ejemplo, el modelo **Libro** tiene una clave foránea que apunta al modelo Categoría. Es necesario disponer de una forma para apuntar del modelo Categoría al de Libro.
 
 - 1 Establecemos el atributo: `related_name = 'categoria_libro'` en el modelo **Libro**, el que define **cómo se accederá a los objetos Libro desde un objeto Categoría**. Es un **acceso inverso**.
 
