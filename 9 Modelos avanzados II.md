@@ -409,8 +409,9 @@ Categoria.objects.listar_categoria_libros()
 ## 32 Veces que ha sido prestado un libro utilizando aggregate.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/c9c91866-a33d-4bb1-8b2c-9b1e99ea1f56" alt="image" width="50%">
+  <img src="https://github.com/user-attachments/assets/d107fc2b-84df-4e0d-bc50-abceb9afecc9" alt="image" width="50%">
 </p>
+
 
 - 1 Declaramos un nuevo método dentro de los managers de la app **libro** llamado **libros_num_prestamos()**.
 
@@ -469,6 +470,8 @@ python manage.py shell
 from applications.libro.models import *
 Libro.objects.libros_num_prestamos()
 ```
+![image](https://github.com/user-attachments/assets/1ff40d28-b3ff-45d8-a161-a70a221e7b09)
+![image](https://github.com/user-attachments/assets/134e5147-00d1-4db3-9690-b1121f8f344f)
 
 # 4 Consideraciones sobre annotate y aggregate.
 
