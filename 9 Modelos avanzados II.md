@@ -504,7 +504,7 @@ Cuándo Usar Cada Una:
 
 - 1 Construímos el método **libros_promedio_edades(self)**.
 
-Conviene hacer el manager dentro de la app **lector**, en el archivo **managers.py**. Para ello, dentro de él creamos una clase llamada **PrestamoManager()** y dentro de ella el manager **libros_promedio_edades(self)**:
+Conviene hacer el método **libros_promedio_edades()** dentro de la app **lector**, dentro del manager del modelo **PrestamoManager()**, pues asi estamos considerando de una vez los prestamos ya existentes. 
 
 Ingresemos un valor en duro para un libro. 
 
@@ -566,6 +566,8 @@ class Prestamo(models.Model):
 from applications.lector.models import *
 Prestamo.objects.libros_promedio_edades()
 ```
+![image](https://github.com/user-attachments/assets/c963f1c7-08ac-4603-8fe7-77d2bb2ba8b4)
+![image](https://github.com/user-attachments/assets/d695881d-a9d6-4993-aed4-521e2779cefe)
 
 - 4 Como **aggregate()** es un diccionario, podemos agregarle más elementos, como por ejemplo la suma total de edades importando la función **Sum**:
 
