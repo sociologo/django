@@ -130,6 +130,8 @@ urlpatterns = [
 
 - 7 listamos todos los libros que pertenezcan a la categoria 'Comedia'.
 
+![image](https://github.com/user-attachments/assets/10512c54-bfb5-43d1-90ac-a4ba34327943)
+
 ## 12 Filtrar todos las categorías pertenecientes a un autor.
 
 <p align="center">
