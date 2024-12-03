@@ -512,18 +512,25 @@ No olvidemos importar la funcion **Avg**:
 
 ```python
 import datetime
-from django.db import models
-from django.db.models import Q, Count, Avg
-
-class PrestamoManager(models.Manager):
-  def libros_promedio_edades(self):
-    resultado = self.filter(
-      libro_id = '1'
-    ).aggregate(
-      promedio_edad = Avg('lector__edad')
-    )
-    return resultado
+from django.db import models # type: ignore
+from django.db.models import Q, Count, Avg# type: ignore
+ 
+class PrestamoManager(models.Manager): 
+   def libros_promedio_edades(self): 
+      # Obtener los IDs únicos de los lectores que han pedido prestado el libro con ID 1 
+      lectores_ids = self.filter( 
+         libro_id=1 # Parámetro en duro       
+      ).values_list('lector_id', flat=True).distinct() 
+      # Calcular el promedio de edad de los lectores únicos 
+      resultado = self.filter( 
+         lector_id__in=lectores_ids 
+      ).aggregate( 
+         promedio_edad=Avg('lector__edad')
+         ) 
+      return resultado
 ```
+
+ME DAN RESULTADOS ERRONEOS: CORREGIR.
 
 - 2 En los modelos vinculamos el manager:
 
@@ -572,18 +579,24 @@ Prestamo.objects.libros_promedio_edades()
 - 4 Como **aggregate()** es un diccionario, podemos agregarle más elementos, como por ejemplo la suma total de edades importando la función **Sum**:
 
 ```python
-from django.db import models
-from django.db.models import Q, Count, Avg, Sum
-
-class PrestamoManager(models.Manager):
-  def libros_promedio_edades(self):
-    resultado = self.filter(
-      libro_id = '1'
-    ).aggregate(
-      promedio_edad = Avg('lector__edad'),
-      suma_edad = Sum('lector__edad')
-    )
-    return resultado
+import datetime
+from django.db import models # type: ignore
+from django.db.models import Q, Count, Avg, Sum # type: ignore
+ 
+class PrestamoManager(models.Manager): 
+   def libros_promedio_edades(self): 
+      # Obtener los IDs únicos de los lectores que han pedido prestado el libro con ID 1 
+      lectores_ids = self.filter( 
+         libro_id=1 # Parámetro en duro       
+      ).values_list('lector_id', flat=True).distinct() 
+      # Calcular el promedio de edad de los lectores únicos 
+      resultado = self.filter( 
+         lector_id__in=lectores_ids 
+      ).aggregate( 
+         promedio_edad=Avg('lector__edad'), 
+         suma_edad=Sum('lector__edad') 
+         ) 
+      return resultado
 ```
 
 - 5 Verificamos en la shell:
@@ -592,7 +605,7 @@ class PrestamoManager(models.Manager):
 from applications.lector.models import *
 Prestamo.objects.libros_promedio_edades()
 ```
-
+ME DAN RESULTADOS ERRONEOS: CORREGIR.
   
 
 
