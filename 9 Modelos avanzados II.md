@@ -409,7 +409,7 @@ Categoria.objects.listar_categoria_libros()
 ## 32 Veces que ha sido prestado un libro utilizando aggregate.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/c9c91866-a33d-4bb1-8b2c-9b1e99ea1f56" alt="image" width="30%">
+  <img src="https://github.com/user-attachments/assets/c9c91866-a33d-4bb1-8b2c-9b1e99ea1f56" alt="image" width="50%">
 </p>
 
 
