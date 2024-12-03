@@ -502,7 +502,7 @@ Cuándo Usar Cada Una:
   <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
 </p>
 
-- 1 manager **libros_promedio_edades(self)**.
+- 1 Construímos el método **libros_promedio_edades(self)**.
 
 Conviene hacer el manager dentro de la app **lector**, en el archivo **managers.py**. Para ello, dentro de él creamos una clase llamada **PrestamoManager()** y dentro de ella el manager **libros_promedio_edades(self)**:
 
