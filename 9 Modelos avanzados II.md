@@ -228,6 +228,9 @@ Categoria.objects.categoria_por_autor('1')
 exit()
 ```
 
+![image](https://github.com/user-attachments/assets/e93179d3-9ce5-439f-a7da-3551a0e06f44)
+![image](https://github.com/user-attachments/assets/37732dd2-b08c-479d-89e0-76df79c8aa4b)
+
 # 2 Trabajar con dos tablas relacionadas muchos a muchos.
 
 Nuestro requerimiento será agregar o eliminar un autor registrado a un libro ya existente.
