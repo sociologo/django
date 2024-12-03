@@ -18,8 +18,8 @@ C:\mis_entornos\entorno_2\Scripts> activate
 * [3 Filtros con operaciones aritméticas.](#3-Filtros-con-operaciones-aritméticas)
   * [3.1 Listar todas las categorías con el número de libros que cada una posee.](#31-Listar-todas-las-categorías-con-el-número-de-libros-que-cada-una-posee)
   * [3.2 Veces que ha sido prestado un libro utilizando aggregate().](#32-Veces-que-ha-sido-prestado-un-libro-utilizando-aggregate)
-* [4 Consideraciones sobre annotate() y aggregate().](#4-Consideraciones-sobre-annotate-y-aggregate)
-  * [4.1 Calcular el promedio de edad de los lectores que piden prestado determinado libro.](#41-Calcular-el-promedio-de-edad-de-los-lectores-que-piden-prestado-determinado-libro)
+  * [3.3 Consideraciones sobre annotate() y aggregate().](#33-Consideraciones-sobre-annotate-y-aggregate)
+* [4 Calcular el promedio de edad de los lectores que piden prestado determinado libro.](#4-Calcular-el-promedio-de-edad-de-los-lectores-que-piden-prestado-determinado-libro)
 
 # 1 Filtros utilizando dos y tres tablas.
 
@@ -473,7 +473,7 @@ Libro.objects.libros_num_prestamos()
 ![image](https://github.com/user-attachments/assets/1ff40d28-b3ff-45d8-a161-a70a221e7b09)
 ![image](https://github.com/user-attachments/assets/134e5147-00d1-4db3-9690-b1121f8f344f)
 
-# 4 Consideraciones sobre annotate y aggregate.
+## 33 Consideraciones sobre annotate y aggregate.
 
 Las funciones **annotate()** y **aggregate()** en Django se utilizan para realizar operaciones de agregación en consultas de bases de datos, pero tienen propósitos y usos diferentes.
 
@@ -496,7 +496,7 @@ Cuándo Usar Cada Una:
 - Usar annotate(): Cuando necesitas agregar información calculada a cada objeto en un queryset, como el número de comentarios por artículo, el total de ventas por producto, etc., y necesitas mantener los datos originales.
 - Usar aggregate(): Cuando necesitas un valor agregado global, como el total de ventas, el promedio de calificaciones, etc., y no necesitas los datos originales.
 
-## 41 Calcular el promedio de edad de los lectores que piden prestado determinado libro.
+# 4 Calcular el promedio de edad de los lectores que piden prestado determinado libro.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
