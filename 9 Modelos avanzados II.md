@@ -239,6 +239,8 @@ Nuestro requerimiento será agregar o eliminar un autor registrado a un libro ya
   <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
 </p>
 
+En teoría de bases de datos, cuando tienes dos tablas relacionadas de una forma muchos a muchos, debes crear una tabla intermedia (también conocida como tabla de unión o tabla de asociación) para gestionar esta relación. Esta tabla intermedia contiene las claves foráneas de ambas tablas principales, estableciendo así la relación entre ellas. En Django, cuando tienes una relación muchos a muchos entre dos modelos, se utiliza un campo ManyToManyField para gestionar esta relación. Django automáticamente crea una tabla intermedia para manejar la relación muchos a muchos.
+
 - 1 Vamos a los modelos de **libro** y **autor** para que en el administrador se desplieguen sus id. Asi podremos obtener los parámetros para hacer las pruebas: 
   
 ```python
