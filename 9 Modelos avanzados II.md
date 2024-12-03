@@ -347,6 +347,8 @@ def add_autor_libro(self, libro_id, autor):
   return libro
 ```
 
+![image](https://github.com/user-attachments/assets/349550e7-9219-4ecd-9f35-c94945bf1127)
+
 vamos a la shell django:
 
 ```bash
