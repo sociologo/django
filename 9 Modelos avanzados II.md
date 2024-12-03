@@ -406,7 +406,7 @@ Categoria.objects.listar_categoria_libros()
 
 ![image](https://github.com/user-attachments/assets/c4a6ae84-857b-48e9-803a-8cd4a81748b5)
 
-## 32 Veces que ha sido prestado un libro utilizando aggregate.
+## 32 Veces que han sido prestados los libros, utilizando aggregate.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d107fc2b-84df-4e0d-bc50-abceb9afecc9" alt="image" width="50%">
