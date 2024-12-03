@@ -518,7 +518,7 @@ from django.db.models import Q, Count, Avg
 class PrestamoManager(models.Manager):
   def libros_promedio_edades(self):
     resultado = self.filter(
-      libro_id = '15'
+      libro_id = '1'
     ).aggregate(
       promedio_edad = Avg('lector__edad')
     )
@@ -578,7 +578,7 @@ from django.db.models import Q, Count, Avg, Sum
 class PrestamoManager(models.Manager):
   def libros_promedio_edades(self):
     resultado = self.filter(
-      libro_id = '15'
+      libro_id = '1'
     ).aggregate(
       promedio_edad = Avg('lector__edad'),
       suma_edad = Sum('lector__edad')
