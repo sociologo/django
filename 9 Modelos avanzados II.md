@@ -72,6 +72,10 @@ def listar_libros_categoria(self, categoria):
 
 - 3 Creamos la vista asociada con un parámetro ingresado en duro:
 
+La razón por la que debes hacer referencia a objects para llamar al manager en la línea return `Libro.objects.listar_libros_categoria('2')` es porque objects es el nombre predeterminado del manager de Django. Cuando defines un modelo en Django, automáticamente se le asigna un manager llamado `objects`, que es una instancia de `models.Manager`.
+
+El manager es responsable de realizar consultas a la base de datos y proporciona métodos para interactuar con los datos del modelo. Al definir métodos personalizados en el manager, como listar_libros_categoria, estos métodos se agregan a la instancia del manager (objects), y es por eso que debes usar Libro.objects para acceder a ellos.
+
 ```python
 class ListLibros2(ListView):
   context_object_name = 'lista_libros'
