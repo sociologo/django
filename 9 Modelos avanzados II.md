@@ -213,8 +213,8 @@ class Categoria(models.Model):
 - 4 Hacemos las migraciones:
 
 ```bash
-python manage.py makemigrations
-python manage.py migrate
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py makemigrations
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py migrate
 ```
   
 # Digresión la shell de Django
