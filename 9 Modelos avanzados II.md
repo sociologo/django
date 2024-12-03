@@ -412,8 +412,7 @@ Categoria.objects.listar_categoria_libros()
   <img src="https://github.com/user-attachments/assets/c9c91866-a33d-4bb1-8b2c-9b1e99ea1f56" alt="image" width="50%">
 </p>
 
-
-- 1 Declaramos un nuevo manager dentro de class **LibroManager()** en **managers.py** de la app **libro** llamado **libros_num_prestamos()**.
+- 1 Declaramos un nuevo método dentro de los managers de la app **libro** llamado **libros_num_prestamos()**.
 
 ```python
 def libros_num_prestamos(self):
