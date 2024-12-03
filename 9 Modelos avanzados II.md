@@ -375,23 +375,23 @@ Declaramos el método **listar_categoria_libros()** dentro del manager **Categor
 from django.db.models import Q, Count
 
 def listar_categoria_libros(self):
-  resultado = self.annotate(
-    num_libros = Count('categoria_libro')
-    )
-    return resultado
+   resultado = self.annotate(
+      num_libros = Count('categoria_libro')
+      )
+   return resultado
 ```
 
 - 2 Sólo para hacer pruebas en la shell modificamos el manager como sigue:
 
 ```python
 def listar_categoria_libros(self):
-  resultado = self.annotate(
-    num_libros = Count('categoria_libro')
-    )
-  for r in resultado:
-    print('***')
-    print(r, r.num_libros)
-  return resultado
+   resultado = self.annotate(
+      num_libros = Count('categoria_libro')
+      )
+   for r in resultado:
+      print('***')
+      print(r, r.num_libros)
+   return resultado
 ```
 
 - 3 Probamos:
