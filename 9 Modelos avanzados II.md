@@ -416,15 +416,15 @@ Categoria.objects.listar_categoria_libros()
 
 ```python
 def libros_num_prestamos(self):
-  resultado = self.aggregate(
-    num_prestamos = Count('libro_prestamo')
-  )
-  return resultado
+   resultado = self.aggregate(
+      num_prestamos = Count('libro_prestamo')
+   )
+   return resultado
 ```
 
 - 2 Debemos construir un **related_name**.
 
-Vemos que tenemos una situación en la que necesitamos obtener una clave inversa. Necesitamos una relación en la que obtengamos una especie de Foreign Key en nuestra tabla **Libro** de **Prestamo**. Para ello, en nuestra app **Lector** agregamos un **related_name** al modelo **Prestamo** tal como se indica:
+Vemos que tenemos una situación en la que necesitamos obtener una clave inversa. Necesitamos una relación en la que obtengamos una pseudo Foreign Key en nuestra tabla **Libro** desde la tabla **Prestamo**. Para ello, en nuestra app **Lector** agregamos un **related_name** al modelo **Prestamo** tal como se indica:
 
 ```python
 from django.db import models # type: ignore
