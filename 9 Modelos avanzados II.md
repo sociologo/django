@@ -333,6 +333,8 @@ urlpatterns = [
 </ul>
 ```
 
+![image](https://github.com/user-attachments/assets/61cdb30e-8528-46a8-972a-36ea1e45c3aa)
+
 - 5 Construímos un manager **add_autor_libro** dentro de **LibroManager()** para agregar un autor en la app **libro**:
 
 ```python
