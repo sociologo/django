@@ -195,6 +195,7 @@ categoria_libro__autores__id = autor
 
 Observemos que seguimos la misma lógica de construcción de apps en Django; los managers se agrupan de la misma forma en la que hemos agrupado las tablas:
 
+![image](https://github.com/user-attachments/assets/95fd6427-d0df-4c26-856b-fe0d778ad4ce)
 ![image](https://github.com/user-attachments/assets/7e1ec794-8daa-4301-9c31-4b547a53fcd6)
 
 - 3 Conectamos **CategoriaManager()** con el modelo de **libro**:
