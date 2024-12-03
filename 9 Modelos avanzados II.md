@@ -150,47 +150,48 @@ from applications.autor.models import Autor
 from .managers import LibroManager
 
 class Categoria(models.Model):
-  nombre = models.CharField(max_length=100)
-  
-  def __str__(self):
-    return self.nombre
+   nombre = models.CharField(max_length=100)
 
-class Libro(models.Model):
-  categoria = models.ForeignKey(
-    Categoria,
-    on_delete=models.CASCADE,
-    related_name = 'categoria_libro'
-    )
-  autores =  models.ManyToManyField(Autor)
-  titulo = models.CharField(max_length=200)
-  fecha_lanzamiento = models.DateField('Fecha de lanzamiento')
-  portada = models.ImageField(upload_to='portadas/', blank=True, null=True)
-  visitas = models.PositiveIntegerField(default=0)
+   def __str__(self):
+      return self.nombre
 
-  objects = LibroManager()
+   class Libro(models.Model):
+   categoria = models.ForeignKey(
+      Categoria,
+      on_delete=models.CASCADE,
+      related_name = 'categoria_libro'
+   )
+   autores =  models.ManyToManyField(Autor)
+   titulo = models.CharField(max_length=200)
+   fecha_lanzamiento = models.DateField('Fecha de lanzamiento')
+   portada = models.ImageField(upload_to='portadas/', blank=True, null=True)
+   visitas = models.PositiveIntegerField(default=0)
 
-  def __str__(self):
-    return self.titulo
+   objects = LibroManager()
+
+   def __str__(self):
+      return self.titulo
 ```
 
 - 2 Creamos el manager **CategoriaManager()** en la app **libro**:
 
+En la app **libro** definimos la clase llamada **CategoriaManager()** que hereda de `models.Manager` y extiende la funcionalidad del manager predeterminado de Django (models.Manager). Dentro de esta clase definimos el método categoria_por_autor 
+
 ```python
 class CategoriaManager (models.Manager):
-  def categoria_por_autor(self, autor):
-    return self.filter(
-      categoria_libro__autores__id = autor
-      ).distinc()
+   def categoria_por_autor(self, autor):
+      return self.filter(
+         categoria_libro__autores__id = autor
+         ).distinc()
 ```
 
 distinc() para que no se repitan categorías para un mismo autor.
-
 
 >ES ABSTRACTO COMPRENDER BIEN LA SIGUIENTE LINEA:
 ```
 categoria_libro__autores__id = autor
 ```
-Dedícale un tiempo a asimilarla.
+> Dedícale un tiempo a asimilarla.
 
 Observemos que seguimos la misma lógica de construcción de apps en Django; los managers se agrupan de la misma forma en la que hemos agrupado las tablas:
 
