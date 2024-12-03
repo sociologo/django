@@ -351,10 +351,8 @@ def add_autor_libro(self, libro_id, autor):
 
 vamos a la shell django:
 
-```bash
-from applications.libro.models import *
-Libro.objects.add_autor_libro('16', '17')
-```
+![image](https://github.com/user-attachments/assets/2be6801a-68a0-4b7c-8556-525e705df224)
+
 
 donde el primer parámetro es el libro y el segundo el autor.
 
