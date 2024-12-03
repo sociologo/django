@@ -317,7 +317,7 @@ urlpatterns = [
 ]
 ```
 
-- 4 Construímos la vista **detalle.html**:
+- 4 Construímos la vista **detalle.html** dentro de la carpeta libro de los templates:
   
 ```html
 <h1>Detalle de libros</h1>
