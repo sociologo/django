@@ -319,6 +319,8 @@ urlpatterns = [
 
 - 4 Construímos la vista **detalle.html** dentro de la carpeta libro de los templates:
   
+>Django pasa el objeto en minúsculas por convención.
+
 ```html
 <h1>Detalle de libros</h1>
 
@@ -334,6 +336,7 @@ urlpatterns = [
 ```
 
 ![image](https://github.com/user-attachments/assets/61cdb30e-8528-46a8-972a-36ea1e45c3aa)
+![image](https://github.com/user-attachments/assets/79f0d7e8-2c7e-4484-b10a-8b3d7c6905ad)
 
 - 5 Construímos un manager **add_autor_libro** dentro de **LibroManager()** para agregar un autor en la app **libro**:
 
