@@ -353,8 +353,9 @@ vamos a la shell django:
 
 ![image](https://github.com/user-attachments/assets/2be6801a-68a0-4b7c-8556-525e705df224)
 
-
 donde el primer parámetro es el libro y el segundo el autor.
+
+![image](https://github.com/user-attachments/assets/4f07ebdc-dd7c-4f2d-ab75-6e9e3935ec4e)
 
 Para eliminar autores bastaría simplemente con reemplazar **add(autor)** por **remove(autor)**.
 
