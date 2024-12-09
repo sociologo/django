@@ -151,6 +151,8 @@ class RegistrarPrestamo(FormView):
 
 ## Metodos Create y Save
 
+145
+
 class RegistrarPrestamo(FormView):
 
 
