@@ -4,9 +4,9 @@ Debo corregir esto. En realidad este archivo es modelos avanzados II, modelos av
 
 En definitiva debe quedar asi:
 
-Modelos avanzados - construccion de la aplicacion\
-Modelos avanazdos I \
-Modelos avanzados II.
+-1 Modelos avanzados - construcción de la aplicación.\
+-2 Modelos avanzados I.\
+-3 Modelos avanzados II.
 
 
 ## Índice
