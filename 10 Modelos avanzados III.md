@@ -4,8 +4,8 @@ Debo corregir esto. En realidad este archivo es modelos avanzados II, modelos av
 
 En definitiva debe quedar asi:
 
-Modelos avanzados - construccion de la aplicacion
-Modelos avanazdos I 
+Modelos avanzados - construccion de la aplicacion\
+Modelos avanazdos I \
 Modelos avanzados II.
 
 
