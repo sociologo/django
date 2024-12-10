@@ -247,7 +247,8 @@ GIN(titulo gin_trgm_ops);: titulo es el atributo sobre el cual queremos que actu
 
 Para ello nos dirigimos a **base.py** de la aplicacion biblioteca y le indicamos que traiga complementos de postgres para django:
 
-![image](https://github.com/user-attachments/assets/00412726-f761-4682-b440-7dfa259f9c59)
+![image](https://github.com/user-attachments/assets/e8172c2a-95ab-458b-bc6b-0a036abd2a75)
+
 
 - 2 Creamos el manager:
 
