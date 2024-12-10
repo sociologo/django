@@ -188,6 +188,14 @@ Queremos un buscador que nos retorne un libro a partir de una palabra clave. La 
 
 Debemos activar triagram e indicar sobre que tabla y atributo actúe postgres. Vamos a la shell de Postgres sobre Windows:
 
+Para ir a PowerShell como administrador:
+
+- 1 presiona Windows + X y selecciona "Terminal (Administrador)" o "Windows PowerShell (Admin)".\
+- 2 dirígete al binario de postgres
+- 3 conéctate a la base de datos como superusuario
+- 4 ingresa la contraseña
+- 5 crear la extensión pg_trgm.
+
 ```bash
 Windows PowerShell
 Copyright (C) Microsoft Corporation. Todos los derechos reservados.
@@ -223,16 +231,15 @@ CREATE EXTENSION
 dbbiblioteca=#
 ```
 
+- 6 crea el index:
 
+```bash
+dbbiblioteca=# CREATE INDEX libro_titulo_idx ON libro_libro USING GIN(titulo gin_trgm_ops);
+CREATE INDEX
+dbbiblioteca=#
 
-
-
-
-
-
-CREATE INDEX libro_titulo_idx ON libro_libro USING GIN(titulo gin_trgm_ops);
-
-libro_libro: Aplicacion-modelo en Django.
+GIN(titulo gin_trgm_ops);: titulo es el atributo sobre el cual queremos que actue la triagramación.
+```
 
 ## 3.2 Implementacion de triagram
 
