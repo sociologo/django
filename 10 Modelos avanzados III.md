@@ -23,7 +23,16 @@ IMPORTANTE: DEBES utilizar la ORM de Django cada vez que puedas en vez de usar s
 
 Consideremos la tabla **Prestamo**. Queremos saber **cuántas veces se ha prestado cada libro**. Esto podríamos resolverlo con un **annotate()** construyendo un manager en el modelo Prestamo.
 
-
+```python
+ def num_libros_prestados(self): 
+    resultado = self.annotate( 
+       num_prestados = Count('libro')      
+    )
+    for r in resultado:
+       print('---')
+       print(r, r.num_prestados)
+    return resultado
+```
 
 Pero **annotate()** requiere de un criterio de agrupación que, por defecto, toma del id de prestamo, lo que genera un error en el despliegue de resultados. En nuestro ejercicio los lista todos.
 
