@@ -249,7 +249,6 @@ Para ello nos dirigimos a **base.py** de la aplicacion biblioteca y le indicamos
 
 ![image](https://github.com/user-attachments/assets/e8172c2a-95ab-458b-bc6b-0a036abd2a75)
 
-
 - 2 Creamos el manager:
 
 Importamos TrigramSimilarity y creamos el manager listar_libros_trg en la clase **LibroManager()**:
@@ -284,10 +283,10 @@ class ListLibrosTrg(ListView):
 ```
       
 - 4 construimos una url en urls.py de la app libro:
-- 
+
 ```python
    path(
-      'libros-trg/<pk>', 
+      'libros-trg/', 
       views.ListLibrosTrg.as_view(),
       name ='libros-trg'
   ),
@@ -299,27 +298,13 @@ class ListLibrosTrg(ListView):
 
 
 
+***
+***
+<br>
+<br>
+<br>
 
 
-
-
-
-
-- Declaramos complementos de postgres para Django en nuesta seccion INSTALLED_APPS
-
-- Escribimos nuestro manager:
-
-from django.contrib.postgres.search import TrigramSimilarity
-
-// some code
-
-def listar_libros_trg(self, kword):
-   if kword:
-      resultado
-      
-- Hacemos una vista ListLibrosTrg
-
-- Creamos la vista 
 
 # Registrando datos dentro de nuestra base de datos La class Meta
 
