@@ -243,6 +243,67 @@ GIN(titulo gin_trgm_ops);: titulo es el atributo sobre el cual queremos que actu
 
 ## 3.2 Implementacion de triagram
 
+- 1 Debemos indicarle a Django que trabajaremos con la triagramacion de Postgres.
+
+Para ello nos dirigimos a **base.py** de la aplicacion biblioteca y le indicamos que traiga complementos de postgres para django:
+
+![image](https://github.com/user-attachments/assets/00412726-f761-4682-b440-7dfa259f9c59)
+
+- 2 Creamos el manager:
+
+Importamos TrigramSimilarity y creamos el manager listar_libros_trg en la clase **LibroManager()**:
+
+```python
+from django.contrib.postgres.search import TrigramSimilarity # type: ignore
+   
+class LibroManager(models.Manager):
+
+   def listar_libros_trg(self,kword):
+      if kword:
+         resultado = self.filter(
+            titulo__trigram_similar =kword,
+      )
+         return resultado
+      else:
+         self.all()[:10]
+      return resultado
+```     
+      
+- 3 Creamos una vista en views.py de la aplicacion libro:
+
+```python
+class ListLibrosTrg(ListView):
+   context_object_name ='lista_libros'
+   template_name = 'libro/lista.html'
+
+   def get_queryset(self):
+      palabra_clave = self.request.GET.get('kword','')
+
+      return Libro.objects.listar_libros_trg(palabra_clave)
+```
+      
+- 4 construimos una url en urls.py de la app libro:
+- 
+```python
+   path(
+      'libros-trg/<pk>', 
+      views.ListLibrosTrg.as_view(),
+      name ='libros-trg'
+  ),
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 - Declaramos complementos de postgres para Django en nuesta seccion INSTALLED_APPS
 
 - Escribimos nuestro manager:
