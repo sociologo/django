@@ -19,6 +19,11 @@ C:\mis_entornos\entorno_2\Scripts> activate
 ```
 
 ```bash
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py makemigrations
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py migrate
+```
+
+```bash
 (entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py shell
 ```
 
