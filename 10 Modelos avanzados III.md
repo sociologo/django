@@ -10,6 +10,10 @@ En definitiva debe quedar asi:
 
 IMPORTANTE: DEBES utilizar la ORM de Django cada vez que puedas en vez de usar solamente codigo python al hacer consultas a la base de datos, para optimizar al maximo. La ORM de Django estan absolutamente documentadas todas las posibilidades de interacciones con las bases de datos.
 
+```bash
+python manage.py shell
+```
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
 </p>
@@ -36,7 +40,10 @@ Consideremos la tabla **Prestamo**. Queremos saber **cuántas veces se ha presta
 
 Verificamos en la shell:
 
+```bash
+python manage.py shell
 
+```
 
 Pero **annotate()** requiere de un criterio de agrupación que, por defecto, toma del id de prestamo, lo que genera un error en el despliegue de resultados. En nuestro ejercicio los lista todos.
 
