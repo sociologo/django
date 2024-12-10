@@ -17,9 +17,11 @@ IMPORTANTE: DEBES utilizar la ORM de Django cada vez que puedas en vez de usar s
 
 # 1 Values I
 
-Queremos saber **cuantas veces se ha prestado un libro**. Esto podriamos resolverlo con un annotate() construyendo un manager en el modelo prestamo.
+Consideremos la tabla **Prestamo**. Queremos saber **cuántas veces se ha prestado cada libro**. Esto podríamos resolverlo con un **annotate()** construyendo un manager en el modelo Prestamo.
 
-annotate() requiere de un criterio de agrupacion y por defecto, para esto toma el id de prestamo, lo que genera un error en el despliegue de resultados. En nuestro ejercicio los lista todos.
+
+
+Pero **annotate()** requiere de un criterio de agrupación que, por defecto, toma del id de prestamo, lo que genera un error en el despliegue de resultados. En nuestro ejercicio los lista todos.
 
 Debemos hacer la consulta en el modelo libro, pero tambien generara un error, porque cosiderara todos. Debemos utilizar la funcion **values**.
 
