@@ -188,9 +188,48 @@ Queremos un buscador que nos retorne un libro a partir de una palabra clave. La 
 
 Debemos activar triagram e indicar sobre que tabla y atributo actúe postgres. Vamos a la shell de Postgres sobre Windows:
 
+```bash
+Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
 
-psql -U tu_usuario -d dbbiblioteca
-CREATE EXTENSION pg_trgm;
+Instale la versión más reciente de PowerShell para obtener nuevas características y mejoras. https://aka.ms/PSWindows
+
+PS C:\Users\chris> cd 'C:\Program Files\PostgreSQL\16\bin'
+PS C:\Program Files\PostgreSQL\16\bin> psql -U postgres -d dbbiblioteca
+psql : El término 'psql' no se reconoce como nombre de un cmdlet, función, archivo de script o
+programa ejecutable. Compruebe si escribió correctamente el nombre o, si incluyó una ruta de
+acceso, compruebe que dicha ruta es correcta e inténtelo de nuevo.
+En línea: 1 Carácter: 1
++ psql -U postgres -d dbbiblioteca
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (psql:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+
+Suggestion [3,General]: No se encontró el comando psql, pero existe en la ubicación actual. Windows PowerShell no carga comandos de la ubicación actual de forma predeterminada. Si confía en este comando, escriba ".\psql". Vea "get-help about_Command_Precedence" para obtener información más detallada.
+PS C:\Program Files\PostgreSQL\16\bin> .\psql -U postgres -d dbbiblioteca
+Contraseña para usuario postgres:
+
+psql (16.4)
+ADVERTENCIA: El código de página de la consola (850) difiere del código
+            de página de Windows (1252).
+            Los caracteres de 8 bits pueden funcionar incorrectamente.
+            Vea la página de referencia de psql «Notes for Windows users»
+            para obtener más detalles.
+Digite «help» para obtener ayuda.
+
+dbbiblioteca=# CREATE EXTENSION pg_trgm;
+CREATE EXTENSION
+dbbiblioteca=#
+```
+
+
+
+
+
+
+
+
 CREATE INDEX libro_titulo_idx ON libro_libro USING GIN(titulo gin_trgm_ops);
 
 libro_libro: Aplicacion-modelo en Django.
