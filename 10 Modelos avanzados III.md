@@ -261,11 +261,11 @@ class LibroManager(models.Manager):
    def listar_libros_trg(self,kword):
       if kword:
          resultado = self.filter(
-            titulo__trigram_similar =kword,
-      )
+            titulo__trigram_similar = kword,
+         )
          return resultado
       else:
-         self.all()[:10]
+         return self.all()[:10]
       return resultado
 ```     
       
