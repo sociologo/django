@@ -12,7 +12,7 @@ IMPORTANTE: DEBES utilizar la ORM de Django cada vez que puedas en vez de usar s
 
 ## Índice
 
-* [1 Values, Group_by en la ORM Django](#1-Values,-Group_by-en-la-ORM-Django)
+* [1 Values I](#1-Values-I)
   * [11 Características](#11-Caracteristicas)
 
 # 1 Values I
