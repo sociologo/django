@@ -22,12 +22,13 @@ C:\mis_entornos\entorno_2\Scripts> activate
 (entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py makemigrations
 (entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py migrate
 ```
-IMPORTANTE: Son COMUNES las salidas erroneas cuando verificamos los managers por la shell. Si esto te ocurre debes salir >>> `exit()` y volver a ingresar!
+
+IMPORTANTE: Son COMUNES las salidas erroneas cuando verificamos los managers por la shell, por lo que es conveniente reiniciar la shell de Django `>>> exit()` cada vez que se va a revisar el comportamiento de un manager.
+
 ```bash
 (entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py shell
 >>> exit()
 ```
-
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
@@ -37,6 +38,10 @@ IMPORTANTE: Son COMUNES las salidas erroneas cuando verificamos los managers por
 
 * [1 Values I](#1-Values-I)
   * [11 Características](#11-Caracteristicas)
+* [2 Values II](#2-Values-II)
+* [3 Herramientas de Postgres para busquedas (trigram similarity)](#3-Herramientas-de-Postgres-para-busquedas-(trigram-similarity))
+  * [3.1 Concepto e instalacion](#31-Concepto-e-instalacion)
+  * [3.2 Implementacion de triagram](#32-Implementacion-de-triagram)
 
 # 1 Values I
 
@@ -152,7 +157,28 @@ Prestamo.objects.num_libros_prestados()
 
 ![image](https://github.com/user-attachments/assets/fd86b2c7-628f-4685-aea9-2d23730f759b)
 
-podemos agregar la funcionalidad de incluir un lector.
+podemos agregar la funcionalidad de incluir un lector:
+
+```python
+from django.db.models.functions import Lower # type: ignore
+ 
+class PrestamoManager(models.Manager): 
+
+//some code
+   
+   def num_libros_prestados(self): 
+      resultado = self.values('libro','lector'
+      ).annotate( 
+         num_prestados = Count('libro'),
+         titulo = Lower('libro__titulo')     
+      )
+      for r in resultado:
+         print('---')
+         print(r, r['num_prestados'])
+      return resultado
+```
+
+![image](https://github.com/user-attachments/assets/7d040b34-c4ae-47ba-bbdc-0eb29350011d)
 
 # 3 Herramientas de Postgres para busquedas (trigram similarity)
 
