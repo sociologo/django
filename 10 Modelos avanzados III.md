@@ -11,8 +11,17 @@ En definitiva debe quedar asi:
 IMPORTANTE: DEBES utilizar la ORM de Django cada vez que puedas en vez de usar solamente codigo python al hacer consultas a la base de datos, para optimizar al maximo. La ORM de Django estan absolutamente documentadas todas las posibilidades de interacciones con las bases de datos.
 
 ```bash
-python manage.py shell
+cd /
+C:\> cd /mis_entornos/entorno_2/Scripts
+C:\mis_entornos\entorno_2\Scripts> activate
+(entorno_2) C:\mis_entornos\entorno_1\Scripts> cd \mis_proyectos\biblio\biblioteca
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py runserver 
 ```
+
+```bash
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py shell
+```
+
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d0755c92-0251-4af6-95ad-316d49b7aff7" alt="image" width="120%">
@@ -41,11 +50,46 @@ Consideremos la tabla **Prestamo**. Queremos saber **cuántas veces se ha presta
 Verificamos en la shell:
 
 ```bash
-python manage.py shell
-
+from applications.lector.models import *
+Prestamo.objects.num_libros_prestados()
 ```
 
-Pero **annotate()** requiere de un criterio de agrupación que, por defecto, toma del id de prestamo, lo que genera un error en el despliegue de resultados. En nuestro ejercicio los lista todos.
+![image](https://github.com/user-attachments/assets/282937d9-cb13-4f19-856f-dd5b7bd058db)
+![image](https://github.com/user-attachments/assets/d5ea8d69-95a2-48e4-8941-6358240820ab)
+
+Vemos que lista todo.
+
+Lo que sucede es que **annotate()** requiere de un criterio de agrupación que, por defecto, **toma del id de prestamo**, lo que genera un error en el despliegue de resultados: los lista todos. La consulta deberia hacerse dentro del modelo Libro. No olvidemos utilizar la clave inversa: libro_prestamo.
+
+```python
+class LibroManager(models.Manager):
+
+// some code
+   
+   def num_libros_prestados(self): 
+      resultado = self.annotate( 
+         num_prestados = Count('libro_prestamo')      
+      )
+      for r in resultado:
+         print('---')
+         print(r, r.num_prestados)
+      return resultado
+```
+
+Verificamos en la shell:
+
+```bash
+from applications.libro.models import *
+Libro.objects.num_libros_prestados()
+```
+
+
+
+
+
+
+
+
 
 Debemos hacer la consulta en el modelo libro, pero tambien generara un error, porque cosiderara todos. Debemos utilizar la funcion **values**.
 
