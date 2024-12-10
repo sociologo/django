@@ -88,21 +88,66 @@ from applications.libro.models import *
 Libro.objects.num_libros_prestados()
 ```
 
+**Me dice la shell que no reconoce la funcion**
 
+Modificamos el manager:
 
+La función values() en Django se utiliza para crear una QuerySet que devuelve diccionarios en lugar de instancias de modelos. Cada diccionario representa un objeto y **las claves** del diccionario son los nombres de los campos del modelo. Con **values** indicamos el criterio sobre el cual agrupar.
 
+```python
+class PrestamoManager(models.Manager): 
 
+// some code
+   
+   def num_libros_prestados(self): 
+      resultado = self.values('libro'
+      ).annotate( 
+         num_prestados = Count('libro')      
+      )
+      for r in resultado:
+         print('---')
+         print(r, r['num_prestados'])
+      return resultado
+```
 
+Verificamos en la shell:
 
+```bash
+from applications.lector.models import *
+Prestamo.objects.num_libros_prestados()
+```
 
-
-Debemos hacer la consulta en el modelo libro, pero tambien generara un error, porque cosiderara todos. Debemos utilizar la funcion **values**.
-
-La función values() en Django se utiliza para crear una QuerySet que devuelve diccionarios en lugar de instancias de modelos. Cada diccionario representa un objeto y **las claves** del diccionario son los nombres de los campos del modelo.
+**Me continua desplegado el resultado sin considerar la modificacion a la funcion**
 
 # 2 Values II
 
 Ahora, queremos que la consulta devuelva el titulo del libro, para ello utilizamos la función **Lower**.
+
+```python
+from django.db.models.functions import Lower # type: ignore
+ 
+class PrestamoManager(models.Manager): 
+
+//some code
+   
+   def num_libros_prestados(self): 
+      resultado = self.values('libro'
+      ).annotate( 
+         num_prestados = Count('libro'),
+         titulo = Lower('libro__titulo')     
+      )
+      for r in resultado:
+         print('---')
+         print(r, r['num_prestados'])
+      return resultado
+```
+
+Verificamos en la shell:
+
+```bash
+from applications.lector.models import *
+Prestamo.objects.num_libros_prestados()
+```
 
 podemos agregar la funcionalidad de incluir un lector.
 
