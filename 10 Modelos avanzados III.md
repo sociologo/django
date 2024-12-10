@@ -22,9 +22,10 @@ C:\mis_entornos\entorno_2\Scripts> activate
 (entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py makemigrations
 (entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py migrate
 ```
-
+IMPORTANTE: Son COMUNES las salidas erroneas cuando verificamos los managers por la shell. Si esto te ocurre debes salir >>> `exit()` y volver a ingresar!
 ```bash
 (entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py shell
+>>> exit()
 ```
 
 
@@ -148,6 +149,8 @@ Verificamos en la shell:
 from applications.lector.models import *
 Prestamo.objects.num_libros_prestados()
 ```
+
+![image](https://github.com/user-attachments/assets/fd86b2c7-628f-4685-aea9-2d23730f759b)
 
 podemos agregar la funcionalidad de incluir un lector.
 
