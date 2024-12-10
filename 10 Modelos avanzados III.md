@@ -34,6 +34,10 @@ Consideremos la tabla **Prestamo**. Queremos saber **cuántas veces se ha presta
     return resultado
 ```
 
+Verificamos en la shell:
+
+
+
 Pero **annotate()** requiere de un criterio de agrupación que, por defecto, toma del id de prestamo, lo que genera un error en el despliegue de resultados. En nuestro ejercicio los lista todos.
 
 Debemos hacer la consulta en el modelo libro, pero tambien generara un error, porque cosiderara todos. Debemos utilizar la funcion **values**.
