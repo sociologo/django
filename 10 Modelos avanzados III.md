@@ -184,16 +184,16 @@ class PrestamoManager(models.Manager):
 
 ## 3.1 Concepto e instalacion
 
-Queremos un buscador que nos retorne un libro a partir de una palabra clave. La trigram similarity de postgres en Django es una técnica que permite realizar búsquedas de texto más flexibles y precisas utilizando el concepto de trigramas. Un trigrama es una secuencia de tres caracteres consecutivos de una cadena que se combinan obteniendo diferentes secuencias para hacer un calculo de probabilides que coincida con algun dato. Esta técnica se utiliza para medir la similitud entre cadenas de texto, lo que es útil para encontrar coincidencias aproximadas.
+Queremos un buscador que nos retorne un libro a partir de una palabra clave. La trigram similarity de postgres en Django es una técnica que permite realizar búsquedas de texto más flexibles y precisas utilizando el concepto de trigramas. Un trigrama es una **secuencia de tres caracteres consecutivos** de una cadena que se combinan obteniendo diferentes secuencias para hacer un calculo de probabilidades que coincida con algun dato. Esta técnica se utiliza para medir la similitud entre cadenas de texto, lo que es útil para encontrar coincidencias aproximadas.
 
-Debemos activar triagram e indicar sobre que tabla y atributo actue a postgres:
+Debemos activar triagram e indicar sobre que tabla y atributo actúe postgres. Vamos a la shell de Postgres sobre Windows:
 
-sudo apt-get 
 
-su postgres
-psql dbbiblioteca
+psql -U tu_usuario -d dbbiblioteca
 CREATE EXTENSION pg_trgm;
 CREATE INDEX libro_titulo_idx ON libro_libro USING GIN(titulo gin_trgm_ops);
+
+libro_libro: Aplicacion-modelo en Django.
 
 ## 3.2 Implementacion de triagram
 
