@@ -356,7 +356,7 @@ La **class Meta** nos sirve para modificar cosas como estas. Crearemos una nueva
 (entorno_2) C:\mis_proyectos\biblio\biblioteca\applications> django-admin startapp home
 ```
 
-- 2 Cosntruimos el modelo Persona
+- 2 Construimos el modelo Persona
 
 ```python
 from django.db import models
@@ -417,74 +417,158 @@ hacemos las migraciones
 
 verificamos
 
-
-
-
-
-
-
-
-
-
-
-
-
 # 5 Herencia
 
-- 1 Crearemos dos modelos que hereden de persona llamados Empleados y Cliente.
+- 1 Crearemos dos modelos que hereden de Persona llamados Empleados y Cliente.
 
-- 2 Aplicando herencia a nuestro proyecto
+```python
+from django.db import models # type: ignore
 
-
-
-
-
-# 5 Backup de una base de datos
-
-143
-
-***
-***
-<br>
-<br>
-<br>
-
-
-
-
-Para ello creamos un modelo Persona en nuestra nueva aplicacion home:
+# Create your models here.
 
 class Persona(models.Model):
+   """Model definition for Persona."""
 
-## unique_together
+   full_name = models.CharField('nombres', max_length=50)
+   pais = models.CharField('Pais', max_length=30)
+   pasaporte = models.CharField('Pasaporte', max_length=50)
+   edad = models.IntegerField()
+   apelativo = models.CharField('Apelativo', max_length=10)
 
-## No  ingresar a menores de 18 (constrains) (gte)
+   class Meta:
+      """Meta definition for Persona."""
 
-- hacemos las migraciones:
+      verbose_name = 'Persona'
+      verbose_name_plural = 'Personas'
+      db_table = 'persona'
 
-- Registramos en los admin
+   def __str__(self):
+      """Unicode representation of Persona."""
+      return self.full_name
 
-- Verifiquemos agregando una persona menor de 18 en el administrador de django.
+class Empleados(Persona):
+   empleo = models.CharField('empleo', max_length=50)
+```
 
-## Creamos dos modelos que hereden de persona
+- 2 hacemos las migraciones
 
-Necesitamos ingresar a empleados que hereden de persona y cliente.
+```bash
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py makemigrations
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py migrate
+```
 
-Podemos no necesitar que se construya el modelo Persona en la base de datos, para ello agregamos el atributo abstract = True.
+- 4 Registramos la clase que hereda en el admin:
 
-## Aplicando herencia en nuestra app biblioteca
+```python
+from django.contrib import admin
+from .models import Persona, Empleados
 
-los modelos autor y lector pueden heredar de un modelo teorico Persona.
+# Register your models here.
 
-- Debemos homologar los campos.
+admin.site.register(Persona)
+admin.site.register(Empleados)
+```
 
-- Quitamos la aplicacion home de als app_instaladas
+- 5 Verifiquemos la clase Empleados en el Admin
+
+## 51 Abstract
+
+Lo que deseamos es que se desplieguen en el Admin las clases Cliente y Empleados pero no la de Persona. No queremos que se cree en la base de datos la tabla Persona. Ademas creemos la clase Cliente que herede de persona.
+
+
+
+
+
+
+
+
+## 52 Aplicando herencia a nuestro proyecto
+
+En nuestro proyecto vamos a hacer lo mismo. Construiremos una clase persona desde la cual van a heredar las clases lector y autor. Para ello, primero debemos homogeneizar la estructura de ambos modelos:
+
+```python
+from django.db import models # type: ignore
+
+from .managers import AutorManager
+
+class Autor(models.Model):
+   nombres = models.CharField(max_length=50)
+   apellidos = models.CharField(max_length=50)
+   nacionalidad = models.CharField(max_length=20)
+   edad = models.PositiveIntegerField()
+
+   objects = AutorManager()
+
+   def __str__(self):
+      return f"{str(self.id)} {self.nombres} {self.apellidos}"
+```
+
+```python
+from django.db import models # type: ignore
+from applications.libro.models import Libro
+
+from .managers import PrestamoManager # type: ignore
+
+class Lector(models.Model):
+   nombres = models.CharField(max_length=50)
+   apellidos = models.CharField(max_length=50)
+   nacionalidad = models.CharField(max_length=20)
+   edad = models.PositiveIntegerField(default=0)
+
+   def __str__(self):
+      return f"{self.nombres} {self.apellidos}"
+```
+
+
+
+
+quitemos la aplicacion home y hagamos las migraciones
+
+
+# 6 Backup de una base de datos
+
+Queremos hacer una reestructuracion de nuestra base de datos pero sin perder la informacion que tengamos en ella. Para eso, haremos un Bacpup de nuestra información.
+
+- 1 Creamos una carpeta llamada resguardo dentro de la carpeta biblio.
+
+- 2 Ingresemos a Postgres y hagamos la migración:
+
+```bash
+PS C:\Users\chris> cd 'C:\Program Files\PostgreSQL\16\bin'
+
+.\pg_dump -U postgres -d dbbiblioteca -F c -b -v -f "C:\mis_proyectos\biblio\resguardo\dbbiblioteca_backup.sql"
+```
+
+- 3 Eliminamos la base de datos en Postgres
+
+```bash
+cd "C:\Program Files\PostgreSQL\16\bin"
+.\psql -U postgres
+DROP DATABASE dbbiblioteca;
+```
+
+- 4 Volvemos a crear la base de datos
   
-- Hacemos las migraciones
+```bash
+cd "C:\Program Files\PostgreSQL\16\bin"
+.\psql -U postgres
+CREATE DATABASE dbbiblioteca;
+GRANT ALL PRIVILEGES ON DATABASE dbbiblioteca TO chris;
+```
 
-- Vamos a reestructurar nuestra base de datos, para lo que que instalaremos una nueva, pero para no perder toda la data almacenada debemos hacer un back up de datos.
 
-## Crear un BackApp de datos y resstructuracion de los modelos.
+***
+***
+<br>
+<br>
+<br>
+
+aca voy
+
+
+
+
+
 
 - Creamos una carpeta llamada **resguardo**
 - accedemos a postgres
