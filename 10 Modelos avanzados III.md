@@ -345,15 +345,14 @@ La class Meta nos sirve para modificar cosas como estas. Crearemos una nueva apl
 (entorno_2) C:\mis_proyectos\biblio\biblioteca\applications> django-admin startapp home
 ```
 
+```python
 from django.db import models
 
 # Create your models here.
 
-```python
 class Persona(models.Model):
    """Model definition for Persona."""
 
-   
    full_name = models.CharField('nombres', max_length=50)
    pais = models.CharField('Pais', max_length=30)
    pasaporte = models.CharField('Pasaporte', max_length=50)
