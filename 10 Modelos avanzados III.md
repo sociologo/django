@@ -370,8 +370,7 @@ class Persona(models.Model):
       """Unicode representation of Persona."""
       return self.full_name
 ```
-
-
+Aca voy: mitad de la clase 140.
 
 
 
