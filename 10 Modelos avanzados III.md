@@ -304,17 +304,35 @@ class ListLibrosTrg(ListView):
 <br>
 <br>
 
+# 4 Registrando datos dentro de nuestra base de datos La class Meta
 
+## 4.1 La class Meta introduccion
 
-# Registrando datos dentro de nuestra base de datos La class Meta
+En Django, la clase Meta es una clase interna que se utiliza para proporcionar opciones de configuración adicionales a un modelo. Estas opciones permiten personalizar el comportamiento del modelo, como el nombre de la tabla en la base de datos, el orden de los registros, las restricciones únicas, entre otros. Es así como podemos cambiar el nombre a la tabla Libro en singular y plural y darle un criterio de orden en su despliegue en el administrador:
 
-## la class Meta introduccion
+```python
+class Libro(models.Model):
+   categoria = models.ForeignKey(
+      Categoria, 
+      on_delete=models.CASCADE,
+      related_name = 'categoria_libro')
+   autores =  models.ManyToManyField(Autor)
+   titulo = models.CharField(max_length=200)
+   fecha_lanzamiento = models.DateField('Fecha de lanzamiento')
+   portada = models.ImageField(upload_to='portadas/', blank=True, null=True)
+   visitas = models.PositiveIntegerField(default=0)
 
-En Django, la clase Meta es una clase interna que se utiliza para proporcionar opciones de configuración adicionales a un modelo. Estas opciones permiten personalizar el comportamiento del modelo, como el nombre de la tabla en la base de datos, el orden de los registros, las restricciones únicas, entre otros.
+   objects = LibroManager()
 
-## Cambiando nombres a las tablas en Postgres
+   class Meta:
+      verbose_name = 'book'
+      verbose_name_plural = 'books'
+      ordering =  ['titulo', 'fecha']
+```
 
-Crearemos una nueva aplicacion en nuestra appbiblioteca:
+## 4.2 Cambiando nombres a las tablas en Postgres
+
+- 1 Crearemos una nueva aplicacion en nuestra appbiblioteca:
 
 django-admin startapp home
 
