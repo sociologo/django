@@ -281,18 +281,6 @@ class ListLibrosTrg(ListView):
   ),
 ```
 
-
-
-
-
-
-
-***
-***
-<br>
-<br>
-<br>
-
 # 4 Registrando datos dentro de nuestra base de datos La class Meta
 
 ## 4.1 La class Meta introduccion
@@ -356,8 +344,34 @@ dbbiblioteca=# \dt
 dbbiblioteca=#
 ```
 
+Postgres crea los nombres de tablas con el nombre de la app y luego el nombre de la tabla.
 
-Posgres crea los nombres de tablas con el nombre de la app y luego el nombre de la tabla.
+Podemos necesitar un modelo con los nombres de tablas que sean especificos.
+
+- 3 Creamos un modelo **Persona** en la aplicacion **home**:
+
+# 5 Herencia
+
+## 5.1 Crearemos dos modelos que hereden de persona llamados Empleados y Cliente.
+
+## 5.2 Aplicando herencia a nuestro proyecto
+
+
+
+
+
+# 6 Backup de una base de datos
+
+143
+
+***
+***
+<br>
+<br>
+<br>
+
+
+
 
 Para ello creamos un modelo Persona en nuestra nueva aplicacion home:
 
