@@ -285,6 +285,8 @@ class ListLibrosTrg(ListView):
 
 ## 4.1 La class Meta 
 
+- 1 Introduccion
+
 En Django, la clase Meta es una clase interna que se utiliza para proporcionar opciones de configuración adicionales a un modelo. Estas opciones permiten personalizar el comportamiento del modelo, como el nombre de la tabla en la base de datos, el orden de los registros, las restricciones únicas, entre otros. Es así como podemos cambiar el nombre a la tabla Libro en singular y plural y darle un criterio de orden en su despliegue en el administrador:
 
 ```python
@@ -307,9 +309,11 @@ class Libro(models.Model):
       ordering =  ['titulo', 'fecha']
 ```
 
+- 2 Los nombres de las tablas creadas en Postgres desde Django
+
 Las tablas que se crean en Postgres no tienen los mismos nombres con los que las creamos en Django.
 
-Vamos a postgres desde pgadmin y vemos como se han creado las tablas de nuestras aplicaciones:
+Despleguemos la base de datos desde la consola de PostGres y veamos como se han creado las tablas de nuestras aplicaciones:
 
 ```bash
 dbbiblioteca=# \dt
@@ -337,13 +341,19 @@ dbbiblioteca=# \dt
 dbbiblioteca=#
 ```
 
-Postgres crea los nombres de tablas con el nombre de la app y luego el nombre de la tabla.
+Postgres crea los nombres de tablas con el nombre de la app y luego el nombre de la tabla: **libro_categoria**.
 
-La class Meta nos sirve para modificar cosas como estas. Crearemos una nueva aplicación en nuestra app biblioteca para prácticas llamada **home** con un modelo llamado **Persona**, con cuyo nombre queremos exactamente se cree la tabla en Postgres:
+La **class Meta** nos sirve para modificar cosas como estas. Crearemos una nueva aplicación en nuestra app biblioteca para prácticas llamada **home** con un modelo llamado **Persona**, con cuyo nombre queremos exactamente se cree la tabla en Postgres con el atributo **db_table**:
+
+- 3 Asignando nombres personalizados a tablas en postgres
+
+- 3.1 Cosntruimos la aplicacion
 
 ```bash
 (entorno_2) C:\mis_proyectos\biblio\biblioteca\applications> django-admin startapp home
 ```
+
+- 3.2 Cosntruimos el modelo Persona
 
 ```python
 from django.db import models
@@ -371,6 +381,21 @@ class Persona(models.Model):
       return self.full_name
 ```
 Aca voy: mitad de la clase 140.
+
+- 3.3 Incluimos la nueva App **home** dentro de los INSTALLED_APP en base.py:
+
+![image](https://github.com/user-attachments/assets/600b6f0e-2230-43c5-a21b-9c27641971a9)
+
+- 3.4 Hacemos las migraciones
+
+
+
+
+
+
+
+
+
 
 
 
