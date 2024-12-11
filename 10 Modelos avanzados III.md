@@ -283,7 +283,7 @@ class ListLibrosTrg(ListView):
 
 # 4 Registrando datos dentro de nuestra base de datos La class Meta
 
-## 4.1 La class Meta introduccion
+## 4.1 La class Meta 
 
 En Django, la clase Meta es una clase interna que se utiliza para proporcionar opciones de configuración adicionales a un modelo. Estas opciones permiten personalizar el comportamiento del modelo, como el nombre de la tabla en la base de datos, el orden de los registros, las restricciones únicas, entre otros. Es así como podemos cambiar el nombre a la tabla Libro en singular y plural y darle un criterio de orden en su despliegue en el administrador:
 
@@ -307,15 +307,9 @@ class Libro(models.Model):
       ordering =  ['titulo', 'fecha']
 ```
 
-## 4.2 Cambiando nombres a las tablas en Postgres
+Las tablas que se crean en Postgres no tienen los mismos nombres con los que las creamos en Django.
 
-- 1 Crearemos una nueva aplicacion en nuestra appbiblioteca para practicas llamada **home**:
-
-```bash
-(entorno_2) C:\mis_proyectos\biblio\biblioteca\applications> django-admin startproject home
-```
-
-- 2 Vamos a postgres desde pgadmin y vemos como se han creado las tablas de nuestras aplicaciones:
+Vamos a postgres desde pgadmin y vemos como se han creado las tablas de nuestras aplicaciones:
 
 ```bash
 dbbiblioteca=# \dt
@@ -340,27 +334,59 @@ dbbiblioteca=# \dt
  public  | libro_libro_autores        | tabla | chris
 (16 filas)
 
-
 dbbiblioteca=#
 ```
 
 Postgres crea los nombres de tablas con el nombre de la app y luego el nombre de la tabla.
 
-Podemos necesitar un modelo con los nombres de tablas que sean especificos.
+La class Meta nos sirve para modificar cosas como estas. Crearemos una nueva aplicación en nuestra app biblioteca para prácticas llamada **home** con un modelo llamado **Persona**, con cuyo nombre queremos exactamente se cree la tabla en Postgres:
 
-- 3 Creamos un modelo **Persona** en la aplicacion **home**:
+```bash
+(entorno_2) C:\mis_proyectos\biblio\biblioteca\applications> django-admin startapp home
+```
 
-# 5 Herencia
+from django.db import models
 
-## 5.1 Crearemos dos modelos que hereden de persona llamados Empleados y Cliente.
+# Create your models here.
 
-## 5.2 Aplicando herencia a nuestro proyecto
+```python
+class Persona(models.Model):
+   """Model definition for Persona."""
+
+   
+   full_name = models.CharField('nombres', max_length=50)
+   pais = models.CharField('Pais', max_length=30)
+   pasaporte = models.CharField('Pasaporte', max_length=50)
+   edad = models.IntegerField()
+   apelativo = models.CharField('Apelativo', max_length=10)
+
+   class Meta:
+      """Meta definition for Persona."""
+
+      verbose_name = 'Persona'
+      verbose_name_plural = 'Personas'
+      db_table = 'persona'
+
+   def __str__(self):
+      """Unicode representation of Persona."""
+      return self.full_name
+```
 
 
 
 
 
-# 6 Backup de una base de datos
+# 4.2 Herencia
+
+- 1 Crearemos dos modelos que hereden de persona llamados Empleados y Cliente.
+
+- 2 Aplicando herencia a nuestro proyecto
+
+
+
+
+
+# 5 Backup de una base de datos
 
 143
 
