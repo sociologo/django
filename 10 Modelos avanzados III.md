@@ -190,7 +190,7 @@ Debemos activar triagram e indicar sobre que tabla y atributo actúe postgres. V
 
 Para ir a PowerShell como administrador:
 
-- 1 presiona Windows + X y selecciona "Terminal (Administrador)" o "Windows PowerShell (Admin)".\
+- 1 presiona Windows + X y selecciona "Terminal (Administrador)".\
 - 2 dirígete al binario de postgres
 - 3 conéctate a la base de datos como superusuario
 - 4 ingresa la contraseña
@@ -203,18 +203,7 @@ Copyright (C) Microsoft Corporation. Todos los derechos reservados.
 Instale la versión más reciente de PowerShell para obtener nuevas características y mejoras. https://aka.ms/PSWindows
 
 PS C:\Users\chris> cd 'C:\Program Files\PostgreSQL\16\bin'
-PS C:\Program Files\PostgreSQL\16\bin> psql -U postgres -d dbbiblioteca
-psql : El término 'psql' no se reconoce como nombre de un cmdlet, función, archivo de script o
-programa ejecutable. Compruebe si escribió correctamente el nombre o, si incluyó una ruta de
-acceso, compruebe que dicha ruta es correcta e inténtelo de nuevo.
-En línea: 1 Carácter: 1
-+ psql -U postgres -d dbbiblioteca
-+ ~~~~
-    + CategoryInfo          : ObjectNotFound: (psql:String) [], CommandNotFoundException
-    + FullyQualifiedErrorId : CommandNotFoundException
 
-
-Suggestion [3,General]: No se encontró el comando psql, pero existe en la ubicación actual. Windows PowerShell no carga comandos de la ubicación actual de forma predeterminada. Si confía en este comando, escriba ".\psql". Vea "get-help about_Command_Precedence" para obtener información más detallada.
 PS C:\Program Files\PostgreSQL\16\bin> .\psql -U postgres -d dbbiblioteca
 Contraseña para usuario postgres:
 
@@ -340,8 +329,32 @@ class Libro(models.Model):
 
 - 2 Vamos a postgres desde pgadmin y vemos como se han creado las tablas de nuestras aplicaciones:
 
+```bash
+dbbiblioteca=# \dt
+                Listado de relaciones
+ Esquema |           Nombre           | Tipo  | Due±o
+---------+----------------------------+-------+-------
+ public  | auth_group                 | tabla | chris
+ public  | auth_group_permissions     | tabla | chris
+ public  | auth_permission            | tabla | chris
+ public  | auth_user                  | tabla | chris
+ public  | auth_user_groups           | tabla | chris
+ public  | auth_user_user_permissions | tabla | chris
+ public  | autor_autor                | tabla | chris
+ public  | django_admin_log           | tabla | chris
+ public  | django_content_type        | tabla | chris
+ public  | django_migrations          | tabla | chris
+ public  | django_session             | tabla | chris
+ public  | lector_lector              | tabla | chris
+ public  | lector_prestamo            | tabla | chris
+ public  | libro_categoria            | tabla | chris
+ public  | libro_libro                | tabla | chris
+ public  | libro_libro_autores        | tabla | chris
+(16 filas)
 
 
+dbbiblioteca=#
+```
 
 
 Posgres crea los nombres de tablas con el nombre de la app y luego el nombre de la tabla.
