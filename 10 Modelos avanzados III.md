@@ -42,6 +42,11 @@ IMPORTANTE: Son COMUNES las salidas erroneas cuando verificamos los managers por
 * [3 Herramientas de Postgres para busquedas (trigram similarity)](#3-Herramientas-de-Postgres-para-busquedas-(trigram-similarity))
   * [3.1 Concepto e instalacion](#31-Concepto-e-instalacion)
   * [3.2 Implementacion de triagram](#32-Implementacion-de-triagram)
+* [4 Registrando datos dentro de nuestra base de datos La class Meta](#4-Registrando-datos-dentro-de-nuestra-base-de-datos-La-class-Meta)
+  * [41 Introduccion](#41-Introduccion)
+  * [42 Los nombres de las tablas creadas en Postgres desde Django](#42-Los-nombres-de-las-tablas-creadas-en-Postgres-desde-Django)
+  * [43 Asignando nombres personalizados a tablas en postgres](#43-Asignando-nombres-personalizados-a-tablas-en-postgres)
+* [5 Herencia](#5-Herencia)
 
 # 1 Values I
 
@@ -283,9 +288,7 @@ class ListLibrosTrg(ListView):
 
 # 4 Registrando datos dentro de nuestra base de datos La class Meta
 
-## 4.1 La class Meta 
-
-- 1 Introduccion
+## 41 Introduccion
 
 En Django, la clase Meta es una clase interna que se utiliza para proporcionar opciones de configuración adicionales a un modelo. Estas opciones permiten personalizar el comportamiento del modelo, como el nombre de la tabla en la base de datos, el orden de los registros, las restricciones únicas, entre otros. Es así como podemos cambiar el nombre a la tabla Libro en singular y plural y darle un criterio de orden en su despliegue en el administrador:
 
@@ -309,7 +312,7 @@ class Libro(models.Model):
       ordering =  ['titulo', 'fecha']
 ```
 
-- 2 Los nombres de las tablas creadas en Postgres desde Django
+## 42 Los nombres de las tablas creadas en Postgres desde Django
 
 Las tablas que se crean en Postgres no tienen los mismos nombres con los que las creamos en Django.
 
@@ -345,15 +348,15 @@ Postgres crea los nombres de tablas con el nombre de la app y luego el nombre de
 
 La **class Meta** nos sirve para modificar cosas como estas. Crearemos una nueva aplicación en nuestra app biblioteca para prácticas llamada **home** con un modelo llamado **Persona**, con cuyo nombre queremos exactamente se cree la tabla en Postgres con el atributo **db_table**:
 
-- 3 Asignando nombres personalizados a tablas en postgres
+## 43 Asignando nombres personalizados a tablas en postgres
 
-- 3.1 Cosntruimos la aplicacion
+- 1 Cosntruimos la aplicacion
 
 ```bash
 (entorno_2) C:\mis_proyectos\biblio\biblioteca\applications> django-admin startapp home
 ```
 
-- 3.2 Cosntruimos el modelo Persona
+- 2 Cosntruimos el modelo Persona
 
 ```python
 from django.db import models
@@ -380,13 +383,39 @@ class Persona(models.Model):
       """Unicode representation of Persona."""
       return self.full_name
 ```
-Aca voy: mitad de la clase 140.
 
-- 3.3 Incluimos la nueva App **home** dentro de los INSTALLED_APP en base.py:
+- 3 Incluimos la nueva App **home** dentro de los INSTALLED_APP en base.py:
 
 ![image](https://github.com/user-attachments/assets/600b6f0e-2230-43c5-a21b-9c27641971a9)
 
-- 3.4 Hacemos las migraciones
+- 4 Hacemos las migraciones
+
+```bash
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py makemigrations
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py migrate
+```
+
+- 5 Verifiquemos:
+
+```bash
+PS C:\Users\chris> cd 'C:\Program Files\PostgreSQL\16\bin'
+PS C:\Program Files\PostgreSQL\16\bin> .\psql -U postgres -d dbbiblioteca
+dbbiblioteca=# \dt
+```
+
+- 6 Anadiendo atributos del tipo class Meta al modelo Persona:
+
+unique_together
+
+constrains
+
+Siempre que se necesite de una validacion y esta pueda resolverse de forma simple se debe hacer aqui porque es una barrera más de validacion.
+
+agregamos el modelo a Admin
+
+hacemos las migraciones
+
+verificamos
 
 
 
@@ -399,7 +428,8 @@ Aca voy: mitad de la clase 140.
 
 
 
-# 4.2 Herencia
+
+# 5 Herencia
 
 - 1 Crearemos dos modelos que hereden de persona llamados Empleados y Cliente.
 
