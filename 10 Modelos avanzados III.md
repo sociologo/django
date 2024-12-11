@@ -332,11 +332,17 @@ class Libro(models.Model):
 
 ## 4.2 Cambiando nombres a las tablas en Postgres
 
-- 1 Crearemos una nueva aplicacion en nuestra appbiblioteca:
+- 1 Crearemos una nueva aplicacion en nuestra appbiblioteca para practicas llamada **home**:
 
-django-admin startapp home
+```bash
+(entorno_2) C:\mis_proyectos\biblio\biblioteca\applications> django-admin startproject home
+```
 
-Vamos a postgres desde pgadmin y vemos como se han creado las tablas de nuestras aplicaciones
+- 2 Vamos a postgres desde pgadmin y vemos como se han creado las tablas de nuestras aplicaciones:
+
+
+
+
 
 Posgres crea los nombres de tablas con el nombre de la app y luego el nombre de la tabla.
 
