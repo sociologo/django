@@ -348,6 +348,11 @@ Postgres crea los nombres de tablas con el nombre de la app y luego el nombre de
 
 La **class Meta** nos sirve para modificar cosas como estas. Crearemos una nueva aplicación en nuestra app biblioteca para prácticas llamada **home** con un modelo llamado **Persona**, con cuyo nombre queremos exactamente se cree la tabla en Postgres con el atributo **db_table**:
 
+|
+|
+|
+v
+
 ## 43 Asignando nombres personalizados a tablas en postgres
 
 - 1 Cosntruimos la aplicacion
@@ -475,14 +480,7 @@ admin.site.register(Empleados)
 
 Lo que deseamos es que se desplieguen en el Admin las clases Cliente y Empleados pero no la de Persona. No queremos que se cree en la base de datos la tabla Persona. Ademas creemos la clase Cliente que herede de persona.
 
-
-
-
-
-
-
-
-## 52 Aplicando herencia a nuestro proyecto
+## 52 Aplicando herencia a nuestro proyecto I
 
 En nuestro proyecto vamos a hacer lo mismo. Construiremos una clase persona desde la cual van a heredar las clases lector y autor. Para ello, primero debemos homogeneizar la estructura de ambos modelos:
 
@@ -519,13 +517,9 @@ class Lector(models.Model):
       return f"{self.nombres} {self.apellidos}"
 ```
 
-
-
-
 quitemos la aplicacion home y hagamos las migraciones
 
-
-# 6 Backup de una base de datos
+## 53 Digresion Backup de una base de datos
 
 Queremos hacer una reestructuracion de nuestra base de datos pero sin perder la informacion que tengamos en ella. Para eso, haremos un Bacpup de nuestra información.
 
@@ -556,6 +550,190 @@ CREATE DATABASE dbbiblioteca;
 GRANT ALL PRIVILEGES ON DATABASE dbbiblioteca TO chris;
 ```
 
+- 5 restauramos la data de nuestra base de datos:
+```bash
+# Sal del cliente psql:
+\q
+
+# Restaura la base de datos desde el archivo de respaldo:
+.\pg_restore -U postgres -d dbbiblioteca "C:\mis_proyectos\biblio\resguardo\dbbiblioteca_backup.sql"
+```
+
+- 6 Borramos de nuestro proyecto Django todas las migraciones.
+
+Debe quedar solo __init__.py
+
+## 54 Aplicando herencia a nuestro proyecto II
+
+- 1 Modificamos **models.py** de la app **autor**:
+
+```python
+from django.db import models # type: ignore
+
+from .managers import AutorManager
+
+class Persona(models.Model):
+   nombres = models.CharField(max_length=50)
+   apellidos = models.CharField(max_length=50)
+   nacionalidad = models.CharField(max_length=20)
+   edad = models.PositiveIntegerField()
+
+   def __str__(self):
+      return f"{str(self.id)} {self.nombres} {self.apellidos}"
+
+   class Meta:
+      abstract = True
+
+class Autor(Persona):
+   objects = AutorManager()
+```
+
+- 2 Modificamos **models.py** de la app **lector**:
+
+```python
+from django.db import models # type: ignore
+from applications.libro.models import Libro
+from applications.autor.models import Persona
+
+from .managers import PrestamoManager # type: ignore
+
+class Lector(Persona):
+   
+   class Meta:
+      verbose_name = 'Lector'
+      verbose_name_plural = 'Lectores'
+
+class Prestamo(models.Model):
+   lector = models.ForeignKey(
+      Lector, 
+      on_delete=models.CASCADE)
+   libro = models.ForeignKey(
+      Libro, 
+      on_delete=models.CASCADE,
+      related_name = 'libro_prestamo')
+   fecha_prestamo = models.DateField()
+   fecha_devolucion = models.DateField(blank=True, null=True)
+   devuelto = models.BooleanField(default=False)
+
+   objects = PrestamoManager()
+
+   def __str__(self):
+      return f"Prestamo de {self.libro.titulo} a {self.lector.nombre} {self.lector.apellido}"
+```
+
+- 3 Hacemos las migraciones:
+
+Tenemos que ya nuestras tablas han sido creadas, por lo que haremos una falsa migracion.
+
+El argumento `--fake` en el comando `python manage.py migrate` se utiliza para marcar una migración como aplicada sin realmente ejecutar los cambios en la base de datos. Esto puede ser útil en situaciones donde sabes que los cambios ya se han aplicado manualmente o cuando estás sincronizando el estado de las migraciones entre diferentes entornos.
+
+```bash
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py makemigrations
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py migrate --fake
+```
+
+- 4 Verificamos en Admin autores:
+
+- 5 Agreguemos un atributo a nuestro modelo Autor:
+
+class Autor(Persona):
+   seudonimo = models.CharField('seudonimo', max_length=50, blank = True)
+   objects = AutorManager()
+
+- 6 volvamos a hacer las migraciones:
+
+```bash
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py makemigrations
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py migrate
+```
+
+- 7 Verificamos en Admin autores:
+
+# 6 Registrando datos dentro de nuestra base de datos con FormView
+
+Trabajaremos dentro de la app lector y dentro de ella en el modelo Prestamo construyendo una vista FormView pues nos permite hacer procesos extra antes de guardas. Aprenderemos a guardar usando Create y Save, viendo sus diferencias y usos apropiados.
+
+- 1 Creamos una vista en la app **lector**:
+  
+```python
+from django.shortcuts import render # type: ignore
+from django.views.generic.edit import FormView # type: ignore
+from .models import Prestamo
+from .forms import PrestamoForm
+
+# Create your views here.
+
+class RegistrarPrestamo(FormView):
+   template_name = 'lector/add_prestamo.html'
+   form_class = PrestamoForm
+   success_url ='.'
+
+   def form_valid(self, form):
+      return super(RegistrarPrestamo, self).form_valid(form)
+```
+
+- 2 Creamos un formulario:
+  
+```python
+from django import forms # type: ignore
+from .models import Prestamo
+
+class PrestamoForm(forms.ModelForm):
+   """Form definition for Prestamo."""
+
+   class Meta:
+      """Meta definition for Prestamoform."""
+
+      model = Prestamo
+      fields = ('lector','libro')
+```
+
+- 3 Creamos el template html:
+
+Creamos una nueva carpeta dentro de la carpeta templates llamada lector con **add_prestamo.html**:
+
+
+  
+- 4 Activamos la vista:
+
+Creamos dentro de la app lector el **archivo urls.py**:
+
+from django.contrib import admin  # type: ignore
+from django.urls import path  # type: ignore
+from . import views
+
+urlpatterns = [
+   path('prestamo/add/', 
+      views.RegistrarPrestamo.as_view(),
+      name ='prestamo-add'),
+]
+
+
+
+  
+
+- 5 Añadimos la url recien creada a nuestro sistema de urls principal:
+
+Para ello vamos al archivo urls.py de la app biblioteca:
+
+from django.contrib import admin # type: ignore
+from django.urls import path, re_path, include # type: ignore
+
+urlpatterns = [
+   path('admin/', admin.site.urls),
+   re_path('', include('applications.autor.urls')),
+   re_path('', include('applications.libro.urls')),
+   re_path('', include('applications.lector.urls'))
+]
+
+
+  
+# 6 Registrando datos dentro de nuestra base de datos con Create y Save
+
+
+
+
+
 
 ***
 ***
@@ -563,53 +741,19 @@ GRANT ALL PRIVILEGES ON DATABASE dbbiblioteca TO chris;
 <br>
 <br>
 
-aca voy
 
 
 
 
 
 
-- Creamos una carpeta llamada **resguardo**
-- accedemos a postgres
-- eliminamos la base de datos
-- creamos la base de datos
-  >
-- ingresamos a ella y le damos permisos
-- reestablecemos la base de datos
 
-  <
 
-- En django borramos todas la migraciones hechas.
 
-- Resstructuramos nuestro proyecto
 
-Creamos el modelo Persona y los que heredan: Autor y Lector
 
-Haremos una falsa migracion
 
-# Managers de tipo registro
 
-## FormView para registrar un prestamo
-
-144
-
-- Hacemos la vista FormView ReguistraPrestamo(FormView):
-
-class RegistrarPrestamo(FormView):
-   template_name = ''
-
-- construimos un formulario (forms.py)
-  
-- creamos el template add_prestamo.html
-  
-* agregamos la url y tmabien la principal de la aplicaicon
-
-## Metodos Create y Save
-
-145
-
-class RegistrarPrestamo(FormView):
 
 
 
