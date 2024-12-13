@@ -747,7 +747,7 @@ class Autor(Persona):
 
 # 6 Registrando datos dentro de nuestra base de datos con FormView
 
-Trabajaremos dentro de la app lector y dentro de ella en el modelo Prestamo construyendo una vista FormView pues nos permite hacer procesos extra antes de guardas. Aprenderemos a guardar usando Create y Save, viendo sus diferencias y usos apropiados.
+Trabajaremos dentro de la app **lector** y dentro de ella en el modelo **Prestamo** construyendo una vista **FormView** pues nos permite hacer procesos extra antes de guardar. Aprenderemos a guardar usando Create y Save, viendo sus diferencias y usos apropiados.
 
 - 1 Creamos una vista en la app **lector**:
   
@@ -756,8 +756,6 @@ from django.shortcuts import render # type: ignore
 from django.views.generic.edit import FormView # type: ignore
 from .models import Prestamo
 from .forms import PrestamoForm
-
-# Create your views here.
 
 class RegistrarPrestamo(FormView):
    template_name = 'lector/add_prestamo.html'
@@ -768,17 +766,17 @@ class RegistrarPrestamo(FormView):
       return super(RegistrarPrestamo, self).form_valid(form)
 ```
 
-- 2 Creamos un formulario:
+- 2 Creamos un formulario dentro de la app **lector**:
+
+Este formulario define un formulario basado en el modelo Prestamo. Se importa el módulo de formularios de Django y el modelo Prestamo desde el archivo models.py. La clase PrestamoForm hereda de forms.ModelForm, lo que permite crear un formulario automáticamente basado en el modelo Prestamo. Dentro de la clase Meta, se especifica que el formulario utilizará el modelo Prestamo y se definen los campos lector y libro que se incluirán en el formulario. 
   
 ```python
 from django import forms # type: ignore
 from .models import Prestamo
 
 class PrestamoForm(forms.ModelForm):
-   """Form definition for Prestamo."""
 
    class Meta:
-      """Meta definition for Prestamoform."""
 
       model = Prestamo
       fields = ('lector','libro')
@@ -788,12 +786,29 @@ class PrestamoForm(forms.ModelForm):
 
 Creamos una nueva carpeta dentro de la carpeta templates llamada lector con **add_prestamo.html**:
 
-
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <h1> Registrar prestamo</h1>
+   <form method="POST">{% csrf_token %}
+      {{ form.as_p}}
+      <button type ="submit">Guardar</button>
+   </form>
+</body>
+</html>
+```
   
 - 4 Activamos la vista:
 
 Creamos dentro de la app lector el **archivo urls.py**:
 
+```python
 from django.contrib import admin  # type: ignore
 from django.urls import path  # type: ignore
 from . import views
@@ -803,15 +818,13 @@ urlpatterns = [
       views.RegistrarPrestamo.as_view(),
       name ='prestamo-add'),
 ]
-
-
-
-  
+```
 
 - 5 Añadimos la url recien creada a nuestro sistema de urls principal:
 
-Para ello vamos al archivo urls.py de la app biblioteca:
+Para ello vamos al archivo **urls.py** de la app biblioteca:
 
+```python
 from django.contrib import admin # type: ignore
 from django.urls import path, re_path, include # type: ignore
 
@@ -821,11 +834,12 @@ urlpatterns = [
    re_path('', include('applications.libro.urls')),
    re_path('', include('applications.lector.urls'))
 ]
-
+```
 
   
 # 6 Registrando datos dentro de nuestra base de datos con Create y Save
 
+voy en 145
 
 
 
