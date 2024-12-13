@@ -729,7 +729,7 @@ El argumento `--fake` en el comando `python manage.py migrate` se utiliza para m
 - 4 Verificamos en Admin autores:
 
 - 5 Agreguemos un atributo a nuestro modelo Autor:
-- 
+  
 ```python
 class Autor(Persona):
    seudonimo = models.CharField('seudonimo', max_length=50, blank = True)
