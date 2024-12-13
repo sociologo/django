@@ -195,7 +195,7 @@ Debemos activar triagram e indicar sobre que tabla y atributo actúe postgres. V
 
 Para ir a PowerShell como administrador:
 
-- 1 presiona Windows + X y selecciona "Terminal (Administrador)".\
+- 1 presiona Windows + X y selecciona "Terminal (Administrador)".
 - 2 dirígete al binario de postgres
 - 3 conéctate a la base de datos como superusuario
 - 4 ingresa la contraseña
@@ -286,11 +286,11 @@ class ListLibrosTrg(ListView):
   ),
 ```
 
-# 4 Registrando datos dentro de nuestra base de datos La class Meta
+# 4 ORM Registrando datos dentro de una Base de Datos
 
-## 41 Introduccion
+## 41 La clase Meta
 
-En Django, la clase Meta es una clase interna que se utiliza para proporcionar opciones de configuración adicionales a un modelo. Estas opciones permiten personalizar el comportamiento del modelo, como el nombre de la tabla en la base de datos, el orden de los registros, las restricciones únicas, entre otros. Es así como podemos cambiar el nombre a la tabla Libro en singular y plural y darle un criterio de orden en su despliegue en el administrador:
+En Django, la clase Meta es una clase interna que se utiliza para proporcionar opciones de configuración adicionales a un modelo. Estas opciones permiten personalizar el comportamiento del modelo, como el nombre de la tabla en la base de datos, el orden de los registros, las restricciones únicas, entre otros. Es así como podemos cambiar el nombre a la tabla Libro en singular y plural y darle un criterio de orden en su despliegue en el administrador de Django:
 
 ```python
 class Libro(models.Model):
@@ -310,14 +310,21 @@ class Libro(models.Model):
       verbose_name = 'book'
       verbose_name_plural = 'books'
       ordering =  ['titulo', 'fecha']
+
+   def __str__(self):
+      return str(self.id) + ' - ' + self.titulo
 ```
 
 ## 42 Los nombres de las tablas creadas en Postgres desde Django
 
 Las tablas que se crean en Postgres no tienen los mismos nombres con los que las creamos en Django.
 
-Despleguemos la base de datos desde la consola de PostGres y veamos como se han creado las tablas de nuestras aplicaciones:
+Despleguemos la base de datos desde la consola de Postgres y veamos como se han creado las tablas de nuestras aplicaciones:
 
+- 1 presiona Windows + X y selecciona "Terminal (Administrador)".
+- 2 PS C:\Users\chris> cd 'C:\Program Files\PostgreSQL\16\bin'
+- 3 PS C:\Program Files\PostgreSQL\16\bin> .\psql -U postgres -d dbbiblioteca
+  
 ```bash
 dbbiblioteca=# \dt
                 Listado de relaciones
@@ -344,24 +351,19 @@ dbbiblioteca=# \dt
 dbbiblioteca=#
 ```
 
-Postgres crea los nombres de tablas con el nombre de la app y luego el nombre de la tabla: **libro_categoria**.
+Postgres crea los nombres de tablas con el nombre de la app y luego el nombre de la tabla, ej: **libro_categoria**.
 
-La **class Meta** nos sirve para modificar cosas como estas. Crearemos una nueva aplicación en nuestra app biblioteca para prácticas llamada **home** con un modelo llamado **Persona**, con cuyo nombre queremos exactamente se cree la tabla en Postgres con el atributo **db_table**:
-
-|
-|
-|
-v
+La **class Meta** nos sirve para modificar cosas como estas. Crearemos una nueva aplicación en nuestra app biblioteca para prácticas llamada **home** con un modelo llamado **Persona**, con cuyo nombre queremos exactamente se cree la tabla en Postgres con ayuda del atributo **db_table**:
 
 ## 43 Asignando nombres personalizados a tablas en postgres
 
-- 1 Cosntruimos la aplicacion
+- 1 Construímos la aplicación:
 
 ```bash
 (entorno_2) C:\mis_proyectos\biblio\biblioteca\applications> django-admin startapp home
 ```
 
-- 2 Construimos el modelo Persona
+- 2 Construímos el modelo **Persona**:
 
 ```python
 from django.db import models
@@ -389,7 +391,7 @@ class Persona(models.Model):
       return self.full_name
 ```
 
-- 3 Incluimos la nueva App **home** dentro de los INSTALLED_APP en base.py:
+- 3 Incluimos la nueva App **home** dentro de los INSTALLED_APP en **base.py**:
 
 ![image](https://github.com/user-attachments/assets/600b6f0e-2230-43c5-a21b-9c27641971a9)
 
@@ -408,23 +410,60 @@ PS C:\Program Files\PostgreSQL\16\bin> .\psql -U postgres -d dbbiblioteca
 dbbiblioteca=# \dt
 ```
 
-- 6 Anadiendo atributos del tipo class Meta al modelo Persona:
+- 6 Añadiendo atributos del tipo class Meta al modelo Persona:
 
-unique_together
+Queremos que una persona de un pais que se ingrese en la aplicacion tenga solo un único apelativo combinando pais y apelativo:
 
-constrains
+```python
+   class Meta:
+      """Meta definition for Persona."""
+
+      verbose_name = 'Persona'
+      verbose_name_plural = 'Personas'
+      db_table = 'persona'
+      unique_together = ['pais', 'apelativo']
+```
+
+Queremos validar que no se registren datos con edades menores a 18
+
+```python
+   class Meta:
+      """Meta definition for Persona."""
+
+      verbose_name = 'Persona'
+      verbose_name_plural = 'Personas'
+      db_table = 'persona'
+      unique_together = ['pais', 'apelativo']
+      constraints = [
+         models.CheckConstraint(check = models.Q(edad__gte = 18), name = 'edad_mayor_18')
+         ]
+```
 
 Siempre que se necesite de una validacion y esta pueda resolverse de forma simple se debe hacer aqui porque es una barrera más de validacion.
 
-agregamos el modelo a Admin
+- 7 agregamos el modelo a Admin de la app home:
+  
+```python
+from django.contrib import admin
+from .models import Persona, Empleados
 
-hacemos las migraciones
+# Register your models here.
 
-verificamos
+admin.site.register(Persona)
+```
+
+- 8 hacemos las migraciones
+
+```bash
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py makemigrations
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py migrate
+```
+
+- 9 verificamos en el Admin
 
 # 5 Herencia
 
-- 1 Crearemos dos modelos que hereden de Persona llamados Empleados y Cliente.
+- 1 Agreguemos los modelos **Empleados** y ** Cliente** que hereden de **Persona** con atributos específicos a cada uno llamados **empleo** y **email**:
 
 ```python
 from django.db import models # type: ignore
@@ -446,6 +485,10 @@ class Persona(models.Model):
       verbose_name = 'Persona'
       verbose_name_plural = 'Personas'
       db_table = 'persona'
+      unique_together = ['pais', 'apelativo']
+      constraints = [
+         models.CheckConstraint(check = models.Q(edad__gte = 18), name = 'edad_mayor_18')
+         ]
 
    def __str__(self):
       """Unicode representation of Persona."""
@@ -453,36 +496,77 @@ class Persona(models.Model):
 
 class Empleados(Persona):
    empleo = models.CharField('empleo', max_length=50)
+
+class Cliente(Persona):
+   email = models.EmailField('Email')
 ```
 
-- 2 hacemos las migraciones
+- 2 Registramos la clase que hereda en el admin:
+
+```python
+from django.contrib import admin
+from .models import Persona, Empleados, Cliente
+
+# Register your models here.
+
+admin.site.register(Persona)
+admin.site.register(Empleados)
+admin.site.register(Cliente)
+```
+
+- 3 hacemos las migraciones
 
 ```bash
 (entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py makemigrations
 (entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py migrate
 ```
 
-- 4 Registramos la clase que hereda en el admin:
-
-```python
-from django.contrib import admin
-from .models import Persona, Empleados
-
-# Register your models here.
-
-admin.site.register(Persona)
-admin.site.register(Empleados)
-```
-
-- 5 Verifiquemos la clase Empleados en el Admin
+- 4 Verifiquemos la clase Empleados en el Admin
 
 ## 51 Abstract
 
-Lo que deseamos es que se desplieguen en el Admin las clases Cliente y Empleados pero no la de Persona. No queremos que se cree en la base de datos la tabla Persona. Ademas creemos la clase Cliente que herede de persona.
+Lo que deseamos es que se desplieguen en el Admin las clases Cliente y Empleados pero no la de Persona. No queremos que se cree en la base de datos la tabla Persona. Para ello utilizamos el atributo **abstract**.
+
+```python
+from django.db import models # type: ignore
+
+# Create your models here.
+
+class Persona(models.Model):
+   """Model definition for Persona."""
+
+   full_name = models.CharField('nombres', max_length=50)
+   pais = models.CharField('Pais', max_length=30)
+   pasaporte = models.CharField('Pasaporte', max_length=50)
+   edad = models.IntegerField()
+   apelativo = models.CharField('Apelativo', max_length=10)
+
+   class Meta:
+      """Meta definition for Persona."""
+
+      verbose_name = 'Persona'
+      verbose_name_plural = 'Personas'
+      db_table = 'persona'
+      unique_together = ['pais', 'apelativo']
+      constraints = [
+         models.CheckConstraint(check = models.Q(edad__gte = 18), name = 'edad_mayor_18')
+         ]
+      abstract = True
+
+   def __str__(self):
+      """Unicode representation of Persona."""
+      return self.full_name
+
+class Empleados(Persona):
+   empleo = models.CharField('empleo', max_length=50)
+
+class Cliente(Persona):
+   email = models.EmailField('Email')
+```
 
 ## 52 Aplicando herencia a nuestro proyecto I
 
-En nuestro proyecto vamos a hacer lo mismo. Construiremos una clase persona desde la cual van a heredar las clases lector y autor. Para ello, primero debemos homogeneizar la estructura de ambos modelos:
+- 1 Construiremos una clase persona desde la cual van a heredar las clases lector y autor. Para ello, primero debemos homogeneizar la estructura de ambos modelos:
 
 ```python
 from django.db import models # type: ignore
@@ -517,19 +601,23 @@ class Lector(models.Model):
       return f"{self.nombres} {self.apellidos}"
 ```
 
-quitemos la aplicacion home y hagamos las migraciones
+- 2 Quitemos la aplicacion home y hagamos las migraciones
 
-## 53 Digresion Backup de una base de datos
+```bash
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py makemigrations
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py migrate
+```
 
-Queremos hacer una reestructuracion de nuestra base de datos pero sin perder la informacion que tengamos en ella. Para eso, haremos un Bacpup de nuestra información.
+# Digresion Backup de una base de datos
 
-- 1 Creamos una carpeta llamada resguardo dentro de la carpeta biblio.
+Necesitamos hacer una reestructuración de nuestra base de datos pero sin perder la información que tengamos en ella. Para eso, haremos un Backup de nuestra información.
+
+- 1 Creamos una carpeta dentro de la carpeta **biblio** llamada **resguardo**.
 
 - 2 Ingresemos a Postgres y hagamos la migración:
 
 ```bash
 PS C:\Users\chris> cd 'C:\Program Files\PostgreSQL\16\bin'
-
 .\pg_dump -U postgres -d dbbiblioteca -F c -b -v -f "C:\mis_proyectos\biblio\resguardo\dbbiblioteca_backup.sql"
 ```
 
@@ -551,6 +639,7 @@ GRANT ALL PRIVILEGES ON DATABASE dbbiblioteca TO chris;
 ```
 
 - 5 restauramos la data de nuestra base de datos:
+
 ```bash
 # Sal del cliente psql:
 \q
@@ -563,7 +652,7 @@ GRANT ALL PRIVILEGES ON DATABASE dbbiblioteca TO chris;
 
 Debe quedar solo __init__.py
 
-## 54 Aplicando herencia a nuestro proyecto II
+## 53 Aplicando herencia a nuestro proyecto II
 
 - 1 Modificamos **models.py** de la app **autor**:
 
@@ -622,8 +711,13 @@ class Prestamo(models.Model):
 ```
 
 - 3 Hacemos las migraciones:
+  
+```bash
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py makemigrations
+(entorno_2) C:\mis_proyectos\biblio\biblioteca> python manage.py migrate
+```
 
-Tenemos que ya nuestras tablas han sido creadas, por lo que haremos una falsa migracion.
+Tenemos que ya nuestras tablas han sido creadas, por lo que haremos una falsa migración.
 
 El argumento `--fake` en el comando `python manage.py migrate` se utiliza para marcar una migración como aplicada sin realmente ejecutar los cambios en la base de datos. Esto puede ser útil en situaciones donde sabes que los cambios ya se han aplicado manualmente o cuando estás sincronizando el estado de las migraciones entre diferentes entornos.
 
@@ -635,10 +729,12 @@ El argumento `--fake` en el comando `python manage.py migrate` se utiliza para m
 - 4 Verificamos en Admin autores:
 
 - 5 Agreguemos un atributo a nuestro modelo Autor:
-
+- 
+```python
 class Autor(Persona):
    seudonimo = models.CharField('seudonimo', max_length=50, blank = True)
    objects = AutorManager()
+```
 
 - 6 volvamos a hacer las migraciones:
 
