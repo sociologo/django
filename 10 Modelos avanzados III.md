@@ -836,10 +836,13 @@ urlpatterns = [
 ]
 ```
 
+ACA VOY, ME FALTA EJECUTAR EL PROYECO DESDE CONSOLA
   
 # 6 Registrando datos dentro de nuestra base de datos con Create y Save
 
-voy en 145
+voy en 145: Tenemos dos formas de regirstar un nuevo elemento con la vista FormView:
+
+
 
 
 
