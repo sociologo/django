@@ -317,11 +317,11 @@ y en cada uno de los archivos apps.py de las aplicaciones departamentos y emplea
 
 ## 5 Vistas genéricas Views
 
-### La teoría del patrón de diseño MVT
+### 5.1 La teoría del patrón de diseño MVT
 
-El modelo Vista-Template (MVT) de Django es una variación del clásico modelo Vista-Controlador (MVC). A continuación, te explico en qué consiste cada uno y sus diferencias clave:
+El patrón Modelo-Vista-Template (MVT) de Django es una variación del clásico Modelo-Vista-Controlador (MVC). A continuación, veamos en qué consiste el MVT y sus diferencias clave con MVC:
 
-Modelo Vista-Template (MVT) en Django
+### 5.2 Modelo-Vista-Template (MVT) en Django
 
 Modelo (**Model**):
 
@@ -341,18 +341,23 @@ Es la capa de presentación que define cómo se muestran los datos al usuario. L
 
 Ejemplo: Un archivo HTML que muestra una lista de usuarios con sus nombres y correos electrónicos.
 
-Diferencias con el Modelo Vista-Controlador (MVC)
+### 5.3 Diferencias con el Modelo Vista-Controlador (MVC)
 
 Controlador (Controller) vs. Vista (View):
 
-En el patrón MVC, el Controlador maneja la lógica de negocio y la interacción entre el modelo y la vista. En Django, esta función la realiza la Vista.
-En MVC, la Vista es responsable solo de la presentación de los datos. En MVT, la Plantilla cumple esta función.
-Terminología:
+En el patrón MVC, el Controlador maneja la lógica de negocio y la interacción entre el modelo y la vista. En Django, esta función la realiza la Vista. En MVC, la Vista es responsable solo de la presentación de los datos. En MVT, la Plantilla cumple esta función.
+
+Terminología:\
 Aunque la funcionalidad es similar, la terminología difiere. En Django, lo que en MVC se llama Controlador se llama Vista, y lo que en MVC se llama Vista se llama Plantilla.
-Flujo de Trabajo:
+
+Flujo de Trabajo:\
+
 En MVC, el flujo típico es: Usuario → Controlador → Modelo → Vista → Usuario.
+
 En MVT, el flujo es: Usuario → Vista → Modelo → Plantilla → Usuario.
-Ejemplo Práctico
+
+### 5.4 Ejemplo Práctico
+
 Supongamos que queremos mostrar una lista de productos en una tienda en línea:
 
 Modelo (Model): Definimos un modelo Producto con campos como nombre, precio, y descripción.
@@ -361,11 +366,11 @@ Vista (View): Creamos una vista que recupera todos los productos de la base de d
 
 Plantilla (Template): Diseñamos un archivo HTML que muestra la lista de productos con sus nombres y precios.
 
-En resumen, el patrón MVT de Django es una adaptación del patrón MVC, con una terminología y flujo de trabajo ligeramente diferentes, pero con el mismo objetivo de separar la lógica de negocio, la lógica de presentación y la interfaz de usuario12.
+En resumen, el patrón MVT de Django es una adaptación del patrón MVC, con una terminología y flujo de trabajo ligeramente diferentes, pero con el mismo objetivo de separar la lógica de negocio, la lógica de presentación y la interfaz de usuario.
 
-### La creación de una vista
+## 6 La creación de una vista
 
-51 Dentro de la aplicacion **empleado**, en la carpeta applications, construyamos una nueva aplicacion llamada **exp** donde realizaremos todas nuestras pruebas.
+### 6.1 Dentro de la aplicacion **empleado**, en la carpeta applications, construyamos una nueva aplicacion llamada **exp** donde realizaremos todas nuestras pruebas.
 
 C:\Users\chris>cd \Users\chris\django\proyecto_1\entorno_1\Scripts\
 C:\Users\chris\django\proyecto_1\entorno_1\Scripts>activate\
