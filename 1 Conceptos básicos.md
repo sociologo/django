@@ -264,9 +264,9 @@ if __name__ == '__main__':
 
 Las aplicaciones en django son pequeños proyectos completos. La idea es que:
 
-4.1 cada una sea independiente de las otras con el objetivo de poder reutilizarlas si fuese necesario y
+1 cada una sea independiente de las otras con el objetivo de poder reutilizarlas si fuese necesario y
 
-4.2 cada una se dedique a un solo proceso de la lógica del negocio.
+2 cada una se dedique a un solo proceso de la lógica del negocio.
 
 Crearemos las siguientes dos aplicaciones dentro de una nueva carpeta llamada applications en la cre creamos un archivo __init__.py:
 
@@ -274,7 +274,7 @@ Crearemos las siguientes dos aplicaciones dentro de una nueva carpeta llamada ap
 
 ![image](https://github.com/user-attachments/assets/7d58750c-5b20-4f68-bb78-36d88a9d2a6e)
 
-### 4.3 Vamos al nivel de applications y creamos los dos nuevos proyectos:
+### 4.1 Vamos al nivel de applications y creamos los dos nuevos proyectos:
 
 (entorno_1) C:\Users\chris\django\proyecto_1\empleado\applications>django-admin startapp departamentos
 
@@ -282,7 +282,7 @@ Crearemos las siguientes dos aplicaciones dentro de una nueva carpeta llamada ap
 
 ![image](https://github.com/user-attachments/assets/9c2631f9-fd41-4d16-8b0a-04f7eb2aba5f)
 
-### 4.4 Ahora necesitamos instalar nuestras aplicaciones en el archivo base.py:
+### 4.2 Ahora necesitamos instalar nuestras aplicaciones en el archivo base.py:
 
 ![image](https://github.com/user-attachments/assets/12f5e13b-8ccf-49c4-8952-04664108c281)
 
@@ -292,7 +292,7 @@ y en cada uno de los archivos apps.py de las aplicaciones departamentos y emplea
 
 ![image](https://github.com/user-attachments/assets/49b450f9-1d92-4f52-8bbe-ba4ee394f6d4)
 
-### 4.5 Levantemos nuestro servidor para que veamos que todo est[e funcionando ok:
+### 4.3 Levantemos nuestro servidor para que veamos que todo est[e funcionando ok:
 
 (entorno_1) C:\Users\chris\django\proyecto_1\empleado>python manage.py runserver
 
