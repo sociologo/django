@@ -368,6 +368,10 @@ Plantilla (Template): Diseñamos un archivo HTML que muestra la lista de product
 
 En resumen, el patrón MVT de Django es una adaptación del patrón MVC, con una terminología y flujo de trabajo ligeramente diferentes, pero con el mismo objetivo de separar la lógica de negocio, la lógica de presentación y la interfaz de usuario.
 
+aca voy 19:22
+11-02-25
+
+ 
 ## 6 La creación de una vista
 
 ### 6.1 Dentro de la aplicacion **empleado**, en la carpeta applications, construyamos una nueva aplicacion llamada **exp** donde realizaremos todas nuestras pruebas.
