@@ -115,7 +115,7 @@ En cualquier desarrollo necesitamos al menos tres entornos (para trabajo local, 
 
 2.1 Dentro de la carpeta **empleado**, creamos otra carpeta llamada **settings** con cuatro archivos .py en su interior:\
 
-1 __init__.py
+1 __init__.py\
 2 local.py\
 3 prod.py\
 4 base.py
