@@ -219,7 +219,9 @@ STATIC_URL = 'static/'
 
 ### 3.2 Le indicamos a django que ejecute desde el entorno de configuración local.py:
 
+```bash
 (entorno_1) C:\Users\chris\django\proyecto_1\empleado> python manage.py runserver --settings= empleado.settings.local
+```
 
 ### 3.3 Redireccionamos para aumentar la simplicidad al ejecutar el proyecto:
 
