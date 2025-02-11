@@ -264,8 +264,9 @@ if __name__ == '__main__':
 
 Las aplicaciones en django son pequeños proyectos completos. La idea es que:
 
-### 4.1 cada una sea independiente de las otras con el objetivo de poder reutilizarlas si fuese necesario.\
-### 4.2 cada una se dedique a un solo proceso de la lógica del negocio.
+4.1 cada una sea independiente de las otras con el objetivo de poder reutilizarlas si fuese necesario y
+
+4.2 cada una se dedique a un solo proceso de la lógica del negocio.
 
 Crearemos las siguientes dos aplicaciones dentro de una nueva carpeta llamada applications en la cre creamos un archivo __init__.py:
 
