@@ -225,8 +225,11 @@ STATIC_URL = 'static/'
 
 ### 3.3 Redireccionamos para aumentar la simplicidad al ejecutar el proyecto:
 
-Agregamos .local a la siguiente línea del archivo manage.py:}
+Agregamos .local a la siguiente línea del archivo manage.py:
+
+```bash
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'empleado.settings')
+```
 
 ```python
 #!/usr/bin/env python
