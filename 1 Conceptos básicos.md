@@ -107,7 +107,7 @@ C:\mis_entornos\entorno_3\Scripts>activate
 
 ### 1.6 Abrimos el proyecto empleado con Visual Studio:
 
-![image](https://github.com/user-attachments/assets/2e9cee98-5375-4b48-9033-b116c59d4823)
+![image](https://github.com/user-attachments/assets/8dbfe7f4-3409-486d-aad0-9e44669ae4f0)
 
 ## 2 Configurar la estructura de un proyecto en django
 
