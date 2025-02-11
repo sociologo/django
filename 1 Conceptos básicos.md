@@ -285,7 +285,7 @@ Crearemos dos aplicaciones dentro de una nueva carpeta llamada **applications** 
 (entorno_3) C:\mis_proyectos\emp3\empleado\applications> django-admin startapp empleados
 ```
 
-![image](https://github.com/user-attachments/assets/9c2631f9-fd41-4d16-8b0a-04f7eb2aba5f)
+![image](https://github.com/user-attachments/assets/1aa17e99-bb1c-4d5f-86d6-02832aaf329f)
 
 ### 4.2 Ahora necesitamos instalar nuestras aplicaciones en el archivo base.py:
 
