@@ -261,7 +261,9 @@ if __name__ == '__main__':
 
 ### 3.4 Ahora podemos ejecutar simplemente escribiendo:
 
-(entorno_1) C:\Users\chris\django\proyecto_1\empleado>python manage.py runserver
+```bash
+(entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver
+```
 
 ## 4 Aplicaciones
 
