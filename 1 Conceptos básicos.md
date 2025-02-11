@@ -293,15 +293,14 @@ Crearemos dos aplicaciones dentro de una nueva carpeta llamada **applications** 
 
 y en cada uno de los archivos apps.py de las aplicaciones departamentos y empleados anteponemos el prefijo applications:
 
-![image](https://github.com/user-attachments/assets/472135fc-6133-4ecb-9a26-9cefb48c2180)
+![image](https://github.com/user-attachments/assets/3061723c-e662-46dd-918c-f7523e100b05)
+![image](https://github.com/user-attachments/assets/5709f22a-3467-4e0e-a8f6-c083455dc413)
 
-![image](https://github.com/user-attachments/assets/49b450f9-1d92-4f52-8bbe-ba4ee394f6d4)
+### 4.3 Levantemos nuestro servidor para que veamos que todo esté funcionando ok:
 
-### 4.3 Levantemos nuestro servidor para que veamos que todo est[e funcionando ok:
+(entorno_1) C:\Users\chris\django\proyecto_1\empleado> python manage.py runserver
 
-(entorno_1) C:\Users\chris\django\proyecto_1\empleado>python manage.py runserver
-
-## 5 Vistas genericas Views
+## 5 Vistas genéricas Views
 
 ### La teoría del patrón de diseño MVT
 
