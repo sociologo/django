@@ -275,13 +275,15 @@ Crearemos dos aplicaciones dentro de una nueva carpeta llamada **applications** 
 
 ![image](https://github.com/user-attachments/assets/8a4cacb5-da70-4e4d-8e39-453c3285dcfe)
 
-![image](https://github.com/user-attachments/assets/7d58750c-5b20-4f68-bb78-36d88a9d2a6e)
+![image](https://github.com/user-attachments/assets/f73a5271-00ec-4b33-bcbb-1fe024e9b954)
 
 ### 4.1 Vamos al nivel de applications y creamos los dos nuevos proyectos:
 
-(entorno_1) C:\Users\chris\django\proyecto_1\empleado\applications>django-admin startapp departamentos
-
-(entorno_1) C:\Users\chris\django\proyecto_1\empleado\applications>django-admin startapp empleados
+```bash
+(entorno_3) C:\mis_proyectos\emp3\empleado>cd applications
+(entorno_3) C:\mis_proyectos\emp3\empleado\applications> django-admin startapp departamentos
+(entorno_3) C:\mis_proyectos\emp3\empleado\applications> django-admin startapp empleados
+```
 
 ![image](https://github.com/user-attachments/assets/9c2631f9-fd41-4d16-8b0a-04f7eb2aba5f)
 
