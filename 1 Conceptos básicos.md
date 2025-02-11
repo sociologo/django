@@ -96,6 +96,17 @@ C:\mis_entornos\entorno_3\Scripts>activate
 (entorno_3) C:\mis_proyectos\emp3> pip install Pillow
 ```
 
+script de arranque:
+
+```bash
+cd /
+C:\mis_entornos>cd entorno_3/Scripts
+C:\mis_entornos\entorno_3\Scripts>activate
+C:\mis_entornos\entorno_3\Scripts> cd /
+cd \mis_proyectos\emp3
+(entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver
+```
+
 ### 1.4 En ella, creamos nuestro proyecto **empleado**:
 
 ```bash
@@ -300,7 +311,9 @@ y en cada uno de los archivos apps.py de las aplicaciones departamentos y emplea
 
 ### 4.3 Levantemos nuestro servidor para que veamos que todo esté funcionando ok:
 
-(entorno_1) C:\Users\chris\django\proyecto_1\empleado> python manage.py runserver
+```bash
+(entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver
+```
 
 ## 5 Vistas genéricas Views
 
