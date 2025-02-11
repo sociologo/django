@@ -111,19 +111,20 @@ C:\mis_entornos\entorno_3\Scripts>activate
 
 ## 2 Configurar la estructura de un proyecto en django
 
-En cualquier desarrollo necesitamos al menos tres entornos (para trabajo local, de pruebas y de producción) y un cuarto **base**. En el entorno **base** alojaremos la configuración básica de todos.\
+En cualquier desarrollo necesitamos al menos tres entornos (para trabajo local, de pruebas y de producción) y un cuarto **base**. En el entorno **base** alojaremos la configuración básica de todos.
 
-2.1 Dentro de la carpeta **empleado**, creamos otra carpeta llamada **settings** con cuatro archivos .py en su interior:\
+2.1 Dentro de la carpeta **empleado**, creamos otra carpeta llamada **settings** con cuatro archivos .py en su interior:
 
 1 __init__.py\
 2 local.py\
 3 prod.py\
 4 base.py
 
-2.2 Del archivo original settings.py debemos copiar a los archivos recién creados, lo siguiente:\
+2.2 Del archivo original settings.py debemos copiar a los archivos recién creados, lo siguiente:
 
-2.2.1 en **base.py**:\
-```
+2.2.1 en **base.py**:
+
+```python
 from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -194,8 +195,9 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ```
 
-2.2.2 en **local.py**:\
-```
+2.2.2 en **local.py**:
+
+```python
 from .base import *
 
 DEBUG = True
