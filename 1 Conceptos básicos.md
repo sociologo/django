@@ -74,7 +74,8 @@ Construiremos dos carpetas en C. Una para nuestros proyectos **mis_proyectos** y
 
 
 ### 1.2 Creamos nuestro primer entorno y lo activamos:
-```
+
+```bash
 C:\>cd mis_entornos
 C:\mis_entornos>python -m venv entorno_1
 C:\mis_entornos>cd entorno_3/Scripts
@@ -220,7 +221,7 @@ STATIC_URL = 'static/'
 ### 3.2 Le indicamos a django que ejecute desde el entorno de configuración local.py:
 
 ```bash
-(entorno_1) C:\Users\chris\django\proyecto_1\empleado> python manage.py runserver --settings= empleado.settings.local
+(entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver --settings=empleado.settings.local
 ```
 
 ### 3.3 Redireccionamos para aumentar la simplicidad al ejecutar el proyecto:
