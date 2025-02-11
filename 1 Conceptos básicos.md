@@ -115,10 +115,7 @@ En cualquier desarrollo necesitamos al menos tres entornos (para trabajo local, 
 
 2.1 Dentro de la carpeta **empleado**, creamos otra carpeta llamada **settings** con cuatro archivos .py en su interior:
 
-1 __init__.py\
-2 local.py\
-3 prod.py\
-4 base.py
+![image](https://github.com/user-attachments/assets/3ca4a2a9-bc58-4365-9a2b-15939a7ccf1e)
 
 2.2 Del archivo original settings.py debemos copiar a los archivos recién creados, lo siguiente:
 
@@ -126,9 +123,10 @@ En cualquier desarrollo necesitamos al menos tres entornos (para trabajo local, 
 
 ```python
 from pathlib import Path
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-3q5hd^5yi2w8rb9geeb&pn1q$%=gf+5!arqkzm14c-!d0@)#3#'
+SECRET_KEY = 'django-insecure-9xh%=ob5sj*g*r5&ii^r$mu9bs0w*t09ni*vko67=*z402som8'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -193,6 +191,7 @@ USE_I18N = True
 USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 ```
 
 2.2.2 en **local.py**:
