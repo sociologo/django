@@ -77,31 +77,32 @@ Construiremos dos carpetas en C. Una para nuestros proyectos **mis_proyectos** y
 ```
 C:\>cd mis_entornos
 C:\mis_entornos>python -m venv entorno_1
-C:\mis_entornos>cd entorno_1/Scripts
-C:\mis_entornos\entorno_1\Scripts>activate
-(entorno_1) C:\mis_entornos\entorno_1\Scripts>
-(entorno_1) C:\mis_entornos\entorno_1\Scripts>cd /
-(entorno_1) C:\>
+C:\mis_entornos>cd entorno_3/Scripts
+C:\mis_entornos\entorno_3\Scripts>activate
+(entorno_3) C:\mis_entornos\entorno_3\Scripts>
+(entorno_3) C:\mis_entornos\entorno_3\Scripts>cd /
+(entorno_3) C:\>
 ```
 
 ### 1.3 Instalamos y actualizamos paquetes:
 ```
-(entorno_1) C:\> pip install django
-(entorno_1) C:\> python.exe -m pip install --upgrade pip
-(entorno_1) C:\> cd \mis_proyectos\emp1
-(entorno_1) C:\mis_proyectos\emp1> pip install django-ckeditor
-(entorno_1) C:\mis_proyectos\emp1> pip install psycopg2-binary
-(entorno_1) C:\mis_proyectos\emp1> pip install Pillow
+(entorno_3) C:\> pip install django
+(entorno_3) C:\> python.exe -m pip install --upgrade pip
+(entorno_3) C:\> cd \mis_proyectos\emp3
+(entorno_3) C:\mis_proyectos\emp3> pip install django-ckeditor
+(entorno_3) C:\mis_proyectos\emp3> pip install psycopg2-binary
+(entorno_3) C:\mis_proyectos\emp3> pip install Pillow
 ```
 
 ### 1.4 En ella, creamos nuestro proyecto **empleado**:
 ```
-(entorno_1) C:\mis_proyectos\emp1>  django-admin startproject empleado
+(entorno_3) C:\mis_proyectos\emp3>  django-admin startproject empleado
 ```
 
 ### 1.5 corremos el servidor:
 ```
-(entorno_1) C:\mis_proyectos\emp1> python manage.py runserver
+(entorno_3) C:\mis_proyectos\emp3>cd empleado
+(entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py runserver
 ```
 
 ### 1.6 Abrimos el proyecto empleado con Visual Studio:
