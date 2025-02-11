@@ -291,7 +291,7 @@ Crearemos dos aplicaciones dentro de una nueva carpeta llamada **applications** 
 
 ### 4.2 Ahora necesitamos instalar nuestras aplicaciones en el archivo base.py:
 
-![image](https://github.com/user-attachments/assets/21208733-45a3-4c22-bfac-da5964ae47ee)
+![image](https://github.com/user-attachments/assets/08fe8f7d-9fd1-467e-ae0a-c5ef06cd6ab9)
 
 y en cada uno de los archivos apps.py de las aplicaciones departamentos y empleados anteponemos el prefijo applications:
 
