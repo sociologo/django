@@ -198,7 +198,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 2.2.2 en **local.py**:
 
 ```python
-from .base import *
+from empleado.settings.base import *
 
 DEBUG = True
 
