@@ -86,7 +86,8 @@ C:\mis_entornos\entorno_3\Scripts>activate
 ```
 
 ### 1.3 Instalamos y actualizamos paquetes:
-```
+
+```bash
 (entorno_3) C:\> pip install django
 (entorno_3) C:\> python.exe -m pip install --upgrade pip
 (entorno_3) C:\> cd \mis_proyectos\emp3
@@ -96,14 +97,16 @@ C:\mis_entornos\entorno_3\Scripts>activate
 ```
 
 ### 1.4 En ella, creamos nuestro proyecto **empleado**:
-```
-(entorno_3) C:\mis_proyectos\emp3>  django-admin startproject empleado
+
+```bash
+(entorno_3) C:\mis_proyectos\emp3> django-admin startproject empleado
 ```
 
 ### 1.5 corremos el servidor:
-```
-(entorno_3) C:\mis_proyectos\emp3>cd empleado
-(entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py runserver
+
+```bash
+(entorno_3) C:\mis_proyectos\emp3> cd empleado
+(entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver
 ```
 
 ### 1.6 Abrimos el proyecto empleado con Visual Studio:
