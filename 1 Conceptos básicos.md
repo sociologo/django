@@ -377,14 +377,14 @@ Haremos pruebas dentro de una nueva aplicacion que crearemos para tal efecto.
 
 ### 6.1 La aplicacion exp
 
-1 En la carpeta applications, construyamos una nueva aplicación llamada **exp**.
+#### 1 En la carpeta applications, construyamos una nueva aplicación llamada **exp**.
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado> cd applications
 (entorno_3) C:\mis_proyectos\emp3\empleado\applications> django-admin startapp exp
 ```
 
-2 En **base.py** agregamos la ruta de la aplicación para instalarla.
+#### 2 En **base.py** agregamos la ruta de la aplicación para instalarla.
 
 ```python
 INSTALLED_APPS = [
@@ -402,7 +402,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-3 Vamos a **apps.py** de la misma aplicación y agregamos la ruta de la carpeta:
+#### 3 Vamos a **apps.py** de la misma aplicación y agregamos la ruta de la carpeta:
 
 ```python
 from django.apps import AppConfig
@@ -412,22 +412,26 @@ class ExpConfig(AppConfig):
     name = 'applications.exp'
 ```
 
-![image](https://github.com/user-attachments/assets/348e7716-16b6-4032-8999-49d056411832)
+#### 4 Dentro de la carpeta **exp** agregamos una nueva llamada **templates**, donde alojaremos todos nuestros htmls.
 
-4 Dentro de la carpeta exp agregamos una nueva llamada templates, donde alojaremos todos nuestros htmls.
+![image](https://github.com/user-attachments/assets/4bea0efe-0d49-4a3d-a926-286f0aea091b)
 
-5 En views.py de exp agregamos las siguientes lineas de codigo:
+#### 5 Creamos una vista
 
-```
+En views.py de exp agregamos las siguientes lineas de codigo:
+
+```python
 from django.views.generic import TemplateView
 
 class IndexView(TemplateView):
     template_name = 'home.html'
 ```
 
-56 En la carpeta templates creamos un archivo llamado home.html donde escribimos el siguiente código:
+#### 6 Creamos el template
 
-```
+En la carpeta templates creamos un archivo llamado **home.html** donde escribimos el siguiente código:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -442,7 +446,9 @@ class IndexView(TemplateView):
 </html>
 ```
 
-57 en urls.py agregamos una nueva ruta
+#### 7 Agregamos la ruta
+
+en **urls.py** agregamos una nueva ruta:
 
 ```
 from django.contrib import admin
@@ -455,13 +461,22 @@ urlpatterns = [
 ]
 ```
 
-58 ejecutemos nuevamente nuestro proyecto y vamos a la url home:
+#### 8 ejecutemos nuevamente nuestro proyecto y vamos a la url home:
 
-(entorno_1) C:\Users\chris\django\proyecto_1\empleado>python manage.py runserver
+```bash
+(entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py runserver
+```
 
-http://127.0.0.1:8000/home/
+![image](https://github.com/user-attachments/assets/9348cdbd-651e-4c16-ae11-7c8e6cf7ba77)
 
-![image](https://github.com/user-attachments/assets/83b55f69-3637-4cd5-9376-86b368fd4198)
+
+
+
+
+---
+
+
+
  
 ## 6 Haciendo una carpeta templates general para el proyecto
 
