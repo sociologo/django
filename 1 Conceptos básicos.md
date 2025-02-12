@@ -525,10 +525,11 @@ Ahora llamamos éste **urls.py** de la aplicacion exp desde nuestro archivo **ur
 
 ![image](https://github.com/user-attachments/assets/b5f74c2c-39c2-46b3-ab78-fa6207b2ce34)
 
+![image](https://github.com/user-attachments/assets/76228aeb-e993-4d9c-bf4c-6e2a98ff0369)
 
-![image](https://github.com/user-attachments/assets/78534cf5-e683-4398-ade3-82be1d4e9e95)
+---
 
-![image](https://github.com/user-attachments/assets/59feefbe-3edf-4e39-b6c0-9c7d68d708a6)
+
 
 ## 11 el ORM de Django y modelos
 
