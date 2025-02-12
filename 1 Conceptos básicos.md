@@ -497,33 +497,25 @@ Una buena práctica es contruir una carpeta templates donde tengamos sub carpeta
 
 ---
 
-
-
-
 ## 8 Una arquitectura de urls
 
 Análogo a como lo hicimos con los templates, cada aplicación debe tener su propio archivo de urls, que van a ser llamadas en el archivo **urls.py** general. Creamos un archivo **urls.py** para la aplicación exp como se indica:
 
 ![image](https://github.com/user-attachments/assets/9f4c8d9e-eebf-45bf-be33-a55bf809cb2f)
 
+Ahora llamamos éste **urls.py** de la aplicacion exp desde nuestro archivo **urls.py** general importando el paquete **include**:
+
+![image](https://github.com/user-attachments/assets/618ff7f9-752d-45af-bc0f-eaa9d2c0e05b)
+
+
+---
 
 
 
 
 
 
-![image](https://github.com/user-attachments/assets/e4fbfa3c-b82b-437e-9a0f-c88ca61fdb87)
-
-Ahora llamamos éste urls.py de exp desde nuestro archivo urls.py general importando el paquete include:
-
-![image](https://github.com/user-attachments/assets/2bfcca87-970b-45b9-ad0d-2ff69d19bd82)
-
-
-
-
-
-
-## 8 Vistas genéricas
+## 9 Vistas genéricas
 
 Las vistas genéricas heredan de una clase padre llamada **view** y realizan las tareas del CRUD, las cuales podemos personalizar. Ejemplos son el **TemplateView**, **ListView**, etc. De ellas tambien heredamos.
 
@@ -533,7 +525,7 @@ Se pueden agregar las funciones extras que se deseen.
 
 Todas necesitarán de un HTML para desplegar el proceso que realizan.
 
-## 9 Nuestros primeros pasos en MVT
+## 10 Nuestros primeros pasos en MVT
 
 1 Creemos la vista basada en clases ListView y observemos su comportamiento en un pequeño ejemplo en viwes.py de nuestra aplicación exp. Creamos la clase **Prueba_ListView**:
 
@@ -549,7 +541,7 @@ Todas necesitarán de un HTML para desplegar el proceso que realizan.
 
 ![image](https://github.com/user-attachments/assets/59feefbe-3edf-4e39-b6c0-9c7d68d708a6)
 
-## 10 el ORM de Django y modelos
+## 11 el ORM de Django y modelos
 
 el ORM de Django es una herramienta poderosa que permite a los desarrolladores interactuar con bases de datos de manera eficiente y efectiva utilizando Python, sin necesidad de escribir consultas SQL manualmente.
 
