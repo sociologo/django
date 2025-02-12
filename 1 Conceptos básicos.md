@@ -507,25 +507,9 @@ Ahora llamamos éste **urls.py** de la aplicacion exp desde nuestro archivo **ur
 
 ![image](https://github.com/user-attachments/assets/618ff7f9-752d-45af-bc0f-eaa9d2c0e05b)
 
-
 ---
 
-
-
-
-
-
-## 9 Vistas genéricas
-
-Las vistas genéricas heredan de una clase padre llamada **view** y realizan las tareas del CRUD, las cuales podemos personalizar. Ejemplos son el **TemplateView**, **ListView**, etc. De ellas tambien heredamos.
-
-Son vistas basadas en clases. 
-
-Se pueden agregar las funciones extras que se deseen.
-
-Todas necesitarán de un HTML para desplegar el proceso que realizan.
-
-## 10 Nuestros primeros pasos en MVT
+## 9 Primeros pasos en MVT
 
 1 Creemos la vista basada en clases ListView y observemos su comportamiento en un pequeño ejemplo en viwes.py de nuestra aplicación exp. Creamos la clase **Prueba_ListView**:
 
