@@ -477,16 +477,17 @@ urlpatterns = [
 
 ## 7 Una arquitectura de templates
 
-### 7.1 una carpeta templates general
+### 7.1 Una carpeta templates general
 
-Una buena practica es contruir una carpeta templates donde tengamos sub carpetas asociadas a las apps y dentro de ellas los correspondientes htmls. Construimos la carpeta como se indica:
+Una buena práctica es contruir una carpeta templates donde tengamos sub carpetas asociadas a las apps y dentro de ellas los correspondientes htmls. Construímos la carpeta como se indica con la subcarpeta y dentro de ella copiamos **home.html** y borramos la carpeta templates de la app exp:
+
+![image](https://github.com/user-attachments/assets/67f60d17-4cac-4d6d-9b59-c511e2452ef5)
 
 
 
 
-### 7.2 Borramos la carpeta templates de la carpeta exp
 
-63 Hacemos las siguientes modificaciones en el archivo base.py:
+### 7.3 Hacemos las siguientes modificaciones en el archivo base.py:
 
 ![image](https://github.com/user-attachments/assets/75a7085a-d89e-4dbd-bc1c-bc980ae4c371)
 
@@ -494,13 +495,17 @@ y en la vista de nuestra carpeta experimental:
 
 ![image](https://github.com/user-attachments/assets/81afbe60-8bf1-4ceb-aa7b-1b80936d4ace)
 
-Volvemos a cargar nuestro proyecto y vamos a la url home:
+### 7.4 Volvemos a cargar nuestro proyecto y vamos a la url home:
 
 (entorno_1) C:\Users\chris\django\proyecto_1\empleado>python manage.py runserver
 
 ![image](https://github.com/user-attachments/assets/06fac228-4f8b-4efa-a323-fed2ef93da1f)
 
-## 7 Haciendo una carpeta parcial para cada app
+
+---
+
+
+## 8 Haciendo una carpeta parcial para cada app
 
 
 
