@@ -531,23 +531,23 @@ Ahora llamamos éste **urls.py** de la aplicacion exp desde nuestro archivo **ur
 
 
 
-## 11 el ORM de Django y modelos
+## 11 La ORM de Django y los modelos
 
-el ORM de Django es una herramienta poderosa que permite a los desarrolladores interactuar con bases de datos de manera eficiente y efectiva utilizando Python, sin necesidad de escribir consultas SQL manualmente.
+La ORM de Django es una herramienta poderosa que permite a los desarrolladores interactuar con bases de datos de manera eficiente y efectiva utilizando Python, sin necesidad de escribir consultas SQL manualmente.
 
 Haremos que la ORM de Django trabaje construyendo nuestra primera base datos la que consistirá sólo en una tabla asociada a la base de datos que trea por defecto Django (sqlite3):
 
-![image](https://github.com/user-attachments/assets/2eef1b7e-775a-424c-a0ae-693437d6690a)
+![image](https://github.com/user-attachments/assets/927e38c6-aa87-4fbe-b360-1073b0ea1c2e)
+
 
 Ahora le preguntaremos a Django si ha existido algún cambio en nuestra base de datos y/o es posible la creación de las tablas:
 
-C:\Users\chris\django\proyecto_1\empleado>cd \Users\chris\django\proyecto_1\entorno_1\Scripts
-
-C:\Users\chris\django\proyecto_1\entorno_1\Scripts>activate
-
-(entorno_1) C:\Users\chris\django\proyecto_1\entorno_1\Scripts>cd \Users\chris\django\proyecto_1\empleado
-
-(entorno_1) C:\Users\chris\django\proyecto_1\empleado>python manage.py makemigrations
+```bash
+(entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py makemigrations
+Migrations for 'exp':
+  applications\exp\migrations\0001_initial.py
+    + Create model Prueba
+```
 
 ![image](https://github.com/user-attachments/assets/73b4912e-5896-4558-a333-b0e1a170a116)
 
