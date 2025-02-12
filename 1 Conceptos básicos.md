@@ -475,14 +475,16 @@ urlpatterns = [
 
 ---
 
+## 7 Una arquitectura de templates
+
+### 7.1 una carpeta templates general
+
+Una buena practica es contruir una carpeta templates donde tengamos sub carpetas asociadas a las apps y dentro de ellas los correspondientes htmls. Construimos la carpeta como se indica:
 
 
- 
-## 6 Haciendo una carpeta templates general para el proyecto
 
-![image](https://github.com/user-attachments/assets/42daddf5-fdac-4407-af21-49194421d67d)
 
-62 Borramos la carpeta templates de la carpeta exp
+### 7.2 Borramos la carpeta templates de la carpeta exp
 
 63 Hacemos las siguientes modificaciones en el archivo base.py:
 
@@ -511,6 +513,11 @@ Cada aplicación, por buena práctica arquitectónica, debe poseer su propio arc
 Ahora llamamos éste urls.py de exp desde nuestro archivo urls.py general importando el paquete include:
 
 ![image](https://github.com/user-attachments/assets/2bfcca87-970b-45b9-ad0d-2ff69d19bd82)
+
+
+
+
+
 
 ## 8 Vistas genéricas
 
