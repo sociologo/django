@@ -483,26 +483,21 @@ Una buena práctica es contruir una carpeta templates donde tengamos sub carpeta
 
 ![image](https://github.com/user-attachments/assets/67f60d17-4cac-4d6d-9b59-c511e2452ef5)
 
-
-
-
-
 ### 7.3 Hacemos las siguientes modificaciones en el archivo base.py:
 
-![image](https://github.com/user-attachments/assets/75a7085a-d89e-4dbd-bc1c-bc980ae4c371)
+![image](https://github.com/user-attachments/assets/8769b9a4-10c9-4e2f-8b2c-03a6a2ffd4dd)
 
-y en la vista de nuestra carpeta experimental:
+### 7.4 Hacemos las siguientes modificaciones en la vista de nuestra aplicación exp:
 
-![image](https://github.com/user-attachments/assets/81afbe60-8bf1-4ceb-aa7b-1b80936d4ace)
+![image](https://github.com/user-attachments/assets/c805788e-a7d6-4818-a73c-200e3d3b8d40)
 
-### 7.4 Volvemos a cargar nuestro proyecto y vamos a la url home:
+### 7.5 Volvemos a cargar nuestro proyecto y vamos a la url home:
 
-(entorno_1) C:\Users\chris\django\proyecto_1\empleado>python manage.py runserver
-
-![image](https://github.com/user-attachments/assets/06fac228-4f8b-4efa-a323-fed2ef93da1f)
-
+![image](https://github.com/user-attachments/assets/2e92a4ba-a7ad-43d6-a8bb-f9eb355bde19)
 
 ---
+
+
 
 
 ## 8 Haciendo una carpeta parcial para cada app
