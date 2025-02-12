@@ -511,15 +511,15 @@ Ahora llamamos éste **urls.py** de la aplicacion exp desde nuestro archivo **ur
 
 ## 9 Primeros pasos en MVT
 
-1 Creemos la vista basada en clases ListView y observemos su comportamiento en un pequeño ejemplo en viwes.py de nuestra aplicación exp. Creamos la clase **Prueba_ListView**:
+1 Creemos la vista basada en clases ListView en nuestra aplicación exp. Para ello creamos la clase **Prueba_ListView**:
 
 ![image](https://github.com/user-attachments/assets/6ac03929-825c-487c-b612-462449862e0b)
 
-2 Agregamos al url en la aplicación exp:
+2 Agregamos el url en la aplicación exp:
 
 ![image](https://github.com/user-attachments/assets/f7b31011-cb1a-4c61-9a8c-f4dea81466fd)
 
-3 construímos el archivo html correspondiente llamado **lista** con el context_object_name interpolado (dentro de dobles llaves):
+3 Construímos el archivo **lista.html** con el context_object_name dentro de llaves dobles:
 
 ![image](https://github.com/user-attachments/assets/78534cf5-e683-4398-ade3-82be1d4e9e95)
 
