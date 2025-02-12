@@ -500,13 +500,17 @@ Una buena práctica es contruir una carpeta templates donde tengamos sub carpeta
 
 
 
-## 8 Haciendo una carpeta parcial para cada app
+## 8 Una arquitectura de urls
+
+Analogo a como lo hicimos con los templates, cada aplicación debe tener su propio archivo de urls, que solo van a ser llamadas en el archivo urls.py general. Creamos un archivo para la aplicación exp como se indica:
+
+![image](https://github.com/user-attachments/assets/9f4c8d9e-eebf-45bf-be33-a55bf809cb2f)
 
 
 
 
 
-Cada aplicación, por buena práctica arquitectónica, debe poseer su propio archivo de urls, urls.py, par que en el archivo urls.py original, sólo importemos. Ésto es lo que vamos a crear en nuestra aplicación de ejercicio exp.
+
 
 ![image](https://github.com/user-attachments/assets/e4fbfa3c-b82b-437e-9a0f-c88ca61fdb87)
 
