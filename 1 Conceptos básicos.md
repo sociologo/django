@@ -349,7 +349,7 @@ En el patrón MVC, el Controlador maneja la lógica de negocio y la interacción
 Terminología:\
 Aunque la funcionalidad es similar, la terminología difiere. En Django, lo que en MVC se llama Controlador se llama Vista, y lo que en MVC se llama Vista se llama Plantilla.
 
-Flujo de Trabajo:\
+Flujo de Trabajo:
 
 En MVC, el flujo típico es: Usuario → Controlador → Modelo → Vista → Usuario.
 
@@ -373,27 +373,50 @@ aca voy 19:22
  
 ## 6 La creación de una vista
 
-### 6.1 Dentro de la aplicacion **empleado**, en la carpeta applications, construyamos una nueva aplicacion llamada **exp** donde realizaremos todas nuestras pruebas.
+Haremos pruebas dentro de una nueva aplicacion que crearemos para tal efecto.
 
-C:\Users\chris>cd \Users\chris\django\proyecto_1\entorno_1\Scripts\
-C:\Users\chris\django\proyecto_1\entorno_1\Scripts>activate\
-(entorno_1) C:\Users\chris\django\proyecto_1\entorno_1\Scripts>cd \Users\chris\django\proyecto_1\empleado\applications
+### 6.1 La aplicacion exp
 
-(entorno_1) C:\Users\chris\django\proyecto_1\empleado\applications>django-admin startapp exp
+1 En la carpeta applications, construyamos una nueva aplicación llamada **exp**.
 
-52 Luego, en **base.py** agregamos la ruta de la aplicacion para instalarla.
+```bash
+(entorno_3) C:\mis_proyectos\emp3\empleado> cd applications
+(entorno_3) C:\mis_proyectos\emp3\empleado\applications> django-admin startapp exp
+```
 
-'applications.exp',
+2 En **base.py** agregamos la ruta de la aplicación para instalarla.
 
-53 Luego vamos a apps.py de la misma aplicación y agregamos la rura de la carpeta:
+```python
+INSTALLED_APPS = [
+   'django.contrib.admin',
+   'django.contrib.auth',
+   'django.contrib.contenttypes',
+   'django.contrib.sessions',
+   'django.contrib.messages',
+   'django.contrib.staticfiles',
 
-home: 'applications.exp'
+   # local apps
+   "applications.departamentos",
+   "applications.empleados",
+   'applications.exp'
+]
+```
+
+3 Vamos a **apps.py** de la misma aplicación y agregamos la ruta de la carpeta:
+
+```python
+from django.apps import AppConfig
+
+class ExpConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'applications.exp'
+```
 
 ![image](https://github.com/user-attachments/assets/348e7716-16b6-4032-8999-49d056411832)
 
-54 Dentro de la carpeta exp agregamos una nueva llamada templates, donde alojaremos todos nuestros htmls.
+4 Dentro de la carpeta exp agregamos una nueva llamada templates, donde alojaremos todos nuestros htmls.
 
-55 En views.py de exp agregamos las siguientes lineas de codigo:
+5 En views.py de exp agregamos las siguientes lineas de codigo:
 
 ```
 from django.views.generic import TemplateView
