@@ -502,7 +502,7 @@ Una buena práctica es contruir una carpeta templates donde tengamos sub carpeta
 
 ## 8 Una arquitectura de urls
 
-Analogo a como lo hicimos con los templates, cada aplicación debe tener su propio archivo de urls, que solo van a ser llamadas en el archivo urls.py general. Creamos un archivo para la aplicación exp como se indica:
+Análogo a como lo hicimos con los templates, cada aplicación debe tener su propio archivo de urls, que van a ser llamadas en el archivo **urls.py** general. Creamos un archivo **urls.py** para la aplicación exp como se indica:
 
 ![image](https://github.com/user-attachments/assets/9f4c8d9e-eebf-45bf-be33-a55bf809cb2f)
 
