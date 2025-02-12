@@ -513,13 +513,18 @@ Ahora llamamos éste **urls.py** de la aplicacion exp desde nuestro archivo **ur
 
 1 Creemos la vista basada en clases ListView en nuestra aplicación exp. Para ello creamos la clase **Prueba_ListView**:
 
-![image](https://github.com/user-attachments/assets/6ac03929-825c-487c-b612-462449862e0b)
+![image](https://github.com/user-attachments/assets/d06fcb00-7bf9-45fc-a457-7233e8bd8281)
+
 
 2 Agregamos el url en la aplicación exp:
 
-![image](https://github.com/user-attachments/assets/f7b31011-cb1a-4c61-9a8c-f4dea81466fd)
+![image](https://github.com/user-attachments/assets/0de9b66f-cb2c-4740-8a3f-5b43f96ce4e0)
+
 
 3 Construímos el archivo **lista.html** con el context_object_name dentro de llaves dobles:
+
+![image](https://github.com/user-attachments/assets/b5f74c2c-39c2-46b3-ab78-fa6207b2ce34)
+
 
 ![image](https://github.com/user-attachments/assets/78534cf5-e683-4398-ade3-82be1d4e9e95)
 
