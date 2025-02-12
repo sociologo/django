@@ -535,29 +535,51 @@ Ahora llamamos éste **urls.py** de la aplicacion exp desde nuestro archivo **ur
 
 La ORM de Django es una herramienta poderosa que permite a los desarrolladores interactuar con bases de datos de manera eficiente y efectiva utilizando Python, sin necesidad de escribir consultas SQL manualmente.
 
-Haremos que la ORM de Django trabaje construyendo nuestra primera base datos la que consistirá sólo en una tabla asociada a la base de datos que trea por defecto Django (sqlite3):
+1 Haremos que la ORM de Django trabaje construyendo nuestra primera base datos la que consistirá sólo en una tabla asociada a la base de datos que trea por defecto Django (sqlite3):
 
 ![image](https://github.com/user-attachments/assets/927e38c6-aa87-4fbe-b360-1073b0ea1c2e)
 
 
-Ahora le preguntaremos a Django si ha existido algún cambio en nuestra base de datos y/o es posible la creación de las tablas:
+2 Ahora le preguntaremos a Django si ha existido algún cambio en nuestra base de datos y/o es posible la creación de las tablas:
 
 ```bash
-(entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py makemigrations
+(entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py makemigrations
 Migrations for 'exp':
   applications\exp\migrations\0001_initial.py
     + Create model Prueba
 ```
 
-![image](https://github.com/user-attachments/assets/73b4912e-5896-4558-a333-b0e1a170a116)
+3 Ahora creamos la base de datos:
 
-Ahora creamos la base de datos:
+```bash
+(entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, exp, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying exp.0001_initial... OK
+  Applying sessions.0001_initial... OK
 
-(entorno_1) C:\Users\chris\django\proyecto_1\empleado>python manage.py migrate
+(entorno_3) C:\mis_proyectos\emp3\empleado>
+```
 
-![image](https://github.com/user-attachments/assets/5fc24361-f497-4a80-818a-a0c0caeb4e5a)
-
-Ahora, como podemos interactuar con el modelo creado? Esto se consigue con el administrador de Django a traves del archivo admin.py de exp. Ingresamos las siguientes lineas de codigo:
+4 Ahora, ¿coomo podemos interactuar con el modelo creado? Esto se consigue con el administrador de Django a traves del archivo admin.py de exp. Ingresamos las siguientes lineas de codigo:
 
 ![image](https://github.com/user-attachments/assets/bb13badc-6316-43c1-aa3d-240aa36a72fb)
 
