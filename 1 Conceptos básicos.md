@@ -581,25 +581,33 @@ Running migrations:
 
 4 Ahora, ¿coomo podemos interactuar con el modelo creado? Esto se consigue con el administrador de Django a traves del archivo admin.py de exp. Ingresamos las siguientes lineas de codigo:
 
-![image](https://github.com/user-attachments/assets/bb13badc-6316-43c1-aa3d-240aa36a72fb)
+![image](https://github.com/user-attachments/assets/7a89c4e4-80d5-4951-aad9-436a72e8484f)
 
-levantemos nuestro servidor y vayamos a la url admin:
+5 Creamos un superuser:
 
-(entorno_1) C:\Users\chris\django\proyecto_1\empleado>python manage.py runserver
+```bash
+(entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py createsuperuser
+Username (leave blank to use 'chris'):
+Email address: tarredwall@gmail.com
+Password:
+Password (again):
+Superuser created successfully.
 
-![image](https://github.com/user-attachments/assets/debc54e7-dec8-4241-89dc-b1d4b7ebe935)
+(entorno_3) C:\mis_proyectos\emp3\empleado>
+```
 
-bajemos nuestro servidor para en la terminal crear un superuser:
+6 Levantamos nuevamente nuestro servidor e ingresamos al administrador con nuestras credenciales:
 
-(entorno_1) C:\Users\chris\django\proyecto_1\empleado>python manage.py createsuperuser
+![image](https://github.com/user-attachments/assets/0a8d1951-de48-4032-941b-3a05cbea58b0)
 
-Username: chris\
-Email address: tarredwall@gmail.com\
-Password: cualquiercosa
 
-Levantamos nuevamente nuestro servidor e ingresamos al administrador con nuestras credenciales:
+---
 
-![image](https://github.com/user-attachments/assets/e077e7ed-8e07-4294-8a08-e586d475f348)
+
+
+
+
+
 
 Siguiendo el patron MVT agreguemos una vista, activemos su url, construyamos el respectivo html, levantemos nuestro servidor y vayamos al navegador:
 
