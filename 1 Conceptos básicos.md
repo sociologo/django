@@ -603,13 +603,15 @@ Superuser created successfully.
 
 ---
 
+aca voy
+termine el cap 21
 
 
 
 
 
 
-Siguiendo el patron MVT agreguemos una vista, activemos su url, construyamos el respectivo html, levantemos nuestro servidor y vayamos al navegador:
+7 Siguiendo el patron MVT agreguemos una vista, activemos su url, construyamos el respectivo html, levantemos nuestro servidor y vayamos al navegador:
 
 ![image](https://github.com/user-attachments/assets/c9d32b74-e475-4a3f-b568-5062c61abc6f)
 
