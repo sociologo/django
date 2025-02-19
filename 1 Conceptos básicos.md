@@ -656,6 +656,8 @@ urlpatterns = [
 
 ## 12 Implementando la base de datos Empleado.
 
+Tipos de campos en Django: https://docs.djangoproject.com/en/5.1/ref/models/fields/
+
 ![image](https://github.com/user-attachments/assets/8dac515d-6913-48b2-b0c2-f4048b827da5)
 
 1 En models.py de la app Departamentos construimos el modelo Departamento:
@@ -716,8 +718,12 @@ Running migrations:
 
 4 Y ya tenemos la tabla con funcionalidad en nuestro navegador:
 
-![image](https://github.com/user-attachments/assets/450ddc01-2aac-4f05-bf2e-af9864df56ab)
+![image](https://github.com/user-attachments/assets/eaff74d4-5663-4d5f-80e7-908100375af2)
 
+---
+aca voy martes 19 
+termine la leccion 25
+---
 
 
 
