@@ -669,7 +669,7 @@ class Departamento(models.Model):
    anulate = models.BooleanField("Anulado", default=False)
 
    def __str__(self):
-      return self.id + "-" + self.name + "-" + self.short_name
+      return str(self.id) + "-" + self.name + "-" + self.short_name
 ```
 
 
@@ -688,7 +688,7 @@ models.CharField('Nombre corto', max_length=20, unique=True)
 ```
 
 
-2 lo registramos en al admin.py de la aplicación departamentos
+2 Lo registramos en al admin.py de la aplicación departamentos
 
 ```python
 from django.contrib import admin # type: ignore
@@ -697,9 +697,16 @@ from .models import Departamento
 admin.site.register(Departamento)
 ```
 
-3 y ya tenemos la tabla con funcionalidad en nuestro navegador:
+3 Hacemos las migraciones:
+
+
+
+4 Y ya tenemos la tabla con funcionalidad en nuestro navegador:
 
 ![image](https://github.com/user-attachments/assets/450ddc01-2aac-4f05-bf2e-af9864df56ab)
+
+
+
 
 4 es importante enfatizar de que las migraciones para que surtan efecto deben pertenecer a las aplicaciones instaladas:
 
