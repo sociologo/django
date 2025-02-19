@@ -654,33 +654,7 @@ urlpatterns = [
 
 ---
 
-aca voy
-termine el cap 21
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-7 Siguiendo el patron MVT agreguemos una vista, activemos su url, construyamos el respectivo html, levantemos nuestro servidor y vayamos al navegador:
-
-![image](https://github.com/user-attachments/assets/c9d32b74-e475-4a3f-b568-5062c61abc6f)
-
-![image](https://github.com/user-attachments/assets/cdf0e17e-63d1-4f67-ba21-b45f65386bba)
-
-![image](https://github.com/user-attachments/assets/108500c0-761a-4c62-9f0a-2f09dfe2b8da)
-
-![image](https://github.com/user-attachments/assets/720a9d62-e42d-4f26-b164-9c4065ab9034)
-
-## 11 Implementando la base de datos Empleado.
+## 12 Implementando la base de datos Empleado.
 
 ![image](https://github.com/user-attachments/assets/8dac515d-6913-48b2-b0c2-f4048b827da5)
 
