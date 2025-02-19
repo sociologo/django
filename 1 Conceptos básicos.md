@@ -699,7 +699,20 @@ admin.site.register(Departamento)
 
 3 Hacemos las migraciones:
 
+```bash
+(entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py makemigrations
+Migrations for 'departamentos':
+  applications\departamentos\migrations\0001_initial.py
+    + Create model Departamento
 
+(entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, departamentos, exp, sessions
+Running migrations:
+  Applying departamentos.0001_initial... OK
+
+(entorno_3) C:\mis_proyectos\emp3\empleado>
+```
 
 4 Y ya tenemos la tabla con funcionalidad en nuestro navegador:
 
