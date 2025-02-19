@@ -658,26 +658,35 @@ urlpatterns = [
 
 ![image](https://github.com/user-attachments/assets/8dac515d-6913-48b2-b0c2-f4048b827da5)
 
-1 Construimos el modelo Departamento
+1 En models.py de la app Departamentos construimos el modelo Departamento:
 
-consideremos los siguientes parámetros de los campos:
+```python
+from django.db import models # type: ignore
+
+class Departamento(models.Model):
+   name = models.CharField("Nombre", max_length=50)
+   short_name = models.CharField("Nombre Corto", max_length=20)
+   anulate = models.BooleanField("Anulado", default=False)
+
+   def __str__(self):
+      return self.id + "-" + self.name + "-" + self.short_name
 ```
+
+
+```python
 models.CharField('Nombre', max_length=50, editable=False)
-```
-editable=False hace que el llenado del campo no se pueda editar.
+# editable=False hace que el llenado del campo no se pueda editar.
 
-```
 models.CharField('Nombre', max_length=50, blank=True)
-```
-blank=True hace que el llenado del campo no sea obligatorio.
-```
+# blank=True hace que el llenado del campo no sea obligatorio.
+
 models.BooleanField('Anulado', default=False)
-```
-default=False hace que el campo venga por defecto con la selección NO anulado.
-```
+# default=False hace que el campo venga por defecto con la selección NO anulado.
+
 models.CharField('Nombre corto', max_length=20, unique=True)
+# unique=True hace que el nombre del campo no se pueda volver a repetir.
 ```
-unique=True hace que el nombre del campo no se pueda volver a repetir.
+
 
 ![image](https://github.com/user-attachments/assets/d018d264-f6ad-4c59-812c-412922e2de22)
 
