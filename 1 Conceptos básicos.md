@@ -688,11 +688,14 @@ models.CharField('Nombre corto', max_length=20, unique=True)
 ```
 
 
-![image](https://github.com/user-attachments/assets/d018d264-f6ad-4c59-812c-412922e2de22)
-
 2 lo registramos en al admin.py de la aplicación departamentos
 
-![image](https://github.com/user-attachments/assets/bb08b6a6-6a9c-46a0-9629-d8b0bd79dd4f)
+```python
+from django.contrib import admin # type: ignore
+from .models import Departamento
+
+admin.site.register(Departamento)
+```
 
 3 y ya tenemos la tabla con funcionalidad en nuestro navegador:
 
