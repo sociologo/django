@@ -361,9 +361,6 @@ Plantilla (Template): Diseñamos un archivo HTML que muestra la lista de product
 
 En resumen, el patrón MVT de Django es una adaptación del patrón MVC, con una terminología y flujo de trabajo ligeramente diferentes, pero con el mismo objetivo de separar la lógica de negocio, la lógica de presentación y la interfaz de usuario.
 
-aca voy 19:22
-11-02-25
-
  
 ## 6 La creación de una vista
 
@@ -594,11 +591,79 @@ Superuser created successfully.
 
 ![image](https://github.com/user-attachments/assets/0a8d1951-de48-4032-941b-3a05cbea58b0)
 
+7 Podemos ir ahora llenando nuestra tabla **Prueba** desde el administrador:
+
+![image](https://github.com/user-attachments/assets/543618a3-b9b1-4d22-8e0c-efa207cbcc9f)
+
+![image](https://github.com/user-attachments/assets/d5b848d7-4e7b-473e-a784-dbab9fdeba40)
+![image](https://github.com/user-attachments/assets/35bb9ed6-611d-4a13-b83b-c52dc2cea486)
+
+8 Ahora construyamos la vista basada en clases ModeloPruebaListView en views.py de la app exp:
+
+```python
+from django.views.generic import TemplateView, ListView  # type: ignore
+
+from .models import Prueba
+
+class IndexView(TemplateView):
+   template_name = 'home/home.html'
+
+class Prueba_ListView(ListView):
+   template_name = "home/lista.html"
+   queryset = ["uno","dos","tres"]
+   context_object_name = "lista_prueba"
+
+class ModeloPruebaListView(ListView):
+    model = Prueba
+    template_name = "home/pruebas.html"
+    context_object_name = "lista_prueba"
+```
+
+9 Activamos la url asociada a la vista en urls.py de la app exp:
+
+```python
+from django.urls import path # type: ignore
+from . import views
+
+urlpatterns = [
+   path('home/', views.IndexView.as_view()),
+   path('lista/', views.Prueba_ListView.as_view()),
+   path('lista-prueba/', views.ModeloPruebaListView.as_view()),
+```
+
+10 Creamos nuestro html pruebas.html dentro de la carpeta templates/home:
+
+```html
+<h1>Listando elementos desde una base de datos</h1>
+
+{{lista_prueba}}
+
+<ul>
+   {% for prueba in lista_prueba %}
+      <li>
+         {{prueba.titulo}}
+      </li>
+   {% endfor %}   
+</ul>
+```
+
+11 Vemos el despliegue:
+
+![image](https://github.com/user-attachments/assets/cdae0be2-95fd-4f3e-b435-c0c33f0e2b8d)
+
 
 ---
 
 aca voy
 termine el cap 21
+
+
+
+
+
+
+
+
 
 
 
