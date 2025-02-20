@@ -799,7 +799,7 @@ Ingresamos la contraseña 123456:
 
 Le damos siguiente a todo:
 
-Y finalizamos dandole un click a Stack Builder:
+Y finalizamos sin seleccionar Stack Builder:
 
 ![image](https://github.com/user-attachments/assets/5844465e-3838-4e5f-913a-65af349287f1)
 
