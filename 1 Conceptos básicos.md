@@ -840,7 +840,17 @@ dbempleado101=#
 
 Instalamos el conector psycopg2:
 
-![image](https://github.com/user-attachments/assets/e8cf2aa5-6620-4dc6-9b88-db1db45b5118)
+```bash
+(entorno_3) C:\mis_proyectos\emp3\empleado>pip install psycopg2
+Collecting psycopg2
+  Downloading psycopg2-2.9.10-cp312-cp312-win_amd64.whl.metadata (5.0 kB)
+Downloading psycopg2-2.9.10-cp312-cp312-win_amd64.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 29.1 MB/s eta 0:00:00
+Installing collected packages: psycopg2
+Successfully installed psycopg2-2.9.10
+
+(entorno_3) C:\mis_proyectos\emp3\empleado>
+```
 
 Configuramos el archivo local.py
 
