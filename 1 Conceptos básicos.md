@@ -854,6 +854,27 @@ Successfully installed psycopg2-2.9.10
 
 Configuramos el archivo local.py
 
+```bash
+from .base import *
+
+DEBUG = True
+
+ALLOWED_HOSTS = []
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dbempleado101',
+        'USER': 'chris101',
+        'PASSWORD': 'nueva123456',
+        'HOST': 'localhost',
+        'PORT': '5432'
+    }
+}
+
+STATIC_URL = 'static/'
+```
+
 ![image](https://github.com/user-attachments/assets/5b3a443c-879c-4b4f-827c-ee79e4080ca7)
 
 ![image](https://github.com/user-attachments/assets/35ef59a6-daea-4b55-8091-f3a9a0a49e7d)
