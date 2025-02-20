@@ -747,17 +747,33 @@ class Empleado(models.Model):
 
 2 Hacemos las migraciones.
 
+```bash
+(entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py makemigrations
+Migrations for 'empleados':
+  applications\empleados\migrations\0001_initial.py
+    + Create model Empleado
+
+(entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, departamentos, empleados, exp, sessions
+Running migrations:
+  Applying empleados.0001_initial... OK
+
+(entorno_3) C:\mis_proyectos\emp3\empleado>
+```
+
 3 Registramos en el **admin.py** de la app empleados la tabla recien construida.
 
 ```python
 from django.contrib import admin # type: ignore
 from .models import Empleado
 
-admin.site.register()
+admin.site.register(Empleado)
 ```
 
 4 Abrimos el administrador e ingresamos un registro.
 
+![image](https://github.com/user-attachments/assets/0ba07d8b-73f5-44fb-a212-973398910d09)
 
 
 
