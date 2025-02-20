@@ -775,12 +775,6 @@ admin.site.register(Empleado)
 
 ![image](https://github.com/user-attachments/assets/0ba07d8b-73f5-44fb-a212-973398910d09)
 
-
-
-
-
-
-
 ## 14 PostgreSQL y Django
 
 1 Descargemos el instalador de PostgreSQL
@@ -803,7 +797,7 @@ Y finalizamos sin seleccionar Stack Builder:
 
 ![image](https://github.com/user-attachments/assets/5844465e-3838-4e5f-913a-65af349287f1)
 
-Ahora que tenemos instalado nuestro postgreSQL en local, podemos acceder a la consola:
+2 Ahora que tenemos instalado nuestro postgreSQL en local, podemos acceder a la consola:
 
 **SQL Shell (psql)**
 
@@ -842,16 +836,7 @@ dbempleado101=#
 
 
 
-
-
-
-
-
-
-
-
-
-Ahora conectamos Django a nuestra base de datos PostgreSQL:
+3 Ahora conectamos Django a nuestra base de datos PostgreSQL:
 
 Instalamos el conector psycopg2:
 
