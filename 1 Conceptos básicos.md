@@ -875,6 +875,44 @@ STATIC_URL = 'static/'
 
 5 Hacemos las migraciones.
 
+```bash
+postgres=# ALTER DATABASE dbempleado101 OWNER TO chris101;
+ALTER DATABASE
+postgres=#
+```
+```bash
+(entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py makemigrations
+No changes detected
+
+(entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, departamentos, empleados, exp, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying departamentos.0001_initial... OK
+  Applying empleados.0001_initial... OK
+  Applying exp.0001_initial... OK
+  Applying sessions.0001_initial... OK
+
+(entorno_3) C:\mis_proyectos\emp3\empleado>
+```
+
 6 Para ingresar al administrador debemos volver a crear un super usuario pues nuestra base de datos en PostgreSQL es nueva y no tiene registrado ninguno.
 
 ![image](https://github.com/user-attachments/assets/85ac7202-aba1-44a2-b1c3-2c88f36f19db)
