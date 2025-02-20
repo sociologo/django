@@ -833,9 +833,6 @@ ALTER ROLE
 dbempleado101=#
 ```
 
-
-
-
 3 Ahora conectamos Django a nuestra base de datos PostgreSQL:
 
 Instalamos el conector psycopg2:
@@ -852,7 +849,7 @@ Successfully installed psycopg2-2.9.10
 (entorno_3) C:\mis_proyectos\emp3\empleado>
 ```
 
-Configuramos el archivo local.py
+4 Configuramos el archivo local.py
 
 ```bash
 from .base import *
@@ -875,17 +872,14 @@ DATABASES = {
 STATIC_URL = 'static/'
 ```
 
-![image](https://github.com/user-attachments/assets/5b3a443c-879c-4b4f-827c-ee79e4080ca7)
 
-![image](https://github.com/user-attachments/assets/35ef59a6-daea-4b55-8091-f3a9a0a49e7d)
+5 Hacemos las migraciones.
 
-![image](https://github.com/user-attachments/assets/69184304-e843-4b70-a3c1-320f539eaee1)
-
-Debemos volver a crear un super usuario!
+6 Para ingresar al administrador debemos volver a crear un super usuario pues nuestra base de datos en PostgreSQL es nueva y no tiene registrado ninguno.
 
 ![image](https://github.com/user-attachments/assets/85ac7202-aba1-44a2-b1c3-2c88f36f19db)
 
-Pues nuestra base de datos en PostgreSQL es nueva y no tiene registrado ningun usuario.
+
 
 Ingresamos como contraseña 123456:
 
