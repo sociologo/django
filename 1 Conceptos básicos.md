@@ -674,7 +674,6 @@ class Departamento(models.Model):
       return str(self.id) + "-" + self.name + "-" + self.short_name
 ```
 
-
 ```python
 models.CharField('Nombre', max_length=50, editable=False)
 # editable=False hace que el llenado del campo no se pueda editar.
@@ -688,7 +687,6 @@ models.BooleanField('Anulado', default=False)
 models.CharField('Nombre corto', max_length=20, unique=True)
 # unique=True hace que el nombre del campo no se pueda volver a repetir.
 ```
-
 
 2 Lo registramos en al admin.py de la aplicación departamentos
 
@@ -721,27 +719,53 @@ Running migrations:
 ![image](https://github.com/user-attachments/assets/eaff74d4-5663-4d5f-80e7-908100375af2)
 
 ---
-aca voy martes 19 
-termine la leccion 25
----
+
+
+## 13 Claves foráneas.
+
+1 Construyamos el modelo **Empleado** en la app **empleados**
+
+```python
+from django.db import models # type: ignore
+from applications.departamentos.models import Departamento
+
+class Empleado(models.Model):
+   JOB_CHOICES = (
+      ("0","Sociólogo"),
+      ("1","Antropólogo"),
+      ("2","Psicólogo"),
+      ("3","Economista")
+   )
+   first_name = models.CharField("Nombres", max_length=60)
+   last_name = models.CharField("Apellidos", max_length=60)
+   job = models.CharField("Trabajo", max_length=1, choices=JOB_CHOICES)
+   departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
+   
+   def __str__(self):
+      return str(self.id) + "-" + self.first_name + "-" + self.last_name
+```
+
+2 Hacemos las migraciones.
+
+3 Registramos en el **admin.py** de la app empleados la tabla recien construida.
+
+```python
+from django.contrib import admin # type: ignore
+from .models import Empleado
+
+admin.site.register()
+```
+
+4 Abrimos el administrador e ingresamos un registro.
 
 
 
-4 es importante enfatizar de que las migraciones para que surtan efecto deben pertenecer a las aplicaciones instaladas:
 
-![image](https://github.com/user-attachments/assets/c1ed3f50-4e6a-47c3-8297-adcfa3b34148)
 
-## 12 Claves foráneas.
 
-![image](https://github.com/user-attachments/assets/d11b2bc9-b07a-4756-af4c-4695d8b1ab88)
 
-![image](https://github.com/user-attachments/assets/9ea1d153-190b-4e03-ad5f-a703a72c8583)
 
-![image](https://github.com/user-attachments/assets/25ba4780-3b80-4ebc-9c9b-26061c083c5c)
-
-![image](https://github.com/user-attachments/assets/2ec89b2e-554e-464d-8b5e-3d9d7ecb39f4)
-
-## 13 PostgreSQL y Django
+## 14 PostgreSQL y Django
 
 1 Descargemos el instalador de PostgreSQL
 
