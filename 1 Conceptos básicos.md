@@ -813,8 +813,31 @@ Damos enter hasta **Contraseña para usuario postgres:** para indicarle que carg
 
 Creamos una base de datos y un usuario al que le damos permisos para acceder a la base de datos recien creada:
 
-![image](https://github.com/user-attachments/assets/33066c2b-e8a5-433e-96c5-02388ec81b99)
+```bash
+Server [localhost]:
+Database [postgres]:
+Port [5432]:
+Username [postgres]:
+Contraseña para usuario postgres:
 
+psql (16.4)
+ADVERTENCIA: El código de página de la consola (850) difiere del código
+            de página de Windows (1252).
+            Los caracteres de 8 bits pueden funcionar incorrectamente.
+            Vea la página de referencia de psql «Notes for Windows users»
+            para obtener más detalles.
+Digite «help» para obtener ayuda.
+
+postgres=# CREATE DATABASE dbempleado101;
+CREATE DATABASE
+postgres=# CREATE USER chris101;
+CREATE ROLE
+postgres=# \c dbempleado101;
+Ahora está conectado a la base de datos «dbempleado101» con el usuario «postgres».
+dbempleado101=# ALTER ROLE chris101 WITH PASSWORD 'nueva123456';
+ALTER ROLE
+dbempleado101=#
+```
 
 
 
