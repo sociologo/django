@@ -915,21 +915,39 @@ Running migrations:
 
 6 Para ingresar al administrador debemos volver a crear un super usuario pues nuestra base de datos en PostgreSQL es nueva y no tiene registrado ninguno.
 
-![image](https://github.com/user-attachments/assets/85ac7202-aba1-44a2-b1c3-2c88f36f19db)
-
-
-
 Ingresamos como contraseña 123456:
 
-![image](https://github.com/user-attachments/assets/3a6ea903-e48d-42f6-aa54-aa4d933a8881)
+```bash
+(entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py createsuperuser
+Username (leave blank to use 'chris'):
+Email address: tarredwall@gmail.com
+Password:
+Password (again):
+This password is too short. It must contain at least 8 characters.
+This password is too common.
+This password is entirely numeric.
+Bypass password validation and create user anyway? [y/N]: y
+Superuser created successfully.
 
-y ya estamos conectados:
+(entorno_3) C:\mis_proyectos\emp3\empleado>
+```
 
-![image](https://github.com/user-attachments/assets/c3962e0c-2636-43ea-bf4f-75a8e3ba1e19)
+7 y ya estamos conectados:
 
-## 14 El Administrador de Django
+![image](https://github.com/user-attachments/assets/6c865fc3-ae15-402f-aee1-a12abd4c0e22)
 
-### 14.1 La clase meta
+---
+Aca voy 20 febrero 2024
+Estoy iniciando la leccion 30
+
+---
+
+
+
+
+## 15 El Administrador de Django
+
+### 15.1 La clase meta
 
 La clase Meta es completamente opcional, pero es muy útil para ajustar y personalizar el comportamiento de tus modelos en Django.
 
@@ -995,6 +1013,9 @@ Hacemos las migraciones y levantamos el servidor:
 veamos como nos queda el administrador:
 
 ![image](https://github.com/user-attachments/assets/ea92d0a5-e7f6-47af-8c17-170a6e92a21b)
+
+
+
 
 
 ## 15 Creando modelos dentro de una aplicación ya existente
