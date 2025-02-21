@@ -1051,8 +1051,26 @@ admin.site.register(Habilidades)
 
 ### 16.3 Hagamos las migraciones.
 
+```bash
+(entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py makemigrations
+Migrations for 'empleados':
+  applications\empleados\migrations\0002_habilidades_empleado_avatar_empleado_habilidades.py
+    + Create model Habilidades
+    + Add field avatar to empleado
+    + Add field habilidades to empleado
+
+(entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, departamentos, empleados, exp, sessions
+Running migrations:
+  Applying empleados.0002_habilidades_empleado_avatar_empleado_habilidades... OK
+
+(entorno_3) C:\mis_proyectos\emp3\empleado>
+```
+
 ### 16.4 Veamos los modelos en el administrador:
 
+![image](https://github.com/user-attachments/assets/6ddd09e3-8107-4cfb-8a84-4dbfddf3011a)
 
 
 ### 16.5 Agreguemos nuevos empleados con habilidades específicas:
