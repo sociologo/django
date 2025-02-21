@@ -998,12 +998,12 @@ Hacemos las migraciones:
 
 
 
-## 15 Creando modelos dentro de una aplicación ya existente
+## 16 Creando modelos dentro de una aplicación ya existente
 
-15.1 Creemos un modelo **Habilidades** en relación muchos a muchos con el modelo **empleado** e instalemos pillow para poder hacer uso del atributo ImageField:
+### 16.1 Creemos un modelo **Habilidades** en relación muchos a muchos con el modelo **empleado** e instalemos pillow para poder hacer uso del atributo ImageField:
 
 ```bash
-(entorno_1) C:\Users\chris\django\proyecto_1\empleado>pip install pillow
+(entorno_3) C:\mis_proyectos\emp3\empleado>pip install pillow
 ```
 
 ```python
@@ -1039,7 +1039,7 @@ class Empleado(models.Model):
       return str(self.id) + "-" + self.first_name + "-" + self.last_name
 ```
 
-15.2 Registremos la nueva tabla en el archivo **admin.py** de la aplicación **empleados**:
+### 16.2 Registremos la nueva tabla en el archivo **admin.py** de la aplicación **empleados**:
 
 ```python
 from django.contrib import admin # type: ignore
@@ -1049,13 +1049,13 @@ admin.site.register(Empleado)
 admin.site.register(Habilidades)
 ```
 
-15.3 Hagamos las migraciones.
+### 16.3 Hagamos las migraciones.
 
-15.4 Veamos los modelos en el administrador:
+### 16.4 Veamos los modelos en el administrador:
 
 
 
-15.5 Agreguemos nuevos empleados con habilidades específicas:
+### 16.5 Agreguemos nuevos empleados con habilidades específicas:
 
 ![image](https://github.com/user-attachments/assets/4f17c772-b53c-4f09-a9bf-ac7e34f7e95a)
 
