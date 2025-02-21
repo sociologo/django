@@ -931,15 +931,17 @@ Estoy iniciando la leccion 30
 
 ## 15 El Administrador de Django
 
-### 15.1 La clase meta
+### 15.1 La Class Meta
 
-La clase Meta es completamente opcional, pero es muy útil para ajustar y personalizar el comportamiento de tus modelos en Django.
+La clase Meta es opcional, pero muy útil para ajustar y personalizar el comportamiento de los modelos en el administrador de Django.
 
-En Django, la clase Meta es una clase interna que se utiliza dentro de los modelos para definir opciones de metadatos. Estas opciones permiten personalizar el comportamiento del modelo sin tener que modificar el código principal del modelo. Aquí hay algunas de las cosas que puedes hacer con la clase Meta:
+La clase Meta es una clase interna que se utiliza dentro de los modelos para definir opciones de metadatos. Estas opciones permiten personalizar el comportamiento del modelo sin tener que modificar su código principal. 
 
-14.1 Ordenar los resultados: Puedes especificar el orden predeterminado de los registros cuando se recuperan de la base de datos.
+Algunas de las cosas que puedes hacer con la clase Meta:
 
-```
+#### 15.1 Ordenar los resultados: Puedes especificar el orden predeterminado de los registros cuando se recuperan de la base de datos.
+
+```python
 class Persona(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
@@ -948,9 +950,9 @@ class Persona(models.Model):
         ordering = ['last_name']
 ```
 
-14.2 Nombres legibles: Puedes definir nombres legibles para el modelo en singular y plural.
+#### 15.2 Nombres legibles: Puedes definir nombres legibles para el modelo en singular y plural.
 
-```
+```python
 class Persona(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
@@ -960,9 +962,9 @@ class Persona(models.Model):
         verbose_name_plural = "Personas"
 ```
 
-14.3 Permisos personalizados: Puedes definir permisos específicos para el modelo.
+#### 15.3 Permisos personalizados: Puedes definir permisos específicos para el modelo.
 
-```
+```python
 class Persona(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
@@ -971,19 +973,17 @@ class Persona(models.Model):
         permissions = [
             ("can_view_persona", "Can view persona"),
         ]
-
 ```
 
-14.4 Nombre de la tabla: Puedes especificar el nombre de la tabla en la base de datos.
+#### 15.4 Nombre de la tabla: Puedes especificar el nombre de la tabla en la base de datos.
 
-```
+```python
 class Persona(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
 
     class Meta:
         db_table = 'mi_tabla_persona'
-
 ```
 
 Implementemos algunos cambios con ésta clase en nuesto modelo Departamento:
@@ -997,6 +997,11 @@ Hacemos las migraciones y levantamos el servidor:
 veamos como nos queda el administrador:
 
 ![image](https://github.com/user-attachments/assets/ea92d0a5-e7f6-47af-8c17-170a6e92a21b)
+
+
+
+
+
 
 
 
