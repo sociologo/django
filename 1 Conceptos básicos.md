@@ -1013,9 +1013,42 @@ veamos como nos queda el administrador:
 
 15.1 Creemos un modelo **Habilidades** en relación muchos a muchos con el modelo **empleado** e instalemos pillow para poder hacer uso del atributo ImageField:
 
+```bash
 (entorno_1) C:\Users\chris\django\proyecto_1\empleado>pip install pillow
+```
 
-![image](https://github.com/user-attachments/assets/0d9618aa-cee2-4c4c-b634-51344ff8f7f6)
+```python
+from django.db import models # type: ignore
+from applications.departamentos.models import Departamento
+
+class Habilidades(models.Model):
+
+   habilidad = models.CharField('Habilidad', max_length=50)
+
+   class Meta:
+      verbose_name = 'Habilidad'
+      verbose_name_plural = 'Habilidades'
+
+   def __str__(self):
+      return str(self.id) + '-' + self.habilidad
+
+class Empleado(models.Model):
+   JOB_CHOICES = (
+      ("0","Sociólogo"),
+      ("1","Antropólogo"),
+      ("2","Psicólogo"),
+      ("3","Economista")
+   )
+   first_name = models.CharField("Nombres", max_length=60)
+   last_name = models.CharField("Apellidos", max_length=60)
+   job = models.CharField("Trabajo", max_length=1, choices=JOB_CHOICES)
+   departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
+   avatar = models.ImageField(upload_to = 'empleado', blank = True, null = True)
+   habilidades = models.ManyToManyField(Habilidades)
+   
+   def __str__(self):
+      return str(self.id) + "-" + self.first_name + "-" + self.last_name
+```
 
 15.2 Registremos la nueva tabla en el archivo **admin.py** de la aplicación **empleados**:
 
