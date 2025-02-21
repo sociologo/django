@@ -1126,10 +1126,14 @@ admin.site.register(Habilidades)
 ![image](https://github.com/user-attachments/assets/8cf7d5af-488c-40d7-8bc1-3c9ca1469546)
 
 
+---
+Aca voy
+21 febrero
+inicio la leccion 33
+---
 
 
-
-17.2 Buscadores y filtros
+### 17.2 Buscadores y filtros
 
 ![image](https://github.com/user-attachments/assets/1e13fd86-6592-44bb-b07a-9fbd64ab9cf2)
 
@@ -1141,7 +1145,7 @@ Podemos integrar una interfaz mas agradable paras seleccionar atributos en relac
 
 ![image](https://github.com/user-attachments/assets/43c1a300-d1d5-4135-935d-0560e3677e98)
 
-17.3 Agregar campos en el despliegue de registros del administrador que no formen parte de los modelos sino que sean producto de alguna operacion sobre los campos de un mismo registro
+### 17.3 Agregar campos en el despliegue de registros del administrador que no formen parte de los modelos sino que sean producto de alguna operacion sobre los campos de un mismo registro
 
 Podemos añadir una columna que integre primer y segundo apellido de cada registro:
 
