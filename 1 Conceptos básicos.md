@@ -992,18 +992,7 @@ La opción unique_together en la clase Meta de un modelo Django se utiliza para 
 
 ![image](https://github.com/user-attachments/assets/02a551bf-d8c0-4a1f-8c50-311b3d6af117)
 
-Hacemos las migraciones y levantamos el servidor:
-
-![image](https://github.com/user-attachments/assets/4a13f415-0027-40ca-9486-67fdac98371a)
-
-veamos como nos queda el administrador:
-
-![image](https://github.com/user-attachments/assets/ea92d0a5-e7f6-47af-8c17-170a6e92a21b)
-
-
-
-
-
+Hacemos las migraciones:
 
 
 
