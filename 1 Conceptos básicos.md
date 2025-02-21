@@ -990,7 +990,25 @@ Implementemos algunos cambios con ésta clase en nuesto modelo Departamento:
 
 La opción unique_together en la clase Meta de un modelo Django se utiliza para especificar que una combinación de campos debe ser única en la base de datos. Esto significa que no se permitirán dos filas con la misma combinación de valores en esos campos.
 
-![image](https://github.com/user-attachments/assets/02a551bf-d8c0-4a1f-8c50-311b3d6af117)
+```python
+from django.db import models # type: ignore
+
+class Departamento(models.Model):
+   name = models.CharField("Nombre", max_length=50)
+   short_name = models.CharField("Nombre Corto", max_length=20)
+   anulate = models.BooleanField("Anulado", default=False)
+
+   class Meta:
+      verbose_name = "mi depa"
+      verbose_name_plural = "mis depas"
+      ordering = ['-name']
+      unique_together = ['name', 'short_name']
+
+
+
+   def __str__(self):
+      return str(self.id) + "-" + self.name + "-" + self.short_name
+```
 
 ## 16 Creando modelos dentro de una aplicación ya existente
 
