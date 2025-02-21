@@ -988,6 +988,8 @@ class Persona(models.Model):
 
 Implementemos algunos cambios con ésta clase en nuesto modelo Departamento:
 
+La opción unique_together en la clase Meta de un modelo Django se utiliza para especificar que una combinación de campos debe ser única en la base de datos. Esto significa que no se permitirán dos filas con la misma combinación de valores en esos campos.
+
 ![image](https://github.com/user-attachments/assets/02a551bf-d8c0-4a1f-8c50-311b3d6af117)
 
 Hacemos las migraciones y levantamos el servidor:
