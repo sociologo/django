@@ -992,12 +992,6 @@ La opción unique_together en la clase Meta de un modelo Django se utiliza para 
 
 ![image](https://github.com/user-attachments/assets/02a551bf-d8c0-4a1f-8c50-311b3d6af117)
 
-Hacemos las migraciones:
-
-
-
-
-
 ## 16 Creando modelos dentro de una aplicación ya existente
 
 ### 16.1 Creemos un modelo **Habilidades** en relación muchos a muchos con el modelo **empleado** e instalemos pillow para poder hacer uso del atributo ImageField:
@@ -1075,13 +1069,10 @@ Running migrations:
 
 ### 16.5 Agreguemos nuevos empleados con habilidades específicas:
 
-![image](https://github.com/user-attachments/assets/4f17c772-b53c-4f09-a9bf-ac7e34f7e95a)
+![image](https://github.com/user-attachments/assets/1c61a018-1f4f-40a9-a5cd-1a4ace47566d)
 
-![image](https://github.com/user-attachments/assets/b2b0e43f-3a98-4be4-adce-4cc7009937c9)
 
-![image](https://github.com/user-attachments/assets/7857e781-1b20-4567-bff2-cf136e529e5a)
 
-![image](https://github.com/user-attachments/assets/1352732a-fa2b-4de1-8fe2-6828b822ffed)
 
 ## 16 Diseñar un despliegue de registros al administrador de Django para el modelo empleados
 
