@@ -921,13 +921,6 @@ Superuser created successfully.
 ![image](https://github.com/user-attachments/assets/6c865fc3-ae15-402f-aee1-a12abd4c0e22)
 
 ---
-Aca voy 20 febrero 2024
-Estoy iniciando la leccion 30
-
----
-
-
-
 
 ## 15 El Administrador de Django
 
@@ -986,7 +979,7 @@ class Persona(models.Model):
         db_table = 'mi_tabla_persona'
 ```
 
-Implementemos algunos cambios con ésta clase en nuesto modelo Departamento:
+#### 15.5 Implementemos algunos cambios con ésta clase en nuesto modelo Departamento:
 
 La opción unique_together en la clase Meta de un modelo Django se utiliza para especificar que una combinación de campos debe ser única en la base de datos. Esto significa que no se permitirán dos filas con la misma combinación de valores en esos campos.
 
@@ -1004,10 +997,26 @@ class Departamento(models.Model):
       ordering = ['-name']
       unique_together = ['name', 'short_name']
 
-
-
    def __str__(self):
       return str(self.id) + "-" + self.name + "-" + self.short_name
+```
+
+#### 15.6 Apliquemos las migraciones:
+
+```bash
+(entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py makemigrations
+Migrations for 'departamentos':
+  applications\departamentos\migrations\0002_alter_departamento_options_and_more.py
+    ~ Change Meta options on departamento
+    ~ Alter unique_together for departamento (1 constraint(s))
+
+(entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, departamentos, empleados, exp, sessions
+Running migrations:
+  Applying departamentos.0002_alter_departamento_options_and_more... OK
+
+(entorno_3) C:\mis_proyectos\emp3\empleado>
 ```
 
 ## 16 Creando modelos dentro de una aplicación ya existente
