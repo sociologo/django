@@ -1107,9 +1107,27 @@ Running migrations:
 
 El atributo **list_display** en Django se utiliza en el archivo **admin.py** para especificar qué campos de un modelo deben mostrarse en la vista de lista del panel de administración. Esto es especialmente útil para proporcionar una visión general rápida de las instancias del modelo. 
 
-![image](https://github.com/user-attachments/assets/ba7709cc-2d2f-4398-a62e-6e8bd5e2f299)
+```python
+from django.contrib import admin # type: ignore
+from .models import Empleado, Habilidades
 
-![image](https://github.com/user-attachments/assets/2b266887-bca5-42ea-b94f-a60e759ade1d)
+class EmpleadoAdmin(admin.ModelAdmin):
+   list_display = (
+      'first_name',
+      'last_name',
+      'departamento',
+      'job'
+   )
+
+admin.site.register(Empleado, EmpleadoAdmin)
+admin.site.register(Habilidades)
+```
+
+![image](https://github.com/user-attachments/assets/8cf7d5af-488c-40d7-8bc1-3c9ca1469546)
+
+
+
+
 
 17.2 Buscadores y filtros
 
