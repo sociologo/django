@@ -1041,15 +1041,19 @@ class Empleado(models.Model):
 
 15.2 Registremos la nueva tabla en el archivo **admin.py** de la aplicación **empleados**:
 
-![image](https://github.com/user-attachments/assets/0f6a19cb-8538-46d8-852e-6e836ba168a1)
+```python
+from django.contrib import admin # type: ignore
+from .models import Empleado, Habilidades
 
-15.3 Bajemos el servidor, hagamos las migraciones y reiniciemos:
+admin.site.register(Empleado)
+admin.site.register(Habilidades)
+```
 
-![image](https://github.com/user-attachments/assets/aedef6c3-9b2f-443e-9aeb-a5852370d12e)
+15.3 Hagamos las migraciones.
 
-15.4 Ahora tenemos dos modelos en la aplicación **EMPLEADOS**:
+15.4 Veamos los modelos en el administrador:
 
-![image](https://github.com/user-attachments/assets/709648ff-374a-4819-a1e9-0cf54bffdad8)
+
 
 15.5 Agreguemos nuevos empleados con habilidades específicas:
 
