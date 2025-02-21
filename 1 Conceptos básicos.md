@@ -1101,17 +1101,17 @@ Running migrations:
 
 
 
-## 16 Diseñar un despliegue de registros al administrador de Django para el modelo empleados
+## 17 Diseñar un despliegue de registros al administrador de Django para el modelo empleados
 
-### 16.1 El atributo list_display()
+### 17.1 El atributo list_display()
 
-El atributo list_display en Django se utiliza en la clase ModelAdmin para especificar qué campos de un modelo deben mostrarse en la vista de lista del panel de administración. Esto es especialmente útil para proporcionar una visión general rápida de las instancias del modelo. 
+El atributo **list_display** en Django se utiliza en el archivo **admin.py** para especificar qué campos de un modelo deben mostrarse en la vista de lista del panel de administración. Esto es especialmente útil para proporcionar una visión general rápida de las instancias del modelo. 
 
 ![image](https://github.com/user-attachments/assets/ba7709cc-2d2f-4398-a62e-6e8bd5e2f299)
 
 ![image](https://github.com/user-attachments/assets/2b266887-bca5-42ea-b94f-a60e759ade1d)
 
-16.2 Buscadores y filtros
+17.2 Buscadores y filtros
 
 ![image](https://github.com/user-attachments/assets/1e13fd86-6592-44bb-b07a-9fbd64ab9cf2)
 
@@ -1123,7 +1123,7 @@ Podemos integrar una interfaz mas agradable paras seleccionar atributos en relac
 
 ![image](https://github.com/user-attachments/assets/43c1a300-d1d5-4135-935d-0560e3677e98)
 
-16.3 Agregar campos en el despliegue de registros del administrador que no formen parte de los modelos sino que sean producto de alguna operacion sobre los campos de un mismo registro
+17.3 Agregar campos en el despliegue de registros del administrador que no formen parte de los modelos sino que sean producto de alguna operacion sobre los campos de un mismo registro
 
 Podemos añadir una columna que integre primer y segundo apellido de cada registro:
 
@@ -1131,7 +1131,12 @@ Podemos añadir una columna que integre primer y segundo apellido de cada regist
 
 ![image](https://github.com/user-attachments/assets/6a58b3a7-16ee-47f8-a86b-75178569292c)
 
-## 17 Algunas apps de terceros
+
+
+
+
+
+## 18 Algunas apps de terceros
 
 ### 17.1 La app Django CKEditor
 
