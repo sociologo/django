@@ -1230,6 +1230,8 @@ admin.site.register(Habilidades)
 
 ## 18 La app CKEditor
 
+1 Definición
+
 https://django-ckeditor.readthedocs.io/en/latest/
 
 CKEditor (una apps de terceros) es uneditor de texto enriquecido que se puede integrar fácilmente en proyectos de Django mediante el paquete django-ckeditor. Este editor permite a los usuarios crear y editar contenido con formato, similar a lo que se puede hacer en un procesador de textos como Microsoft Word. Aquí te explico algunas de sus características y cómo se utiliza:
@@ -1244,13 +1246,13 @@ Características Principales:
 
 ![image](https://github.com/user-attachments/assets/8a104377-9260-437a-b5a7-d1e910f38984)
 
-### 18.1 La instalamos
+2 La instalamos
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado>pip install django-ckeditor
 ```
 
-### 18.2 Registramos ckeditor en el archivo **base.py**
+3 Registramos ckeditor en el archivo **base.py**
 
 ```python
 from pathlib import Path
@@ -1281,11 +1283,26 @@ MIDDLEWARE = [
 # ...
 ```
 
-### 18.3 Agregamos un campo que tenga la forma de elemento de blog:
+4 Importamos la app y agregamos un campo que tenga la forma de elemento de blog:
 
-![image](https://github.com/user-attachments/assets/206c94db-59db-4433-8d8c-e4b74e49a665)
+```python
+from django.db import models # type: ignore
+from applications.departamentos.models import Departamento
+from ckeditor.fields import RichTextField # type: ignore
 
-### 18.4 Hacemos las migraciones y volvemos a cargar el servidor. Vámonos a la página del administrador de Django:
+class Habilidades(models.Model):
+
+#...
+
+   avatar = models.ImageField(upload_to = 'empleado', blank = True, null = True)
+   habilidades = models.ManyToManyField(Habilidades)
+   hoja_vida = RichTextField()
+
+   def __str__(self):
+      return str(self.id) + "-" + self.first_name + "-" + self.last_name
+```
+
+5 Hacemos las migraciones y volvemos a cargar el servidor. Vámonos a la página del administrador de Django:
 
 ![image](https://github.com/user-attachments/assets/f3f7572f-8c2a-4bb0-9f70-ac5c9d92b475)
 
