@@ -1234,13 +1234,16 @@ aca voy 22 feb
 
 
 
-## 18 Algunas apps de terceros
+## 18 Algunas 
 
 ### 17.1 La app Django CKEditor
 
-CKEditor es una aplicación de editor de texto enriquecido que se puede integrar fácilmente en proyectos de Django mediante el paquete django-ckeditor. Este editor permite a los usuarios crear y editar contenido con formato, similar a lo que se puede hacer en un procesador de textos como Microsoft Word. Aquí te explico algunas de sus características y cómo se utiliza:
+https://django-ckeditor.readthedocs.io/en/latest/
+
+CKEditor (una apps de terceros) es uneditor de texto enriquecido que se puede integrar fácilmente en proyectos de Django mediante el paquete django-ckeditor. Este editor permite a los usuarios crear y editar contenido con formato, similar a lo que se puede hacer en un procesador de textos como Microsoft Word. Aquí te explico algunas de sus características y cómo se utiliza:
 
 Características Principales\
+
 17.1.1.1 Formato de Texto: Permite aplicar estilos como negrita, cursiva, subrayado, y tachado.\
 17.1.1.2 Listas y Tablas: Facilita la creación de listas ordenadas y desordenadas, así como tablas.\
 17.1.1.3 Multimedia: Soporta la inserción de imágenes, videos y otros elementos multimedia.\
