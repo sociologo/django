@@ -1228,12 +1228,6 @@ admin.site.register(Habilidades)
 
 ![image](https://github.com/user-attachments/assets/bf088c6d-aac4-4652-ab1a-dc80d0915448)
 
-
-
-aca voy 22 feb
-
-
-
 ## 18 La app CKEditor
 
 https://django-ckeditor.readthedocs.io/en/latest/
@@ -1256,7 +1250,7 @@ Características Principales:
 (entorno_3) C:\mis_proyectos\emp3\empleado>pip install django-ckeditor
 ```
 
-### 18.1 Registramos al app de terceros ckeditor en el archivo **base.py**
+### 18.1 Registramos ckeditor en el archivo **base.py**
 
 ![image](https://github.com/user-attachments/assets/f3317cfb-804a-49ff-b8a9-2c68e45d8204)
 
