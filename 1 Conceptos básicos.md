@@ -1250,15 +1250,42 @@ Características Principales:
 (entorno_3) C:\mis_proyectos\emp3\empleado>pip install django-ckeditor
 ```
 
-### 18.1 Registramos ckeditor en el archivo **base.py**
+### 18.2 Registramos ckeditor en el archivo **base.py**
 
-![image](https://github.com/user-attachments/assets/f3317cfb-804a-49ff-b8a9-2c68e45d8204)
+```python
+from pathlib import Path
 
-### 18.1 Agregamos un campo que tenga la forma de elemento de blog:
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
+SECRET_KEY = 'django-insecure-9xh%=ob5sj*g*r5&ii^r$mu9bs0w*t09ni*vko67=*z402som8'
+
+INSTALLED_APPS = [
+   'django.contrib.admin',
+   'django.contrib.auth',
+   'django.contrib.contenttypes',
+   'django.contrib.sessions',
+   'django.contrib.messages',
+   'django.contrib.staticfiles',
+
+   # Apps de terceros
+   'ckeditor'
+   
+   # local apps
+   "applications.departamentos",
+   "applications.empleados",
+   'applications.exp'
+]
+
+MIDDLEWARE = [
+
+# ...
+```
+
+### 18.3 Agregamos un campo que tenga la forma de elemento de blog:
 
 ![image](https://github.com/user-attachments/assets/206c94db-59db-4433-8d8c-e4b74e49a665)
 
-### 18.1 Hacemos las migraciones y volvemos a cargar el servidor. Vámonos a la página del administrador de Django:
+### 18.4 Hacemos las migraciones y volvemos a cargar el servidor. Vámonos a la página del administrador de Django:
 
 ![image](https://github.com/user-attachments/assets/f3f7572f-8c2a-4bb0-9f70-ac5c9d92b475)
 
