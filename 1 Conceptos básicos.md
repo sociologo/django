@@ -1101,7 +1101,7 @@ Running migrations:
 
 
 
-## 17 Diseñar un despliegue de registros al administrador de Django para el modelo empleados
+## 17 Personalizando al Administrador de Django (admin.py)
 
 ### 17.1 El atributo list_display()
 
@@ -1126,24 +1126,102 @@ admin.site.register(Habilidades)
 ![image](https://github.com/user-attachments/assets/8cf7d5af-488c-40d7-8bc1-3c9ca1469546)
 
 
----
-Aca voy
-21 febrero
-inicio la leccion 33
----
+### 17.2 El atributo search_fields
+
+Con search_fields podemos integrar al administrador un buscador. Implementemoslo para los primeros nombres:
+
+```python
+from django.contrib import admin # type: ignore
+from .models import Empleado, Habilidades
+
+class EmpleadoAdmin(admin.ModelAdmin):
+   list_display = (
+      'first_name',
+      'last_name',
+      'departamento',
+      'job'
+   )
+   search_fields = ('first_name',)
+
+admin.site.register(Empleado, EmpleadoAdmin)
+admin.site.register(Habilidades)
+```
+
+### 17.3 El atributo list_filter
+
+Con list_filter podemos agragar una funcionalidad de filtrado. Implementemosla para 'job' y 'habilidades':
+
+```python
+from django.contrib import admin # type: ignore
+from .models import Empleado, Habilidades
+
+class EmpleadoAdmin(admin.ModelAdmin):
+   list_display = (
+      'first_name',
+      'last_name',
+      'departamento',
+      'job'
+   )
+   search_fields = ('first_name',)
+   list_filter = ('job', 'habilidades')
+
+admin.site.register(Empleado, EmpleadoAdmin)
+admin.site.register(Habilidades)
+```
+
+### 17.4 El atributo filter_horizontal
+
+El atributo filter_horizontal de Django se usa en el modelo de administración (admin) de Django para facilitar la selección y administración de relaciones many-to-many (muchos-a-muchos) en una interfaz de usuario más intuitiva. Cuando se agrega el atributo filter_horizontal a un modelo en el admin, se muestra un widget con dos listas: una lista de elementos disponibles y otra lista de elementos seleccionados. Esto permite a los usuarios seleccionar múltiples elementos fácilmente y moverlos entre las listas mediante botones. Apliquemoslo para el campo habilidades:
+
+```python
+from django.contrib import admin # type: ignore
+from .models import Empleado, Habilidades
+
+class EmpleadoAdmin(admin.ModelAdmin):
+   list_display = (
+      'first_name',
+      'last_name',
+      'departamento',
+      'job'
+   )
+   search_fields = ('first_name',)
+   list_filter = ('job', 'habilidades')
+   filter_horizontal = ('habilidades',)
+
+admin.site.register(Empleado, EmpleadoAdmin)
+admin.site.register(Habilidades)
+```
+
+### 17.4 Desplegando nuevos campos. 
+
+Supongamos que tenemos la necesidad de que se muestre en el listado del administrador una nueva columna que integre los nombres y los apellidos de los empleados sin intervenir en la base de datos y llamemos al campo 'full_name'. Para hacer esto debemos declarar una funcion:
+
+```python
+from django.contrib import admin # type: ignore
+from .models import Empleado, Habilidades
+
+class EmpleadoAdmin(admin.ModelAdmin):
+   list_display = (
+      'first_name',
+      'last_name',
+      'departamento',
+      'job',
+      'full_name'
+   )
+
+   def full_name(self.obj):
+      return obj.first_name + ' ' + obj.last_name
+
+   search_fields = ('first_name',)
+   list_filter = ('job', 'habilidades')
+   filter_horizontal = ('habilidades',)
+
+admin.site.register(Empleado, EmpleadoAdmin)
+admin.site.register(Habilidades)
+```
 
 
-### 17.2 Buscadores y filtros
 
-![image](https://github.com/user-attachments/assets/1e13fd86-6592-44bb-b07a-9fbd64ab9cf2)
-
-![image](https://github.com/user-attachments/assets/030a0314-c4da-47a0-9a9f-d13857156f35)
-
-Podemos integrar una interfaz mas agradable paras seleccionar atributos en relaciones muchos a muchos:
-
-![image](https://github.com/user-attachments/assets/2c1a8451-e8cb-40da-8e1d-9fda5b1f7d2f)
-
-![image](https://github.com/user-attachments/assets/43c1a300-d1d5-4135-935d-0560e3677e98)
 
 ### 17.3 Agregar campos en el despliegue de registros del administrador que no formen parte de los modelos sino que sean producto de alguna operacion sobre los campos de un mismo registro
 
