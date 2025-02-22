@@ -1230,16 +1230,7 @@ admin.site.register(Habilidades)
 
 
 
-### 17.3 Agregar campos en el despliegue de registros del administrador que no formen parte de los modelos sino que sean producto de alguna operacion sobre los campos de un mismo registro
-
-Podemos añadir una columna que integre primer y segundo apellido de cada registro:
-
-![image](https://github.com/user-attachments/assets/421b3af8-4c7d-4cb8-a979-2d7b75fc2314)
-
-![image](https://github.com/user-attachments/assets/6a58b3a7-16ee-47f8-a86b-75178569292c)
-
-
-
+aca voy 22 feb
 
 
 
