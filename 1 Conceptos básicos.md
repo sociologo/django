@@ -1234,15 +1234,13 @@ aca voy 22 feb
 
 
 
-## 18 Algunas 
-
-### 17.1 La app Django CKEditor
+## 18 La app CKEditor
 
 https://django-ckeditor.readthedocs.io/en/latest/
 
 CKEditor (una apps de terceros) es uneditor de texto enriquecido que se puede integrar fácilmente en proyectos de Django mediante el paquete django-ckeditor. Este editor permite a los usuarios crear y editar contenido con formato, similar a lo que se puede hacer en un procesador de textos como Microsoft Word. Aquí te explico algunas de sus características y cómo se utiliza:
 
-Características Principales\
+Características Principales:
 
 17.1.1.1 Formato de Texto: Permite aplicar estilos como negrita, cursiva, subrayado, y tachado.\
 17.1.1.2 Listas y Tablas: Facilita la creación de listas ordenadas y desordenadas, así como tablas.\
@@ -1252,17 +1250,21 @@ Características Principales\
 
 ![image](https://github.com/user-attachments/assets/8a104377-9260-437a-b5a7-d1e910f38984)
 
-![image](https://github.com/user-attachments/assets/7f2c66e9-dbd3-44d8-be82-d6be771146ce)
+### 18.1 La instalamos
 
-17.1.2 Registramos al app de terceros ckeditor en el archivo **base.py**
+```bash
+(entorno_3) C:\mis_proyectos\emp3\empleado>pip install django-ckeditor
+```
+
+### 18.1 Registramos al app de terceros ckeditor en el archivo **base.py**
 
 ![image](https://github.com/user-attachments/assets/f3317cfb-804a-49ff-b8a9-2c68e45d8204)
 
-17.1.3 Agregamos un campo que tenga la forma de elemento de blog:
+### 18.1 Agregamos un campo que tenga la forma de elemento de blog:
 
 ![image](https://github.com/user-attachments/assets/206c94db-59db-4433-8d8c-e4b74e49a665)
 
-17.1.4 Hacemos las migraciones y volvemos a cargar el servidor. Vámonos a la página del administrador de Django:
+### 18.1 Hacemos las migraciones y volvemos a cargar el servidor. Vámonos a la página del administrador de Django:
 
 ![image](https://github.com/user-attachments/assets/f3f7572f-8c2a-4bb0-9f70-ac5c9d92b475)
 
