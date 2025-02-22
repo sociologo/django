@@ -1270,7 +1270,7 @@ INSTALLED_APPS = [
    'django.contrib.staticfiles',
 
    # Apps de terceros
-   'ckeditor'
+   'ckeditor',
    
    # local apps
    "applications.departamentos",
@@ -1302,8 +1302,9 @@ class Habilidades(models.Model):
       return str(self.id) + "-" + self.first_name + "-" + self.last_name
 ```
 
-5 Hacemos las migraciones y volvemos a cargar el servidor. Vámonos a la página del administrador de Django:
+5 Hacemos las migraciones y volvemos a cargar el servidor. Vámonos al administrador de Django a intentar ingresar un nuevo empleado:
 
-![image](https://github.com/user-attachments/assets/f3f7572f-8c2a-4bb0-9f70-ac5c9d92b475)
+![image](https://github.com/user-attachments/assets/adc6d010-01a6-46ff-94ca-7ca21465d55b)
+
 
 
