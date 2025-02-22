@@ -1169,7 +1169,8 @@ admin.site.register(Empleado, EmpleadoAdmin)
 admin.site.register(Habilidades)
 ```
 
-![image](https://github.com/user-attachments/assets/3a19369f-921a-48fa-979c-359cc55c3072)
+![image](https://github.com/user-attachments/assets/c9d8312f-b78d-499d-9a28-06a5ecc58e58)
+
 
 
 ### 17.4 El atributo filter_horizontal
