@@ -1169,6 +1169,9 @@ admin.site.register(Empleado, EmpleadoAdmin)
 admin.site.register(Habilidades)
 ```
 
+![image](https://github.com/user-attachments/assets/3a19369f-921a-48fa-979c-359cc55c3072)
+
+
 ### 17.4 El atributo filter_horizontal
 
 El atributo filter_horizontal de Django se usa en el modelo de administración (admin) de Django para facilitar la selección y administración de relaciones many-to-many (muchos-a-muchos) en una interfaz de usuario más intuitiva. Cuando se agrega el atributo filter_horizontal a un modelo en el admin, se muestra un widget con dos listas: una lista de elementos disponibles y otra lista de elementos seleccionados. Esto permite a los usuarios seleccionar múltiples elementos fácilmente y moverlos entre las listas mediante botones. Apliquemoslo para el campo habilidades:
@@ -1192,6 +1195,9 @@ admin.site.register(Empleado, EmpleadoAdmin)
 admin.site.register(Habilidades)
 ```
 
+![image](https://github.com/user-attachments/assets/0a921e90-d916-4dde-baad-9e211695e62e)
+
+
 ### 17.4 Desplegando nuevos campos. 
 
 Supongamos que tenemos la necesidad de que se muestre en el listado del administrador una nueva columna que integre los nombres y los apellidos de los empleados sin intervenir en la base de datos y llamemos al campo 'full_name'. Para hacer esto debemos declarar una funcion:
@@ -1209,7 +1215,7 @@ class EmpleadoAdmin(admin.ModelAdmin):
       'full_name'
    )
 
-   def full_name(self.obj):
+   def full_name(self, obj):
       return obj.first_name + ' ' + obj.last_name
 
    search_fields = ('first_name',)
@@ -1220,6 +1226,7 @@ admin.site.register(Empleado, EmpleadoAdmin)
 admin.site.register(Habilidades)
 ```
 
+![image](https://github.com/user-attachments/assets/bf088c6d-aac4-4652-ab1a-dc80d0915448)
 
 
 
