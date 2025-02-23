@@ -195,7 +195,7 @@ que comprobamos es correcto:
 
 Debemos utilizar ahora una forma eficiente para hacer lo anterior utilizando **get_queryset()**, filtrando a través de una caja de texto:
 
-### c) Listar todos los empleados que pertenezcan a un departamento mediante urls con un filtro en una caja de texto.
+### c) Listar todos los empleados que pertenezcan a un departamento filtrando por medio de una caja de texto.
 
 1 Debemos utilizar el método **get_queryset** para recoger un parámetro desde la url. **kwards** es un método de Django que nos permite recoger elementos desde las urls.
 
