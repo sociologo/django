@@ -132,7 +132,7 @@ admin.site.register(Habilidades)
 
 ![image](https://github.com/user-attachments/assets/08fa5a43-ec64-4b47-ab21-415065ff6de7)
 
-1 El atributo **queryset**
+1 El método **queryset**
 
 Este proceso lo haremos con código utilizando el atributo **queryset**. Primero haremos ésto en duro listando todos los empleados del departamento 'mate'. En **views.py** de la aplicación **empleados** construímos la clase **ListaPorDeptListView**:
 
@@ -197,7 +197,9 @@ Debemos utilizar ahora una forma eficiente para hacer lo anterior utilizando **g
 
 ### c) Listar todos los empleados que pertenezcan a un departamento filtrando por medio de una caja de texto.
 
-1 Debemos utilizar el método **get_queryset** para recoger un parámetro desde la url. **kwards** es un método de Django que nos permite recoger elementos desde las urls.
+1 El método **get_queryset**
+
+Debemos utilizar el método **get_queryset** para recoger un parámetro desde la url. **kwards** es un método de Django que nos permite recoger elementos desde las urls.
 
 ![image](https://github.com/user-attachments/assets/a1a5d8bc-d7a8-49f2-b8d8-9f40adaa414f)
 
