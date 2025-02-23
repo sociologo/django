@@ -110,7 +110,8 @@ urlpatterns = [
 
 5 Y ejecutamos nuestro proyecto:
 
-![image](https://github.com/user-attachments/assets/3d22080e-b269-43aa-b2de-2cc4f7c29a74)
+![image](https://github.com/user-attachments/assets/1ffab5ad-a3cb-42b6-ba29-6883e223105d)
+
 
 ### b) Listar todos los empleados que pertenezcan a un departamento.
 
