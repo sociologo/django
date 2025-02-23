@@ -134,7 +134,7 @@ admin.site.register(Habilidades)
 
 1 El atributo **queryset**
 
-Este proceso lo haremos con código utilizando el atributo **queryset**. Primero haremos ésto en duro listando todos los empleados del departamento 'mate'. En **views.py** de la aplicación **empleados** construímos la clase **ListAllByDept**:
+Este proceso lo haremos con código utilizando el atributo **queryset**. Primero haremos ésto en duro listando todos los empleados del departamento 'mate'. En **views.py** de la aplicación **empleados** construímos la clase **ListaPorDeptListView**:
 
 ```python
 from django.shortcuts import render # type: ignore
