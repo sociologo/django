@@ -78,7 +78,19 @@ urlpatterns = [
 
 3 La url recién declarada no la hemos activado en las urls principales de Django, para lo cual vamos al archivo urls.py de la aplicación **empleado** (acá se puede producir una confusión. La aplicación en singular **empleado** es la que alberga por completo nuestro proyecto; la aplicación el plural **empleados**, alberga la aplicación del contexto específico del modelo empleados).
 
-![image](https://github.com/user-attachments/assets/f3d27b19-6972-4d3c-b98e-766378bfcd00)
+```python
+from django.contrib import admin # type: ignore
+from django.urls import path, include # type: ignore
+from applications.exp.views import IndexView
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include("applications.empleados.urls")),
+]
+```
+
+![image](https://github.com/user-attachments/assets/c2261c67-ed33-46c2-8d21-5c611ee63a06)
+
 
 4 Por último debemos construir el archivo list_all.html dentro de una carpeta **persona** en la ruta de los **templates**:
 
