@@ -115,13 +115,15 @@ urlpatterns = [
 
 ### b) Listar todos los empleados que pertenezcan a un departamento.
 
-Hagamos una modificación en en el archivo admin.py de **empleados** para que en el despliegue de registros de empleados vía nuestro administrador Django, también aparezca el filtro de departamentos:
+Este requerimiento es un filtro. A partir de determinado departamento queremos listar todos los empleados contenidos en él.
+
+Como hemos visto podemos hacer esto modificando el archivo **admin.py** de **empleados** para que en el despliegue de registros de empleados vía nuestro administrador Django, también aparezca el filtro de departamentos:
 
 ![image](https://github.com/user-attachments/assets/a56029c8-95b0-41a0-bc18-9e16251719f2)
 
 ![image](https://github.com/user-attachments/assets/58b8a710-240f-43c1-a043-339758e38407)
 
-Es éste el proceso que replicaremos con código utilizando el atributo **queryset**:
+Este proceso lo replicaremos con código utilizando el atributo **queryset**:
 
 Primero haremos ésto en duro listando todos los empleados del departamento 'ciencias matemáticas'.
 
