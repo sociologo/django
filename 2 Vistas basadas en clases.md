@@ -92,21 +92,19 @@ urlpatterns = [
 ![image](https://github.com/user-attachments/assets/c2261c67-ed33-46c2-8d21-5c611ee63a06)
 
 
-4 Por último debemos construir el archivo list_all.html dentro de una carpeta **persona** en la ruta de los **templates**:
+4 Por último debemos construir el archivo **list_all.html** dentro de una carpeta **empleado** dentro de la carpeta **templates**:
 
-![image](https://github.com/user-attachments/assets/a00d7484-f0e6-436a-a604-58b4f01aecd5)
-
-en la que iteramos sobre registros de modelos para listarlos:
-
-```
+```python
 <h1>
-    Lista de todos los empleados
+   Lista de todos los empleados
 </h1>
 
 <ul>
-    {% for e in lista %}
-        <li>{{ e }}</li>
-    {% endfor %}
+   {% for e in lista %}
+      <li>
+         {{e}}
+      </li>
+   {% endfor %}    
 </ul>
 ```
 
