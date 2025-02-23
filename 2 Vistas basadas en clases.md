@@ -231,10 +231,10 @@ class EmpleadoPorKwordListView(ListView):
 <br>
 
 <form method = "GET">{% csrf_token %}
-<input type = "text" id="kword" name="kword" placeholder="Ingresa departamento">
-<button type="submit">
-   Buscar
-</button>
+   <input type = "text" id="kword" name="kword" placeholder="Ingresa departamento">
+   <button type="submit">
+      Buscar
+   </button>
 </form>
 
 <h3>
