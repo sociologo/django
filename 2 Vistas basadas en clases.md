@@ -134,29 +134,64 @@ admin.site.register(Habilidades)
 
 1 El atributo **queryset**
 
-Este proceso lo haremos con código utilizando el atributo **queryset**:
+Este proceso lo haremos con código utilizando el atributo **queryset**. Primero haremos ésto en duro listando todos los empleados del departamento 'mate'. En **views.py** de la aplicación **empleados** construímos la clase **ListAllByDept**:
 
-Primero haremos ésto en duro listando todos los empleados del departamento 'ciencias matemáticas'.
+```python
+from django.shortcuts import render # type: ignore
+from django.views.generic import(ListView) # type: ignore
 
-2 En **views.py** de la aplicación **empleados** construímos la clase **ListAllByDept**:
+from .models import Empleado
 
-![image](https://github.com/user-attachments/assets/61ff3f4a-820c-4b58-87fa-cb570d968ba9)
+class EmpleadosListView(ListView):
+    model = Empleado
+    template_name = "empleado/list_all.html"
+    context_object_name = 'lista'
 
-3 En **urls.py** de la aplicación **empleado** le asignamos su ruta:
+class ListaPorDeptListView(ListView):
+   template_name = "empleado/listapordept.html"
+   queryset = Empleado.objects.filter(
+       departamento__short_name = 'mate'
+   )
+```
 
-![image](https://github.com/user-attachments/assets/6874053f-f969-44c8-93a7-b5bd66a77bc1)
+2 En **urls.py** de la aplicación **empleado** le asignamos su ruta:
 
-4 En la carpeta **persona** que está en la carpeta **templates** añadimos **AllByDept.html**:
+```python
+from django.contrib import admin # type: ignore
+from django.urls import path, include # type: ignore
 
-![image](https://github.com/user-attachments/assets/2d933f85-416e-4ea8-8f3e-a54680b41a13)
+from . import views
 
-5 y obtenemos:
+urlpatterns = [
+   path('listar-todos-los-empleados', views.EmpleadosListView.as_view()),
+   path('listar-por-departamento', views.ListaPorDeptListView.as_view())
+]
+```
 
-![image](https://github.com/user-attachments/assets/4501354e-605f-4d0c-b97d-9d2b6e3f1a25)
+3 En la carpeta **persona** que está en la carpeta **templates** añadimos **listapordept.html**:
+
+```python
+<h1>
+   Lista de empleados por departamento
+</h1>
+
+<ul>
+   {% for e in object_list %}
+      <li>
+         {{e}}
+      </li>
+   {% endfor %} 
+</ul>
+```
+
+4 y obtenemos:
+
+![image](https://github.com/user-attachments/assets/b92b2031-215e-4611-9fd0-b9006bd916e0)
 
 que comprobamos es correcto:
 
-![image](https://github.com/user-attachments/assets/f8380b72-1ec0-478b-a8fc-71bff0fee0f2)
+![image](https://github.com/user-attachments/assets/da9e0393-9959-4ae1-afd9-ac881e0a73b7)
+
 
 Debemos utilizar ahora una forma eficiente para hacer lo anterior utilizando **get_queryset()**, filtrando a través de una caja de texto:
 
