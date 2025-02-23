@@ -63,7 +63,7 @@ class EmpleadosListView(ListView):
     context_object_name = 'lista'
 ```
 
-2 Debemos activar nuestra vista genérica, para lo cual vamos al archivo urls.py de la aplicacion empleados, importamos las **views**, declaramos la url: **listar-todo-empleado/** y hacemos el llamado a la clase sobre la cual hemos basado nuestra vista:
+2 Debemos activar nuestra vista genérica, para lo cual creamos el archivo **urls.py** en la aplicacion empleados, importamos las **views**, declaramos la url: **listar-todo-empleado** y hacemos el llamado a la clase sobre la cual hemos basado nuestra vista:
 
 ![image](https://github.com/user-attachments/assets/65b5777f-d842-4d0b-8396-43ffe3e926bc)
 
