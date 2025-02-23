@@ -269,6 +269,10 @@ urlpatterns = [
 
 ![image](https://github.com/user-attachments/assets/a870ee25-d7f6-462a-a13a-eab375676cf8)
 
+---
+23 de febrero
+
+---
 
 ### Algunas propiedades de la vista ListView.
 
