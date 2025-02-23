@@ -63,9 +63,18 @@ class EmpleadosListView(ListView):
     context_object_name = 'lista'
 ```
 
-2 Debemos activar nuestra vista genérica, para lo cual creamos el archivo **urls.py** en la aplicacion empleados, importamos las **views**, declaramos la url: **listar-todo-empleado** y hacemos el llamado a la clase sobre la cual hemos basado nuestra vista:
+2 Debemos activar nuestra vista genérica, para lo cual creamos el archivo **urls.py** en la aplicacion empleados, importamos las **views**, declaramos la url: **listar-todos-los-empleados** y hacemos el llamado a la clase sobre la cual hemos basado nuestra vista:
 
-![image](https://github.com/user-attachments/assets/65b5777f-d842-4d0b-8396-43ffe3e926bc)
+```python
+from django.contrib import admin # type: ignore
+from django.urls import path, include # type: ignore
+
+from . import views
+
+urlpatterns = [
+   path('listar-todos-los-empleados', views.EmpleadosListView.as_view())
+]
+```
 
 3 La url recién declarada no la hemos activado en las urls principales de Django, para lo cual vamos al archivo urls.py de la aplicación **empleado** (acá se puede producir una confusión. La aplicación en singular **empleado** es la que alberga por completo nuestro proyecto; la aplicación el plural **empleados**, alberga la aplicación del contexto específico del modelo empleados).
 
