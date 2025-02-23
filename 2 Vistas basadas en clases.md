@@ -119,27 +119,38 @@ Este requerimiento es un filtro. A partir de determinado departamento queremos l
 
 Como hemos visto podemos hacer esto modificando el archivo **admin.py** de **empleados** para que en el despliegue de registros de empleados vía nuestro administrador Django, también aparezca el filtro de departamentos:
 
-![image](https://github.com/user-attachments/assets/a56029c8-95b0-41a0-bc18-9e16251719f2)
+```python
+# ...
 
-![image](https://github.com/user-attachments/assets/58b8a710-240f-43c1-a043-339758e38407)
+   search_fields = ('first_name',)
+   list_filter = ('departamento', 'job', 'habilidades')
+   filter_horizontal = ('habilidades',)
 
-Este proceso lo replicaremos con código utilizando el atributo **queryset**:
+admin.site.register(Empleado, EmpleadoAdmin)
+admin.site.register(Habilidades)
+```
+
+![image](https://github.com/user-attachments/assets/08fa5a43-ec64-4b47-ab21-415065ff6de7)
+
+1 El atributo **queryset**
+
+Este proceso lo haremos con código utilizando el atributo **queryset**:
 
 Primero haremos ésto en duro listando todos los empleados del departamento 'ciencias matemáticas'.
 
-1 En **views.py** de la aplicación **empleados** construímos la clase **ListAllByDept**:
+2 En **views.py** de la aplicación **empleados** construímos la clase **ListAllByDept**:
 
 ![image](https://github.com/user-attachments/assets/61ff3f4a-820c-4b58-87fa-cb570d968ba9)
 
-2 En **urls.py** de la aplicación **empleado** le asignamos su ruta:
+3 En **urls.py** de la aplicación **empleado** le asignamos su ruta:
 
 ![image](https://github.com/user-attachments/assets/6874053f-f969-44c8-93a7-b5bd66a77bc1)
 
-3 En la carpeta **persona** que está en la carpeta **templates** añadimos **AllByDept.html**:
+4 En la carpeta **persona** que está en la carpeta **templates** añadimos **AllByDept.html**:
 
 ![image](https://github.com/user-attachments/assets/2d933f85-416e-4ea8-8f3e-a54680b41a13)
 
-4 y obtenemos:
+5 y obtenemos:
 
 ![image](https://github.com/user-attachments/assets/4501354e-605f-4d0c-b97d-9d2b6e3f1a25)
 
