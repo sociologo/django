@@ -49,9 +49,19 @@ d) Listar las habilidades de un empleado.
 
 ### a) Listar todos los empleados.
 
-1 En el archivo **views.py** de la aplicación **empleados** debemos importar el método **ListView**, el modelo **Empleado** y construir la clase **ListAllEmpleados**:
+1 En el archivo **views.py** de la aplicación **empleados** debemos importar el método **ListView**, el modelo **Empleado** y construir la clase **EmpleadosListView**:
 
-![image](https://github.com/user-attachments/assets/491a04e7-d89c-4090-bc02-e62e51e4b613)
+```python
+from django.shortcuts import render # type: ignore
+from django.views.generic import(ListView) # type: ignore
+
+from .models import Empleado
+
+class EmpleadosListView(ListView):
+    model = Empleado
+    template_name = "empleado/list_all.html"
+    context_object_name = 'lista'
+```
 
 2 Debemos activar nuestra vista genérica, para lo cual vamos al archivo urls.py de la aplicacion empleados, importamos las **views**, declaramos la url: **listar-todo-empleado/** y hacemos el llamado a la clase sobre la cual hemos basado nuestra vista:
 
