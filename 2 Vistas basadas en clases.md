@@ -199,21 +199,76 @@ Debemos utilizar ahora una forma eficiente para hacer lo anterior utilizando **g
 
 1 El método **get_queryset**
 
-Debemos utilizar el método **get_queryset** para recoger un parámetro desde la url. **kwards** es un método de Django que nos permite recoger elementos desde las urls.
+Debemos utilizar el método **get_queryset** para recoger un parámetro desde la url. **kwards** nos sirve para esto.
+En views.py de la app empleado construimos la vista basada en clases **EmpleadoPorKwordListView**:
 
-![image](https://github.com/user-attachments/assets/a1a5d8bc-d7a8-49f2-b8d8-9f40adaa414f)
+```python
+# ...
 
-2 Necesitamos una caja de texto html para que el usuario pueda hacer una búsqueda filtrada. En la carpeta **persona** de templates construímos **by_kword.html**. Añadimos una clave de acceso {% csrf_token %}
+class EmpleadoPorKwordListView(ListView):
+   template_name = "empleado/empleadoporkword.html"
+   context_object_name = 'empleadoporkword'
 
-![image](https://github.com/user-attachments/assets/978b96de-2042-459b-b419-71b71524291e)
+   def get_queryset(self):
+      palabra_clave = self.request.GET.get('kword', '')
+      empleado = Empleado.objects.filter(
+         departamento__short_name = palabra_clave
+      )
+      return empleado.all()
+```
 
-Nuestro resultado de búsqueda para 'ciencias matemáticas' es:
 
-![image](https://github.com/user-attachments/assets/086db168-ed34-425a-9edb-4f888c91402d)
 
-Nuestro resultado de búsqueda para 'ciencias físicas' es:
 
-![image](https://github.com/user-attachments/assets/793e997f-1ecb-4aa5-95a2-fcb05ff67450)
+2 Necesitamos una caja de texto html para que el usuario pueda hacer una búsqueda filtrada. En la carpeta **persona** de templates construímos **empleadoporkword.html**. Añadimos una clave de acceso {% csrf_token %}
+
+```html
+<h1>
+   Buscar empleados por departamento
+</h1>
+
+<hr style = "border: none; height: 2px; background-color:red; width: 90%;" >
+<br>
+
+<form method = "GET">{% csrf_token %}
+<input type = "text" id="kword" name="kword" placeholder="Ingresa departamento">
+<button type="submit">
+   Buscar
+</button>
+</form>
+
+<h3>
+   Lista de empleados
+</h3>
+
+<ul>
+   {% for e in empleadoporkword %}
+      <li>
+         {{e}}
+      </li>
+   {% endfor %} 
+</ul>
+```
+
+3 Activamos la url en **urls.py** de la app **empleado**:
+
+```python
+from django.contrib import admin # type: ignore
+from django.urls import path, include # type: ignore
+
+from . import views
+
+urlpatterns = [
+   path('listar-todos-los-empleados', views.EmpleadosListView.as_view()),
+   path('listar-por-departamento', views.ListaPorDeptListView.as_view()),
+   path('listar-por-kword', views.EmpleadoPorKwordListView.as_view())
+]
+```
+
+4 Nuestro resultado de búsqueda para 'mate' es:
+
+![image](https://github.com/user-attachments/assets/a870ee25-d7f6-462a-a13a-eab375676cf8)
+
 
 ### Algunas propiedades de la vista ListView.
 
