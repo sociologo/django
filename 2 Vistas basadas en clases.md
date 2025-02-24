@@ -316,8 +316,21 @@ Recordemos que **habilidades** con **empleado** es una relación de muchos a muc
 ![image](https://github.com/user-attachments/assets/474c08a0-0f4b-4b25-923f-d0a0abce7570)
 
 1 Hacemos que en el listado de empleados del administrador de django se visualice el id de cada registro:
-![image](https://github.com/user-attachments/assets/f6fb0e9f-c29d-4e34-b46a-7f8c241a83d4)
-![image](https://github.com/user-attachments/assets/d5d6e353-d41b-48f5-90c4-17018d9bf6f0)
+
+```python
+class EmpleadoAdmin(admin.ModelAdmin):
+   list_display = (
+      'first_name',
+      'last_name',
+      'departamento',
+      'job',
+      'full_name',
+      'id'
+   )
+```
+
+![image](https://github.com/user-attachments/assets/f5386eb2-082d-4715-b89b-875a12ac96ec)
+
 
 2 Construímos la vista **ListEmpByHabili** en la que recuperamos de un cuadro de texto el id de un empleado
 y desplegamos la lista de sus habilidades. Le asignamos por defecto el valor id = 4 y añadimos un control de excepciones:
