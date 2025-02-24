@@ -332,8 +332,8 @@ class EmpleadoAdmin(admin.ModelAdmin):
 ![image](https://github.com/user-attachments/assets/f5386eb2-082d-4715-b89b-875a12ac96ec)
 
 
-2 Construímos la vista **ListEmpByHabili** en la que recuperamos de un cuadro de texto el id de un empleado
-y desplegamos la lista de sus habilidades. Le asignamos por defecto el valor id = 4 y añadimos un control de excepciones:
+
+2 Construímos la vista **ListEmpByHabili** en la que en duro asignaremos un valor id = 4 para desplegar la lista de habilidades asociadas a ese empleado. Añadimos un control de excepciones:
 
 ![image](https://github.com/user-attachments/assets/ce01ea5b-3613-41e7-9155-a09dbe3a18ad)
 
