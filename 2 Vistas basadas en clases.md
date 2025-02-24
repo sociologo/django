@@ -14,7 +14,7 @@ C:\mis_entornos\entorno_3\Scripts> activate
 
 ## Índice
 
-* [1 El método ListView](#1-El-método-ListView)
+* [1 La vista ListView](#1-El-método-ListView)
   * [a) Listar todos los empleados](#a-Listar-todos-los-empleados)
   * [b) Listar todos los empleados que pertenezcan a un departamento](#b-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento)
   * [c) Listar todos los empleados que pertenezcan a un departamento filtrando por medio de una caja de texto](#c-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento-filtrando-por-medio-de-una-caja-de-texto)
@@ -22,13 +22,13 @@ C:\mis_entornos\entorno_3\Scripts> activate
    * [1 El atributo paginate_by](#1-El-atributo-paginate_by)
    * [2 El atributo ordering](#2-El-atributo-ordering)   
   * [d) Listar las habilidades de un empleado](#d-Listar-las-habilidades-de-un-empleado)
-* [2 El método DetailView](#2-El-método-DetailView)
-* [3 El método CreateView](#3-El-método-CreateView)
+* [2 La vista DetailView](#2-El-método-DetailView)
+* [3 La vista CreateView](#3-El-método-CreateView)
   * [Nuevos campos compuestos en el modelo de empleados](#Nuevos-campos-compuestos-en-el-modelo-de-empleados)
-* [4 El método UpdateView](#4-El-método-UpdateView)
-* [5 El método DeleteView](#5-El-método-DeleteView)
+* [4 La vista UpdateView](#4-El-método-UpdateView)
+* [5 La vista DeleteView](#5-El-método-DeleteView)
 
-## 1 El método ListView
+## 1 La vista ListView
 
 [Documentacion ListView](https://docs.djangoproject.com/en/5.1/ref/class-based-views/generic-display/#listview)
 
@@ -399,7 +399,7 @@ urlpatterns = [
 ![image](https://github.com/user-attachments/assets/d57e2b85-63c1-4ab7-8061-6a8c5123a094)
 
 
-## 2 El método DetailView
+## 2 La vista DetailView
 
 La vista DetailView en Django es una vista genérica basada en clases que se utiliza para mostrar los detalles de un solo objeto. 
 
@@ -512,10 +512,7 @@ h1>
 
 ![image](https://github.com/user-attachments/assets/a47d8023-4b7e-4609-b486-ac47cf9d8ba2)
 
-
-
-
-## 3 El método CreateView
+## 3 La vista CreateView
 
 1 Importamos las vistas genericas que necesitaremos, el paquete reverse_lazy y construimos la clase con su template y los **fields**:
 
@@ -613,7 +610,7 @@ def form_valid(self,form):
 
 ![image](https://github.com/user-attachments/assets/92ab934a-34fb-4491-aa3a-57ca6454e22b)
 
-## 4 El método UpdateView
+## 4 La vista UpdateView
 
 El método UpdateView en Django es una vista genérica basada en clases que se utiliza para actualizar una instancia existente de un modelo en la base de datos. Hace:
 
@@ -642,7 +639,7 @@ No olvidemos acceder a esta URL adjuntado la pk asociada a un registro específi
 ![image](https://github.com/user-attachments/assets/7c8f15cc-868e-462b-8296-955a81920876)
 ![image](https://github.com/user-attachments/assets/d374f642-abea-4da1-94cf-02fa31063ccc)
 
-## 5 El método DeleteView
+## 5 La vista DeleteView
 
 1 Creamos una vista basada en clases EmpleadoDeleteView e importamos DeleteView
 ![image](https://github.com/user-attachments/assets/c81711e4-e789-4571-b1ab-0322de05f335)
