@@ -558,10 +558,12 @@ class CrearEmpleado(CreateView):
    template_name = "empleado/crearempleado.html"
    # fields = ['first_name','last_name','job'] 
    fields = ('__all__')
-   success_url = '.'
+   success_url = '/crear-emp'
 ```
 
-La clase **CrearEmpleado** es una vista basada en clases de Django que utiliza **CreateView** para manejar la creación de nuevos registros en el modelo **Empleado**. La propiedad **model** especifica que el modelo de la base de datos que se va a crear es **Empleado**. La propiedad **template_name** indica que la plantilla que se usará para renderizar el formulario es **crearempleado.html**, ubicada en el directorio empleado. La propiedad **fields** indica que todos los campos del modelo Empleado deben ser incluidos en el formulario, utilizando ('__all__'). La propiedad **success_url** define la URL a la que se redirigirá después de que el formulario se haya enviado y procesado correctamente. En este caso, la redirección es a la misma página, representada por el punto .. Esta vista se encarga de renderizar un formulario basado en todos los campos del modelo Empleado, guardar los datos enviados en la base de datos si el formulario es válido, y redirigir a la misma página después de una creación exitosa.
+La clase **CrearEmpleado** es una vista basada en clases de Django que utiliza **CreateView** para manejar la creación de nuevos registros en el modelo **Empleado**. La propiedad **model** especifica que el modelo de la base de datos que se va a crear es **Empleado**. La propiedad **template_name** indica que la plantilla que se usará para renderizar el formulario es **crearempleado.html**, ubicada en el directorio empleado. La propiedad **fields** indica que todos los campos del modelo Empleado deben ser incluidos en el formulario, utilizando ('__all__'). La propiedad **success_url** define la URL a la que se redirigirá después de que el formulario se haya enviado y procesado correctamente. En este caso, la redirección es a la misma página, representada por el punto '/crear-emp'. 
+
+Esta vista se encarga de renderizar un formulario basado en todos los campos del modelo **Empleado**, guardar los datos enviados en la base de datos si el formulario es válido, y redirigir a la misma página después de una creación exitosa.
 
 ### 3.4 El html
 
