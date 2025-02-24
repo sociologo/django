@@ -632,7 +632,9 @@ urlpatterns = [
 
 No es buena practica utilizar en **success_url** la ruta en duro de la página web a la que vamos a querer redirigirnos una vez ingresado un registro, pues puede ser una url extensa o contener un parámetro. Existe una forma por la que podemos acceder a las url mediante un alias. Utilizaremos este método a continuación gracias al paquete **reverse_lazy** que nos redirigirá a una vista **TemplateView**.
 
-1 CrearEmpleado IngresoExitoso(TemplateView)
+1 Creamos la vista de registro
+
+Construimos las vistas **CrearEmpleado** y el TemplateView **IngresoExitoso**
 
 ```python
 from django.shortcuts import render # type: ignore
@@ -656,7 +658,7 @@ class CrearEmpleado(CreateView):
    success_url = reverse_lazy('empleado_app:exito')
 ```
 
-2 ingresoexitoso.html
+2 Creamos el template **ingresoexitoso.html**
 
 ```html
 <h2> Felicidades, ingreso exitoso! </h2>
@@ -687,23 +689,12 @@ urlpatterns = [
 ```
 
 
-
-
+---
+aca voy 24 febrero
+iniciando la leccion 50
 
 ---
----
 
-![image](https://github.com/user-attachments/assets/617e0be1-f8f3-46eb-8293-c8f78e2269fe)
-
-4 Agreguemos un empleado:
-
-![image](https://github.com/user-attachments/assets/4465a0a6-dd6c-423b-9551-cf31024e56b7)
-
-![image](https://github.com/user-attachments/assets/421f4595-9bdb-4b19-90d3-eaa4c2e086df)
-
-![image](https://github.com/user-attachments/assets/1b7b780e-6a06-41b1-ba91-4518f7716850)
-
-![image](https://github.com/user-attachments/assets/7a5c9965-781b-49de-a900-b63d267b37a0)
 
 ### Nuevos campos compuestos en el modelo de empleados.
 
