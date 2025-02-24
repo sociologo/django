@@ -298,8 +298,16 @@ class EmpleadosListView(ListView):
 
 El atributo **ordering** en la vista ListView de Django se utiliza para especificar el orden en que se deben mostrar los objetos en la lista. Este atributo espera una lista o tupla de nombres de campos por los cuales se debe ordenar el queryset. 
 
-![image](https://github.com/user-attachments/assets/d87577d1-ca09-4e3a-a562-defd67768cd4)
-![image](https://github.com/user-attachments/assets/b46c3c31-7cb5-4ad1-9f49-6b0d8d90c4e3)
+```
+class EmpleadosListView(ListView):
+   model = Empleado
+   template_name = "empleado/list_all.html"
+   context_object_name = 'lista'
+   # paginate_by = 4
+   ordering = 'first_name'
+```
+
+![image](https://github.com/user-attachments/assets/fc6611a4-aa9c-4d42-bff8-5a0e7dfde977)
 
 ### d) Listar las habilidades de un empleado.
 
