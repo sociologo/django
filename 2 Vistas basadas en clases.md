@@ -514,6 +514,8 @@ h1>
 
 ## 3 La vista CreateView
 
+### 3.1 Definición
+
 CreateView es una vista genérica basada en clases proporcionada por Django para facilitar la creación de nuevos registros en el modelo de la base de datos. Esta vista proporciona una interfaz estandarizada para manejar la lógica de crear formularios y guardar datos en la base de datos.
 
 ¿Qué hace CreateView?
@@ -526,7 +528,9 @@ CreateView es una vista genérica basada en clases proporcionada por Django para
 
 4 Redirige tras el éxito: Después de guardar el nuevo registro, CreateView puede redirigir a una página de éxito o cualquier otra URL especificada.
 
-1 Importamos las vistas genericas que necesitaremos, el paquete reverse_lazy y construimos la clase con su template y los **fields**:
+### 3.2 Los fields
+
+Los fields son los atributos del modelo que defines y que representan las columnas en la base de datos. En el caso de una vista CreateView.
 
 En Django, los fields en la vista CreateView son cruciales porque determinan qué campos del modelo se incluirán en el formulario que se presenta al usuario para crear una nueva instancia del modelo. Aquí hay algunas razones por las que son importantes:
 
@@ -538,9 +542,9 @@ En Django, los fields en la vista CreateView son cruciales porque determinan qu�
 
 **Facilidad de Uso**: Proporcionan una manera sencilla de generar formularios sin necesidad de escribir mucho código adicional, aprovechando las capacidades de las vistas basadas en clases (CBV) de Django
 
-Diferencias entre los métodos GET y POST en el protocolo HTTP, especialmente en relación con las URLs:
+### 3.3 Diferencias entre los métodos GET y POST en el protocolo HTTP, especialmente en relación con las URLs:
 
-Método GET
+#### Método GET
 
 **Transmisión de Datos**: Los datos se envían a través de la URL como parámetros de consulta (query string). Por ejemplo, http://example.com/page?name=John&age=30.
 
@@ -550,7 +554,7 @@ Método GET
 
 **Limitaciones de Tamaño**: Tiene restricciones en la cantidad de datos que se pueden enviar debido a la longitud máxima de la URL.
 
-Método POST
+#### Método POST
 
 **Transmisión de Datos**: Los datos se envían en el cuerpo de la solicitud HTTP, no en la URL.
 
@@ -561,6 +565,12 @@ Método POST
 **Sin Limitaciones de Tamaño**: No tiene restricciones significativas en la cantidad de datos que se pueden enviar.
 
 Debemos indicar una vez que se haya hecho el post a que pagina deseamos redireccionar.
+
+
+---
+
+
+1 Importamos las vistas genericas que necesitaremos, el paquete reverse_lazy y construimos la clase con su template y los **fields**:
 
 ![image](https://github.com/user-attachments/assets/fb96eace-ebb5-415d-b687-684f22258744)
 
