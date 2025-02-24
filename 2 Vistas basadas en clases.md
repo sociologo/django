@@ -625,12 +625,14 @@ urlpatterns = [
 
 ### 3.6 Creamos un registro 
 
-![image](https://github.com/user-attachments/assets/f6572581-b5c7-4df3-80b3-19abb2703b24)
+![image](https://github.com/user-attachments/assets/1b03ad18-59ff-41da-b593-639244d8802e)
+![image](https://github.com/user-attachments/assets/efb1d15a-cb12-4c40-b2dd-2a280b5a0056)
 
 
 
 
-El paquete **reverse_lazy**
+
+### 3.7 El paquete **reverse_lazy**
 
 El paquete reverse_lazy en Django es una versión evaluada de forma diferida de la función reverse. Se utiliza para generar una URL para una vista en un momento posterior, generalmente cuando se necesita la URL. Esto es especialmente útil en situaciones donde la configuración de URL de tu proyecto aún no se ha cargado, como en vistas basadas en clases genéricas, ya que los atributos de clase en Python se evalúan al importar.
 
