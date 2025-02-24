@@ -603,7 +603,25 @@ Debemos indicar una vez que se haya hecho el post a que pagina deseamos redirecc
 </form>
 ```
 
-### 3.5 Creamos un registro 
+### 3.5 Activamos la vista 
+
+```python
+from django.contrib import admin # type: ignore
+from django.urls import path, include # type: ignore
+
+from . import views
+
+urlpatterns = [
+   path('listar-todos-los-empleados', views.EmpleadosListView.as_view()),
+   path('listar-por-departamento', views.ListaPorDeptListView.as_view()),
+   path('listar-por-kword', views.EmpleadoPorKwordListView.as_view()),
+   path('buscar-habi-por-emp', views.ListEmpByHabili.as_view()),
+   path('detalles-del-emp/<pk>', views.DetalleDelEmpleado.as_view()),
+   path('crear-emp', views.CrearEmpleado.as_view())
+]
+```
+
+### 3.6 Creamos un registro 
 
 ![image](https://github.com/user-attachments/assets/f6572581-b5c7-4df3-80b3-19abb2703b24)
 
