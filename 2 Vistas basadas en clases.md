@@ -478,7 +478,19 @@ urlpatterns = [
 
 ### 1 El método **get_context_data**.
 
-El método **get_context_data** en Django se utiliza para agregar datos adicionales al contexto que se pasa a la plantilla. Este método devuelve un diccionario de contexto que luego se utiliza para renderizar (en el contexto de Django, renderizar se refiere al proceso de tomar una plantilla (template) y combinarla con datos del contexto para generar una página web completa que se envía al navegador del usuario) la plantilla.
+El método **get_context_data** se utiliza para agregar datos adicionales al contexto que se pasa a la plantilla. 
+
+```python
+class DetalleDelEmpleado(DetailView):
+   model = Empleado
+   template_name = "empleado/detalledelempleado.html"
+   context_object_name = 'detalledelempleado'
+
+   def get_context_data(self, **kwargs):
+       context = super(DetalleDelEmpleado, self).get_context_data(**kwargs)
+       context['titulo'] = 'Empleado del mes' 
+       return context
+```
 
 ![image](https://github.com/user-attachments/assets/7b3584dd-7b96-493c-b13c-e01fd6903fb6)
 
