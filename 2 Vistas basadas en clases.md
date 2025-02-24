@@ -17,7 +17,7 @@ C:\mis_entornos\entorno_3\Scripts> activate
 * [1 El método ListView](#1-El-método-ListView)
   * [a) Listar todos los empleados](#a-Listar-todos-los-empleados)
   * [b) Listar todos los empleados que pertenezcan a un departamento](#b-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento)
-  * [c) Listar todos los empleados que pertenezcan a un departamento mediante urls con un filtro en una caja de texto](#c-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento-mediante-urls-con-un-filtro-en-una-caja-de-texto)
+  * [c) Listar todos los empleados que pertenezcan a un departamento filtrando por medio de una caja de texto](#c-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento-filtrando-por-medio-de-una-caja-de-texto)
   * [Algunas propiedades de la vista ListView](#Algunas-propiedades-de-la-vista-ListView)
    * [Paginación en la vista ListView](#Paginación-en-la-vista-ListView)
    * [Orden al listado](#Orden-al-listado)   
