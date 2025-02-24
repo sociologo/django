@@ -18,9 +18,9 @@ C:\mis_entornos\entorno_3\Scripts> activate
   * [a) Listar todos los empleados](#a-Listar-todos-los-empleados)
   * [b) Listar todos los empleados que pertenezcan a un departamento](#b-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento)
   * [c) Listar todos los empleados que pertenezcan a un departamento filtrando por medio de una caja de texto](#c-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento-filtrando-por-medio-de-una-caja-de-texto)
-  * [Algunas propiedades de la vista ListView](#Algunas-propiedades-de-la-vista-ListView)
-   * [Paginación en la vista ListView](#Paginación-en-la-vista-ListView)
-   * [Orden al listado](#Orden-al-listado)   
+  * [Propiedades](#Propiedades)
+   * [1 El atributo paginate_by](#1-El-atributo-paginate_by)
+   * [2 El atributo ordering](#2-El-atributo-ordering)   
   * [d) Listar las habilidades de un empleado](#d-Listar-las-habilidades-de-un-empleado)
 * [2 El método DetailView](#2-El-método-DetailView)
 * [3 El método CreateView](#3-El-método-CreateView)
@@ -268,11 +268,6 @@ urlpatterns = [
 4 Nuestro resultado de búsqueda para 'mate' es:
 
 ![image](https://github.com/user-attachments/assets/a870ee25-d7f6-462a-a13a-eab375676cf8)
-
----
-23 de febrero
-
----
 
 ### Propiedades.
 
