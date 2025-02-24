@@ -331,23 +331,73 @@ class EmpleadoAdmin(admin.ModelAdmin):
 
 ![image](https://github.com/user-attachments/assets/f5386eb2-082d-4715-b89b-875a12ac96ec)
 
+2 Construímos la vista **ListEmpByHabili** en la que recogemos el id de un empleado mediante una caja de texto. Para que el html asociado se despliegue por primera vez, debemos permitir que por defecto el valor de la caja sea None.
 
+```python
+class ListEmpByHabili(ListView):
+   template_name = "empleado/listempbyhabili.html"
+   context_object_name = 'listempbyhabili'
 
-2 Construímos la vista **ListEmpByHabili** en la que en duro asignaremos un valor id = 4 para desplegar la lista de habilidades asociadas a ese empleado. Añadimos un control de excepciones:
-
-![image](https://github.com/user-attachments/assets/ce01ea5b-3613-41e7-9155-a09dbe3a18ad)
+   def get_queryset(self):
+      palabra_clave = self.request.GET.get('kword', None)
+      if palabra_clave is not None:
+         palabra_clave = int(palabra_clave)
+         empleado = Empleado.objects.get(id = palabra_clave)
+         return empleado.habilidades.all()
+```
 
 3 Activamos la vista:
-![image](https://github.com/user-attachments/assets/336ad63c-7d11-4886-91b2-92c71a7e6fc3)
 
-4 Construímos el html **by_habili.html**:
+```python
+from django.contrib import admin # type: ignore
+from django.urls import path, include # type: ignore
 
-![image](https://github.com/user-attachments/assets/9b245bf7-5bbf-4560-99b0-3324214867f5)
+from . import views
 
-5 Buscamos por id = 5
+urlpatterns = [
+   path('listar-todos-los-empleados', views.EmpleadosListView.as_view()),
+   path('listar-por-departamento', views.ListaPorDeptListView.as_view()),
+   path('listar-por-kword', views.EmpleadoPorKwordListView.as_view()),
+   path('buscar-habi-por-emp', views.ListEmpByHabili.as_view())
+]
+```
 
-![image](https://github.com/user-attachments/assets/28e7092a-b400-4ed5-8168-2b0307276a63)
-![image](https://github.com/user-attachments/assets/f6d0ef91-8102-417d-b116-b774b0c64306)
+4 Construímos el html **listempbyhabili.html**:
+
+```html
+<h1>
+   Listar habilidades de un empleado
+</h1>
+
+<hr style = "border: none; height: 2px; background-color:red; width: 90%;" >
+<br>
+
+<form method = "GET">{% csrf_token %}
+   <input type = "text" id="kword" name="kword" placeholder="Ingresa id del empleado">
+   <button type="submit">
+      Buscar
+   </button>
+</form>
+
+<h3>
+   Lista de habilidades
+</h3>
+
+<ul>
+   {% for e in listempbyhabili %}
+      <li>
+         {{e}}
+      </li>
+   {% endfor %} 
+</ul>
+```
+
+5 Buscamos por id = 4
+
+![image](https://github.com/user-attachments/assets/28240682-c66b-4472-94a1-405ea88006fb)
+
+![image](https://github.com/user-attachments/assets/d57e2b85-63c1-4ab7-8061-6a8c5123a094)
+
 
 ## 2 El método DetailView
 
