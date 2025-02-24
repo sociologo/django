@@ -492,11 +492,26 @@ class DetalleDelEmpleado(DetailView):
        return context
 ```
 
-![image](https://github.com/user-attachments/assets/7b3584dd-7b96-493c-b13c-e01fd6903fb6)
+```html
+h1>
+   Detalle de un empleado {{titulo}}
+</h1>
 
-![image](https://github.com/user-attachments/assets/1046ab85-e330-49df-bfc3-1d7a5dd02de8)
+<hr style = "border: none; height: 2px; background-color:red; width: 90%;" >
+<br>
 
-![image](https://github.com/user-attachments/assets/cdb3d9ab-6f6d-4b1d-809f-a27ad02d9f42)
+<h3> Todos los detalles </h3>
+{{detalledelempleado}}
+
+<hr style = "border: none; height: 2px; background-color:green; width: 90%;" >
+<p>{{detalledelempleado.first_name}}</p>
+<p>{{detalledelempleado.last_name}}</p>
+<p>{{detalledelempleado.job}}</p>
+<p>{{detalledelempleado.departamento}}</p>
+```
+
+![image](https://github.com/user-attachments/assets/a47d8023-4b7e-4609-b486-ac47cf9d8ba2)
+
 
 
 
