@@ -628,13 +628,68 @@ urlpatterns = [
 ![image](https://github.com/user-attachments/assets/1b03ad18-59ff-41da-b593-639244d8802e)
 ![image](https://github.com/user-attachments/assets/efb1d15a-cb12-4c40-b2dd-2a280b5a0056)
 
+### 3.7 La vista TemplateView y el paquete **reverse_lazy**
+
+No es buena practica utilizar en **success_url** la ruta en duro de la página web a la que vamos a querer redirigirnos una vez ingresado un registro, pues puede ser una url extensa o contener un parámetro. Existe una forma por la que podemos acceder a las url mediante un alias. Utilizaremos este método a continuación gracias al paquete **reverse_lazy** que nos redirigirá a una vista **TemplateView**.
+
+1 CrearEmpleado IngresoExitoso(TemplateView)
+
+```python
+from django.shortcuts import render # type: ignore
+from django.urls import reverse_lazy # type: ignore
+from django.views.generic import( # type: ignore
+   ListView, 
+   DetailView,
+   CreateView,
+   TemplateView) # type: ignore
+
+# ...
+
+class IngresoExitoso(TemplateView):
+    template_name = "empleado/ingresoexitoso.html"
+
+class CrearEmpleado(CreateView):
+   model = Empleado
+   template_name = "empleado/crearempleado.html"
+   # fields = ['first_name','last_name','job'] 
+   fields = ('__all__')
+   success_url = reverse_lazy('empleado_app:exito')
+```
+
+2 ingresoexitoso.html
+
+```html
+<h2> Felicidades, ingreso exitoso! </h2>
+```
+
+3 Activamos las vistas
+
+```python
+from django.contrib import admin # type: ignore
+from django.urls import path, include # type: ignore
+
+from . import views
+
+app_name = "empleado_app"
+
+urlpatterns = [
+   path('listar-todos-los-empleados', views.EmpleadosListView.as_view()),
+   path('listar-por-departamento', views.ListaPorDeptListView.as_view()),
+   path('listar-por-kword', views.EmpleadoPorKwordListView.as_view()),
+   path('buscar-habi-por-emp', views.ListEmpByHabili.as_view()),
+   path('detalles-del-emp/<pk>', views.DetalleDelEmpleado.as_view()),
+   path('crear-emp', 
+      views.CrearEmpleado.as_view(), 
+      name = 'exito')
+]
+```
 
 
 
 
-### 3.7 El paquete **reverse_lazy**
 
-El paquete reverse_lazy en Django es una versión evaluada de forma diferida de la función reverse. Se utiliza para generar una URL para una vista en un momento posterior, generalmente cuando se necesita la URL. Esto es especialmente útil en situaciones donde la configuración de URL de tu proyecto aún no se ha cargado, como en vistas basadas en clases genéricas, ya que los atributos de clase en Python se evalúan al importar.
+---
+---
 
 ![image](https://github.com/user-attachments/assets/617e0be1-f8f3-46eb-8293-c8f78e2269fe)
 
