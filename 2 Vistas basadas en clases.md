@@ -563,7 +563,7 @@ class CrearEmpleado(CreateView):
 
 La clase **CrearEmpleado** es una vista basada en clases de Django que utiliza **CreateView** para manejar la creación de nuevos registros en el modelo **Empleado**. La propiedad **model** especifica que el modelo de la base de datos que se va a crear es **Empleado**. La propiedad **template_name** indica que la plantilla que se usará para renderizar el formulario es **crearempleado.html**, ubicada en el directorio empleado. La propiedad **fields** indica que todos los campos del modelo Empleado deben ser incluidos en el formulario, utilizando ('__all__'). La propiedad **success_url** define la URL a la que se redirigirá después de que el formulario se haya enviado y procesado correctamente. En este caso, la redirección es a la misma página, representada por el punto .. Esta vista se encarga de renderizar un formulario basado en todos los campos del modelo Empleado, guardar los datos enviados en la base de datos si el formulario es válido, y redirigir a la misma página después de una creación exitosa.
 
-### 3.4 Los htmls
+### 3.4 El html
 
 #### Diferencias entre los métodos GET y POST en el protocolo HTTP, especialmente en relación con las URLs:
 
@@ -603,34 +603,12 @@ Debemos indicar una vez que se haya hecho el post a que pagina deseamos redirecc
 </form>
 ```
 
-### 3.5 Activamos las vistas
+### 3.5 Creamos un registro 
 
-```python
-from django.contrib import admin # type: ignore
-from django.urls import path, include # type: ignore
-
-from . import views
-
-urlpatterns = [
-   path('listar-todos-los-empleados', views.EmpleadosListView.as_view()),
-   path('listar-por-departamento', views.ListaPorDeptListView.as_view()),
-   path('listar-por-kword', views.EmpleadoPorKwordListView.as_view()),
-   path('buscar-habi-por-emp', views.ListEmpByHabili.as_view()),
-   path('detalles-del-emp/<pk>', views.DetalleDelEmpleado.as_view()),
-   path('crear-emp', views.CrearEmpleado.as_view())
-]
-```
+![image](https://github.com/user-attachments/assets/f6572581-b5c7-4df3-80b3-19abb2703b24)
 
 
-![image](https://github.com/user-attachments/assets/fb96eace-ebb5-415d-b687-684f22258744)
 
-2 Construimos los htmls
-
-![image](https://github.com/user-attachments/assets/5f656981-16f5-4d68-8820-38609a101819)
-
-![image](https://github.com/user-attachments/assets/78d48cc8-60d7-4883-871e-72406dcbc083)
-
-3 Activamos las vistas con urls:
 
 El paquete **reverse_lazy**
 
