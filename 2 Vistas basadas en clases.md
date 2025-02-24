@@ -679,7 +679,9 @@ urlpatterns = [
    path('buscar-habi-por-emp', views.ListEmpByHabili.as_view()),
    path('detalles-del-emp/<pk>', views.DetalleDelEmpleado.as_view()),
    path('crear-emp', 
-      views.CrearEmpleado.as_view(), 
+      views.CrearEmpleado.as_view(), ),
+   path('ingreso-exitoso', 
+      views.IngresoExitoso.as_view(), 
       name = 'exito')
 ]
 ```
