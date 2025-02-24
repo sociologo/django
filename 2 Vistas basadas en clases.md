@@ -514,6 +514,18 @@ h1>
 
 ## 3 La vista CreateView
 
+CreateView es una vista genérica basada en clases proporcionada por Django para facilitar la creación de nuevos registros en el modelo de la base de datos. Esta vista proporciona una interfaz estandarizada para manejar la lógica de crear formularios y guardar datos en la base de datos.
+
+¿Qué hace CreateView?
+
+1 Renderiza un formulario: Automáticamente genera y renderiza un formulario basado en el modelo especificado.
+
+2 Valida los datos del formulario: Cuando el formulario es enviado, CreateView valida los datos recibidos.
+
+3 Guarda los datos: Si los datos son válidos, CreateView guarda el nuevo registro en la base de datos.
+
+4 Redirige tras el éxito: Después de guardar el nuevo registro, CreateView puede redirigir a una página de éxito o cualquier otra URL especificada.
+
 1 Importamos las vistas genericas que necesitaremos, el paquete reverse_lazy y construimos la clase con su template y los **fields**:
 
 En Django, los fields en la vista CreateView son cruciales porque determinan qué campos del modelo se incluirán en el formulario que se presenta al usuario para crear una nueva instancia del modelo. Aquí hay algunas razones por las que son importantes:
