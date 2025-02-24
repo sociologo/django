@@ -274,9 +274,9 @@ urlpatterns = [
 
 ---
 
-### Algunas propiedades de la vista ListView.
+### Propiedades.
 
-#### Paginación en la vista ListView.
+#### 1 El atributo paginate_by.
 
 La paginación es crucial al listar registros en Django por varias razones:
 
@@ -294,7 +294,7 @@ Con **paginate_by** le indicamos a la clase **ListAllEmpleados** la cantidad de 
 ![image](https://github.com/user-attachments/assets/29e4c2c9-6d3d-4a31-b419-926e4b27684e)
 ![image](https://github.com/user-attachments/assets/d1ef1023-dc74-4328-b906-bc657583d4a0)
 
-#### Orden al listado.
+#### 2 El atributo ordering
 
 El atributo **ordering** en la vista ListView de Django se utiliza para especificar el orden en que se deben mostrar los objetos en la lista. Este atributo espera una lista o tupla de nombres de campos por los cuales se debe ordenar el queryset. 
 
