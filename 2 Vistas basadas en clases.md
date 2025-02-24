@@ -590,7 +590,7 @@ La clase **CrearEmpleado** es una vista basada en clases de Django que utiliza *
 Debemos indicar una vez que se haya hecho el post a que pagina deseamos redireccionar.
 
 ```html
-<h1> Registar empleados </h1>
+<h1> Registrar empleados </h1>
 
 <!-- {{form}} -->
 
