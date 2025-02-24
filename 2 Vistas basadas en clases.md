@@ -418,21 +418,63 @@ Métodos Personalizables:
 **get_queryset()**: Puedes sobrescribir este método para personalizar la consulta que obtiene el objeto.\
 **get_context_data()**: Permite agregar datos adicionales al contexto que se pasa a la plantilla.
 
-1 Importamos DetailView:
-![image](https://github.com/user-attachments/assets/a2b7d679-6503-471e-98b1-dce877a58779)
+1 Creamos la vista basada en clases **DetalleDelEmpleado** del tipo **DetailView**:
 
-2 Creamos una clase DetailView:
-![image](https://github.com/user-attachments/assets/2f52d8e2-0ee5-4de2-ade0-ceb5ccaea4ad)
+```python
+from django.shortcuts import render # type: ignore
+from django.views.generic import( # type: ignore
+   ListView, 
+   DetailView) # type: ignore
 
-3 Activamos la vista declarando una URL con un pk:
-![image](https://github.com/user-attachments/assets/60899bde-374d-4746-aaf1-9a8665da7956)
+# ...
 
-4 Construimos el html asociado:
-![image](https://github.com/user-attachments/assets/b1082852-2cab-4f9b-8c12-bbc66fa94b94)
+class DetalleDelEmpleado(DetailView):
+   model = Empleado
+   template_name = "empleado/detalledelempleado.html"
+   context_object_name = 'detalledelempleado'
+```
+
+2 Activamos la vista **declarando una URL con un pk**:
+
+```python
+from django.contrib import admin # type: ignore
+from django.urls import path, include # type: ignore
+
+from . import views
+
+urlpatterns = [
+   path('listar-todos-los-empleados', views.EmpleadosListView.as_view()),
+   path('listar-por-departamento', views.ListaPorDeptListView.as_view()),
+   path('listar-por-kword', views.EmpleadoPorKwordListView.as_view()),
+   path('buscar-habi-por-emp', views.ListEmpByHabili.as_view()),
+   path('detalles-del-emp/<pk>', views.DetalleDelEmpleado.as_view())
+]
+```
+
+3 Construimos el **detalledelempleado.html** asociado:
+
+```html
+<h1>
+   Detalle de un empleado
+</h1>
+
+<hr style = "border: none; height: 2px; background-color:red; width: 90%;" >
+<br>
+
+<h3> Todos los detalles </h3>
+{{detalledelempleado}}
+
+<hr style = "border: none; height: 2px; background-color:green; width: 90%;" >
+<p>{{detalledelempleado.first_name}}</p>
+<p>{{detalledelempleado.last_name}}</p>
+<p>{{detalledelempleado.job}}</p>
+<p>{{detalledelempleado.departamento}}</p>
+```
 
 5 Accedemos a la URL con un pk específico:
 
-![image](https://github.com/user-attachments/assets/a279bf78-aa95-4efb-95f5-36493a89c24a)
+![image](https://github.com/user-attachments/assets/0bd9abf6-a2a1-4d21-8ad5-d1b9915c1c5a)
+
 
 ### 1 El método **get_context_data**.
 
