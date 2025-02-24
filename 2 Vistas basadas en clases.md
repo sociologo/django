@@ -217,9 +217,6 @@ class EmpleadoPorKwordListView(ListView):
       return empleado.all()
 ```
 
-
-
-
 2 Necesitamos una caja de texto html para que el usuario pueda hacer una búsqueda filtrada. En la carpeta **persona** de templates construímos **empleadoporkword.html**. Añadimos una clave de acceso {% csrf_token %}
 
 ```html
@@ -285,9 +282,17 @@ La paginación es crucial al listar registros en Django por varias razones:
 
 Con **paginate_by** le indicamos a la clase **ListAllEmpleados** la cantidad de registros que despligue por página:
 
-![image](https://github.com/user-attachments/assets/9dde698d-5393-4cd1-9855-daddaaec6c72)
-![image](https://github.com/user-attachments/assets/29e4c2c9-6d3d-4a31-b419-926e4b27684e)
-![image](https://github.com/user-attachments/assets/d1ef1023-dc74-4328-b906-bc657583d4a0)
+```python
+class EmpleadosListView(ListView):
+   model = Empleado
+   template_name = "empleado/list_all.html"
+   context_object_name = 'lista'
+   paginate_by = 4
+```
+
+![image](https://github.com/user-attachments/assets/d4d66b71-87ed-4742-acd7-a36659f4f8ca)
+![image](https://github.com/user-attachments/assets/36f52fa8-fdfc-45fa-9fb7-f1251228c8ce)
+
 
 #### 2 El atributo ordering
 
