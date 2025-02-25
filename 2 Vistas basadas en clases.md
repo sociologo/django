@@ -1,6 +1,4 @@
-# Vistas basadas en clases
-
-# Vistas genéricas.
+# Vistas basadas en clases. Vistas genéricas.
 
 ## Las vistas genéricas son las que nos permiten realizar el CRUD.
 
