@@ -1,5 +1,9 @@
 # Vistas basadas en clases
 
+# Vistas genéricas.
+
+## Las vistas genéricas son las que nos permiten realizar el CRUD.
+
 [ccbv.co.uk](https://ccbv.co.uk)
 
 script de arranque:
