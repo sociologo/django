@@ -885,7 +885,7 @@ urlpatterns = [
    path('ingreso-exitoso', 
       views.IngresoExitoso.as_view(), 
       name = 'exito'),
-   path('actualizar-empleado', 
+   path('actualizar-empleado/<pk>', 
       views.ActualizarEmpleado.as_view(), 
       name = 'actualizarempleado')
 ]
