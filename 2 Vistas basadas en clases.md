@@ -897,6 +897,20 @@ urlpatterns = [
 ![image](https://github.com/user-attachments/assets/a51dbba4-6b5d-4b90-b29f-768a24b4339e)
 ![image](https://github.com/user-attachments/assets/7c128b27-0766-4af1-b413-85d2f80f4a60)
 
+### 4.1 El método **post()**
+
+Podemos sobreescribir métodos tanto en el CreateView (lo hicimos con el form_valid) como en el UpdateView.
+
+Podemos añadir lógica antes del guardado tanto con el form_valid como con el metodo post en las vistas CreateView y UpdateView.
+
+Con el metodo post podemos interceptar el proceso y recuperar los datos **antes** de que se hayan guardado en el formulario utilizando el **request**.
+
+```python
+def post(self, request, *args, **kwargs):
+   self.object = self.get_object()
+   ln = request.POST['last_name']
+   return super().post(request, *args, **kwargs)
+```
 
 ## 5 La vista DeleteView
 
