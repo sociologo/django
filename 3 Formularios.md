@@ -80,9 +80,60 @@ Verifiquemos
 
 ### 2.1 La clase ModelForm
 
+Nuestra tarea será personalizar los campos del formulario. Para ello:
+
+1 dentro de la app **exp**, creamos un nuevo archivo llamado **forms.py** y dentro de él escribimos el siguiente código:
+
+```python
+from django import forms # type: ignore
+from .models import Prueba
+
+class PruebasForm(forms.ModelForm):
+
+   class Meta:
+      model = Prueba
+      fields = ('titulo',
+                'subtitulo',
+                'cantidad')
+```
+
+2 Importamos la clase PruebasForm en nuestra vista y las **vinculamos**:
+
+```
+from django.views.generic import ( # type: ignore
+   CreateView)  # type: ignore
+
+from .models import Prueba
+from .forms import PruebasForm
+from django.urls import reverse_lazy # type: ignore
+
+class PruebasCreateView(CreateView):
+   model = Prueba
+   template_name = "home/pruebas.html"
+   form_class = PruebasForm
+   success_url = reverse_lazy('empleado_app:exito')
+```
+
+aca voy iniciando la clase 59.
+26 febrero.
+                
+#### 2.2.1 Validaciones con ModelForm
+
 ModelForm en Django es una clase que permite crear y personalizar formularios basados en los modelos de una aplicación de manera automática.
 
-#### 2.2.1 Validaciones con ModelForm
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+---
 
 #### 2.2.2 Personalizaciones con ModelForm (widgets)
 
@@ -124,12 +175,7 @@ En resumen, este código maneja la creación de un nuevo departamento y un emple
 
 
 
-<br>
-<br>
-<br>
-<br>
-<br>
----
+
 
 
 
