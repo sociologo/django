@@ -914,24 +914,72 @@ def post(self, request, *args, **kwargs):
 
 ## 5 La vista DeleteView
 
-1 Creamos una vista basada en clases EmpleadoDeleteView e importamos DeleteView
-![image](https://github.com/user-attachments/assets/c81711e4-e789-4571-b1ab-0322de05f335)
-![image](https://github.com/user-attachments/assets/8a7501de-a768-4741-8712-85e1705d6a99)
+1 Creamos una vista **EliminarEmpleado** del tipo **DeleteView**:
 
-2 Creamos el html asociado
-![image](https://github.com/user-attachments/assets/488df7a0-aba4-4cd2-805c-3e47d85a586a)
+```python
+from django.shortcuts import render # type: ignore
+from django.urls import reverse_lazy # type: ignore
+from django.views.generic import( # type: ignore
+   ListView, 
+   DetailView,
+   CreateView,
+   TemplateView,
+   UpdateView,
+   DeleteView) # type: ignore
 
-3 Activamos la vista asociándola con un &lt;pk&gt.
-![image](https://github.com/user-attachments/assets/aa5bb9fb-185f-4688-b808-1fe2f3cd80ef)
+# ...
 
-4 Seleccionemos un registro a eliminar
-![image](https://github.com/user-attachments/assets/102ee2dc-439b-4173-a35a-10f397103db1)
+class EliminarEmpleado(DeleteView):
+   model = Empleado
+   template_name = "empleado/eliminarempleado.html"
+   success_url = reverse_lazy('empleado_app:exito')
+```
 
-5 Ejecutemos la acción de nuestra vista Eliminar.
-![image](https://github.com/user-attachments/assets/626b550a-0069-4ef0-aab6-6c2a6010d9e8)
+2 Creamos el eliminarempleado.html asociado:
 
-6 Verifiquemos:
-![image](https://github.com/user-attachments/assets/569a39b5-d229-42dd-a027-5fc420e37f60)
+```html
+<h1> Eliminar empleados </h1>
+
+<form method = "POST">{% csrf_token %}
+<p>Confirme que desea eliminar a este empleado</p>
+   <button type="submit">
+      Confirmar
+   </button>
+</form>
+```
+
+3 Activamos la vista:
+
+```python
+urlpatterns = [
+   path('listar-todos-los-empleados', 
+        views.EmpleadosListView.as_view()),
+   path('listar-por-departamento', 
+        views.ListaPorDeptListView.as_view()),
+   path('listar-por-kword', 
+        views.EmpleadoPorKwordListView.as_view()),
+   path('buscar-habi-por-emp', 
+        views.ListEmpByHabili.as_view()),
+   path('detalles-del-emp/<pk>', 
+        views.DetalleDelEmpleado.as_view()),
+   path('crear-emp', 
+      views.CrearEmpleado.as_view(), ),
+   path('ingreso-exitoso', 
+      views.IngresoExitoso.as_view(), 
+      name = 'exito'),
+   path('actualizar-empleado/<pk>', 
+      views.ActualizarEmpleado.as_view(), 
+      name = 'actualizarempleado'),
+   path('eliminar-empleado/<pk>', 
+      views.EliminarEmpleado.as_view(), 
+      name = 'eliminarempleado')
+]
+```
+
+4 Verificamos:
+
+![image](https://github.com/user-attachments/assets/b68e3d10-0f84-4589-8f1a-a1fd181e69dd)
+![image](https://github.com/user-attachments/assets/e3104921-433b-400e-98da-0a4d4e5376bf)
 
 
 
