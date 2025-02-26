@@ -891,20 +891,12 @@ urlpatterns = [
 ]
 ```
 
-El método **post()** permite guardar datos sin haber sido previamente validados por el método **form_valid()**
-![image](https://github.com/user-attachments/assets/599dc1e7-31ed-4d4d-bd68-f8485333e44f)
 
-3 Creamos el html respectivo.
-![image](https://github.com/user-attachments/assets/2d0e445d-7d51-43de-987a-2287706101dd)
+5 Actualizamos la información de un empleado.
 
-4 Activamos la vista con un &lt;pk&gt;.
-![image](https://github.com/user-attachments/assets/ac7b3871-8a33-4fc0-a128-a449a23cbed5)
+![image](https://github.com/user-attachments/assets/a51dbba4-6b5d-4b90-b29f-768a24b4339e)
+![image](https://github.com/user-attachments/assets/7c128b27-0766-4af1-b413-85d2f80f4a60)
 
-5 Actualizamos la informacion de un empleado.
-
-No olvidemos acceder a esta URL adjuntado la pk asociada a un registro específico.
-![image](https://github.com/user-attachments/assets/7c8f15cc-868e-462b-8296-955a81920876)
-![image](https://github.com/user-attachments/assets/d374f642-abea-4da1-94cf-02fa31063ccc)
 
 ## 5 La vista DeleteView
 
