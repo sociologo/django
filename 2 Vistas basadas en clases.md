@@ -691,35 +691,106 @@ urlpatterns = [
 ```
 
 
----
-aca voy 24 febrero
-iniciando la leccion 50
 
----
+### 3.8 El método **form_valid()**
 
+El método **form_valid()** es comúnmente utilizado en vistas basadas en clases en Django que manejan formularios. Se invoca cuando un formulario ha sido validado exitosamente, lo que significa que los datos ingresados por el usuario son correctos y cumplen con todos los requisitos especificados en el formulario.
 
-### Nuevos campos compuestos en el modelo de empleados.
+Este método tiene varios propósitos fundamentales:
 
-Supongamos que deseamos un nuevo campo compuesto de los elementos unicos 'nombre' y 'apellido' de un empleado. Para ello:
+Procesamiento de datos: Una vez que el formulario ha sido validado, form_valid() se utiliza para realizar acciones específicas con los datos del formulario. Esto podría incluir:
 
-1 en el modelo de empleados construímos un nuevo campo llamado **full_name** no obligatorio.\
-2 en la vista eliminamos el nuevo campo y el campo avatar (lo dejaremos en suspenso).\
-3 interceptamos el guardado de first y last name en el template CreateView para generar el contenido del nuevo campo con el método **form_valid()**. Sólo cuando los datos ingresados son válidos se accede al método **form_valid()**.
+Guardar los datos en una base de datos.
+
+Actualizar registros existentes.
+
+Enviar correos electrónicos con la información proporcionada.
+
+Realizar cualquier otra lógica de negocio necesaria.
+
+Redirección o respuesta al usuario: Después de procesar los datos, el método form_valid() generalmente redirige al usuario a una página de confirmación o éxito, o devuelve una respuesta que indique que la operación se ha completado correctamente. Esta redirección o respuesta es crucial para una buena experiencia de usuario, ya que les indica que sus datos han sido procesados satisfactoriamente.
+
+Personalización: form_valid() puede ser personalizado para realizar una variedad de acciones adicionales antes de redirigir al usuario. Esto permite a los desarrolladores añadir lógica de negocio específica y adaptarse a las necesidades particulares de la aplicación.
+
+El método form_valid() es una parte fundamental del flujo de trabajo de cualquier vista en Django que maneja formularios. Su objetivo principal es asegurarse de que una vez que los datos del formulario son válidos, se procesen correctamente y se informe al usuario del éxito de la operación.
+
+Supongamos que deseamos un nuevo campo compuesto de los elementos únicos 'nombre' y 'apellido' de un empleado. Para ello:
+
+1 En el modelo de empleados construímos un nuevo campo llamado **full_name** no obligatorio.\
+
+```python
+class Empleado(models.Model):
+   JOB_CHOICES = (
+      ("0","Sociólogo"),
+      ("1","Antropólogo"),
+      ("2","Psicólogo"),
+      ("3","Economista")
+   )
+   first_name = models.CharField("Nombres", max_length=60)
+   last_name = models.CharField("Apellidos", max_length=60)
+   full_name = models.CharField(
+      "Nombre completo", 
+      max_length=120, 
+      blank = True)
+   job = models.CharField("Trabajo", max_length=1, choices=JOB_CHOICES)
+   departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
+   avatar = models.ImageField(upload_to = 'empleado', blank = True, null = True)
+   habilidades = models.ManyToManyField(Habilidades)
+   hoja_vida = RichTextField()
+
+   def __str__(self):
+      return str(self.id) + "-" + self.first_name + "-" + self.last_name
 ```
+
+2 En la vista especificamos los campos que deseamos sean ingresados para que no se despliegue el nuevo campo "Nombre completo" lo cual es innecesario.\
+
+```python
+
+# ...
+
+class CrearEmpleado(CreateView):
+   model = Empleado
+   template_name = "empleado/crearempleado.html"
+   fields = ['first_name',
+             'last_name',
+             'job',
+             'departamento',
+             'habilidades'] 
+   # fields = ('__all__')
+   success_url = reverse_lazy('empleado_app:exito')
+```
+
+3 Interceptamos el guardado de first_name y last_name en en la vista CreateView para generar el contenido del nuevo campo con el método **form_valid()**. Sólo cuando los datos ingresados son válidos se accede al método **form_valid()**.
+
+```python
+class CrearEmpleado(CreateView):
+   model = Empleado
+   template_name = "empleado/crearempleado.html"
+   fields = ['first_name',
+             'last_name',
+             'job',
+             'departamento',
+             'habilidades'] 
+   # fields = ('__all__')
+   success_url = reverse_lazy('empleado_app:exito')
+
+   def form_valid(self,form):
+      empleado = form.save()
+      empleado.full_name = empleado.first_name + ' ' + empleado.last_name
+      empleado.save()
+      return super(CrearEmpleado, self).form_valid(form)
+```
+
+Lo anterior no es óptimo pues estamos guardando innecesariamente el dato una segunda vez. Para evitar ésto hacemos:
+
+```python
 def form_valid(self,form):
- empleado = form.save()
- empleado.full_name = empleado.first_name + ' ' + empleado.last_name
- empleado.save()
- return super(EmpleadoCreateView, self).form_valid(form)
+   empleado = form.save(commit = false)
+   empleado.full_name = empleado.first_name + ' ' + empleado.last_name
+   empleado.save()
+   return super(CrearEmpleado, self).form_valid(form)
 ```
-Lo anterior no es optimo pues estamos guardando innecesariamente el dato una segunda vez. Para evitar ésto hacemos:
-```
-def form_valid(self,form):
- empleado = form.save(commit=false)
- empleado.full_name = empleado.first_name + ' ' + empleado.last_name
- empleado.save()
- return super(EmpleadoCreateView, self).form_valid(form)
-```
+
 4 guardamos los cambios, ejecutamos la migración (makemigrations y migrate), el servidor, registramos un nuevo empleado y verificamos.\
 
 ![image](https://github.com/user-attachments/assets/f62285f5-9625-45e5-b18c-3f895297d61a)
