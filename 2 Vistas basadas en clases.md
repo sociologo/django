@@ -791,17 +791,17 @@ def form_valid(self,form):
    return super(CrearEmpleado, self).form_valid(form)
 ```
 
-4 guardamos los cambios, ejecutamos la migración (makemigrations y migrate), el servidor, registramos un nuevo empleado y verificamos.\
+4 Guardamos los cambios, ejecutamos la migración, registramos un nuevo empleado y verificamos.
 
-![image](https://github.com/user-attachments/assets/f62285f5-9625-45e5-b18c-3f895297d61a)
+```python
+(entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py makemigrations
+(entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py migrate
+```
 
-![image](https://github.com/user-attachments/assets/64977318-e521-4d28-bfe7-0595cd51e613)
+![image](https://github.com/user-attachments/assets/25fc8615-13dc-4056-a2f6-d886d59d9e86)
 
-![image](https://github.com/user-attachments/assets/d0e8a3b4-eef5-4910-a830-5f33cb26b78b)
+![image](https://github.com/user-attachments/assets/1cdb48ba-42b9-4735-aa87-1059b7b96192)
 
-![image](https://github.com/user-attachments/assets/998e40d0-d085-4eb5-be10-7d7b3c2a690d)
-
-![image](https://github.com/user-attachments/assets/92ab934a-34fb-4491-aa3a-57ca6454e22b)
 
 ## 4 La vista UpdateView
 
