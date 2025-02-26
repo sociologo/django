@@ -9,8 +9,24 @@ Aca voy 26 de febrero
 * [El archivo forms.py](#1-El-archivo-forms.py)
   * [1 Formularios forms.ModelForm](#1-Formularios-formsModelForm)
   * [2 Formularios forms.Form](#2-Formularios-formsForm)
-    
-## El archivo forms.py
+
+## 1 Construyento una CreateView de ejemplo
+
+## 2 El archivo forms.py
+
+### 2.1 La clase ModelForm
+
+ModelForm en Django es una clase que permite crear y personalizar formularios basados en los modelos de una aplicación de manera automática.
+
+
+
+
+
+
+
+
+
+
 
 ### 1 Formularios formsModelForm
 
