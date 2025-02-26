@@ -12,7 +12,7 @@ Aca voy 26 de febrero
 
 ## 1 Construyento una CreateView de ejemplo
 
-Vamos a nuestra app: exp que hemos utilizado para realizar pruebas y construimos una vista CreateView
+Vamos a nuestra app **exp** que hemos utilizado para realizar pruebas y construimos una vista CreateView
 
 ```python
 from django.db import models # type: ignore
