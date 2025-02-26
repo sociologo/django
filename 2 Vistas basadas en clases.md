@@ -805,18 +805,92 @@ def form_valid(self,form):
 
 ## 4 La vista UpdateView
 
-El método UpdateView en Django es una vista genérica basada en clases que se utiliza para actualizar una instancia existente de un modelo en la base de datos. Hace:
+La vista `UpdateView` en Django se utiliza para actualizar instancias existentes de un modelo en la base de datos. 
+Es una vista basada en clases que se encarga de gestionar formularios de actualización de manera sencilla y eficiente.
 
-Formulario de Edición: Muestra un formulario para editar un objeto existente. Este formulario se genera automáticamente a partir de la clase del modelo, a menos que se especifique una clase de formulario personalizada.\
-Validación y Redisplay: Si hay errores de validación, vuelve a mostrar el formulario con los errores resaltados.\
-Guardar Cambios: Guarda los cambios realizados en el objeto una vez que el formulario se envía correctamente.
+Realiza lo siguiente:
 
-Este método es útil para situaciones en las que necesitas permitir a los usuarios actualizar información existente, como editar un perfil de usuario o modificar un artículo en un blog.
+1 Renderiza un formulario de actualización: UpdateView presenta al usuario un formulario pre-poblado con los datos actuales de la instancia del modelo que se desea actualizar. 
+Esto permite al usuario ver y modificar los datos existentes.
 
-1 Importamos la vista.
-![image](https://github.com/user-attachments/assets/0bb860e4-5ea4-4667-b491-ea620246eadd)
+2 Gestiona la validación del formulario: UpdateView se encarga de validar los datos ingresados por el usuario en el formulario. Si los datos son válidos, se procede con la actualización; 
+si no lo son, se vuelve a mostrar el formulario con mensajes de error.
 
-2 Creamos la vista basada en clases EmpleadoUpdateView sobreescribiendo el método **post**:
+3 Actualiza la instancia del modelo: Si el formulario es válido, UpdateView guarda los cambios realizados en la instancia del modelo en la base de datos. 
+Esto actualiza los datos existentes con los nuevos valores proporcionados por el usuario.
+
+4 Redirige a una URL de éxito: Después de actualizar la instancia del modelo, UpdateView redirige al usuario a una URL de éxito, 
+que normalmente se especifica en la configuración de la vista. Esta redirección es importante para confirmar al usuario que la actualización se ha realizado con éxito.
+
+En resumen, UpdateView simplifica el proceso de actualización de datos en una aplicación Django al manejar automáticamente la presentación del formulario, 
+la validación de los datos y la actualización de la base de datos.
+
+1 Construimos la vista **ActualizarEmpleado**:
+
+```python
+from django.shortcuts import render # type: ignore
+from django.urls import reverse_lazy # type: ignore
+from django.views.generic import( # type: ignore
+   ListView, 
+   DetailView,
+   CreateView,
+   TemplateView,
+   UpdateView) # type: ignore
+
+# ...
+
+class ActualizarEmpleado(UpdateView):
+   model = Empleado
+   template_name = "empleado/actualizarempleado.html"
+   fields = ['first_name',
+             'last_name',
+             'job',
+             'departamento',
+             'habilidades'] 
+   success_url = reverse_lazy('empleado_app:exito')
+```
+
+2 Construimos el template **actualizarempleado.html**:
+
+```html
+<h1> Actualizar empleados </h1>
+
+<form method = "POST">{% csrf_token %}
+   {{form.as_p}}
+   <button type="submit">
+      Actualizar
+   </button>
+</form>
+```
+
+3 Activamos la url de la vista:
+
+```python
+
+# ...
+
+urlpatterns = [
+   path('listar-todos-los-empleados', 
+        views.EmpleadosListView.as_view()),
+   path('listar-por-departamento', 
+        views.ListaPorDeptListView.as_view()),
+   path('listar-por-kword', 
+        views.EmpleadoPorKwordListView.as_view()),
+   path('buscar-habi-por-emp', 
+        views.ListEmpByHabili.as_view()),
+   path('detalles-del-emp/<pk>', 
+        views.DetalleDelEmpleado.as_view()),
+   path('crear-emp', 
+      views.CrearEmpleado.as_view(), ),
+   path('ingreso-exitoso', 
+      views.IngresoExitoso.as_view(), 
+      name = 'exito'),
+   path('actualizar-empleado', 
+      views.ActualizarEmpleado.as_view(), 
+      name = 'actualizarempleado')
+]
+```
+
 El método **post()** permite guardar datos sin haber sido previamente validados por el método **form_valid()**
 ![image](https://github.com/user-attachments/assets/599dc1e7-31ed-4d4d-bd68-f8485333e44f)
 
