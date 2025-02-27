@@ -99,7 +99,7 @@ class PruebasForm(forms.ModelForm):
 
 2 Importamos la clase PruebasForm en nuestra vista y las **vinculamos**:
 
-```
+```python
 from django.views.generic import ( # type: ignore
    CreateView)  # type: ignore
 
@@ -113,6 +113,9 @@ class PruebasCreateView(CreateView):
    form_class = PruebasForm
    success_url = reverse_lazy('empleado_app:exito')
 ```
+
+
+
 
 aca voy iniciando la clase 59.
 26 febrero.
