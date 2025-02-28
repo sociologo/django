@@ -97,7 +97,7 @@ urlpatterns = [
 <br>
 
 28 febrero.
-comenzando la 72
+comenzando la 77
 
 <br>
 <br>
