@@ -7,9 +7,86 @@
 * [1 Crear un proyecto Django](#1-crear-un-proyecto-django)
   * [11 Creamos carpetas de trabajo](#11-Creamos-carpetas-de-trabajo)
 
-## 1 Crear un proyecto Django
+## 1 Construyendo la pantalla de inicio
 
-### 11 Creamos carpetas de trabajo
+1 Carpeta templates y base.html
+
+Dentro de la carpeta **templates**, crearemos otra llamada **includes** para incluir otros fragmentos de plantillas dentro de una plantilla principal y un **base.html** del cual vamos a heredar.
+
+**base.html**
+
+```html
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="{% static 'css/foundation.min.css' %}">
+   <title>
+
+      {% block title  %}
+         
+      {% endblock title %}
+
+   </title>
+</head>
+<body>
+
+   {% block content %}
+         
+   {% endblock content %}
+
+</body>
+</html>
+```
+
+2 El TemplateView
+
+En **views.py** de la app **empleados** creamos una vista TemplateView asociada al html **inicio.html**
+
+```
+class Inicio(TemplateView):
+    template_name = "inicio.html"
+```
+
+3 Activamos la url de la vista
+
+```python
+from django.contrib import admin # type: ignore
+from django.urls import path, include # type: ignore
+
+from . import views
+
+app_name = "empleado_app"
+
+urlpatterns = [
+   path('', 
+      views.Inicio.as_view(), 
+      name = 'inicio'),
+
+# some code...
+
+]
+```
+
+3 construimos **inicio.html**
+
+```
+{% extends 'base.html' %}
+
+{% block title  %}
+   Pagina de inicio del sistema empleados         
+{% endblock title %}
+
+{% block content %}
+   Bienvenido a la pagina de inicio del sistema empleados      
+{% endblock content %}
+```
+
+
+
+
 
 <br>
 <br>
