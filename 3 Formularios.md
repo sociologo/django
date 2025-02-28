@@ -186,21 +186,6 @@ class PruebasForm(forms.ModelForm):
       return cantidad  
  ```
 
-<br>
-<br>
-<br>
-<br>
-
-me faltan las clase 61, 62, 63.
-27 febrero.
-
-<br>
-<br>
-<br>
-<br>
----
----
-
 ### 2.2 La clase Form y la vista FormView
 
 Con ModelForm, ahorras tiempo porque los campos se generan automáticamente basados en un modelo, estando diseñado específicamente para trabajar con modelos de Django. Con Form, defines los campos manualmente y es más adecuado para formularios independientes que no se relacionan directamente con un modelo de base de datos.
