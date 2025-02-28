@@ -1,6 +1,14 @@
 # Formularios
 
-Aca voy 26 de febrero
+Script de arranque:
+
+```bash
+C:\Users\chris> cd /
+C:\> cd mis_entornos/entorno_3/Scripts
+C:\mis_entornos\entorno_3\Scripts> activate
+(entorno_3) C:\mis_entornos\entorno_3\Scripts> cd \mis_proyectos\emp3\empleado
+(entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver
+```
 
 [Working with forms](https://docs.djangoproject.com/en/5.1/topics/forms/)
 
@@ -75,7 +83,6 @@ Verifiquemos
 ![image](https://github.com/user-attachments/assets/6a1f36c4-5983-4290-b181-f843d007d5e3)
 ![image](https://github.com/user-attachments/assets/7d52dc2f-ae13-40ba-9327-1fbbe92ac71e)
 
-
 ## 2 El archivo forms.py
 
 ### 2.1 La clase ModelForm
@@ -114,31 +121,85 @@ class PruebasCreateView(CreateView):
    success_url = reverse_lazy('empleado_app:exito')
 ```
 
+#### 2.1.1 Validaciones con ModelForm
 
+Podemos hacer validaciones personalizadas en Django con el metodo `clean_`.
 
+En Django, el prefijo `clean_` se utiliza en formularios para definir métodos de validación personalizados para campos específicos. Estos métodos permiten agregar reglas adicionales más allá de las validaciones predeterminadas de Django.
 
-aca voy iniciando la clase 59.
-26 febrero.
-                
-#### 2.2.1 Validaciones con ModelForm
+`cantidad = self.cleaned_data['cantidad']` obtiene el valor del campo cantidad desde el diccionario `cleaned_data`, que contiene los datos ingresados por el usuario ya validados por las verificaciones iniciales de Django.
 
-ModelForm en Django es una clase que permite crear y personalizar formularios basados en los modelos de una aplicación de manera automática.
+```python
+from django import forms # type: ignore
+from .models import Prueba
 
+class PruebasForm(forms.ModelForm):
 
+   class Meta:
+      model = Prueba
+      fields = ('titulo',
+                'subtitulo',
+                'cantidad')
 
+   def clean_cantidad(self):
+      cantidad = self.cleaned_data['cantidad']
+      if cantidad < 10:
+         raise forms.ValidationError('Ingrese un valor mayor o igual a 10')
+      return cantidad   
+```
 
+Todas las validaciones que hagas para los campos de la base de datos deben hacerse aqui en los formularios.
 
+#### 2.1.2 Personalizaciones con ModelForm (widgets)
 
+Este código está configurando un widget para un formulario. Los widgets son responsables de cómo se representa un campo en el formulario en el HTML generado. En este caso, se está usando un TextInput, que crea un campo de entrada de texto personalizado.
 
+`'titulo': forms.TextInput(...)` indica que el campo llamado titulo en el formulario utilizará el widget TextInput. `TextInput` se traduce en un campo <input type="text"> en el HTML.
+
+`attrs = {...}` es un diccionario que define los atributos HTML personalizados para el widget. En este caso:
+
+`placeholder`, que añade un texto dentro del campo de entrada que desaparece cuando el usuario comienza a escribir. Aquí el texto sería: "Ingrese texto aquí".
+
+```python
+from django import forms # type: ignore
+from .models import Prueba
+
+class PruebasForm(forms.ModelForm):
+
+   class Meta:
+      model = Prueba
+      fields = ('titulo',
+                'subtitulo',
+                'cantidad')
+      widgets = {
+         'titulo': forms.TextInput(
+            attrs = {
+               'placeholder': 'Ingrese texto aqui',
+            }
+         )
+      }
+
+   def clean_cantidad(self):
+      cantidad = self.cleaned_data['cantidad']
+      if cantidad < 10:
+         raise forms.ValidationError('Ingrese un valor mayor o igual a 10')
+      return cantidad  
+ ```
 
 <br>
+<br>
+<br>
+<br>
+
+me faltan las clase 61, 62, 63.
+27 febrero.
+
 <br>
 <br>
 <br>
 <br>
 ---
-
-#### 2.2.2 Personalizaciones con ModelForm (widgets)
+---
 
 ### 2.2 La clase Form y la vista FormView
 
