@@ -44,44 +44,4 @@ STATICFILES_DIRS = [
 ]
 ```
 
-
-<br>
-<br>
-<br>
-<br>
-
-28 febrero.
-comenzando la 72
-
-<br>
-<br>
-<br>
-<br>
----
----
-
-## 2 Implementando Includes y herencia.
-
-1 Dentro de la carpeta templates construímos una nueva carpeta llamada includes (en Django, la etiqueta include se utiliza dentro de las plantillas para incluir el contenido de otra plantilla en la plantilla actual. Esto es útil para reutilizar componentes comunes en varias páginas, como encabezados, pies de página o menús de navegación) y un **base.html**, de donde heredaremos la estructura html basica de nuestros templates.
-
-![image](https://github.com/user-attachments/assets/13ec9816-672a-4962-98d7-9fde47daccf6)
-
-2 En la aplicacion **empleados** creamos una nueva vista llamada **InicioView** asociada a un **inicio.html** dentro de la carpeta **templates**
-
-![image](https://github.com/user-attachments/assets/ea34863a-d080-4eb9-b506-b8023cfd3737)
-![image](https://github.com/user-attachments/assets/ad6e0d57-2c86-4c1e-9141-4f976a30dd61)
-
-3 Activamos la vista.
-
-![image](https://github.com/user-attachments/assets/56505861-09d3-400b-8352-b1f9b4522844)
-
-4 Vamos a la url:
-
-![image](https://github.com/user-attachments/assets/4689f3bf-fff4-4dc9-bbb4-e474bb3504a1)
-
-
-
-
-
-
 \* Foundation es un conjunto de frameworks front-end responsivos desarrollados originalmente por ZURB. Está diseñado para facilitar la creación de sitios web, aplicaciones y correos electrónicos que se vean bien en cualquier dispositivo. Foundation for Sites proporciona HTML, CSS y JavaScript para ayudarte a prototipar rápidamente y construir sitios web centrados en el contenido. Es fácil de personalizar y extender
