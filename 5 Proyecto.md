@@ -1,3 +1,22 @@
+Construyendo el proyecto
+
+<br>
+<br>
+<br>
+<br>
+
+28 febrero.
+comenzando la 72
+
+<br>
+<br>
+<br>
+<br>
+---
+---
+
+
+
 Apariencia de nuestro prototipo.
 
 1 Creamos un header.html dentro de la carpeta includes. En el, pegamos el codigo de Top Bar copiado desde Foundation.
