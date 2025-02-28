@@ -1,4 +1,15 @@
-Construyendo el proyecto
+
+
+# Construyendo el proyecto
+
+## Índice
+
+* [1 Crear un proyecto Django](#1-crear-un-proyecto-django)
+  * [11 Creamos carpetas de trabajo](#11-Creamos-carpetas-de-trabajo)
+
+## 1 Crear un proyecto Django
+
+### 11 Creamos carpetas de trabajo
 
 <br>
 <br>
