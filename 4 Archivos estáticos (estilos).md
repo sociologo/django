@@ -33,11 +33,32 @@
 ---
 
 
-3 Vamos a las configuraciones de nuestro proyecto ubicadas en **local.py** dentro de **settings** y declaramos la variable **STATICFILES_DIRS**
+3 Vamos a las configuraciones de nuestro proyecto ubicadas en **local.py** dentro de **settings** y declaramos la variable **STATICFILES_DIRS**. Es de fundamental importancia declarar bien la variable **STATICFILES_DIRS** para que nuestro javascript funcione.
 
-Es de fundamental importancia declarar bien la variable **STATICFILES_DIRS** para que nuestro javascript funcione.
+```python
+from .base import *
 
-![image](https://github.com/user-attachments/assets/7afcbc3d-faaf-4912-a282-d32520a4f360)
+DEBUG = True
+
+ALLOWED_HOSTS = []
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dbempleado101',
+        'USER': 'chris101',
+        'PASSWORD': 'nueva123456',
+        'HOST': 'localhost',
+        'PORT': '5432'
+    }
+}
+
+STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+   BASE_DIR / "static",
+]
+```
 
 ## 2 Implementando Includes y herencia.
 
