@@ -236,7 +236,7 @@ class NuevoEmpleadoYDepartamento(FormView):
    def form_valid(self, form):
 
       depa = Departamento(
-         name = form.cleaned_data['departamento']
+         name = form.cleaned_data['departamento'],
          shortname = form.cleaned_data['shortname']
       )
       depa.save()
