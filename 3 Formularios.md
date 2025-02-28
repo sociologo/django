@@ -237,7 +237,7 @@ class NuevoEmpleadoYDepartamento(FormView):
 
       depa = Departamento(
          name = form.cleaned_data['departamento'],
-         shortname = form.cleaned_data['shortname']
+         short_name = form.cleaned_data['shortname']
       )
       depa.save()
 
