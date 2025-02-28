@@ -297,7 +297,23 @@ urlpatterns = [
 </form>
 ```
 
+5 Registramos la app departamento en el sistema general de urls de django:
 
+```python
+from django.contrib import admin # type: ignore
+from django.urls import path, include # type: ignore
+
+urlpatterns = [
+   path('admin/', admin.site.urls),
+   path('', include("applications.empleados.urls")),
+   path('', include("applications.exp.urls")),
+   path('', include("applications.departamentos.urls")),
+]
+``
+
+6 Verificamos:
+
+![image](https://github.com/user-attachments/assets/e53329e7-c69c-4f8f-9a2b-016d3b784521)
 
 
 
