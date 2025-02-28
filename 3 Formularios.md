@@ -203,38 +203,101 @@ me faltan las clase 61, 62, 63.
 
 ### 2.2 La clase Form y la vista FormView
 
-Los formularios Form no están vinculados directamente a un solo modelo, por lo que nos sirven cuando deseamos ingresar registros asociados a modelos distintos. Vamos a hacer esto sobre nuestra app que contiene los modelos **empleado** y **departamento**.
+Con ModelForm, ahorras tiempo porque los campos se generan automáticamente basados en un modelo, estando diseñado específicamente para trabajar con modelos de Django. Con Form, defines los campos manualmente y es más adecuado para formularios independientes que no se relacionan directamente con un modelo de base de datos.
 
-1 En la aplicación **departamento** construiremos un nuevo forms.py en el que registraremos campos de un departamento y un empleado asociado a él:
+Vamos a utilizar un formulario Form para ingresar simultaneamente datos en los modelos **empleado** y **departamento**.
 
-![image](https://github.com/user-attachments/assets/6a881efe-9557-45e6-b2cd-5eee8b64bd78)
+1 En la aplicación **departamentos** construiremos un nuevo forms.py en el que registraremos campos de un departamento y un empleado asociado a él:
 
-2 En la aplicación **departamento** construiremos la vista NewDepartmentView en el que registraremos campos de un departamento y un empleado asociado a él:
+```python
+from django import forms # type: ignore
 
-Primero, el código importa varias herramientas y componentes necesarios para trabajar con Django, incluyendo funciones para renderizar plantillas, manejar URLs, y vistas genéricas que facilitan la creación de formularios y plantillas.
+class EmpleadoYDepartamento(forms.Form):
+   nombre = forms.CharField(max_length=50)
+   apellido = forms.CharField(max_length=50)
+   departamento = forms.CharField(max_length=50)
+   shortname = forms.CharField(max_length=20)
+```
+2 Construimos una vista FormView.
 
-Luego, se define una vista llamada SuccessView que simplemente muestra una página de éxito cuando se accede a ella. Esta página se utiliza para informar al usuario que una operación se ha completado correctamente.
+```python
+from django.shortcuts import render # type: ignore
+from django.views.generic.edit import FormView # type: ignore
+from .forms import EmpleadoYDepartamento
+from applications.empleados.models import Empleado
+from .models import Departamento
+from django.urls import reverse_lazy # type: ignore
 
-La parte principal del código es una vista llamada NewDepartmentView. Esta vista se encarga de mostrar un formulario al usuario para que pueda crear un nuevo departamento. Cuando el usuario envía el formulario, la vista verifica que los datos sean válidos.
+class NuevoEmpleadoYDepartamento(FormView):
+   template_name = 'depa/nuevoempleadoydepartamento.html'
+   form_class = EmpleadoYDepartamento
+   success_url = reverse_lazy('empleado_app:exito')
 
-Si los datos son válidos, la vista crea un nuevo departamento utilizando la información proporcionada por el usuario. Además, también crea un nuevo empleado asociado a este departamento, utilizando otros datos del formulario. Una vez que ambos registros se han guardado correctamente en la base de datos, el usuario es redirigido a una página de éxito.
+   def form_valid(self, form):
 
-En resumen, este código maneja la creación de un nuevo departamento y un empleado asociado, asegurándose de que ambos se guarden correctamente en la base de datos y proporcionando retroalimentación al usuario sobre el éxito de la operación.
+      depa = Departamento(
+         name = form.cleaned_data['departamento']
+         shortname = form.cleaned_data['shortname']
+      )
+      depa.save()
 
-![image](https://github.com/user-attachments/assets/ccc97b4f-ae20-4e5a-a1a8-e44b39c4dfdb)
+      nombre = form.cleaned_data['nombre']
+      apellido = form.cleaned_data['apellido']
+      Empleado.objects.create(
+         first_name = nombre,
+         last_name = apellido,
+         job = '1',
+         departamento = depa
+      )
+      return super(NuevoEmpleadoYDepartamento, self).form_valid(form)
+```
 
-3 Construímos las URLS para activar las vistas.
-![image](https://github.com/user-attachments/assets/d9628226-345e-40d6-894b-43305563e431)
-![image](https://github.com/user-attachments/assets/d8cbc229-9544-45a8-943a-53162980ec38)
+CreateView funciona sobre un solo modelo; FormView no.
 
-4 Creamos los htmls asociados a las vistas:
-![image](https://github.com/user-attachments/assets/b505c12d-6305-47b1-8965-da79b552bd15)
-![image](https://github.com/user-attachments/assets/4cbcdcd3-e31b-42e6-bf52-2def56165ad5)
+3 Activamos la url de la vista
 
-5 Ingresamos un nuevo registro y verificamos:
-![image](https://github.com/user-attachments/assets/51177aae-b6f2-42f8-8f37-5e921b7333c4)
-![image](https://github.com/user-attachments/assets/9b3de7a6-dc54-4b63-a78f-d5ffeda6a009)
-![image](https://github.com/user-attachments/assets/3b296643-d1d4-40fb-9b08-52ec787d6b50)
+```python
+from django.contrib import admin # type: ignore
+from django.urls import path, include # type: ignore
+
+from . import views
+
+app_name = "departamento_app"
+
+urlpatterns = [
+   path('nuevo-empleado-y-departamento/', 
+      views.NuevoEmpleadoYDepartamento.as_view(), 
+      name = 'nuevoempleadoydepartamento')
+]
+```
+
+4 Creamos el template **nuevoempleadoydepartamento.html**
+
+```html
+<h1> Registrar empleado y departamento </h1>
+
+<form method = "POST">{% csrf_token %}
+   <h3>
+      Datos del empleado
+   </h3>
+   <p>
+      {{form.nombre}}
+   </p>
+      {{form.apellido}}
+   <h3>
+      Datos del departamento
+   </h3>
+   <p>
+      {{form.departamento}}
+   </p>
+      {{form.shortname}}
+   <button type="submit">
+      Agregar
+   </button>
+</form>
+```
+
+
 
 
 
