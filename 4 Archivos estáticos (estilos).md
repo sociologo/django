@@ -17,22 +17,6 @@
 
 ![image](https://github.com/user-attachments/assets/9b67f6b7-b55a-46cf-b51c-77fd1faf7ab3)
 
-
-<br>
-<br>
-<br>
-<br>
-
-28 febrero.
-
-<br>
-<br>
-<br>
-<br>
----
----
-
-
 3 Vamos a las configuraciones de nuestro proyecto ubicadas en **local.py** dentro de **settings** y declaramos la variable **STATICFILES_DIRS**. Es de fundamental importancia declarar bien la variable **STATICFILES_DIRS** para que nuestro javascript funcione.
 
 ```python
@@ -59,6 +43,22 @@ STATICFILES_DIRS = [
    BASE_DIR / "static",
 ]
 ```
+
+
+<br>
+<br>
+<br>
+<br>
+
+28 febrero.
+comenzando la 72
+
+<br>
+<br>
+<br>
+<br>
+---
+---
 
 ## 2 Implementando Includes y herencia.
 
