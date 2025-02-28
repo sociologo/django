@@ -70,7 +70,7 @@ urlpatterns = [
 ]
 ```
 
-3 construimos **inicio.html**
+4 construímos **inicio.html**
 
 ```
 {% extends 'base.html' %}
@@ -84,6 +84,9 @@ urlpatterns = [
 {% endblock content %}
 ```
 
+5 Verificamos:
+
+![image](https://github.com/user-attachments/assets/cb17b8d6-ca72-42fa-a88f-dd6b5cef89df)
 
 
 
