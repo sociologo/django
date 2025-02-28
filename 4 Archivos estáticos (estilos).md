@@ -2,6 +2,20 @@
 
 [Fundation framework](https://get.foundation/sites/getting-started.html)
 
+<br>
+<br>
+<br>
+<br>
+
+28 febrero.
+
+<br>
+<br>
+<br>
+<br>
+---
+---
+
 ## Índice
 
 * [1 Configurar Django para la lectura de archivos estaticos](#1-Configurar-Django-para-la-lectura-de-archivos-estaticos)
