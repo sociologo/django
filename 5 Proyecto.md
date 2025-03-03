@@ -23,7 +23,7 @@ C:\mis_entornos\entorno_3\Scripts> activate
 
 1 La carpeta includes
 
-Dentro de la carpeta **templates**, crearemos otra llamada **includes** para **heredar** fragmentos de plantillas dentro de una plantilla principal. En ella construimos dos archivos: **base.html** e **inicio.html**.
+en la carpeta **templates** construimos los archivos **base.html** y **inicio.html**. Dentro de la carpeta **templates**, crearemos otra llamada **includes** para **heredar** fragmentos de plantillas dentro de una plantilla principal. En ella construimos el archivo: **header.html**.
 
 **base.html**
 
@@ -57,7 +57,7 @@ Dentro de la carpeta **templates**, crearemos otra llamada **includes** para **h
 
 En **views.py** de la app **empleados** creamos una vista TemplateView asociada al html **inicio.html**
 
-```
+```python
 class Inicio(TemplateView):
     template_name = "inicio.html"
 ```
@@ -84,7 +84,7 @@ urlpatterns = [
 
 4 construímos **inicio.html**
 
-```
+```html
 {% extends 'base.html' %}
 
 {% block title  %}
@@ -134,6 +134,8 @@ Includes se utiliza para insertar contenido de otra plantilla directamente en la
 ```
 
 2 En inicio.html agregamos el include:
+
+```html
 {% extends 'base.html' %}
 
 {% block title  %}
@@ -142,11 +144,18 @@ Includes se utiliza para insertar contenido de otra plantilla directamente en la
 
 {% block content %}
 
-   {% include 'includes/header.html'}
+   {% include 'includes/header.html' %}
  
-   Bienvenido a la pagina de inicio del sistema empleados      
+   <style>
+      p {
+          text-indent: 30px; /* Ajusta el tamaño de la sangría según lo desees */
+      }
+  </style>
+        
+   <p>Bienvenido a la pagina de inicio del sistema empleados </p>
 
 {% endblock content %}
+```
 
 3 En base.html agregamos las siguiente líneas:
 
@@ -192,8 +201,11 @@ Includes se utiliza para insertar contenido de otra plantilla directamente en la
 </html>
 ```
 
+4 Verificamos:
 
+![image](https://github.com/user-attachments/assets/cb2d32cc-6039-44e0-86de-8e55e7962665)
 
+3 
 
 
 
