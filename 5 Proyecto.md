@@ -244,10 +244,12 @@ Includes se utiliza para insertar contenido de otra plantilla directamente en la
 
 2 Anadimos imagenes
 
-Copiamos codigo de Foundation en Media, Orbit y lo pegamos en **inicio.html** entre block. Carguemos 4 imagenes dentro de la carpeta **img**
+Copiamos código de Foundation de Media, Orbit y lo pegamos en **inicio.html** entre `{% block content %}`. Cargamos 4 imagenes dentro de la carpeta **img**, modificamos sus rutas y agregamos la expresion `{% load static %}`:
 
 ```html
 {% extends 'base.html' %}
+
+{% load static %}
 
 {% block title  %}
    Pagina de inicio del sistema empleados         
@@ -256,7 +258,7 @@ Copiamos codigo de Foundation en Media, Orbit y lo pegamos en **inicio.html** en
 {% block content %}
 
    {% include 'includes/header.html' %}
-  
+ 
 Bienvenido a la pagina de inicio del sistema empleados 
 
 <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
@@ -268,25 +270,25 @@ Bienvenido a la pagina de inicio del sistema empleados
       <ul class="orbit-container">
          <li class="is-active orbit-slide">
          <figure class="orbit-figure">
-            <img class="orbit-image" src="https://placehold.it/1200x600/999?text=Slide-1" alt="Space">
+            <img class="orbit-image" src="{% static 'img/1.jpg' %}" alt="Space">
             <figcaption class="orbit-caption">Space, the final frontier.</figcaption>
          </figure>
          </li>
          <li class="orbit-slide">
          <figure class="orbit-figure">
-            <img class="orbit-image" src="https://placehold.it/1200x600/888?text=Slide-2" alt="Space">
+            <img class="orbit-image" src="{% static 'img/2.jpg' %}" alt="Space">
             <figcaption class="orbit-caption">Lets Rocket!</figcaption>
          </figure>
          </li>
          <li class="orbit-slide">
          <figure class="orbit-figure">
-            <img class="orbit-image" src="https://placehold.it/1200x600/777?text=Slide-3" alt="Space">
+            <img class="orbit-image" src="{% static 'img/3.jpg' %}" alt="Space">
             <figcaption class="orbit-caption">Encapsulating</figcaption>
          </figure>
          </li>
          <li class="orbit-slide">
          <figure class="orbit-figure">
-            <img class="orbit-image" src="https://placehold.it/1200x600/666&text=Slide-4" alt="Space">
+            <img class="orbit-image" src="{% static 'img/4.jpg' %}" alt="Space">
             <figcaption class="orbit-caption">Outta This World</figcaption>
          </figure>
          </li>
