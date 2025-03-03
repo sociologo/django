@@ -21,9 +21,9 @@ C:\mis_entornos\entorno_3\Scripts> activate
 
 ### 1 Herencia
 
-1 La carpeta includes
+1 base.html e inicio.html
 
-en la carpeta **templates** construimos los archivos **base.html** y **inicio.html**. Dentro de la carpeta **templates**, crearemos otra llamada **includes** para **heredar** fragmentos de plantillas dentro de una plantilla principal. En ella construimos el archivo: **header.html**.
+En la carpeta **templates** construimos el archivo **base.html** del cual heredaremos a **inicio.html**. 
 
 **base.html**
 
@@ -101,7 +101,9 @@ urlpatterns = [
 ![image](https://github.com/user-attachments/assets/cb17b8d6-ca72-42fa-a88f-dd6b5cef89df)
 
 
-### 2 Includes
+### 2 Includes. La cabecera
+
+Dentro de la carpeta **templates**, crearemos otra llamada **includes** para incluir fragmentos de plantillas dentro de una plantilla principal. En ella construimos el archivo: **header.html**.
 
 Includes se utiliza para insertar contenido de otra plantilla directamente en la actual, con `{% include %}`. Esto es útil para piezas reutilizables más pequeñas, como menús, barras de navegación o widgets. No implica herencia; simplemente incluye ese fragmento de plantilla "tal cual".
 
@@ -205,12 +207,104 @@ Includes se utiliza para insertar contenido de otra plantilla directamente en la
 
 ![image](https://github.com/user-attachments/assets/cb2d32cc-6039-44e0-86de-8e55e7962665)
 
-3 
+### 3 Personalizando la cabecera
 
+1 Modificamos **header.html** como se indica a continuacion:
 
+```html
+<div class="top-bar">
+   <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+         <li class="menu-text">Empleados</li>
+         <li>
+            <a href="#">
+               Listar
+            </a>
+         </li>
+         <li>
+            <a href="#">
+               Departamentos
+            </a>
+         </li>
+         <li>
+            <a href="#">
+               Administrar
+            </a>
+         </li>
+      </ul>
+      </div>
+      <div class="top-bar-right">
+      <ul class="menu">
+         <li><input type="search" placeholder="Buscar empleado"></li>
+         <li><button type="button" class="button">Registrar nuevo</button></li>
+      </ul>
+   </div>
+ </div>
+```
 
+2 Anadimos imagenes
 
+Copiamos codigo de Foundation en Media, Orbit y lo pegamos en **inicio.html** entre block. Carguemos 4 imagenes dentro de la carpeta **img**
 
+```html
+{% extends 'base.html' %}
+
+{% block title  %}
+   Pagina de inicio del sistema empleados         
+{% endblock title %}
+
+{% block content %}
+
+   {% include 'includes/header.html' %}
+  
+Bienvenido a la pagina de inicio del sistema empleados 
+
+<div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+   <div class="orbit-wrapper">
+      <div class="orbit-controls">
+         <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+         <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+      </div>
+      <ul class="orbit-container">
+         <li class="is-active orbit-slide">
+         <figure class="orbit-figure">
+            <img class="orbit-image" src="https://placehold.it/1200x600/999?text=Slide-1" alt="Space">
+            <figcaption class="orbit-caption">Space, the final frontier.</figcaption>
+         </figure>
+         </li>
+         <li class="orbit-slide">
+         <figure class="orbit-figure">
+            <img class="orbit-image" src="https://placehold.it/1200x600/888?text=Slide-2" alt="Space">
+            <figcaption class="orbit-caption">Lets Rocket!</figcaption>
+         </figure>
+         </li>
+         <li class="orbit-slide">
+         <figure class="orbit-figure">
+            <img class="orbit-image" src="https://placehold.it/1200x600/777?text=Slide-3" alt="Space">
+            <figcaption class="orbit-caption">Encapsulating</figcaption>
+         </figure>
+         </li>
+         <li class="orbit-slide">
+         <figure class="orbit-figure">
+            <img class="orbit-image" src="https://placehold.it/1200x600/666&text=Slide-4" alt="Space">
+            <figcaption class="orbit-caption">Outta This World</figcaption>
+         </figure>
+         </li>
+      </ul>
+   </div>
+   <nav class="orbit-bullets">
+      <button class="is-active" data-slide="0">
+         <span class="show-for-sr">First slide details.</span>
+         <span class="show-for-sr" data-slide-active-label>Current Slide</span>
+      </button>
+      <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+      <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
+      <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
+   </nav>
+</div>
+
+{% endblock content %}
+```
 
 <br>
 <br>
