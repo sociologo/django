@@ -1,6 +1,6 @@
 
 
-# Construyendo el proyecto
+# Diseño gráfico del proyecto
 
 Script de arranque:
 
@@ -364,7 +364,16 @@ Bienvenido a la pagina de inicio del sistema empleados
 {% endblock content %}
 ```
 
+4 Veamos como queda:
+
+![image](https://github.com/user-attachments/assets/e87b65b5-5219-4029-aae5-b681c45d33d5)
+
 ## 2 Pantalla listar empleados
+
+1 Queremos entregarle funcionalidad y diseño al siguiente botón:
+
+![image](https://github.com/user-attachments/assets/6b4bf86b-e084-43bb-990a-f105bd22dfe4)
+
 
 <br>
 <br>
