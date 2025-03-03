@@ -244,7 +244,7 @@ Includes se utiliza para insertar contenido de otra plantilla directamente en la
 
 2 Anadimos imagenes
 
-Copiamos código de Foundation de Media, Orbit y lo pegamos en **inicio.html** entre `{% block content %}`. Cargamos 4 imagenes dentro de la carpeta **img**, modificamos sus rutas y agregamos la expresion `{% load static %}`:
+Copiamos código de Foundation de Media, Orbit y lo pegamos en **inicio.html** entre `{% block content %}`. Cargamos 3 imagenes dentro de la carpeta **img**, modificamos sus rutas y agregamos la expresion `{% load static %}`:
 
 ```html
 {% extends 'base.html' %}
@@ -286,12 +286,6 @@ Bienvenido a la pagina de inicio del sistema empleados
             <figcaption class="orbit-caption">Encapsulating</figcaption>
          </figure>
          </li>
-         <li class="orbit-slide">
-         <figure class="orbit-figure">
-            <img class="orbit-image" src="{% static 'img/4.jpg' %}" alt="Space">
-            <figcaption class="orbit-caption">Outta This World</figcaption>
-         </figure>
-         </li>
       </ul>
    </div>
    <nav class="orbit-bullets">
@@ -307,6 +301,70 @@ Bienvenido a la pagina de inicio del sistema empleados
 
 {% endblock content %}
 ```
+
+3 Adjuntamos en inicio.html un bloque de bienvenida copiando de Foundation Container, Callout:
+
+```html
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title  %}
+   Pagina de inicio del sistema empleados         
+{% endblock title %}
+
+{% block content %}
+
+   {% include 'includes/header.html' %}
+     
+Bienvenido a la pagina de inicio del sistema empleados 
+
+<div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+   <div class="orbit-wrapper">
+      <div class="orbit-controls">
+         <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+         <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+      </div>
+      <ul class="orbit-container">
+         <li class="is-active orbit-slide">
+         <figure class="orbit-figure">
+            <img class="orbit-image" src="{% static 'img/1.jpg' %}" alt="Space">
+            <figcaption class="orbit-caption">Space, the final frontier.</figcaption>
+         </figure>
+         </li>
+         <li class="orbit-slide">
+         <figure class="orbit-figure">
+            <img class="orbit-image" src="{% static 'img/2.jpg' %}" alt="Space">
+            <figcaption class="orbit-caption">Lets Rocket!</figcaption>
+         </figure>
+         </li>
+         <li class="orbit-slide">
+         <figure class="orbit-figure">
+            <img class="orbit-image" src="{% static 'img/3.jpg' %}" alt="Space">
+            <figcaption class="orbit-caption">Encapsulating</figcaption>
+         </figure>
+         </li>
+      </ul>
+   </div>
+</div>
+
+<div class="grid-x align-center">
+   <h1 class="cell large-8" style="font-size: 25px; text-align: center;">
+      Bienvenido a la pagina de inicio   
+   </h1>
+   <div>
+      <div class="callout secondary">
+         <h5>Registro y control de empleados</h5>
+         <p>caja callout</p>
+         <a href="#">Ver empleados</a>
+         </div>
+   </div>
+</div>
+
+{% endblock content %}
+```
+
+## 2 Pantalla listar empleados
 
 <br>
 <br>
