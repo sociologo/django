@@ -370,7 +370,7 @@ Bienvenido a la pagina de inicio del sistema empleados
 
 ## 2 Pantalla listar empleados
 
-1 Queremos entregarle funcionalidad y diseño al siguiente botón:
+1 Queremos entregarle funcionalidad al botón:
 
 ![image](https://github.com/user-attachments/assets/6b4bf86b-e084-43bb-990a-f105bd22dfe4)
 
@@ -410,14 +410,19 @@ urlpatterns = [
 
 ```
 
+2 Queremos entregarle diseño al despliegue de la lista:
+
+Heredamos e incluimos la cabecera:
+
+
 
 <br>
 <br>
 <br>
 <br>
 
-28 febrero.
-comenzando la 77
+3 marzo.
+comenzando la 81
 
 <br>
 <br>
