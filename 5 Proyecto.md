@@ -9,9 +9,11 @@
 
 ## 1 Construyendo la pantalla de inicio
 
-1 Carpeta templates y base.html
+### 1 Herencia
 
-Dentro de la carpeta **templates**, crearemos otra llamada **includes** para incluir otros fragmentos de plantillas dentro de una plantilla principal y un **base.html** del cual vamos a heredar.
+1 La carpeta includes
+
+Dentro de la carpeta **templates**, crearemos otra llamada **includes** para **heredar** fragmentos de plantillas dentro de una plantilla principal. En ella construimos dos archivos: **base.html** e **inicio.html**.
 
 **base.html**
 
@@ -87,6 +89,103 @@ urlpatterns = [
 5 Verificamos:
 
 ![image](https://github.com/user-attachments/assets/cb17b8d6-ca72-42fa-a88f-dd6b5cef89df)
+
+
+### 2 Includes
+
+Includes se utiliza para insertar contenido de otra plantilla directamente en la actual, con `{% include %}`. Esto es útil para piezas reutilizables más pequeñas, como menús, barras de navegación o widgets. No implica herencia; simplemente incluye ese fragmento de plantilla "tal cual".
+
+1 En la carpeta includes construimos header.html copiando Top Bar de Navigation en Foundation
+
+```html
+<div class="top-bar">
+   <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+         <li class="menu-text">Site Title</li>
+         <li>
+            <a href="#">One</a>
+            <ul class="menu vertical">
+            <li><a href="#">One</a></li>
+            <li><a href="#">Two</a></li>
+            <li><a href="#">Three</a></li>
+            </ul>
+         </li>
+         <li><a href="#">Two</a></li>
+         <li><a href="#">Three</a></li>
+      </ul>
+      </div>
+      <div class="top-bar-right">
+      <ul class="menu">
+         <li><input type="search" placeholder="Search"></li>
+         <li><button type="button" class="button">Search</button></li>
+      </ul>
+   </div>
+ </div>
+```
+
+2 En inicio.html agregamos el include:
+{% extends 'base.html' %}
+
+{% block title  %}
+   Pagina de inicio del sistema empleados         
+{% endblock title %}
+
+{% block content %}
+
+   {% include 'includes/header.html'}
+ 
+   Bienvenido a la pagina de inicio del sistema empleados      
+
+{% endblock content %}
+
+3 En base.html agregamos las siguiente líneas:
+
+```html
+<script src="{% static 'js/vendor/jquery.js' %}"></script>
+<script src="{% static 'js/vendor/what-input.js' %}"></script>
+<script src="{% static 'js/vendor/foundation.min.js' %}"></script>
+<script>
+  $(document).foundation();
+</script>
+```
+
+```html
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="{% static 'css/foundation.min.css' %}">
+   <title>
+
+      {% block title  %}
+         
+      {% endblock title %}
+
+   </title>
+</head>
+<body>
+
+   {% block content %}
+         
+   {% endblock content %}
+
+   <script src="{% static 'js/vendor/jquery.js' %}"></script>
+   <script src="{% static 'js/vendor/what-input.js' %}"></script>
+   <script src="{% static 'js/vendor/foundation.min.js' %}"></script>
+   <script>
+     $(document).foundation();
+   </script>
+
+</body>
+</html>
+```
+
+
+
+
+
 
 
 
