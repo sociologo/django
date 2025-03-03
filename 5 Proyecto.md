@@ -374,6 +374,42 @@ Bienvenido a la pagina de inicio del sistema empleados
 
 ![image](https://github.com/user-attachments/assets/6b4bf86b-e084-43bb-990a-f105bd22dfe4)
 
+para ello asociamos correctamente la url en **header.html**:
+
+```python
+
+# some code...
+
+app_name = "empleado_app"
+
+urlpatterns = [
+   path('', 
+      views.Inicio.as_view(), 
+      name = 'inicio'),
+   path('listar-todos-los-empleados', 
+      views.EmpleadosListView.as_view(),
+      name = 'listartodoslosempleados'),
+
+# some code...
+
+```
+
+```python
+
+# some code...
+
+<li class="menu-text">Empleados</li>
+<li>
+   <a href="{% url 'empleado_app:listartodoslosempleados' %}">
+      Listar
+   </a>
+</li>
+<li>
+
+# some code...
+
+```
+
 
 <br>
 <br>
