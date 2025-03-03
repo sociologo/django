@@ -2,6 +2,16 @@
 
 # Construyendo el proyecto
 
+Script de arranque:
+
+```bash
+C:\Users\chris> cd /
+C:\> cd mis_entornos/entorno_3/Scripts
+C:\mis_entornos\entorno_3\Scripts> activate
+(entorno_3) C:\mis_entornos\entorno_3\Scripts> cd \mis_proyectos\emp3\empleado
+(entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver
+```
+
 ## Índice
 
 * [1 Crear un proyecto Django](#1-crear-un-proyecto-django)
