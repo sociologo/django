@@ -412,8 +412,82 @@ urlpatterns = [
 
 2 Queremos entregarle diseño al despliegue de la lista:
 
-Heredamos e incluimos la cabecera:
+Para ello modificamos nuestro **list_all.html** ya construido:
 
+```html
+<h1>
+   Lista de todos los empleados
+</h1>
+
+<ul>
+   {% for e in lista %}
+      <li>
+         {{e}}
+      </li>
+   {% endfor %}    
+</ul>
+```
+
+El boton buscar, la tabla y el boton ver se extraen de Foundation.
+
+```html
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'includes/header.html' %}
+
+<div class="grid-container">
+   <div class="grid-x">
+      <h1 class="cell">
+      </h1>
+      <div class="cell grid-x grid-margin-x">
+         <div class="cell large-7">
+            <input type="text" placeholder="buscar empleado">
+         </div>
+         <div class="cell large-2">
+            <button type="button" class="success button">
+               Buscar
+            </button>
+         </div>
+      </div>
+      <div class="cell">
+         <table>
+            <thead>
+               <tr>
+                  <th width="200">ID</th>
+                  <th>NOMBRES</th>
+                  <th width="150">APELLIDOS</th>
+                  <th width="150">DEPARTAMENTO</th>
+                  <th width="150">ACCION</th>
+               </tr>
+            </thead>
+            <tbody>
+               {% for e in lista %}
+               <tr>
+                  <td>{{e.id}}</td>
+                  <td>{{e.first_name}}</td>
+                  <td>{{e.last_name}}</td>
+                  <td>{{e.departamento}}</td>
+                  <td>
+                     <a class="button warning" href="#">
+                        Ver
+                     </a>
+                  </td>
+               </tr>
+              {% endfor %}  
+            </tbody>
+          </table>
+      </div>
+   </div>
+</div>
+
+{% endblock content %}
+```
+
+y vefificamos:
+
+![image](https://github.com/user-attachments/assets/723d5604-2085-4cc7-80a3-6a418332dbca)
 
 
 <br>
