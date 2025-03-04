@@ -610,8 +610,9 @@ path('detalles-del-emp/<pk>',
 
 ### 2.3 Paginacion
 
-copiamos el codigo de Navigation Pagination en Foundation y lo cargamos el final de **list_all.html** dentro de un `<div>`
+Copiamos el codigo de Navigation Pagination en Foundation y lo cargamos el final de **list_all.html** dentro de un `<div>`
 
+```html
 <nav aria-label="Pagination">
   <ul class="pagination">
     <li class="pagination-previous disabled">Previous <span class="show-for-sr">page</span></li>
@@ -625,6 +626,12 @@ copiamos el codigo de Navigation Pagination en Foundation y lo cargamos el final
     <li class="pagination-next"><a href="#" aria-label="Next page">Next <span class="show-for-sr">page</span></a></li>
   </ul>
 </nav>
+```
+
+
+
+
+
  
 <br>
 <br>
@@ -646,41 +653,7 @@ comenzando la 81
 
 ***
 ***
-## 1 Dándole funcionalidad al botón **Buscar**.
 
-En el archivo **views.py** de la aplicacion **persona** identifiquemos la vista basada en clases **ListEmpeladosByKword**. De ella, copiamos la funcion **get_queryset** y la pegamos en la clase **ListAllEmpleados**, en la que estamos trabajando actualmente. Como estamos sobreescribiendo el metodo **get_queryset**, ya no es necesario el parametro model = Empleado. Filtramos el full_name utilizando en atributo de Django **icontains** en base a palabra_clave.
-![image](https://github.com/user-attachments/assets/f64a9c2d-79b7-4e71-a315-fa81174c0bcd)
-
-En el list_all.html asociado debemos agregar los parametros **id** y **name** al **input**, debemos encerrar el codigo en un formulario, especificar el metodo GET, agregar el token y establecer el button type como tipo **submit**.
-![image](https://github.com/user-attachments/assets/d055d064-502a-454c-8449-79cbfe0507f4)
-
-## 2 Dándole funcionalidad al botón **Ver** el detale del empleado.
-
-Identifiquemos la vista basada en clases **EmpleadoDetailView** y le asignamos a su url el nombre **empleado_detail**
-![image](https://github.com/user-attachments/assets/78da1654-07c3-4f35-be62-1a08d9bd48c9)
-
-En el boton de **list_all.html** asociado al **Ver** vinculamos la url **empleado_detail** asociandole el identificador de un empleado en especifico (e.id).
-![image](https://github.com/user-attachments/assets/8f4df555-a90b-4f08-8774-2d1405851b84)
-***
-
-## 3 Dandole paginacion a la vista
-
-buscamos en la pagina de foundation un codigo para la paginacion
-https://get.foundation/sites/docs/pagination.html
-![image](https://github.com/user-attachments/assets/43306d89-0641-410c-955b-9c1717c42e22)
-
-pegamos en el siguiente sitio el codigo
-![image](https://github.com/user-attachments/assets/00113110-6495-4db5-aa60-40e1553d2269)
-
-Debemos darle paginacion a nuestra vista
-![image](https://github.com/user-attachments/assets/c3c51605-86dd-4042-9cbc-10513f70ad47)
-
-Agregamos un condicional para la existencia de la paginacion, agregamos condicionales para determinar la existencia de los objetos de paginacion previos y posteriores, 
-construimos un for para desplegar toda la cantidad de paginaciones y le asignamos un color para la paginacion actual.
-
-![image](https://github.com/user-attachments/assets/7349f529-f130-492e-a70d-2ff147f8c6b8)
-
-![image](https://github.com/user-attachments/assets/665129b9-3a02-443f-a55a-e44bbefc9fff)
 
 ***
 ## Construyendo la pagina de listado de departamentos con la funcionalidad de ver todos los empleados por departamento.
