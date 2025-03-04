@@ -370,6 +370,8 @@ Bienvenido a la pagina de inicio del sistema empleados
 
 ## 2 Pantalla listar empleados
 
+### 2.1 Formato y funcionalidad al boton listar
+
 1 Queremos entregarle funcionalidad al botón:
 
 ![image](https://github.com/user-attachments/assets/6b4bf86b-e084-43bb-990a-f105bd22dfe4)
@@ -489,7 +491,95 @@ y verificamos:
 
 ![image](https://github.com/user-attachments/assets/723d5604-2085-4cc7-80a3-6a418332dbca)
 
+### 2.2 Funcionalidad al boton Buscar y Ver
 
+1 Boton buscar
+
+1 La funcionalidad de este boton ya la tenemos en la clase **EmpleadoPorKwordListView** que listaba todos los empleados por un departamento:
+
+```python
+class EmpleadoPorKwordListView(ListView):
+   template_name = "empleado/empleadoporkword.html"
+   context_object_name = 'empleadoporkword'
+
+   def get_queryset(self):
+      palabra_clave = self.request.GET.get('kword', '')
+      empleado = Empleado.objects.filter(
+         departamento__short_name = palabra_clave
+      )
+      return empleado.all()
+```
+
+2 Vamos a copiar el metodo get_queryset(self) y modificarlo para que haga un filtro por un atributo de nombre en el modelo de empleados y lo copiaremos en la vista en la que trabajamos actualmente. En la clase **EmpleadosListView** utilizamos un **icontains**:
+
+```python
+class EmpleadosListView(ListView):
+   template_name = "empleado/list_all.html"
+   context_object_name = 'lista'
+   paginate_by = 4
+   ordering = 'first_name'
+
+   def get_queryset(self):
+      palabra_clave = self.request.GET.get('kword', '')
+      lista = Empleado.objects.filter(
+         full_name = palabra_clave
+      )
+      return lista
+```
+
+3 En **list_all.html** debemos ingresar un id y name en el input, crear un formulario especificandole el metodo GET, anadirle un token de autorizacion y el boton cambiarlo al tipo submit.
+
+2 Boton Ver
+
+1 Ya tenemos esta funcionalidad en la vista **DetalleDelEmpleado**
+
+```python
+class DetalleDelEmpleado(DetailView):
+   model = Empleado
+   template_name = "empleado/detalledelempleado.html"
+   context_object_name = 'detalledelempleado'
+
+   def get_context_data(self, **kwargs):
+       context = super(DetalleDelEmpleado, self).get_context_data(**kwargs)
+       context['titulo'] = 'Empleado del mes' 
+       return context
+```
+
+2 Identificamos su url:
+
+```python
+
+# ... some code
+
+path('detalles-del-emp/<pk>', 
+   views.DetalleDelEmpleado.as_view()),
+   name = 'detallesdelemp'),
+# ... some code
+
+```
+
+3 En **list_all.html** direccionamos correctamente el href del boton agregandole el parametro:
+
+```html
+
+# ... some code
+
+<td>{{e.id}}</td>
+<td>{{e.first_name}}</td>
+<td>{{e.last_name}}</td>
+<td>{{e.departamento}}</td>
+<td>
+   <a class="button warning" href="% url 'empleado_app:detallesdelemp e.id %">
+      Ver
+   </a>
+</td>
+
+# ... some code
+
+```
+
+
+ 
 <br>
 <br>
 <br>
