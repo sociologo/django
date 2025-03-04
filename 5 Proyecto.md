@@ -522,7 +522,7 @@ class EmpleadosListView(ListView):
    def get_queryset(self):
       palabra_clave = self.request.GET.get('kword', '')
       lista = Empleado.objects.filter(
-         full_name = palabra_clave
+         full_name__icontains = palabra_clave
       )
       return lista
 ```
