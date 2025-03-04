@@ -529,6 +529,29 @@ class EmpleadosListView(ListView):
 
 3 En **list_all.html** debemos ingresar un id y name en el input, crear un formulario especificandole el metodo GET, anadirle un token de autorizacion y el boton cambiarlo al tipo submit.
 
+```html
+
+/* some code */
+
+<div class="grid-container">
+   <div class="grid-x">
+      <h1 class="cell">
+      </h1>
+      <form class="cell grid-x grid-margin-x" method="GET">{% csrf_token %}
+         <div class="cell large-7">
+            <input type="text" id="kword" name="kword" placeholder="buscar empleado">
+         </div>
+         <div class="cell large-2">
+            <button type="submit" class="success button">
+               Buscar
+            </button>
+         </div>
+      </form>
+
+/* some code */
+
+```
+
 2 Boton Ver
 
 1 Ya tenemos esta funcionalidad en la vista **DetalleDelEmpleado**
