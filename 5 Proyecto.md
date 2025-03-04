@@ -1,6 +1,6 @@
 
 
-# Diseño gráfico del proyecto
+# Diseño gráfico del proyecto y puesta a punto de su funcionalidad
 
 Script de arranque:
 
