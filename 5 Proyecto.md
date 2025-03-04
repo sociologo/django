@@ -603,6 +603,12 @@ path('detalles-del-emp/<pk>',
 
 4 Verificamos:
 
+![image](https://github.com/user-attachments/assets/40bc7584-3623-4017-a191-817dd3a8def7)
+![image](https://github.com/user-attachments/assets/3bdaae81-24f7-4f7c-bb62-549fa419edb6)
+![image](https://github.com/user-attachments/assets/10974a20-fde1-4540-81be-37b7ab498b71)
+
+
+
 
 
  
