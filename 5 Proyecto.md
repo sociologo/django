@@ -575,7 +575,7 @@ class DetalleDelEmpleado(DetailView):
 # ... some code
 
 path('detalles-del-emp/<pk>', 
-   views.DetalleDelEmpleado.as_view()),
+   views.DetalleDelEmpleado.as_view(),
    name = 'detallesdelemp'),
 # ... some code
 
