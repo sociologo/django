@@ -592,7 +592,7 @@ path('detalles-del-emp/<pk>',
 <td>{{e.last_name}}</td>
 <td>{{e.departamento}}</td>
 <td>
-   <a class="button warning" href="% url 'empleado_app:detallesdelemp e.id %">
+   <a class="button warning" href="{% url 'empleado_app:detallesdelemp' e.id %}">
       Ver
    </a>
 </td>
@@ -600,6 +600,9 @@ path('detalles-del-emp/<pk>',
 # ... some code
 
 ```
+
+4 Verificamos:
+
 
 
  
