@@ -628,18 +628,14 @@ Copiamos el codigo de Navigation Pagination en Foundation y lo cargamos el final
 </nav>
 ```
 
-
-
-
-
- 
 <br>
 <br>
 <br>
 <br>
 
-3 marzo.
-comenzando la 81
+4 marzo.
+clase 83 
+5 10'
 
 <br>
 <br>
