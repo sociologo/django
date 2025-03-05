@@ -680,9 +680,6 @@ clase 83
                   {% for pagina in paginator.page_range %}
                      {% if pagina == page_obj.number  %} 
                         <li class="current">
-                           <span class="show-for-sr">
-                              You're on page
-                           </span>
                            {{pagina}}
                         </li>
                      {% else %}
