@@ -811,61 +811,72 @@ urlpatterns = [
  </div>
 ```
 
-5 Le entregamos funcionalidad al boton 'Ver empleados':
+#### Le entregamos funcionalidad al boton 'Ver empleados':
 
-recordemos que esta vista ya la hemos construido en la app empledos:
+5 Construimos la vista:
 
 ```python
-class EmpleadoPorKwordListView(ListView):
-   template_name = "empleado/empleadoporkword.html"
-   context_object_name = 'empleadoporkword'
+class EmpleadoPorDepa(ListView):
+   template_name = "empleado/empleadopordepa.html"
+   context_object_name = 'empleadopordepa'
 
    def get_queryset(self):
-      palabra_clave = self.request.GET.get('kword', '')
-      empleado = Empleado.objects.filter(
+      palabra_clave = self.kwargs['sn'] # type: ignore
+      lista = Empleado.objects.filter(
          departamento__short_name = palabra_clave
       )
-      return empleado.all()
+      return lista 
 ```
 
-cuya url asociada es:
+6 cuya url asociada es:
 
 ```python
 # some code...
-app_name = "empleado_app"
-
-urlpatterns = [
-   path('', 
-      views.Inicio.as_view(), 
-      name = 'inicio'),
-   path('listar-todos-los-empleados', 
-      views.EmpleadosListView.as_view(),
-      name = 'listartodoslosempleados'),
-   path('listar-por-departamento', 
-      views.ListaPorDeptListView.as_view()),
-   path('listar-por-kword', 
-      views.EmpleadoPorKwordListView.as_view(),
-      name = 'listarporkword'),
+  path('empleadopordepa/<sn>', 
+      views.EmpleadoPorDepa.as_view(),
+      name = 'empleadopordepa'), 
 # some code...
 ```
 
-6 agregamos la url correcta:
+7 agregamos la url correcta:
 
 ```
-# some code...
-<td>
-   <a class="button warning" href="{% url 'empleado_app:listarporkword' departamento.short_name %}">
-      Ver empleados
-   </a>
-</td>
-# some code...
+<table>
+   <tbody>
+      {% for departamento in departamentos %}
+      <tr>  
+         <td>
+            {{departamento.name}}
+         </td>
+         <td>
+            {{departamento.short_name}}
+         </td>
+         <td>
+            <a class="button warning" href="{% url 'empleado_app:empleadopordepa' departamento.short_name%}">
+               Ver empleados
+            </a>
+         </td>
+      </tr>
+      {% endfor %}                                    
+   </tbody>
+</table>
 ```
 
-7 Le damos diseño al despliegue de empleados **empleadoporkword.html**:
+8 Le damos diseño al despliegue de empleados **empleadopordepa.html** de la carpeta **empleado**:
 
+```html
+<h3>
+   Lista de empleados
+</h3>
 
-
-
+<ul>
+   {% for e in empleadopordepa %}
+      <li>
+         {{e}}
+      </li>
+   {% endfor %} 
+</ul>
+```
 
 ***
 ***
@@ -876,8 +887,7 @@ urlpatterns = [
 <br>
 
 5 marzo.
-clase 86
-debo solucionar un error aca
+clase 86 3 30'
 
 <br>
 <br>
@@ -885,19 +895,6 @@ debo solucionar un error aca
 <br>
 ---
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
