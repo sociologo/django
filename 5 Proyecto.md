@@ -805,7 +805,7 @@ urlpatterns = [
             </a>
          </li>
          <li>
-            <a href="{% url 'departamento_app:listar-departamentos' %}">
+            <a href="{% url 'departamento_app:listardepartamentos' %}">
                Departamentos
             </a>
          </li>
