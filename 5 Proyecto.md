@@ -675,7 +675,10 @@ clase 83
                            Atras
                         </a> 
                      </li>
-                  {% endif %} 
+                  {% endif %}
+
+                  # Si se está en la página actual, el número de página se resalta sino,
+                  # el número no está resaltado pero tiene habilitado el link para ir a el.
         
                   {% for pagina in paginator.page_range %}
                      {% if pagina == page_obj.number  %} 
