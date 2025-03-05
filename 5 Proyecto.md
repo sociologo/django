@@ -729,7 +729,7 @@ class ListarDepartamentos(ListView):
     context_object_name = "departamentos"
 ```
 
-2 Construimos el **listardepartamentos.html** y activamos el boton ver empleados copiando la url asociada al requerimiento que ya hemos hecho
+2 Construimos el **listardepartamentos.html** en la carpeta **depa** y activamos el boton ver empleados copiando la url asociada al requerimiento que ya hemos hecho
 
 ```html
 {% extends 'base.html' %}
