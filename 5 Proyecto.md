@@ -635,21 +635,7 @@ Copiamos el codigo de Navigation Pagination en Foundation y lo cargamos el final
 </nav>
 ```
 
-<br>
-<br>
-<br>
-<br>
 
-4 marzo.
-clase 83 
-5 10'
-
-<br>
-<br>
-<br>
-<br>
----
----
 
 ```python
 # some code...
@@ -884,31 +870,21 @@ urlpatterns = [
 ***
 ***
 
+<br>
+<br>
+<br>
+<br>
 
-***
-## Construyendo la pagina de listado de departamentos con la funcionalidad de ver todos los empleados por departamento.
+5 marzo.
+clase 86
+debo solucionar un error aca
 
-1 Construimos dentro del archivo **views.py** de nuestra aplicacion **departamentos** la vista basada en clases **DepartamentoView**, importando **ListView**. Cramos la vista con sus hmtl y rutas de activacion asociados.
-![image](https://github.com/user-attachments/assets/26fae047-ff22-4d9f-97d5-14b59cbeb6ac)
-![image](https://github.com/user-attachments/assets/77812958-e710-403c-8926-2a09e3a8889a)
-![image](https://github.com/user-attachments/assets/39432ac5-f2b6-4690-a3c5-83f44535b4a3)
-
-2 hacemos el vinculo de la cabecera dirigirse a la url de departamentos, donde seran listados. Por lo que modificamos header.html de la siguiente manera:
-![image](https://github.com/user-attachments/assets/ca633886-2587-4685-8745-233a6a2809aa)
-
-Recordemos asignarle un nombre al conjunto de urls de departamentos y hagamos editable el campo name del modelo Departamento:
-![image](https://github.com/user-attachments/assets/b090f652-85cb-4954-9e15-9505f2b2b39c)
-![image](https://github.com/user-attachments/assets/e8bae8e4-6cbb-4eeb-bb3f-c5d42d8ec8e3)
-
-3 Hacemos la funcionalidad del boton Ver utilizando la vista basada en clase **ListByDept** del archivo views.py de la aplicacion empleados. A la url que activa esta vista le ponemos el nombre **empleados_by_dept** y la direccionamos apropiadamente en nuestra listbydept.html
-![image](https://github.com/user-attachments/assets/a40b7c2c-c654-4cab-ae64-5cc12cb15769)
-![image](https://github.com/user-attachments/assets/1dbd2420-8d60-4fb2-9c70-e134b980f390)
-![image](https://github.com/user-attachments/assets/4754ee9d-3dd1-4a53-a810-0ad9f7bc8cff)
-
-4 Veamos los resultados
-
-![image](https://github.com/user-attachments/assets/a8264b03-a15c-4af2-89a3-c27aa0dbf9b0)
-![image](https://github.com/user-attachments/assets/b71f0529-d9bf-4dff-bd33-1bae0771002f)
+<br>
+<br>
+<br>
+<br>
+---
+---
 
 
 
