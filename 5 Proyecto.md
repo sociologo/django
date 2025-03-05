@@ -687,7 +687,7 @@ clase 83
                         </li>
                      {% else %}
                         <li class=""> 
-                           <a href="?page={{pagina}}" aria-label="Page 2">
+                           <a href="?page={{pagina}}">
                               {{pagina}}
                            </a>
                         </li>
