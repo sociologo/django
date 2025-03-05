@@ -713,7 +713,171 @@ clase 83
 {% endblock content %}
 ```
 
-## 3 Pantalla listar departamentos
+## 3 Pantalla listar departamentos con sus empleados
+
+Queremos desarrollar una vista que liste todos los departamentos con sus nombres y nombres cortos y un botón que nos permita listar los empleados que pertenecen a cada uno.
+
+1 Creamos una vista de tipo **ListView** en la app **departamento**:
+
+```python
+# some code...
+from django.views.generic import ListView
+# some code...
+class ListarDepartamentos(ListView):
+    model = Departamento
+    template_name = "depa/listardepartamentos.html"
+    context_object_name = "departamentos"
+```
+
+2 Construimos el **listardepartamentos.html** y activamos el boton ver empleados copiando la url asociada al requerimiento que ya hemos hecho
+
+```html
+{% extends 'base.html' %}
+
+{% block title %}
+   Lista de Departamentos
+{% endblock title %}
+   
+{% block content %}
+   {% include 'includes/header.html' %}
+   <div class="grid-container">
+         <div class="grid-x">
+            <h1 class="cell">
+               Lista de Departamentos
+            </h1>
+            <div class="cell">
+               <table>
+                  <tbody>
+                     {% for departamento in departamentos %}
+                     <tr>  
+                        <td>
+                           {{departamento.name}}
+                        </td>
+                        <td>
+                           {{departamento.short_name}}
+                        </td>
+                        <td>
+                           <a class="button warning" href="{#}">
+                              Ver empleados
+                           </a>
+                        </td>
+                     </tr>
+                     {% endfor %}                                    
+                  </tbody>
+               </table>
+
+            </div>
+         </div>
+   </div>
+{% endblock content %}
+```
+
+3 Activamos la url de la vista
+
+```python
+from django.contrib import admin # type: ignore
+from django.urls import path, include # type: ignore
+
+from . import views
+
+app_name = "departamento_app"
+
+urlpatterns = [
+   path('listar-departamentos/', 
+      views.ListarDepartamentos.as_view(), 
+      name = 'listardepartamentos'),
+   path('nuevo-empleado-y-departamento/', 
+      views.NuevoEmpleadoYDepartamento.as_view(), 
+      name = 'nuevoempleadoydepartamento')
+]
+```
+
+4 Activamos el link de departamentos en el header.html
+
+```html
+<div class="top-bar">
+   <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+         <li class="menu-text">Empleados</li>
+         <li>
+            <a href="{% url 'empleado_app:listartodoslosempleados' %}">
+               Listar
+            </a>
+         </li>
+         <li>
+            <a href="{% url 'departamento_app:listar-departamentos' %}">
+               Departamentos
+            </a>
+         </li>
+         <li>
+            <a href="#">
+               Administrar
+            </a>
+         </li>
+      </ul>
+      </div>
+      <div class="top-bar-right">
+      <ul class="menu">
+         <li><input type="search" placeholder="Buscar empleado"></li>
+         <li><button type="button" class="button">Registrar nuevo</button></li>
+      </ul>
+   </div>
+ </div>
+```
+
+5 Le entregamos funcionalidad al boton 'Ver empleados':
+
+recordemos que esta vista ya la hemos construido en la app empledos:
+
+```python
+class EmpleadoPorKwordListView(ListView):
+   template_name = "empleado/empleadoporkword.html"
+   context_object_name = 'empleadoporkword'
+
+   def get_queryset(self):
+      palabra_clave = self.request.GET.get('kword', '')
+      empleado = Empleado.objects.filter(
+         departamento__short_name = palabra_clave
+      )
+      return empleado.all()
+```
+
+cuya url asociada es:
+
+```python
+# some code...
+app_name = "empleado_app"
+
+urlpatterns = [
+   path('', 
+      views.Inicio.as_view(), 
+      name = 'inicio'),
+   path('listar-todos-los-empleados', 
+      views.EmpleadosListView.as_view(),
+      name = 'listartodoslosempleados'),
+   path('listar-por-departamento', 
+      views.ListaPorDeptListView.as_view()),
+   path('listar-por-kword', 
+      views.EmpleadoPorKwordListView.as_view(),
+      name = 'listarporkword'),
+# some code...
+```
+
+6 agregamos la url correcta:
+
+```
+# some code...
+<td>
+   <a class="button warning" href="{% url 'empleado_app:listarporkword' departamento.short_name %}">
+      Ver empleados
+   </a>
+</td>
+# some code...
+```
+
+7 Le damos diseño al despliegue de empleados **empleadoporkword.html**:
+
+
 
 
 
