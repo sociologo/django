@@ -713,6 +713,10 @@ clase 83
 {% endblock content %}
 ```
 
+## 3 Pantalla listar departamentos
+
+
+
 ***
 ***
 
