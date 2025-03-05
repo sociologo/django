@@ -662,6 +662,8 @@ clase 83
           </table>
       </div>
 
+      # bloque de paginación
+
       <div class="cell">
          {% if is_paginated %}
             <nav aria-label="Pagination">
