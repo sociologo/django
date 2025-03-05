@@ -610,7 +610,14 @@ path('detalles-del-emp/<pk>',
 
 ### 2.3 Paginacion
 
+Cuando a nuestra vista le indicamos un `paginate_by` se crea un objeto de paginacion llamado `page_object`
+
+![image](https://github.com/user-attachments/assets/131055d2-3a95-451e-92cf-b79ee097fcd1)
+
+
 Copiamos el codigo de Navigation Pagination en Foundation y lo cargamos el final de **list_all.html** dentro de un `<div>`
+
+
 
 ```html
 <nav aria-label="Pagination">
@@ -644,8 +651,65 @@ clase 83
 ---
 ---
 
+```python
+# some code...
+                        Ver
+                     </a>
+                  </td>
+               </tr>
+              {% endfor %}  
+            </tbody>
+          </table>
+      </div>
 
+      <div class="cell">
+         {% if is_paginated %}
+            <nav aria-label="Pagination">
+               <ul class="pagination">  
 
+                  {% if page_obj.has_previous %}
+                     <li class="pagination-previous">
+                        <a href="?page={{page_obj.previous_page_number}}">
+                           Atras
+                        </a> 
+                     </li>
+                  {% endif %} 
+        
+                  {% for pagina in paginator.page_range %}
+                     {% if pagina == page_obj.number  %} 
+                        <li class="current">
+                           <span class="show-for-sr">
+                              You're on page
+                           </span>
+                           {{pagina}}
+                        </li>
+                     {% else %}
+                        <li class=""> 
+                           <a href="?page={{pagina}}" aria-label="Page 2">
+                              {{pagina}}
+                           </a>
+                        </li>
+                     {% endif %}
+                  {% endfor %}
+
+                  {% if page_obj.has_next %}    
+                  <li class="pagination-next">
+                     <a href="?page={{page_obj.next_page_number}}">
+                        Siguiente
+                     </a> 
+                  </li>
+                  {% endif %}
+
+               </ul>
+            </nav>
+         {% endif %}
+      </div>
+
+   </div>
+</div>
+
+{% endblock content %}
+```
 
 ***
 ***
