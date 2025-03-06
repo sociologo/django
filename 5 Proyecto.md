@@ -939,7 +939,7 @@ class EmpleadoPorDepa(ListView):
 
 Queremos desplegar una funcionalidad que nos permita desplegar una lista de empleados y poder eliminarlos o editarlos.
 
-1 Construimos una vista ListView llamada AdminEmpleados
+1 Construimos una vista ListView llamada AdminEmpleados en la app empleados:
 
 ```python
 class AdminEmpleados(ListView):
