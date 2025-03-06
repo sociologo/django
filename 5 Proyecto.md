@@ -1124,7 +1124,7 @@ Entonces nuestra urls quedan:
 
 ```html
 <li>
-   <a href="{% url 'empleado_app:admin-empleados' e.id %}">
+   <a href="{% url 'empleado_app:adminempleados' e.id %}">
       Administrar
    </a>
 </li>
