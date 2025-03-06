@@ -699,6 +699,8 @@ Copiamos el codigo de Navigation Pagination en Foundation y lo cargamos el final
 {% endblock content %}
 ```
 
+![image](https://github.com/user-attachments/assets/4b6c6b9c-c2f1-4afc-90cb-55982ce5f264)
+
 ## 3 Pantalla listar departamentos con sus empleados
 
 Queremos desarrollar una vista que liste todos los departamentos con sus nombres y nombres cortos y un botón que nos permita listar los empleados que pertenecen a cada uno.
