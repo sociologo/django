@@ -1124,11 +1124,13 @@ Entonces nuestra urls quedan:
 
 ```html
 <li>
-   <a href="#">
+   <a href="{% url 'empleado_app:admin-empleados' e.id %}">
       Administrar
    </a>
 </li>
 ```
+
+
 
 
 
