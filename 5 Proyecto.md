@@ -1124,15 +1124,77 @@ Entonces nuestra urls quedan:
 
 ```html
 <li>
-   <a href="{% url 'empleado_app:adminempleados' e.id %}">
+   <a href="{% url 'empleado_app:adminempleados' %}">
       Administrar
    </a>
 </li>
 ```
 
+![image](https://github.com/user-attachments/assets/7eb9766f-73b1-4bc6-8837-4c8834c0ddd5)
 
+### 5 Editando la pantalla de actualizar
 
+Actualmente al darle clic a Actualizar se nos despliega lo siguiente:
 
+![image](https://github.com/user-attachments/assets/601602bc-1028-460f-8b58-5686f4a01a0c)
+
+entonces editemos **actualizarempleado.html**
+
+```html
+{% extends 'base.html' %}
+
+{% block title %}
+   Editar empleado
+{% endblock title %}
+
+{% block content %}
+{% include 'includes/header.html' %}
+
+<div class="grid-container">
+   <div class="grid-x">
+      <h1 class="cell">
+         Modificar empleado
+      </h1>
+      <div class="cell">
+         <form class="grid-x grid-margin-x" method="POST">{% csrf_token %}
+
+            <div class="medium-6 cell">
+               <label>Nombre
+                 {{form.first_name}}
+               </label>
+            </div>
+            <div class="medium-6 cell">
+               <label>Apellido
+                 {{form.last_name}}
+               </label>
+            </div>
+            <div class="medium-6 cell">
+               <label>Trabajo
+                 {{form.job}}
+               </label>
+            </div>
+            <div class="medium-6 cell">
+               <label>Departamento
+                 {{form.departamento}}
+               </label>
+            </div>
+            <div class="medium-6 cell">
+               <label>Habilidades
+                 {{form.habilidades}}
+               </label>
+            </div>
+
+            <div class="cell">
+               <button type="submit" class="submit success button">Guardar</button>
+            </div>
+            
+         </form>
+      </div>
+   </div>
+</div>
+
+{% endblock content %}
+```
 
 ***
 ***
