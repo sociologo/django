@@ -878,6 +878,62 @@ class EmpleadoPorDepa(ListView):
 </ul>
 ```
 
+![image](https://github.com/user-attachments/assets/4b0bac70-13e5-4175-94d7-31d55be772b9)
+
+```python
+{% extends 'base.html' %}
+
+{% block title %}
+   Lista de empleados por departamento
+{% endblock title %}
+   
+{% block content %}
+
+   {% include 'includes/header.html' %}
+
+   <div class="grid-container">
+      <div class="grid-x">
+         <div class="cell">
+            Empleados por departamento
+         </div>
+         <div class="cell"> 
+            <table>
+               <thead>
+                  <tr>
+                     <th width="200">ID</th>
+                     <th>NOMBRES</th>
+                     <th width="150">APELLIDOS</th>
+                     <th width="150">DEPARTAMENTO</th>
+                     <th width="150">ACCION</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {% for e in empleadopordepa %}
+                  <tr>
+                     <td>{{e.id}}</td>
+                     <td>{{e.first_name}}</td>
+                     <td>{{e.last_name}}</td>
+                     <td>{{e.departamento}}</td>
+                     <td>
+                        <a class="button warning" href="{% url 'empleado_app:detallesdelemp' e.id %}">
+                           Ver
+                        </a>
+                     </td>
+                  </tr>
+                 {% endfor %}  
+               </tbody>
+             </table>
+         </div>
+      </div>
+   </div>
+
+{% endblock content %}
+```
+
+![image](https://github.com/user-attachments/assets/f5d6e0cc-dbd0-4f2d-a406-e9c8d6a4bf5c)
+![image](https://github.com/user-attachments/assets/ca40953a-001e-4e8d-a758-347c2a69bc85)
+
+
 ***
 ***
 
