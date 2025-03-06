@@ -935,6 +935,115 @@ class EmpleadoPorDepa(ListView):
 ![image](https://github.com/user-attachments/assets/f5d6e0cc-dbd0-4f2d-a406-e9c8d6a4bf5c)
 ![image](https://github.com/user-attachments/assets/ca40953a-001e-4e8d-a758-347c2a69bc85)
 
+## 4 Pantalla administrar
+
+Queremos desplegar una funcionalidad que nos permita desplegar una lista de empleados y poder eliminarlos o editarlos.
+
+1 Construimos una vista ListView llamada AdminEmpleados
+
+```python
+class AdminEmpleados(ListView):
+   template_name = "empleado/adminempleados.html"
+   context_object_name = 'adminempleados'
+   paginate_by = 10
+   ordering = 'first_name'
+   model = Empleado
+```
+
+2 activamos su url asociada:
+
+```python
+path('admin-empleados/', 
+   views.AdminEmpleados.as_view(),
+   name = 'adminempleados'),
+```
+
+3 Construimos **adminempleados.html** que copiamos de **list_all.html** eliminando el bloque de formulario:
+
+```html
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'includes/header.html' %}
+
+<div class="grid-container">
+   <div class="grid-x">
+      <h1 class="cell">
+         Lista de empleados
+      </h1>
+      <div class="cell">
+         <table>
+            <thead>
+               <tr>
+                  <th width="200">ID</th>
+                  <th>NOMBRES</th>
+                  <th width="150">APELLIDOS</th>
+                  <th width="150">DEPARTAMENTO</th>
+                  <th width="150">ACCION</th>
+               </tr>
+            </thead>
+            <tbody>
+               {% for e in lista %}
+               <tr>
+                  <td>{{e.id}}</td>
+                  <td>{{e.first_name}}</td>
+                  <td>{{e.last_name}}</td>
+                  <td>{{e.departamento}}</td>
+                  <td>
+                     <a class="button warning" href="{% url 'empleado_app:detallesdelemp' e.id %}">
+                        Ver
+                     </a>
+                  </td>
+               </tr>
+              {% endfor %}  
+            </tbody>
+          </table>
+      </div>
+      <div class="cell">
+         {% if is_paginated %}
+            <nav aria-label="Pagination">
+               <ul class="pagination">  
+
+                  {% if page_obj.has_previous %}
+                     <li class="pagination-previous">
+                        <a href="?page={{page_obj.previous_page_number}}">
+                           Atras
+                        </a> 
+                     </li>
+                  {% endif %} 
+        
+                  {% for pagina in paginator.page_range %}
+                     {% if pagina == page_obj.number  %} 
+                        <li class="current">
+                           {{pagina}}
+                        </li>
+                     {% else %}
+                        <li class=""> 
+                           <a href="?page={{pagina}}">
+                              {{pagina}}
+                           </a>
+                        </li>
+                     {% endif %}
+                  {% endfor %}
+
+                  {% if page_obj.has_next %}    
+                  <li class="pagination-next">
+                     <a href="?page={{page_obj.next_page_number}}">
+                        Siguiente
+                     </a> 
+                  </li>
+                  {% endif %}
+
+               </ul>
+            </nav>
+         {% endif %}
+      </div>
+   </div>
+</div>
+
+{% endblock content %}
+```
 
 ***
 ***
