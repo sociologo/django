@@ -1280,6 +1280,35 @@ class CrearEmpleado(CreateView):
       return super(CrearEmpleado, self).form_valid(form)
 ```
 
+2 Y la url que lo activa, 
+
+```python
+path('crear-emp', 
+   views.CrearEmpleado.as_view(), 
+   name = 'crearempleado'),
+```
+
+3 Llevamos la url a nuestro **header.html**:
+
+```python
+<div class="top-bar-right">
+   <ul class="menu">
+      <li>
+         <input type="search" placeholder="Buscar empleado">
+      </li>
+      <li>
+         <a href="{% url 'empleado_app:crearempleado' %}" class="button" class="button">Registrar nuevo</a>
+      </li>
+   </ul>
+</div>
+```
+
+4 Le damos diseño al template **crearempleado.html**
+
+
+
+
+   
 ***
 ***
 
@@ -1288,8 +1317,8 @@ class CrearEmpleado(CreateView):
 <br>
 <br>
 
-5 marzo.
-clase 86 3 30'
+6 marzo.
+clase 90 3:50'
 
 <br>
 <br>
