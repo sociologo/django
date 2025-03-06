@@ -1196,6 +1196,23 @@ entonces editemos **actualizarempleado.html**
 {% endblock content %}
 ```
 
+6 Queremos que una vez un empelado sea editado volvamos a caer en la vista Administrar:
+
+para ello modificamos en success_url:
+
+```python
+class ActualizarEmpleado(UpdateView):
+   model = Empleado
+   template_name = "empleado/actualizarempleado.html"
+   fields = ['first_name',
+             'last_name',
+             'job',
+             'departamento',
+             'habilidades'] 
+   success_url = reverse_lazy('empleado_app:adminempleados')
+```
+
+
 ***
 ***
 
