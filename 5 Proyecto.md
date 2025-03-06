@@ -1086,6 +1086,7 @@ class EliminarEmpleado(DeleteView):
    model = Empleado
    template_name = "empleado/eliminarempleado.html"
    success_url = reverse_lazy('empleado_app:exito')
+   context_object_name = 'eliminarempleado'
 ```
 
 ```python
@@ -1198,7 +1199,7 @@ entonces editemos **actualizarempleado.html**
 
 ![image](https://github.com/user-attachments/assets/da63651f-93cc-440a-a402-2204f92b46a2)
 
-6 Queremos que una vez un empelado sea editado volvamos a caer en la vista Administrar:
+6 Queremos que una vez un empleado sea editado volvamos a caer en la vista Administrar:
 
 para ello modificamos en success_url:
 
@@ -1214,6 +1215,70 @@ class ActualizarEmpleado(UpdateView):
    success_url = reverse_lazy('empleado_app:adminempleados')
 ```
 
+### 6 Editando la pantalla de Eliminar
+
+1 Le damos estilos a la pagina **eliminarempleado.html**
+
+```
+{% extends 'base.html' %}
+
+{% block title %}
+   Eliminar empleados
+{% endblock title %}
+   
+{% block content %}
+{% include 'includes/header.html' %}
+
+<div>
+   <div>
+      <h1 class="cell">
+         Eliminar empleado: {{eliminarempleado.full_name}}
+      </h1>
+      <form class="cell" method = "POST">{% csrf_token %}
+         <div class="callout secondary">
+            <h5>Confirme que desea eliminar a este empleado</h5>
+            <button type="submit" class="alert button">Confirmar</button>
+          </div>
+      </form>
+   </div>
+</div>
+{% endblock content %}
+```
+
+2 Queremos que una vez un empleado sea eliminado volvamos a caer en la vista Administrar:
+
+para ello modificamos en success_url:
+
+```python
+class EliminarEmpleado(DeleteView):
+   model = Empleado
+   template_name = "empleado/eliminarempleado.html"
+   success_url = reverse_lazy('empleado_app:adminempleados')
+   context_object_name = 'eliminarempleado'
+```
+
+### 7 Dando funcionalidad al boton de Registrar Nuevo empleado
+
+1 Identifiquemos la vista que ya hemos construido y que hacia el registro:
+
+```python
+class CrearEmpleado(CreateView):
+   model = Empleado
+   template_name = "empleado/crearempleado.html"
+   fields = ['first_name',
+             'last_name',
+             'job',
+             'departamento',
+             'habilidades'] 
+   # fields = ('__all__')
+   success_url = reverse_lazy('empleado_app:exito')
+
+   def form_valid(self, form):
+      empleado = form.save(commit = False)
+      empleado.full_name = empleado.first_name + ' ' + empleado.last_name
+      empleado.save()
+      return super(CrearEmpleado, self).form_valid(form)
+```
 
 ***
 ***
