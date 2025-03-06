@@ -1045,6 +1045,93 @@ path('admin-empleados/',
 {% endblock content %}
 ```
 
+4 Editemos la seccion del boton. En vez de que aparezca uno diciendo Ver, deben existir dos, que digan editar y eliminar.
+
+```html
+<td>
+   <a class="button warning" href="{% url 'empleado_app:detallesdelemp' e.id %}">
+      Ver
+   </a>
+</td>
+```
+
+```html
+<td>
+   <a class="button success" href="#">
+      Editar
+   </a>
+</td>
+<td>
+   <a class="button alert" href="#">
+      Eliminar
+   </a>
+</td>
+```
+
+Recordemos que las vistar para editar y eliminar ya las hicimos. Las urls que las activan son respectivamente:
+
+```python
+class ActualizarEmpleado(UpdateView):
+   model = Empleado
+   template_name = "empleado/actualizarempleado.html"
+   fields = ['first_name',
+             'last_name',
+             'job',
+             'departamento',
+             'habilidades'] 
+   success_url = reverse_lazy('empleado_app:exito')
+
+
+class EliminarEmpleado(DeleteView):
+   model = Empleado
+   template_name = "empleado/eliminarempleado.html"
+   success_url = reverse_lazy('empleado_app:exito')
+```
+
+```python
+path('actualizar-empleado/<pk>', 
+   views.ActualizarEmpleado.as_view(), 
+   name = 'actualizarempleado'),
+path('eliminar-empleado/<pk>', 
+   views.EliminarEmpleado.as_view(), 
+   name = 'eliminarempleado'),
+```
+
+Entonces nuestra urls quedan:
+
+```html
+<td>
+   <a class="button success" href="{% url 'empleado_app:actualizarempleado' e.id %}">
+      Editar
+   </a>
+</td>
+<td>
+   <a class="button alert" href="{% url 'empleado_app:eliminarempleado' e.id %}">
+      Eliminar
+   </a>
+</td>
+```
+
+5 Le damos funcionalidad al boton administrar de la cabecera header.html:
+
+```html
+<li>
+   <a href="#">
+      Administrar
+   </a>
+</li>
+```
+
+```html
+<li>
+   <a href="#">
+      Administrar
+   </a>
+</li>
+```
+
+
+
 ***
 ***
 
