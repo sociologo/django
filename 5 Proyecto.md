@@ -984,7 +984,7 @@ path('admin-empleados/',
                </tr>
             </thead>
             <tbody>
-               {% for e in lista %}
+               {% for e in adminempleados %}
                <tr>
                   <td>{{e.id}}</td>
                   <td>{{e.first_name}}</td>
