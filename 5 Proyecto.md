@@ -1196,6 +1196,8 @@ entonces editemos **actualizarempleado.html**
 {% endblock content %}
 ```
 
+![image](https://github.com/user-attachments/assets/da63651f-93cc-440a-a402-2204f92b46a2)
+
 6 Queremos que una vez un empelado sea editado volvamos a caer en la vista Administrar:
 
 para ello modificamos en success_url:
