@@ -15,6 +15,20 @@ C:\mis_entornos\entorno_3\Scripts> activate
 * [1 Construyendo la pantalla de inicio](#1-Construyendo-la-pantalla-de-inicio)
   * [11 Herencia](#11-Herencia)
 
+2 Includes
+21 La cabecera
+22 Personalizando la cabecera
+3 Pantalla listar empleados
+31 Formato y funcionalidad al boton listar
+32 Funcionalidad al boton Buscar y Ver
+321 Boton buscar
+322 Boton Ver
+33 Paginacion
+4 Pantalla listar departamentos con sus empleados
+5 Pantalla administrar
+6 Editando la pantalla de actualizar
+7 Editando la pantalla de Eliminar
+
 # 1 Construyendo la pantalla de inicio
 
 ## 11 Herencia
@@ -99,7 +113,9 @@ urlpatterns = [
 ![image](https://github.com/user-attachments/assets/cb17b8d6-ca72-42fa-a88f-dd6b5cef89df)
 
 
-### 2 Includes. La cabecera
+# 2 Includes 
+
+## 21 La cabecera
 
 Dentro de la carpeta **templates**, crearemos otra llamada **includes** para incluir fragmentos de plantillas dentro de una plantilla principal. En ella construimos el archivo: **header.html**.
 
@@ -205,7 +221,7 @@ Includes se utiliza para insertar contenido de otra plantilla directamente en la
 
 ![image](https://github.com/user-attachments/assets/cb2d32cc-6039-44e0-86de-8e55e7962665)
 
-### 3 Personalizando la cabecera
+## 22 Personalizando la cabecera
 
 1 Modificamos **header.html** como se indica a continuacion:
 
@@ -366,9 +382,9 @@ Bienvenido a la pagina de inicio del sistema empleados
 
 ![image](https://github.com/user-attachments/assets/e87b65b5-5219-4029-aae5-b681c45d33d5)
 
-## 2 Pantalla listar empleados
+# 3 Pantalla listar empleados
 
-### 2.1 Formato y funcionalidad al boton listar
+## 31 Formato y funcionalidad al boton listar
 
 1 Queremos entregarle funcionalidad al botón:
 
@@ -489,9 +505,9 @@ y verificamos:
 
 ![image](https://github.com/user-attachments/assets/723d5604-2085-4cc7-80a3-6a418332dbca)
 
-### 2.2 Funcionalidad al boton Buscar y Ver
+## 32 Funcionalidad al boton Buscar y Ver
 
-1 Boton buscar
+### 321 Boton buscar
 
 1 La funcionalidad de este boton ya la tenemos en la clase **EmpleadoPorKwordListView** que listaba todos los empleados por un departamento:
 
@@ -550,7 +566,7 @@ class EmpleadosListView(ListView):
 
 ```
 
-2 Boton Ver
+### 322 Boton Ver
 
 1 Ya tenemos esta funcionalidad en la vista **DetalleDelEmpleado**
 
@@ -606,16 +622,13 @@ path('detalles-del-emp/<pk>',
 ![image](https://github.com/user-attachments/assets/10974a20-fde1-4540-81be-37b7ab498b71)
 
 
-### 2.3 Paginacion
+## 33 Paginacion
 
 Cuando a nuestra vista le indicamos un `paginate_by` se crea un objeto de paginacion llamado `page_object`
 
 ![image](https://github.com/user-attachments/assets/131055d2-3a95-451e-92cf-b79ee097fcd1)
 
-
 Copiamos el codigo de Navigation Pagination en Foundation y lo cargamos el final de **list_all.html** dentro de un `<div>`
-
-
 
 ```html
 <nav aria-label="Pagination">
@@ -632,8 +645,6 @@ Copiamos el codigo de Navigation Pagination en Foundation y lo cargamos el final
   </ul>
 </nav>
 ```
-
-
 
 ```python
 # some code...
@@ -699,7 +710,7 @@ Copiamos el codigo de Navigation Pagination en Foundation y lo cargamos el final
 
 ![image](https://github.com/user-attachments/assets/4b6c6b9c-c2f1-4afc-90cb-55982ce5f264)
 
-## 3 Pantalla listar departamentos con sus empleados
+# 4 Pantalla listar departamentos con sus empleados
 
 Queremos desarrollar una vista que liste todos los departamentos con sus nombres y nombres cortos y un botón que nos permita listar los empleados que pertenecen a cada uno.
 
@@ -811,7 +822,7 @@ urlpatterns = [
  </div>
 ```
 
-#### Le entregamos funcionalidad al boton 'Ver empleados':
+#### Le entregamos funcionalidad al boton Ver empleados
 
 5 Construimos la vista:
 
@@ -933,7 +944,7 @@ class EmpleadoPorDepa(ListView):
 ![image](https://github.com/user-attachments/assets/f5d6e0cc-dbd0-4f2d-a406-e9c8d6a4bf5c)
 ![image](https://github.com/user-attachments/assets/ca40953a-001e-4e8d-a758-347c2a69bc85)
 
-## 4 Pantalla administrar
+# 5 Pantalla administrar
 
 Queremos desplegar una funcionalidad que nos permita desplegar una lista de empleados y poder eliminarlos o editarlos.
 
@@ -1131,7 +1142,7 @@ Entonces nuestra urls quedan:
 
 ![image](https://github.com/user-attachments/assets/7eb9766f-73b1-4bc6-8837-4c8834c0ddd5)
 
-### 5 Editando la pantalla de actualizar
+# 6 Editando la pantalla de actualizar
 
 Actualmente al darle clic a Actualizar se nos despliega lo siguiente:
 
@@ -1213,7 +1224,7 @@ class ActualizarEmpleado(UpdateView):
    success_url = reverse_lazy('empleado_app:adminempleados')
 ```
 
-### 6 Editando la pantalla de Eliminar
+# 7 Editando la pantalla de Eliminar
 
 1 Le damos estilos a la pagina **eliminarempleado.html**
 
