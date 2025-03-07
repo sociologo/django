@@ -1448,7 +1448,7 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR.child('media')
+MEDIA_ROOT = BASE_DIR / 'media'
 ```
 
 3 Debemos registar esta URL en nuestro registro general de urls:
