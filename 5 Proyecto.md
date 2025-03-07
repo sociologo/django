@@ -1379,13 +1379,74 @@ class CrearEmpleado(CreateView):
       return super(CrearEmpleado, self).form_valid(form)
 ```
 
+![image](https://github.com/user-attachments/assets/1fc3a59c-8930-4982-bd80-e427b6d986c6)
 
+### 8 Administrando archivos multimedia
 
+1 models.ImageField
 
+Observemos el modelo que nos permite registrar un empleado:
 
+```python
+class Empleado(models.Model):
+   JOB_CHOICES = (
+      ("0","Sociólogo"),
+      ("1","Antropólogo"),
+      ("2","Psicólogo"),
+      ("3","Economista")
+   )
+   first_name = models.CharField("Nombres", max_length=60)
+   last_name = models.CharField("Apellidos", max_length=60)
+   full_name = models.CharField(
+      "Nombre completo", 
+      max_length=120, 
+      blank = True)
+   job = models.CharField("Trabajo", max_length=1, choices=JOB_CHOICES)
+   departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
+   avatar = models.ImageField(upload_to = 'empleado', blank = True, null = True)
+   habilidades = models.ManyToManyField(Habilidades)
+   hoja_vida = RichTextField()
 
-   success_url = reverse_lazy('empleado_app:adminempleados')
+   def __str__(self):
+      return str(self.id) + "-" + self.first_name + "-" + self.last_name
+```
 
+la linea:
+
+```python
+avatar = models.ImageField(upload_to = 'empleado', blank = True, null = True)
+```
+
+indica que la imagen asociada al registro que ingresemos se ubicará en una carpeta llamada **empleados** (Django la crea si no existe). En mejor en nuestra app construir una carpeta llamada **media** en la que alojaremos todos los archivos de este tipo. 
+
+2 Configuracion en local.py
+
+Debemos configurar correctamente la ruta de redireccionamiento, para ello vamos a local.py:
+
+```python
+from .base import *
+
+DEBUG = True
+
+ALLOWED_HOSTS = []
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dbempleado101',
+        'USER': 'chris101',
+        'PASSWORD': 'nueva123456',
+        'HOST': 'localhost',
+        'PORT': '5432'
+    }
+}
+
+STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+   BASE_DIR / "static",
+]
+```
    
 ***
 ***
