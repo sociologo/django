@@ -1562,6 +1562,13 @@ Registrar empleados
 {% endblock content %}
 ```
 
+7 Verificamos:
+
+![image](https://github.com/user-attachments/assets/df5bc406-7d4e-4fab-a55f-37fa360ec9e2)
+
+Abrimos la foto desde el administrador:
+
+![image](https://github.com/user-attachments/assets/240ab96c-675d-4228-9efe-dee4764adbd5)
 
    
 ***
