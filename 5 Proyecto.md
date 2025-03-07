@@ -12,8 +12,8 @@ C:\mis_entornos\entorno_3\Scripts> activate
 
 # Índice
 
-* [1 Construyendo la pantalla de inicio](#1 Construyendo la pantalla de inicio)
-  * [11 Herencia](#11 Herencia)
+* [1 Construyendo la pantalla de inicio](#1-Construyendo-la-pantalla-de-inicio)
+  * [11 Herencia](#11-Herencia)
 
 # 1 Construyendo la pantalla de inicio
 
