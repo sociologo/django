@@ -1417,11 +1417,11 @@ la linea:
 avatar = models.ImageField(upload_to = 'empleado', blank = True, null = True)
 ```
 
-indica que la imagen asociada al registro que ingresemos se ubicará en una carpeta llamada **empleados** (Django la crea si no existe). En mejor en nuestra app construir una carpeta llamada **media** en la que alojaremos todos los archivos de este tipo. 
+indica que la imagen asociada al registro que ingresemos se ubicará en una carpeta llamada **empleados** (Django la crea si no existe). Construyamos una carpeta llamada **media** que la albergue. 
 
 2 Configuracion en local.py
 
-Debemos configurar correctamente la ruta de redireccionamiento, para ello vamos a local.py:
+Debemos configurar correctamente la ruta de redireccionamiento, para ello vamos a **local.py** y agregamos la url para que se generen los archivos multimedia.
 
 ```python
 from .base import *
@@ -1446,7 +1446,123 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
    BASE_DIR / "static",
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR.child('media')
 ```
+
+3 Debemos registar esta URL en nuestro registro general de urls:
+
+```python
+from django.contrib import admin # type: ignore
+from django.urls import path, include # type: ignore
+from django.conf import settings # type: ignore
+from django.conf.urls.static import static  # type: ignore
+
+urlpatterns = [
+   path('admin/', admin.site.urls),
+   path('', include("applications.empleados.urls")),
+   path('', include("applications.exp.urls")),
+   path('', include("applications.departamentos.urls")),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+```
+
+4 En la vista agregamos el campo:
+
+```python
+class CrearEmpleado(CreateView):
+   model = Empleado
+   template_name = "empleado/crearempleado.html"
+   fields = ['first_name',
+             'last_name',
+             'job',
+             'departamento',
+             'habilidades',
+             'avatar'] 
+   # fields = ('__all__')
+   success_url = reverse_lazy('empleado_app:adminempleados')
+```
+
+5 Agregamos el campo en el formulario:
+
+```python
+# some code...
+
+<div class="medium-12 cell">
+   <label>Habilidades
+      {{form.habilidades}}
+   </label>
+</div>
+<div class="medium-12 cell">
+   <label>Foto
+      {{form.avatar}}
+   </label>
+</div>
+
+# some code...
+```
+
+6 Debemos agregar al html enctype="multipart/form-data"
+
+```python
+{% extends 'base.html' %}
+
+{% block title %}
+Registrar empleados
+{% endblock title %}
+   
+{% block content %}
+   {% include 'includes/header.html' %}
+
+   <div class="grid-container">
+      <div class="grid-x">
+         <h1 class="cell">
+            Registrar empleado 
+         </h1>
+         <form class="cell grid-x grid-margin-x" method = "POST" enctype="multipart/form-data">{% csrf_token %}
+            <div class="medium-6 cell">
+               <label>Nombre
+                  {{form.first_name}}
+               </label>
+            </div>
+            <div class="medium-6 cell">
+               <label>Apellido
+                  {{form.last_name}}
+               </label>
+            </div>
+            <div class="medium-6 cell">
+               <label>Trabajo
+                  {{form.job}}
+               </label>
+            </div>
+            <div class="medium-6 cell">
+               <label>Departamento
+                  {{form.departamento}}
+               </label>
+            </div>
+            <div class="medium-12 cell">
+               <label>Habilidades
+                  {{form.habilidades}}
+               </label>
+            </div>
+            <div class="medium-12 cell">
+               <label>Foto
+                  {{form.avatar}}
+               </label>
+            </div>
+            <div class="medium-12 cell">
+               <button type="submit" class="button success">
+                  Guardar
+               </button>
+             </div>
+         </form>
+      </div>
+   </div>
+
+{% endblock content %}
+```
+
+
    
 ***
 ***
