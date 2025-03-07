@@ -14,21 +14,20 @@ C:\mis_entornos\entorno_3\Scripts> activate
 
 * [1 Construyendo la pantalla de inicio](#1-Construyendo-la-pantalla-de-inicio)
   * [11 Herencia](#11-Herencia)
-
-2 Includes
-21 La cabecera
-22 Personalizando la cabecera
-3 Pantalla listar empleados
-31 Formato y funcionalidad al boton listar
-32 Funcionalidad al boton Buscar y Ver
-321 Boton buscar
-322 Boton Ver
-33 Paginacion
-4 Pantalla listar departamentos con sus empleados
-5 Pantalla administrar
-6 Editando la pantalla de actualizar
-7 Editando la pantalla de Eliminar
-
+* [2 Includes](#2-Includes)
+  * [21 La cabecera](#21-La-cabecera)
+  * [22 Personalizando la cabecera](#22-Personalizando-la-cabecera)
+* [3 Pantalla listar empleados](#3-Pantalla-listar-empleados)
+  * [31 Formato y funcionalidad al boton listar](#31-Formato-y-funcionalidad-al-boton-listar)
+  * [32 Funcionalidad al boton Buscar y Ver](#32-Funcionalidad-al-boton-Buscar-y-Ver)
+    * [321 Boton buscar](#321-Boton-buscar)
+    * [322 Boton Ver](#322-Boton-Ver)
+  * [33 Paginacion](#33-Paginacion)
+* [4 Pantalla listar departamentos con sus empleados](#4-Pantalla-listar-departamentos-con-sus-empleados)
+* [5 Pantalla administrar](#5-Pantalla-administrar)
+* [6 Editando la pantalla de actualizar](#6-Editando-la-pantalla-de-actualizar)
+* [7 Editando la pantalla de Eliminar](#7-Editando-la-pantalla-de-Eliminar)
+ 
 # 1 Construyendo la pantalla de inicio
 
 ## 11 Herencia
