@@ -1570,6 +1570,116 @@ Abrimos la foto desde el administrador:
 
 ![image](https://github.com/user-attachments/assets/240ab96c-675d-4228-9efe-dee4764adbd5)
 
+### 9 Ingresando registros en dos modelos simultaneamente.
+
+1 La funcionalidad
+
+Recordemos que ya hemos hecho la funcionalidad de esto en la aplicación **departamentos**:
+
+```python
+class NuevoEmpleadoYDepartamento(FormView):
+   template_name = 'depa/nuevoempleadoydepartamento.html'
+   form_class = EmpleadoYDepartamento
+   success_url = reverse_lazy('empleado_app:exito')
+
+   def form_valid(self, form):
+
+      depa = Departamento(
+         name = form.cleaned_data['departamento'],
+         short_name = form.cleaned_data['shortname']
+      )
+      depa.save()
+
+      nombre = form.cleaned_data['nombre']
+      apellido = form.cleaned_data['apellido']
+      Empleado.objects.create(
+         first_name = nombre,
+         last_name = apellido,
+         job = '1',
+         departamento = depa
+      )
+      return super(NuevoEmpleadoYDepartamento, self).form_valid(form)
+```
+
+Asociado al siguiente formulario:
+
+```python
+from django import forms # type: ignore
+
+class EmpleadoYDepartamento(forms.Form):
+   nombre = forms.CharField(max_length=50)
+   apellido = forms.CharField(max_length=50)
+   departamento = forms.CharField(max_length=50)
+   shortname = forms.CharField(max_length=20)
+```
+
+2 La personalización
+
+Lo que necesitamos es personalizar **nuevoempleadoydepartamento.html**
+
+```python
+<h1> Registrar empleado y departamento </h1>
+
+<form method = "POST">{% csrf_token %}
+   <h3>
+      Datos del empleado
+   </h3>
+   <p>
+      {{form.nombre}}
+   </p>
+      {{form.apellido}}
+   <h3>
+      Datos del departamento
+   </h3>
+   <p>
+      {{form.departamento}}
+   </p>
+      {{form.shortname}}
+   <button type="submit">
+      Agregar
+   </button>
+</form>
+```
+
+{% extends 'base.html' %}
+
+{% block title %}
+   Lista de Departamentos
+{% endblock title %}
+   
+{% block content %}
+   {% include 'includes/header.html' %}
+   <div class="grid-container">
+         <div class="grid-x">
+            <h1 class="cell">
+               Lista de Departamentos
+            </h1>
+            <div class="cell">
+               <table>
+                  <tbody>
+                     {% for departamento in departamentos %}
+                     <tr>  
+                        <td>
+                           {{departamento.name}}
+                        </td>
+                        <td>
+                           {{departamento.short_name}}
+                        </td>
+                        <td>
+                           <a class="button warning" href="{% url 'empleado_app:empleadopordepa' departamento.short_name%}">
+                              Ver empleados
+                           </a>
+                        </td>
+                     </tr>
+                     {% endfor %}                                    
+                  </tbody>
+               </table>
+
+            </div>
+         </div>
+   </div>
+{% endblock content %}
+
    
 ***
 ***
