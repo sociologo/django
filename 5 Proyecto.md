@@ -1,5 +1,3 @@
-
-
 # Diseño gráfico del proyecto y puesta a punto de su funcionalidad
 
 Script de arranque:
@@ -12,14 +10,14 @@ C:\mis_entornos\entorno_3\Scripts> activate
 (entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver
 ```
 
-## Índice
+# Índice
 
-* [1 Crear un proyecto Django](#1-crear-un-proyecto-django)
-  * [11 Creamos carpetas de trabajo](#11-Creamos-carpetas-de-trabajo)
+* [1 Construyendo la pantalla de inicio](#1 Construyendo la pantalla de inicio)
+  * [11 Herencia](#11 Herencia)
 
-## 1 Construyendo la pantalla de inicio
+# 1 Construyendo la pantalla de inicio
 
-### 1 Herencia
+## 11 Herencia
 
 1 base.html e inicio.html
 
