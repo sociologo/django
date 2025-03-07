@@ -1570,7 +1570,7 @@ Abrimos la foto desde el administrador:
 
 ![image](https://github.com/user-attachments/assets/240ab96c-675d-4228-9efe-dee4764adbd5)
 
-### 9 Ingresando registros en dos modelos simultaneamente.
+### 9 Ingresando registros en dos modelos simultáneamente.
 
 1 La funcionalidad
 
@@ -1613,74 +1613,102 @@ class EmpleadoYDepartamento(forms.Form):
    shortname = forms.CharField(max_length=20)
 ```
 
-2 La personalización
-
-Lo que necesitamos es personalizar **nuevoempleadoydepartamento.html**
+2 Necesitamos es personalizar **nuevoempleadoydepartamento.html**
 
 ```python
-<h1> Registrar empleado y departamento </h1>
-
-<form method = "POST">{% csrf_token %}
-   <h3>
-      Datos del empleado
-   </h3>
-   <p>
-      {{form.nombre}}
-   </p>
-      {{form.apellido}}
-   <h3>
-      Datos del departamento
-   </h3>
-   <p>
-      {{form.departamento}}
-   </p>
-      {{form.shortname}}
-   <button type="submit">
-      Agregar
-   </button>
-</form>
-```
-
 {% extends 'base.html' %}
 
 {% block title %}
-   Lista de Departamentos
+Registrar nuevo empleado y departamento
 {% endblock title %}
    
 {% block content %}
    {% include 'includes/header.html' %}
+
    <div class="grid-container">
-         <div class="grid-x">
-            <h1 class="cell">
-               Lista de Departamentos
-            </h1>
-            <div class="cell">
-               <table>
-                  <tbody>
-                     {% for departamento in departamentos %}
-                     <tr>  
-                        <td>
-                           {{departamento.name}}
-                        </td>
-                        <td>
-                           {{departamento.short_name}}
-                        </td>
-                        <td>
-                           <a class="button warning" href="{% url 'empleado_app:empleadopordepa' departamento.short_name%}">
-                              Ver empleados
-                           </a>
-                        </td>
-                     </tr>
-                     {% endfor %}                                    
-                  </tbody>
-               </table>
-
+      <div class="grid-x">
+         <h1 class="cell">
+            Registrar nuevo empleado y departamento 
+         </h1>
+         <form class="cell callout grid-x grid-margin-x" method = "POST">{% csrf_token %}
+            <div class="medium-6 cell">
+               <label>Nombre
+                  {{form.nombre}}
+               </label>
             </div>
-         </div>
+            <div class="medium-6 cell">
+               <label>Apellido
+                  {{form.apellido}}
+               </label>
+            </div>
+            <div class="medium-6 cell">
+               <label>departamento
+                  {{form.departamento}}
+               </label>
+            </div>
+            <div class="medium-6 cell">
+               <label>Nombre corto
+                  {{form.shortname}}
+               </label>
+            </div>
+            <div class="medium-12 cell">
+               <button type="submit" class="button success">
+                  Guardar
+               </button>
+             </div>
+         </form>
+      </div>
    </div>
+
 {% endblock content %}
+```
 
-   
+3 Añadimos esta funcionalidad en el header:
+
+```python
+<div class="top-bar">
+   <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+         <li class="menu-text">Empleados</li>
+         <li>
+            <a href="{% url 'empleado_app:listartodoslosempleados' %}">
+               Listar
+            </a>
+         </li>
+         <li>
+            <a href="{% url 'departamento_app:listardepartamentos' %}">
+               Departamentos
+            </a>
+         </li>
+         <li>
+            <a href="{% url 'empleado_app:adminempleados' %}">
+               Administrar
+            </a>
+         </li>
+         <li>
+            <a href="{% url 'departamento_app:nuevoempleadoydepartamento' %}">
+               Ingresar empleado y departamento
+            </a>
+         </li>
+      </ul>
+   </div>
+   <div class="top-bar-right">
+      <ul class="menu">
+         <li><input type="search" placeholder="Buscar empleado"></li>
+         <a href="{% url 'empleado_app:crearempleado' %}" class="button" class="button">Registrar nuevo</a>
+      </ul>
+   </div>
+ </div>
+```
+
+![image](https://github.com/user-attachments/assets/d82d1102-6402-43a8-8aed-ea60dbb5ad3d)
+
+### 10 Ingresando registros en dos modelos simultáneamente.
+
+
+
+
+  
 ***
 ***
 
@@ -1689,8 +1717,9 @@ Lo que necesitamos es personalizar **nuevoempleadoydepartamento.html**
 <br>
 <br>
 
-6 marzo.
-clase 90 3:50'
+aca voy
+7 marzo.
+voy iniciando la clase 93
 
 <br>
 <br>
