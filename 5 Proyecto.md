@@ -1305,8 +1305,86 @@ path('crear-emp',
 
 4 Le damos diseño al template **crearempleado.html**
 
+```html
+{% extends 'base.html' %}
+
+{% block title %}
+Registrar empleados
+{% endblock title %}
+   
+{% block content %}
+   {% include 'includes/header.html' %}
+
+   <div class="grid-container">
+      <div class="grid-x">
+         <h1 class="cell">
+            Registrar empleado 
+         </h1>
+         <form class="cell grid-x grid-margin-x" method = "POST">{% csrf_token %}
+            <div class="medium-6 cell">
+               <label>Nombre
+                  {{form.first_name}}
+               </label>
+            </div>
+            <div class="medium-6 cell">
+               <label>Apellido
+                  {{form.last_name}}
+               </label>
+            </div>
+            <div class="medium-6 cell">
+               <label>Trabajo
+                  {{form.job}}
+               </label>
+            </div>
+            <div class="medium-6 cell">
+               <label>Departamento
+                  {{form.departamento}}
+               </label>
+            </div>
+            <div class="medium-12 cell">
+               <label>Habilidades
+                  {{form.habilidades}}
+               </label>
+            </div>
+            <div class="medium-12 cell">
+               <button type="submit" class="button success">
+                  Guardar
+               </button>
+             </div>
+         </form>
+      </div>
+   </div>
+
+{% endblock content %}
+```
+
+5 Al ingresar un registro, queremos que la aplicacion nos redirija a la pagina Administrar:
+
+```python
+class CrearEmpleado(CreateView):
+   model = Empleado
+   template_name = "empleado/crearempleado.html"
+   fields = ['first_name',
+             'last_name',
+             'job',
+             'departamento',
+             'habilidades'] 
+   # fields = ('__all__')
+   success_url = reverse_lazy('empleado_app:adminempleados')
+
+   def form_valid(self, form):
+      empleado = form.save(commit = False)
+      empleado.full_name = empleado.first_name + ' ' + empleado.last_name
+      empleado.save()
+      return super(CrearEmpleado, self).form_valid(form)
+```
 
 
+
+
+
+
+   success_url = reverse_lazy('empleado_app:adminempleados')
 
    
 ***
