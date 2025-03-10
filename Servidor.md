@@ -9,8 +9,8 @@
 <br>
 
 aca voy
-7 marzo.
-voy iniciando la clase 93
+10 marzo.
+voy iniciando la clase 104
 
 <br>
 <br>
