@@ -1,0 +1,26 @@
+<h1>
+   Buscar empleados por departamento
+</h1>
+
+<hr style = "border: none; height: 2px; background-color:red; width: 90%;" >
+<br>
+
+<form method = "GET">{% csrf_token %}
+   <input type = "text" id="kword" name="kword" placeholder="Ingresa departamento">
+   <button type="submit">
+      Buscar
+   </button>
+</form>
+
+<h3>
+   Lista de empleados
+</h3>
+
+<ul>
+   {% for e in empleadoporkword %}
+      <li>
+         {{e}}
+      </li>
+   {% endfor %} 
+</ul>
+
