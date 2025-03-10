@@ -1,5 +1,24 @@
 # Cómo configurar Django con Postgres, Nginx y Gunicorn en Ubuntu.
 
+***
+***
+
+<br>
+<br>
+<br>
+<br>
+
+aca voy
+7 marzo.
+voy iniciando la clase 93
+
+<br>
+<br>
+<br>
+<br>
+---
+---
+
 ## 1 Acerca de root
 
 Podemos acceder a un droplet de **DigitalOcean** desde una terminal windows local ejecutada como administrador con:
