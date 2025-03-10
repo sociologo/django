@@ -1819,6 +1819,86 @@ Habilidades es un conjunto, por lo que para recuperar sus datos debemos hacer un
 
 # 12 Personalizando campos con un formulario
 
+Con el uso de widgets, personalizaremos la caja de habilidades en la sección registrar nuevo empleado. Actualmente se ve así:
+
+![image](https://github.com/user-attachments/assets/15335fb0-af0d-4926-96b6-586361127d44)
+
+1 Creamos un formulario en la app empleado personalizando la caja de habilidades con el widget `forms.CheckboxSelectMultiple()`
+
+```python
+from django import forms # type: ignore
+from .models import Empleado # type: ignore
+
+class EmpleadoForm(forms.ModelForm):
+
+   class Meta:
+
+      model = Empleado
+      fields = ('first_name',
+                'last_name',
+                'job',
+                'departamento',
+                'avatar',
+                'habilidades',
+                )
+      widgets = {
+         'habilidades': forms.CheckboxSelectMultiple()
+      }
+```
+
+2 En las vistas importamos el formulario y lo asignamos a la vista reemplazando los fields:
+
+```python
+class CrearEmpleado(CreateView):
+   model = Empleado
+   template_name = "empleado/crearempleado.html"
+   fields = ['first_name',
+             'last_name',
+             'job',
+             'departamento',
+             'habilidades',
+             'avatar'] 
+   # fields = ('__all__')
+   success_url = reverse_lazy('empleado_app:adminempleados')
+
+   def form_valid(self, form):
+      empleado = form.save(commit = False)
+      empleado.full_name = empleado.first_name + ' ' + empleado.last_name
+      empleado.save()
+      return super(CrearEmpleado, self).form_valid(form)
+```
+
+```python
+# ...some code
+
+from .forms import EmpleadoForm
+
+# ...some code
+
+class CrearEmpleado(CreateView):
+   model = Empleado
+   template_name = "empleado/crearempleado.html"
+
+   form_class = EmpleadoForm
+
+   success_url = reverse_lazy('empleado_app:adminempleados')
+
+   def form_valid(self, form):
+      empleado = form.save(commit = False)
+      empleado.full_name = empleado.first_name + ' ' + empleado.last_name
+      empleado.save()
+      return super(CrearEmpleado, self).form_valid(form)
+
+# ...some code
+```
+
+3 Ahora nuestra pagina se ve asi:
+
+![image](https://github.com/user-attachments/assets/ec47d6b2-6c04-423f-b5d1-71975cf48468)
+
+
+
+
 ***
 ***
 
