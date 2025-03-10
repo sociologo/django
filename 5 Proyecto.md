@@ -1713,15 +1713,112 @@ Registrar nuevo empleado y departamento
 
 # 11 Dandole formato a la pantalla Ver Empleado.
 
-Actualmente esta pantalla se despliega asi:
+1 Actualmente esta pantalla se despliega asi:
 
 ![image](https://github.com/user-attachments/assets/423e3146-bc2c-4d1f-bb7a-f64578cafee5)
 
+2 Identifiquemos el template y su vista. Es **detalledelempleado.html**
 
+```python
+class DetalleDelEmpleado(DetailView):
+   model = Empleado
+   template_name = "empleado/detalledelempleado.html"
+   context_object_name = 'detalledelempleado'
 
+   def get_context_data(self, **kwargs):
+       context = super(DetalleDelEmpleado, self).get_context_data(**kwargs)
+       context['titulo'] = 'Empleado del mes' 
+       return context
+```
 
+```html
+<h1>
+   Detalle de un empleado {{titulo}}
+</h1>
 
-  
+<hr style = "border: none; height: 2px; background-color:red; width: 90%;" >
+<br>
+
+<h3> Todos los detalles </h3>
+{{detalledelempleado}}
+
+<hr style = "border: none; height: 2px; background-color:green; width: 90%;" >
+<p>{{detalledelempleado.first_name}}</p>
+<p>{{detalledelempleado.last_name}}</p>
+<p>{{detalledelempleado.job}}</p>
+<p>{{detalledelempleado.departamento}}</p>
+```
+
+3 Démosle la estructura ya conocida copiando la estructura Card de Foundation:
+
+Le añadimos una validación para el caso de que el registro no posea una imagen.
+
+Utilizamos `get_job_display` en:
+
+```html
+<div class="card-divider">
+  {{detalledelempleado.get_job_display}}
+</div>
+```
+que funciona en un atributo del tipo `choices` para recuperar su valor real y no su número.
+
+Habilidades es un conjunto, por lo que para recuperar sus datos debemos hacer una iteración:
+
+```html
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+   {{detalledelempleado.full_name}}
+{% endblock title %}
+   
+{% block content %}
+{% include 'includes/header.html' %}
+
+<div class="grid-container">
+   <div class="grid-x grid-margin-x align-center">
+      <div class="cell large-4 card" style="width: 300px; margin-top: 10px;">
+         <div class="card-divider">
+           Trabajo:{{detalledelempleado.get_job_display}}
+         </div>
+         
+         {% if detalledelempleado.avatar %}
+            <img src="{{detalledelempleado.avatar.url}}">
+         {% else %}
+            <img src="{% static 'img/nohayimagen.jpg' %}">
+         {% endif %}
+            
+         <div class="card-section">
+            <h4>Nombre completo:{{detalledelempleado.full_name}}</h4>
+            <p>Apellido:{{detalledelempleado.last_name}}</p>
+            <p>Departamento:{{detalledelempleado.departamento.short_name}}</p>
+            <p> 
+               <span class="label">
+                  Habilidades
+               </span>
+            </p>
+            <ul class="vertical menu">
+               {% for h in detalledelempleado.habilidades.all %}
+                  <li>
+                     {{h.habilidad}}
+                  </li>
+               {% endfor %}
+            </ul>
+         </div>
+      </div>
+   </div>
+</div>
+
+{% endblock content %}
+```
+
+4 Veamos ahora su despliegue:
+
+![image](https://github.com/user-attachments/assets/9945157f-add7-4006-85e0-f795ae7c926b)
+
+# 12 Personalizando campos con un formulario
+
 ***
 ***
 
