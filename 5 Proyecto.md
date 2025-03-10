@@ -1265,7 +1265,7 @@ class EliminarEmpleado(DeleteView):
    context_object_name = 'eliminarempleado'
 ```
 
-### 7 Dando funcionalidad al boton de Registrar Nuevo empleado
+# 8 Dando funcionalidad al boton de Registrar Nuevo empleado
 
 1 Identifiquemos la vista que ya hemos construido y que hacia el registro:
 
@@ -1389,7 +1389,7 @@ class CrearEmpleado(CreateView):
 
 ![image](https://github.com/user-attachments/assets/1fc3a59c-8930-4982-bd80-e427b6d986c6)
 
-### 8 Administrando archivos multimedia
+# 9 Administrando archivos multimedia
 
 1 models.ImageField
 
@@ -1578,7 +1578,7 @@ Abrimos la foto desde el administrador:
 
 ![image](https://github.com/user-attachments/assets/240ab96c-675d-4228-9efe-dee4764adbd5)
 
-### 9 Ingresando registros en dos modelos simultáneamente.
+# 10 Ingresando registros en dos modelos simultáneamente.
 
 1 La funcionalidad
 
@@ -1711,7 +1711,12 @@ Registrar nuevo empleado y departamento
 
 ![image](https://github.com/user-attachments/assets/d82d1102-6402-43a8-8aed-ea60dbb5ad3d)
 
-### 10 Ingresando registros en dos modelos simultáneamente.
+# 11 Dandole formato a la pantalla Ver Empleado.
+
+Actualmente esta pantalla se despliega asi:
+
+![image](https://github.com/user-attachments/assets/423e3146-bc2c-4d1f-bb7a-f64578cafee5)
+
 
 
 
