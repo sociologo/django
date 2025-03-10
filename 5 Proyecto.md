@@ -1899,24 +1899,6 @@ class CrearEmpleado(CreateView):
 
 
 
-***
-***
-
-<br>
-<br>
-<br>
-<br>
-
-aca voy
-7 marzo.
-voy iniciando la clase 93
-
-<br>
-<br>
-<br>
-<br>
----
----
 
 
 
