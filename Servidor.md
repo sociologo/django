@@ -973,7 +973,7 @@ server {
     access_log /mis_proyectos/entorno_1/logs/nginx-access.log;
     error_log /mis_proyectos/entorno_1/logs/nginx-error.log;
 
-    # Configuración para el primer proyecto (empleado_app)
+    # Proyecto empleado_app
     location /static/ {
         alias /mis_proyectos/entorno_1/emp1/staticfiles/;
     }
@@ -993,7 +993,7 @@ server {
         proxy_pass http://empleado_app;
     }
 
-    # Configuración para el segundo proyecto (emp3)
+    # Proyecto emp3 en la ruta /proyecto1
     location /proyecto1/ {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header Host $http_host;
@@ -1001,6 +1001,7 @@ server {
         proxy_pass http://emp3_app;
     }
 
+    # Archivos estáticos y multimedia para emp3
     location /proyecto1/static/ {
         alias /mis_proyectos/entorno_1/emp3/staticfiles/;
     }
@@ -1009,6 +1010,38 @@ server {
         alias /mis_proyectos/entorno_1/emp3/media/;
     }
 }
+
 ```
+Detalles importantes:
+Bloque upstream para emp3:
+
+Se ha añadido upstream emp3_app para dirigir las solicitudes de la ruta /proyecto1/ hacia el socket de emp3 en /mis_proyectos/entorno_1/run/emp3_gunicorn.sock.
+
+Ruta /proyecto1/:
+
+Este bloque redirige todas las solicitudes que lleguen a sociolab.cl/proyecto1 hacia la aplicación Gunicorn correspondiente (emp3_app).
+
+Archivos estáticos y multimedia:
+
+Se han configurado rutas específicas para los archivos estáticos y multimedia del proyecto emp3 en las ubicaciones /proyecto1/static/ y /proyecto1/media/.
+
+Verificaciones finales:
+Asegúrate de que el socket de Gunicorn para emp3 (emp3_gunicorn.sock) esté activo y en la ubicación correcta.
+
+Si no tienes el socket configurado para emp3, verifica que el servidor Gunicorn de este proyecto esté correctamente inicializado.
+
+Verifica la sintaxis del archivo Nginx con:
+
+sudo nginx -t
+
+Luego, recarga la configuración de Nginx:
+
+sudo systemctl reload nginx
+
+Con esto, tu proyecto emp3 debería desplegarse correctamente en https://sociolab.cl/proyecto1
+
+
+
+
 
 
