@@ -800,14 +800,71 @@ empleado: started
 ***
 ***
 
+## Ahora tengo una necesidad importante. Tengo dos proyectos en mi máquina virtual. El primero quiero apuntarlo a sociolab.cl como ya lo he hecho y el segundo a un subdominio sociolab.cl/proyecto1.
 
 
+Con tu archivo de configuración actual, parece que ya estás utilizando un servidor Nginx configurado para manejar un proyecto en sociolab.cl. Ahora, para agregar el segundo proyecto y apuntarlo a sociolab.cl/proyecto1, puedes ajustar tu configuración de la siguiente manera:
 
+### Ajustes propuestos para manejar el segundo proyecto en un subdirectorio:
 
+1 Define un nuevo bloque de ubicación (location) para proyecto1: Dentro del bloque del servidor que ya tienes configurado (server para sociolab.cl), añade una nueva ubicación específica para manejar las peticiones de /proyecto1.
 
+Por ejemplo:
+```
+location /proyecto1/ {
+    alias /mis_proyectos/entorno_2/proyecto1/; # Cambia esta ruta según la ubicación del segundo proyecto.
+    index index.html; # Si tienes un archivo index.html como entrada.
+}
+```
 
+O si el segundo proyecto también es una aplicación manejada por Gunicorn o similar, podrías configurarlo de esta manera:
 
+```
+location /proyecto1/ {
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+    proxy_pass http://proyecto1_app; # Apunta al bloque upstream que crearás más adelante.
+}
+```
 
+2 Crea un bloque upstream para el nuevo proyecto si es necesario: Si el segundo proyecto utiliza Gunicorn (u otro servidor de aplicaciones similar), crea un nuevo bloque upstream en la parte superior del archivo Nginx.
+
+```
+upstream proyecto1_app {
+    server unix:/mis_proyectos/entorno_2/run/gunicorn.sock fail_timeout=0; # Cambia esta ruta según el entorno del segundo proyecto.
+}
+```
+
+3 Asegúrate de manejar los recursos estáticos y multimedia del segundo proyecto: Similar a lo que ya tienes para static y media, añade configuraciones específicas para los archivos del segundo proyecto.
+
+```
+location /proyecto1/static/ {
+    alias /mis_proyectos/entorno_2/staticfiles/;
+}
+
+location /proyecto1/media/ {
+    alias /mis_proyectos/entorno_2/media/;
+}
+```
+
+4 Reinicia Nginx para aplicar los cambios: Después de realizar las modificaciones en tu archivo de configuración, verifica que no haya errores de sintaxis con:
+
+```
+sudo nginx -t
+```
+Si no hay errores, recarga la configuración de Nginx:
+```
+sudo systemctl reload nginx
+```
+
+Consideraciones adicionales:
+
+Rutas absolutas: Asegúrate de que las rutas configuradas para el nuevo proyecto (/mis_proyectos/entorno_2/...) existen y tienen los permisos adecuados para que Nginx pueda acceder a ellas.
+
+Certificados SSL: Dado que estás usando HTTPS, no necesitas configurar algo adicional para /proyecto1, ya que heredará la seguridad del dominio raíz (sociolab.cl).
+
+Pruebas: Una vez configurado, prueba accediendo a https://sociolab.cl/proyecto1 para asegurarte de que todo funciona correctamente.
 
 
 
