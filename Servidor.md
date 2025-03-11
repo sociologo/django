@@ -868,6 +868,7 @@ empleado: started
 
 ## Ahora tengo una necesidad importante. Tengo dos proyectos en mi máquina virtual. El primero quiero apuntarlo a sociolab.cl como ya lo he hecho y el segundo a un subdominio sociolab.cl/proyecto1.
 
+# consejo 1
 
 Con tu archivo de configuración actual, parece que ya estás utilizando un servidor Nginx configurado para manejar un proyecto en sociolab.cl. Ahora, para agregar el segundo proyecto y apuntarlo a sociolab.cl/proyecto1, puedes ajustar tu configuración de la siguiente manera:
 
@@ -931,6 +932,9 @@ Rutas absolutas: Asegúrate de que las rutas configuradas para el nuevo proyecto
 Certificados SSL: Dado que estás usando HTTPS, no necesitas configurar algo adicional para /proyecto1, ya que heredará la seguridad del dominio raíz (sociolab.cl).
 
 Pruebas: Una vez configurado, prueba accediendo a https://sociolab.cl/proyecto1 para asegurarte de que todo funciona correctamente.
+
+
+# consejo 2
 
 ```bash
 upstream empleado_app {
@@ -1012,6 +1016,7 @@ server {
 }
 
 ```
+
 Detalles importantes:
 Bloque upstream para emp3:
 
@@ -1031,17 +1036,141 @@ Asegúrate de que el socket de Gunicorn para emp3 (emp3_gunicorn.sock) esté act
 Si no tienes el socket configurado para emp3, verifica que el servidor Gunicorn de este proyecto esté correctamente inicializado.
 
 Verifica la sintaxis del archivo Nginx con:
-
+```bash
 sudo nginx -t
-
+```
 Luego, recarga la configuración de Nginx:
-
+```bash
 sudo systemctl reload nginx
-
+```
 Con esto, tu proyecto emp3 debería desplegarse correctamente en https://sociolab.cl/proyecto1
 
+Gunicorn:
 
+```bash
+#!/bin/bash
 
+# Configuración para el proyecto emp1
+NAME1="empleado"
+DJANGODIR1=/mis_proyectos/entorno_1/emp1
+SOCKFILE1=/mis_proyectos/entorno_1/run/gunicorn_emp1.sock
+USER=christian1
+GROUP=christian1
+NUM_WORKERS=3
+DJANGO_SETTINGS_MODULE1=empleado.settings.prod
+DJANGO_WSGI_MODULE1=empleado.wsgi
 
+# Configuración para el proyecto emp3
+NAME2="emp3"
+DJANGODIR2=/mis_proyectos/entorno_1/emp3
+SOCKFILE2=/mis_proyectos/entorno_1/run/gunicorn_emp3.sock
+DJANGO_SETTINGS_MODULE2=emp3.settings.prod
+DJANGO_WSGI_MODULE2=emp3.wsgi
+
+echo "Iniciando $NAME1 y $NAME2 como $(whoami)"
+
+# Activar el entorno virtual
+source /mis_proyectos/entorno_1/bin/activate
+
+# Servir proyecto emp1
+echo "Iniciando $NAME1..."
+cd $DJANGODIR1
+export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE1
+export PYTHONPATH=$DJANGODIR1:$PYTHONPATH
+RUNDIR1=$(dirname $SOCKFILE1)
+if [ ! -d "$RUNDIR1" ]; then
+    mkdir -p $RUNDIR1
+fi
+exec /mis_proyectos/entorno_1/bin/gunicorn ${DJANGO_WSGI_MODULE1}:application \
+  --name $NAME1 \
+  --workers $NUM_WORKERS \
+  --user=$USER --group=$GROUP \
+  --bind=unix:$SOCKFILE1 \
+  --log-level=debug \
+  --log-file=- &
+
+# Servir proyecto emp3
+echo "Iniciando $NAME2..."
+cd $DJANGODIR2
+export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE2
+export PYTHONPATH=$DJANGODIR2:$PYTHONPATH
+RUNDIR2=$(dirname $SOCKFILE2)
+if [ ! -d "$RUNDIR2" ]; then
+    mkdir -p $RUNDIR2
+fi
+exec /mis_proyectos/entorno_1/bin/gunicorn ${DJANGO_WSGI_MODULE2}:application \
+  --name $NAME2 \
+  --workers $NUM_WORKERS \
+  --user=$USER --group=$GROUP \
+  --bind=unix:$SOCKFILE2 \
+  --log-level=debug \
+  --log-file=- &
+```
+
+Supervisor
+
+```bash
+[program:emp1]
+command = /mis_proyectos/entorno_1/bin/gunicorn empleado.wsgi:application \
+          --name empleado \
+          --workers 3 \
+          --user=christian1 --group=christian1 \
+          --bind=unix:/mis_proyectos/entorno_1/run/gunicorn_emp1.sock \
+          --log-level=debug \
+          --log-file=/mis_proyectos/entorno_1/logs/gunicorn_emp1.log
+directory = /mis_proyectos/entorno_1/emp1  # Directorio del proyecto emp1
+user = christian1
+stdout_logfile = /mis_proyectos/entorno_1/logs/supervisor_emp1.log
+redirect_stderr = true
+environment = LANG=en_US.UTF-8,LC_ALL=en_US.UTF-8
+autostart = true
+autorestart = true
+
+[program:emp3]
+command = /mis_proyectos/entorno_1/bin/gunicorn emp3.wsgi:application \
+          --name emp3 \
+          --workers 3 \
+          --user=christian1 --group=christian1 \
+          --bind=unix:/mis_proyectos/entorno_1/run/gunicorn_emp3.sock \
+          --log-level=debug \
+          --log-file=/mis_proyectos/entorno_1/logs/gunicorn_emp3.log
+directory = /mis_proyectos/entorno_1/emp3  # Directorio del proyecto emp3
+user = christian1
+stdout_logfile = /mis_proyectos/entorno_1/logs/supervisor_emp3.log
+redirect_stderr = true
+environment = LANG=en_US.UTF-8,LC_ALL=en_US.UTF-8
+autostart = true
+autorestart = true
+
+```
+
+```bash
+from .base import *
+
+DEBUG = False  # Deshabilitar DEBUG en producción
+
+ALLOWED_HOSTS = ['sociolab.cl', 'www.sociolab.cl']
+
+CSRF_TRUSTED_ORIGINS = ['https://sociolab.cl', 'https://www.sociolab.cl']
+
+import os
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'bded6',
+        'USER': 'christian1',  # Corregido el espacio extra
+        'PASSWORD': os.getenv('DB_PASSWORD'),  # Usa una variable de entorno para la contraseña
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+
+STATIC_URL = '/proyecto1/static/'  # Ajustado para reflejar la subruta
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+MEDIA_URL = '/proyecto1/media/'  # Ajustado para reflejar la subruta
+MEDIA_ROOT = BASE_DIR / 'media'
+
+```
 
 
