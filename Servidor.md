@@ -932,7 +932,83 @@ Certificados SSL: Dado que estás usando HTTPS, no necesitas configurar algo adi
 
 Pruebas: Una vez configurado, prueba accediendo a https://sociolab.cl/proyecto1 para asegurarte de que todo funciona correctamente.
 
+```bash
+upstream empleado_app {
+    server unix:/mis_proyectos/entorno_1/run/gunicorn.sock fail_timeout=0;
+}
 
+upstream emp3_app {
+    server unix:/mis_proyectos/entorno_1/run/emp3_gunicorn.sock fail_timeout=0;
+}
 
+server {
+    listen 80;
+    server_name sociolab.cl www.sociolab.cl;
+
+    access_log /mis_proyectos/entorno_1/logs/nginx-access.log;
+    error_log /mis_proyectos/entorno_1/logs/nginx-error.log;
+
+    location /static/ {
+        alias /mis_proyectos/entorno_1/emp1/staticfiles/;
+    }
+
+    location /media/ {
+        alias /mis_proyectos/entorno_1/emp1/media/empleado;
+    }
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+server {
+    listen 443 ssl;
+    server_name sociolab.cl www.sociolab.cl;
+
+    ssl_certificate /etc/letsencrypt/live/sociolab.cl/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/sociolab.cl/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    access_log /mis_proyectos/entorno_1/logs/nginx-access.log;
+    error_log /mis_proyectos/entorno_1/logs/nginx-error.log;
+
+    # Configuración para el primer proyecto (empleado_app)
+    location /static/ {
+        alias /mis_proyectos/entorno_1/emp1/staticfiles/;
+    }
+
+    location /media/ {
+        alias /mis_proyectos/entorno_1/emp1/media/empleado;
+    }
+
+    location / {
+        try_files $uri @proxy_to_app;
+    }
+
+    location @proxy_to_app {
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+        proxy_pass http://empleado_app;
+    }
+
+    # Configuración para el segundo proyecto (emp3)
+    location /proyecto1/ {
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+        proxy_pass http://emp3_app;
+    }
+
+    location /proyecto1/static/ {
+        alias /mis_proyectos/entorno_1/emp3/staticfiles/;
+    }
+
+    location /proyecto1/media/ {
+        alias /mis_proyectos/entorno_1/emp3/media/;
+    }
+}
+```
 
 
