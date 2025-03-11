@@ -8,9 +8,8 @@
   * [12 Crear un nuevo usuario](#12-Crear-un-nuevo-usuario)
   * [13 Configurar la cuenta de usuario linux](#13-Configurar-la-cuenta-de-usuario-linux)
   * [14 Configuración de un firewall](#14-Configuración-de-un-firewall)
-* [2 Creación de la base de datos y el usuario de PostgreSQL](#2-Creación-de-la-base-de-datos-y-el-usuario-de-PostgreSQL)
-
-
+* [3 Organización de ficheros y entornos virtuales](#3-Organización-de-ficheros-y-entornos-virtuales)
+* [4 Instalar nginex, gunicorn y supervisor](#4-Instalar-nginex,-gunicorn-y-supervisor)
 
 
 
@@ -40,14 +39,15 @@ voy iniciando la clase 104
 
 ## 11 Acerca de root
 
-Podemos acceder a un droplet de **DigitalOcean** desde una terminal windows local ejecutada como administrador con:
+Podemos acceder a un droplet de **DigitalOcean** desde una terminal windows local ejecutando el simbolo del sistema como administrador e ingresando:
 
-```
+```bash
 C:\Windows\System32>ssh root@xxx.xx.xxx.x
 password: xxxxxxxxxx
 root@django:~#
 ```
-donde xxx.xx.xxx.x es la IP asociada a tu droplet por DigitalOcean.
+
+donde xxx.xx.xxx.x es la IP asociada a tu droplet de DigitalOcean.
 
 El usuario **root** es el usuario administrativo con privilegios elevados en un entorno Linux. Debido a ello, se desaconseja su uso habitual. La cuenta root puede realizar cambios muy destructivos, incluso por accidente. Por ello debemos configurar una nueva cuenta de usuario con privilegios reducidos para el uso diario. 
 
@@ -56,7 +56,8 @@ El usuario **root** es el usuario administrativo con privilegios elevados en un 
 Una vez que inicies sesión como root, podrás agregar una nueva cuenta de usuario. En el futuro, iniciaremos sesión con esta nueva cuenta en lugar de **root**.
 
 Crearemos un nuevo usuario llamado christian1:
-```
+
+```bash
 root@django:~# adduser christian1
 info: Adding user `christian1' ...
 info: Selecting UID/GID from range 1000 to 59999 ...
@@ -79,8 +80,10 @@ info: Adding new user `christian1' to supplemental / extra groups `users' ...
 info: Adding user `christian1' to group `users' ...
 root@django:~#
 ```
+
 Si queremos cambiar la contraseña de un usuario:
-```
+
+```bash
 sudo passwd christian1
 ```
 
@@ -93,18 +96,23 @@ Para evitar cerrar la sesión de su usuario habitual y volver a iniciarla como c
 Para agregar estos privilegios a su nuevo usuario, deberás agregarlo al grupo del sistema sudo. De manera predeterminada, en Ubuntu, los usuarios que son miembros del grupo sudo pueden usar el comando **sudo**.
 
 Como root, ejecuta este comando para agregar tu nuevo usuario al grupo sudo:
-```
+
+```bash
 root@django:~# usermod -aG sudo christian1
 ```
+
 Ahora puedes escribir **sudo** antes de los comandos para ejecutarlos con privilegios de superusuario cuando inicias sesión como usuario.
 
 Ahora cierra la terminal y accede como christian1.
-```
+
+```bash
 root@django:~# exit
 logout
 Connection to xxx.xx.xxx.x closed.
 ```
-```
+
+---
+```bash
 C:\Windows\System32>ssh christian1@xxx.xx.xxx.x
 christian1@164.92.107.9's password:
 Welcome to Ubuntu 24.04.1 LTS (GNU/Linux 6.8.0-47-generic x86_64)
@@ -142,10 +150,14 @@ See "man sudo_root" for details.
 
 christian1@django:~$
 ```
+---
+
 Ahora estamos como:
-```
+
+```bash
 christian@django:~$
 ```
+
 Nota algo importante. El carácter final del prompt es un símbolo dolar, lo que indica que eres un usuario y no el root, el que termina con un signo gato: root@django:~#
 
 ## 14 Configuración de un firewall
@@ -155,7 +167,8 @@ Los servidores Ubuntu pueden usar el firewall UFW (Uncomplicated Firewall) para 
 Las aplicaciones pueden registrar sus perfiles en UFW durante la instalación. Estos perfiles permiten que UFW administre estas aplicaciones por nombre. OpenSSH, el servicio que te permite conectarte a tu servidor, tiene un perfil registrado en UFW.
 
 Puedes examinar la lista de perfiles UFW instalados con:
-```
+
+```bash
 christian1@django:~$ sudo ufw app list
 [sudo] password for christian1:
 Available applications:
@@ -165,22 +178,28 @@ Available applications:
   OpenSSH
 christian1@django:~$
 ```
+
 Deberás asegurarte de que el firewall permita conexiones SSH para poder iniciar sesión en su servidor la próxima vez. Permite estas conexiones escribiendo:
-```
+
+```bash
 christian1@django:~$ sudo  ufw allow OpenSSH
 Skipping adding existing rule
 Skipping adding existing rule (v6)
 christian1@django:~$
 ```
+
 Ahora habilita el firewall escribiendo:
-```
+
+```bash
 christian1@django:~$  sudo ufw enable
 Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
 Firewall is active and enabled on system startup
 christian1@django:~$
 ```
+
 Puedes ver que las conexiones SSH aún están permitidas si escribes:
-```
+
+```bash
 christian1@django:~$  sudo ufw status
 Status: active
 
@@ -195,66 +214,72 @@ OpenSSH (v6)               ALLOW       Anywhere (v6)
 
 christian1@django:~$
 ```
+
 Actualmente, el firewall está bloqueando todas las conexiones excepto SSH. Si instalas y configuras servicios adicionales, deberás ajustar la configuración del firewall para permitir el nuevo tráfico en tu servidor.
 
 **Para mejorar la seguridad de su servidor, es recomendable configurar claves SSH en lugar de usar autenticación con contraseña.**
 
 
-
-
-
 # 2 Creación de la base de datos y el usuario de PostgreSQL
 
-- Inicia sesión en una sesión interactiva de Postgres escribiendo:
-```
+- 1 Inicia sesión en una sesión interactiva de Postgres escribiendo:
+
+```bash
 christian1@django:~$ sudo -u postgres psql
 ```
 
-- Crea una base de datos para tu proyecto:
-```
+- 2 Crea una base de datos para tu proyecto:
+
+```bash
 postgres=# CREATE DATABASE bded6;
 CREATE DATABASE
 postgres=#
 ```
 
-- Crea un usuario de base de datos para nuestro proyecto. Asegúrate de seleccionar una contraseña segura:
-```
+- 3 Crea un usuario de base de datos para nuestro proyecto. Asegúrate de seleccionar una contraseña segura:
+
+```bash
 postgres=#  CREATE USER christian1 WITH PASSWORD '123456';
 CREATE ROLE
 postgres=#
 ```
 
-- Modifica algunos de los parámetros de conexión del usuario que acabas de crear.
-```
+- 4 Modifica algunos de los parámetros de conexión del usuario que acabas de crear.
+
+```bash
 postgres=# ALTER ROLE christian1 SET client_encoding TO 'utf8';
 postgres=# ALTER ROLE christian1 SET default_transaction_isolation TO 'read committed';
 postgres=# ALTER ROLE christian1 SET timezone TO 'UTC';
 ```
 
-- Dale al nuevo usuario acceso para administrar la nueva base de datos:
-```
+- 5 Dale al nuevo usuario acceso para administrar la nueva base de datos:
+
+```bash
 postgres=# GRANT USAGE, CREATE ON SCHEMA public TO christian1;
 postgres=# ALTER USER christian1 WITH SUPERUSER;
 postgres=# GRANT ALL PRIVILEGES ON DATABASE bded5 TO christian1;
 ```
 
-- Sale del prompt de PostgreSQL escribiendo:
-```
+- 6 Sale del prompt de PostgreSQL escribiendo:
+
+```bash
 postgres=# \q
 ```
 
 
-## 6 Organización de ficheros y entornos virtuales
+# 3 Organización de ficheros y entornos virtuales
 
-- 6.1 Creamos una carpeta donde almacenaremos todos nuestros proyectos llamada **mis_proyectos**, utilizando
+- 1 Creamos una carpeta donde almacenaremos todos nuestros proyectos llamada **mis_proyectos**, utilizando
 **sudo** para ejecutar el comando **mkdir** con permisos de superusuario que crea un nuevo directorio llamado **mis_proyectos** en el directorio raíz (/).
+  
 ```
 christian1@django:~$ sudo mkdir /mis_proyectos
 [sudo] password for christian1:
 christian1@django:~$
 ```
 
-Veamos lo que hay en el directorio raiz:
+Veamos lo que hay en el directorio raíz:
+
 ```
 christian1@django:~$ cd /
 christian1@django:/$ ls
@@ -266,17 +291,21 @@ etc                media              proyecto_4  snap                webapps
 home               mis_proyectos      proyecto_5  srv
 christian1@django:/$
 ```
+
 Observemos que hemos salido del directorio de nuestro usuario christian1 **(~)** y hemos entrado al directorio raíz **(/)**.
 
-- 6.2 Creamos un entorno virtual dentro del fichero **mis_proyectos**
+- 2 Creamos un entorno virtual dentro del fichero **mis_proyectos**
+  
 ```
 christian1@django:/$ cd /mis_proyectos
 christian1@django:/mis_proyectos$ sudo python3 -m venv entorno_1
 christian1@django:/mis_proyectos$
 ```
 
-- 6.3 Clonar Git
+- 3 Clonar Git
+  
 **Iremos a la carpeta que se ha creado con el entorno virtual** y dentro de ella clonaremos nuestro repositorio Git.
+
 ```
 christian1@django:/mis_proyectos$ ls
 entorno_1
@@ -299,6 +328,7 @@ bin  emp1  include  lib  lib64  pyvenv.cfg
 
 christian1@django:/mis_proyectos/entorno_1$
 ```
+
 ![git](https://github.com/user-attachments/assets/70a62360-3e03-429e-83a5-c751f8667241)
 
 https://github.com/settings/tokens
@@ -310,7 +340,8 @@ https://github.com/settings/tokens
 
 ![token2](https://github.com/user-attachments/assets/13d02687-8652-4663-bf74-5d11f65bb13c)
 
-- 6.4 Activamos el entorno.
+- 4 Activamos el entorno.
+  
 ```
 christian1@django:/mis_proyectos/entorno_1$ ls
 bin  emp1  include  lib  lib64  pyvenv.cfg
@@ -319,7 +350,8 @@ christian1@django:/mis_proyectos/entorno_1$  source bin/activate
 (entorno_1) christian1@django:/mis_proyectos/entorno_1$
 ```
 
-- 6.5 Instalamos y actualizamos paquetes:
+- 5 Instalamos y actualizamos paquetes:
+  
 ```
 (entorno_1) christian1@django:/mis_proyectos/entorno_1$ sudo apt update
 (entorno_1) christian1@django:/mis_proyectos/entorno_1$ pip install django
@@ -329,12 +361,15 @@ christian1@django:/mis_proyectos/entorno_1$  source bin/activate
 (entorno_1) christian1@django:/mis_proyectos/entorno_1$ pip install pillow
 (entorno_1) christian1@django:/mis_proyectos/entorno_1$ sudo apt install python3-venv python3-dev libpq-dev postgresql postgresql-contrib nginx curl
 ```
+
 veamos todo lo que tenemos instalado:
+
 ```
 (entorno_1) christian1@django:/mis_proyectos/entorno_1$ pip freeze --local
 ```
 
-- 6.6 Configuracion del archivo prod.py
+- 6 Configuracion del archivo prod.py
+  
 ```
 (entorno_1) christian1@django:/mis_proyectos/entorno_1$  cd emp1/empleado/settings
 (entorno_1) christian1@django:/mis_proyectos/entorno_1/emp1/empleado/settings$ nano prod.py
@@ -368,11 +403,14 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / 'media'
 
 ```
-son muy importantes las lineas:
+
+son muy importantes las líneas:
+
 ```bash
 ALLOWED_HOSTS = ['sociolab.cl', 'www.sociolab.cl']
 CSRF_TRUSTED_ORIGINS = ['https://sociolab.cl']
 ```
+
 para que al editar un registro no surja el siguiente error:
 
 ![image](https://github.com/user-attachments/assets/c6da0125-a937-4758-bfa6-e39770c670f5)
@@ -381,7 +419,7 @@ para que al editar un registro no surja el siguiente error:
 
 > ES MUY IMPORTANTE QUE EL **USER** DE LA BASE DE DATOS SEA EL MISMO QUE EL **NOMBRE DEL USUARIO** LINUX CON EL QUE ESTAS TRABAJANDO. SI NO, NO TE PODRAS CONECTAR!
 
-## 7 Instalar **nginex**, **gunicorn** y **supervisor**.
+# 4 Instalar nginex, gunicorn y supervisor
 
 ### 7.1 Introducción.
 
