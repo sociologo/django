@@ -1,4 +1,21 @@
-# Cómo configurar Django con Postgres, Nginx y Gunicorn en Ubuntu.
+# Cómo levantar un proyecto Django a la web
+## (Configurar Django con Postgres, Nginx y Gunicorn en Ubuntu)
+
+# Índice
+
+* [1 Configuración de la máquina virtual Linux](#1-Configuración-de-la-máquina-virtual-Linux)
+  * [11 Acerca de root](#11-Acerca-de-root)
+  * [12 Crear un nuevo usuario](#12-Crear-un-nuevo-usuario)
+  * [13 Configurar la cuenta de usuario linux](#13-Configurar-la-cuenta-de-usuario-linux)
+  * [14 Configuración de un firewall](#14-Configuración-de-un-firewall)
+* [2 Creación de la base de datos y el usuario de PostgreSQL](#2-Creación-de-la-base-de-datos-y-el-usuario-de-PostgreSQL)
+
+
+
+
+
+
+
 
 ***
 ***
@@ -19,7 +36,9 @@ voy iniciando la clase 104
 ---
 ---
 
-## 1 Acerca de root
+# 1 Configuración de la máquina virtual Linux
+
+## 11 Acerca de root
 
 Podemos acceder a un droplet de **DigitalOcean** desde una terminal windows local ejecutada como administrador con:
 
@@ -32,7 +51,7 @@ donde xxx.xx.xxx.x es la IP asociada a tu droplet por DigitalOcean.
 
 El usuario **root** es el usuario administrativo con privilegios elevados en un entorno Linux. Debido a ello, se desaconseja su uso habitual. La cuenta root puede realizar cambios muy destructivos, incluso por accidente. Por ello debemos configurar una nueva cuenta de usuario con privilegios reducidos para el uso diario. 
 
-## 2 Crear un nuevo usuario
+## 12 Crear un nuevo usuario
 
 Una vez que inicies sesión como root, podrás agregar una nueva cuenta de usuario. En el futuro, iniciaremos sesión con esta nueva cuenta en lugar de **root**.
 
@@ -65,7 +84,7 @@ Si queremos cambiar la contraseña de un usuario:
 sudo passwd christian1
 ```
 
-## 3 Configurar la cuenta de usuario linux.
+## 13 Configurar la cuenta de usuario linux
 
 Ahora tienes una nueva cuenta de usuario con privilegios de cuenta normales. Sin embargo, a veces tendrás que realizar tareas administrativas como usuario **root**.
 
@@ -129,7 +148,7 @@ christian@django:~$
 ```
 Nota algo importante. El carácter final del prompt es un símbolo dolar, lo que indica que eres un usuario y no el root, el que termina con un signo gato: root@django:~#
 
-## 4 Configuración de un firewall
+## 14 Configuración de un firewall
 
 Los servidores Ubuntu pueden usar el firewall UFW (Uncomplicated Firewall) para garantizar que solo se permitan conexiones a determinados servicios. Puedes configurar un firewall básico con esta aplicación.
 
@@ -180,7 +199,11 @@ Actualmente, el firewall está bloqueando todas las conexiones excepto SSH. Si i
 
 **Para mejorar la seguridad de su servidor, es recomendable configurar claves SSH en lugar de usar autenticación con contraseña.**
 
-## 5 Creación de la base de datos y el usuario de PostgreSQL
+
+
+
+
+# 2 Creación de la base de datos y el usuario de PostgreSQL
 
 - Inicia sesión en una sesión interactiva de Postgres escribiendo:
 ```
