@@ -9,7 +9,7 @@
   * [13 Configurar la cuenta de usuario linux](#13-Configurar-la-cuenta-de-usuario-linux)
   * [14 Configuración de un firewall](#14-Configuración-de-un-firewall)
 * [3 Organización de ficheros y entornos virtuales](#3-Organización-de-ficheros-y-entornos-virtuales)
-* [4 Instalar nginex, gunicorn y supervisor](#4-Instalar-nginex,-gunicorn-y-supervisor)
+* [4 Instalar nginex gunicorn y supervisor](#4-Instalar-nginex-gunicorn-y-supervisor)
 
 
 
@@ -272,7 +272,7 @@ postgres=# \q
 - 1 Creamos una carpeta donde almacenaremos todos nuestros proyectos llamada **mis_proyectos**, utilizando
 **sudo** para ejecutar el comando **mkdir** con permisos de superusuario que crea un nuevo directorio llamado **mis_proyectos** en el directorio raíz (/).
   
-```
+```bash
 christian1@django:~$ sudo mkdir /mis_proyectos
 [sudo] password for christian1:
 christian1@django:~$
@@ -280,7 +280,7 @@ christian1@django:~$
 
 Veamos lo que hay en el directorio raíz:
 
-```
+```bash
 christian1@django:~$ cd /
 christian1@django:/$ ls
 bin                lib                mnt         root                sys
@@ -292,11 +292,11 @@ home               mis_proyectos      proyecto_5  srv
 christian1@django:/$
 ```
 
-Observemos que hemos salido del directorio de nuestro usuario christian1 **(~)** y hemos entrado al directorio raíz **(/)**.
+Observemos que hemos salido del directorio de nuestro usuario home **(~)** y hemos entrado al directorio raíz **(/)**.
 
 - 2 Creamos un entorno virtual dentro del fichero **mis_proyectos**
   
-```
+```bash
 christian1@django:/$ cd /mis_proyectos
 christian1@django:/mis_proyectos$ sudo python3 -m venv entorno_1
 christian1@django:/mis_proyectos$
@@ -306,7 +306,7 @@ christian1@django:/mis_proyectos$
   
 **Iremos a la carpeta que se ha creado con el entorno virtual** y dentro de ella clonaremos nuestro repositorio Git.
 
-```
+```bash
 christian1@django:/mis_proyectos$ ls
 entorno_1
 
@@ -339,6 +339,11 @@ https://github.com/settings/tokens
 <br>
 
 ![token2](https://github.com/user-attachments/assets/13d02687-8652-4663-bf74-5d11f65bb13c)
+
+Si lo que quieres es actualizar tu repositorio local con lo que hay en el repositorio de github:
+
+christian1@django:/mis_proyectos/entorno_1$ git pull origin main
+
 
 - 4 Activamos el entorno.
   
@@ -419,7 +424,7 @@ para que al editar un registro no surja el siguiente error:
 
 > ES MUY IMPORTANTE QUE EL **USER** DE LA BASE DE DATOS SEA EL MISMO QUE EL **NOMBRE DEL USUARIO** LINUX CON EL QUE ESTAS TRABAJANDO. SI NO, NO TE PODRAS CONECTAR!
 
-# 4 Instalar nginex, gunicorn y supervisor
+# 4 Instalar nginex gunicorn y supervisor
 
 ### 7.1 Introducción.
 
