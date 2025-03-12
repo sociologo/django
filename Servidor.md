@@ -39,7 +39,7 @@ voy iniciando la clase 104
 
 ## 11 Acerca de root
 
-Podemos acceder a un droplet de **DigitalOcean** desde una terminal windows local ejecutando el simbolo del sistema como administrador e ingresando:
+Podemos acceder a un droplet de **DigitalOcean** desde una terminal windows local ejecutando el símbolo del sistema como administrador e ingresando:
 
 ```bash
 C:\Windows\System32>ssh root@xxx.xx.xxx.x
@@ -53,7 +53,7 @@ El usuario **root** es el usuario administrativo con privilegios elevados en un 
 
 ## 12 Crear un nuevo usuario
 
-Una vez que inicies sesión como root, podrás agregar una nueva cuenta de usuario. En el futuro, iniciaremos sesión con esta nueva cuenta en lugar de **root**.
+Una vez inicies sesión como root, podrás agregar una nueva cuenta de usuario. En el futuro, iniciaremos sesión con esta nueva cuenta en lugar de **root**.
 
 Crearemos un nuevo usuario llamado christian1:
 
@@ -84,14 +84,14 @@ root@django:~#
 Si queremos cambiar la contraseña de un usuario:
 
 ```bash
-sudo passwd christian1
+root@django:~# sudo passwd christian1
 ```
 
 ## 13 Configurar la cuenta de usuario linux
 
 Ahora tienes una nueva cuenta de usuario con privilegios de cuenta normales. Sin embargo, a veces tendrás que realizar tareas administrativas como usuario **root**.
 
-Para evitar cerrar la sesión de su usuario habitual y volver a iniciarla como cuenta raíz, puedes configurar lo que se conoce como privilegios de superusuario o root para la cuenta habitual de su usuario. Estos privilegios le permitirán a tu usuario normal ejecutar comandos con privilegios administrativos colocando la palabra **sudo** antes.
+Para evitar cerrar la sesión de su usuario habitual y volver a iniciarla como cuenta raíz, puedes configurar lo que se conoce como privilegios de superusuario o root para la cuenta habitual de tu usuario. Estos privilegios le permitirán a tu usuario normal ejecutar comandos con privilegios administrativos colocando la palabra **sudo** antes.
 
 Para agregar estos privilegios a su nuevo usuario, deberás agregarlo al grupo del sistema sudo. De manera predeterminada, en Ubuntu, los usuarios que son miembros del grupo sudo pueden usar el comando **sudo**.
 
@@ -158,7 +158,7 @@ Ahora estamos como:
 christian@django:~$
 ```
 
-Nota algo importante. El carácter final del prompt es un símbolo dolar, lo que indica que eres un usuario y no el root, el que termina con un signo gato: root@django:~#
+Nota algo importante. El carácter final del prompt es un símbolo dólar, lo que indica que eres un usuario y no el root, el que termina con un signo gato: root@django:~#
 
 ## 14 Configuración de un firewall
 
@@ -182,7 +182,7 @@ christian1@django:~$
 Deberás asegurarte de que el firewall permita conexiones SSH para poder iniciar sesión en su servidor la próxima vez. Permite estas conexiones escribiendo:
 
 ```bash
-christian1@django:~$ sudo  ufw allow OpenSSH
+christian1@django:~$ sudo ufw allow OpenSSH
 Skipping adding existing rule
 Skipping adding existing rule (v6)
 christian1@django:~$
@@ -217,7 +217,7 @@ christian1@django:~$
 
 Actualmente, el firewall está bloqueando todas las conexiones excepto SSH. Si instalas y configuras servicios adicionales, deberás ajustar la configuración del firewall para permitir el nuevo tráfico en tu servidor.
 
-**Para mejorar la seguridad de su servidor, es recomendable configurar claves SSH en lugar de usar autenticación con contraseña.**
+**Para mejorar la seguridad de tu servidor, es recomendable configurar claves SSH en lugar de usar autenticación con contraseña.**
 
 
 # 2 Creación de la base de datos y el usuario de PostgreSQL
@@ -329,21 +329,21 @@ bin  emp1  include  lib  lib64  pyvenv.cfg
 christian1@django:/mis_proyectos/entorno_1$
 ```
 
-![git](https://github.com/user-attachments/assets/70a62360-3e03-429e-83a5-c751f8667241)
 
+
+
+
+
+>**IMPORTANTE: GITHUB VIA SHH YA NO ACEPTA CREDENCIALES PASSWORD, SINO QUE NECESITARAS UN TOKEN **
 https://github.com/settings/tokens
-
-<br>
----
-**IMPORTANTE: GITHUB VIA SHH YA NO ACEPTA CREDENCIALES PASSWORD, SINO QUE NECESITARAS UN TOKEN **
-<br>
 
 ![token2](https://github.com/user-attachments/assets/13d02687-8652-4663-bf74-5d11f65bb13c)
 
 Si lo que quieres es actualizar tu repositorio local con lo que hay en el repositorio de github:
 
+```bash
 christian1@django:/mis_proyectos/entorno_1$ git pull origin main
-
+```
 
 - 4 Activamos el entorno.
   
