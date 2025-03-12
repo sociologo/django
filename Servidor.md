@@ -9,8 +9,8 @@
   * [13 Configurar la cuenta de usuario linux](#13-Configurar-la-cuenta-de-usuario-linux)
   * [14 Configuración de un firewall](#14-Configuración-de-un-firewall)
 * [3 Organización de ficheros y entornos virtuales](#3-Organización-de-ficheros-y-entornos-virtuales)
-* [4 nginex gunicorn y supervisor](#4-nginex-gunicorn-y-supervisor)
-
+* [4 Nginx Gunicorn y Supervisor](#4-Nginx-Gunicorn-y-Supervisor)
+  * [1 Introducción](#1-Introducción)
 
 # 1 Configuración de la máquina virtual Linux
 
@@ -401,9 +401,9 @@ para que al editar un registro no surja el siguiente error:
 
 > ES MUY IMPORTANTE QUE EL **USER** DE LA BASE DE DATOS SEA EL MISMO QUE EL **NOMBRE DEL USUARIO** LINUX CON EL QUE ESTAS TRABAJANDO. SI NO, NO TE PODRAS CONECTAR!
 
-# 4 nginex gunicorn y supervisor
+# 4 Nginx Gunicorn y Supervisor
 
-## 41 Introducción
+## 1 Introducción
 
 Desplegar un proyecto Django en un servidor como DigitalOcean implica la interacción de varias herramientas clave: Nginx, Gunicorn y Supervisor. Cada una tiene un rol específico en el proceso, y juntas aseguran que tu aplicación sea accesible, eficiente y estable.
 
