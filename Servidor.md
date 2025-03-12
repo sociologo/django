@@ -1172,5 +1172,35 @@ MEDIA_URL = '/proyecto1/media/'  # Ajustado para reflejar la subruta
 MEDIA_ROOT = BASE_DIR / 'media'
 
 ```
+ejemplo de cómo debería quedar el archivo prod.py para tu proyecto emp3, considerando que estará en el subdirectorio sociolab.cl/proyecto1:
+
+```bash
+from .base import *
+
+DEBUG = False  # En producción, siempre debe ser False
+
+ALLOWED_HOSTS = ['sociolab.cl', 'www.sociolab.cl']
+
+CSRF_TRUSTED_ORIGINS = ['https://sociolab.cl', 'https://www.sociolab.cl']
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'nombre_base_datos_emp3',  # Cambia este nombre a la base de datos de emp3
+        'USER': 'usuario_emp3',            # Cambia este usuario
+        'PASSWORD': 'contraseña_emp3',    # Cambia esta contraseña
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+
+STATIC_URL = '/proyecto1/static/'  # Ajuste para el subdirectorio
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+MEDIA_URL = '/proyecto1/media/'  # Ajuste para el subdirectorio
+MEDIA_ROOT = BASE_DIR / 'media'
+
+```
+
 
 
