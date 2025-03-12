@@ -408,6 +408,8 @@ para que al editar un registro no surja el siguiente error:
 Desplegar un proyecto Django en un servidor como DigitalOcean implica la interacción de varias herramientas clave: Nginx, Gunicorn y Supervisor. Cada una tiene un rol específico en el proceso, y juntas aseguran que tu aplicación sea accesible, eficiente y estable.
 
 - 1 **Gunicorn**: El servidor de aplicaciones WSGI
+
+>En un entorno de producción, no se utiliza `python manage.py runserver` porque está diseñado solo para desarrollo y no es seguro ni eficiente para manejar tráfico en producción. El reemplazo adecuado para producción sería un servidor de aplicaciones como Gunicorn.
    
 Gunicorn (Green Unicorn) es un servidor WSGI (Web Server Gateway Interface) que actúa como intermediario entre tu aplicación Django y el servidor web (Nginx). Su función principal es traducir las solicitudes HTTP en llamadas Python que Django puede procesar.
 
