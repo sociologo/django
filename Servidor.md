@@ -9,7 +9,7 @@
   * [13 Configurar la cuenta de usuario linux](#13-Configurar-la-cuenta-de-usuario-linux)
   * [14 Configuración de un firewall](#14-Configuración-de-un-firewall)
 * [3 Organización de ficheros y entornos virtuales](#3-Organización-de-ficheros-y-entornos-virtuales)
-* [4 Instalar nginex gunicorn y supervisor](#4-Instalar-nginex-gunicorn-y-supervisor)
+* [4 nginex gunicorn y supervisor](#4-nginex-gunicorn-y-supervisor)
 
 
 
@@ -424,50 +424,112 @@ para que al editar un registro no surja el siguiente error:
 
 > ES MUY IMPORTANTE QUE EL **USER** DE LA BASE DE DATOS SEA EL MISMO QUE EL **NOMBRE DEL USUARIO** LINUX CON EL QUE ESTAS TRABAJANDO. SI NO, NO TE PODRAS CONECTAR!
 
-# 4 Instalar nginex gunicorn y supervisor
+# 4 nginex gunicorn y supervisor
 
-### 7.1 Introducción.
+## 41 Introducción
 
-Nginx y Gunicorn son herramientas esenciales para desplegar aplicaciones web en producción, especialmente cuando se trata de aplicaciones basadas en Python como Django o Flask. Son herramientas que solo utilizamos en produccion.
+Desplegar un proyecto Django en un servidor como DigitalOcean implica la interacción de varias herramientas clave: Nginx, Gunicorn y Supervisor. Cada una tiene un rol específico en el proceso, y juntas aseguran que tu aplicación sea accesible, eficiente y estable.
 
-*Nginx*
+- 1 **Gunicorn**: El servidor de aplicaciones WSGI
+   
+Gunicorn (Green Unicorn) es un servidor WSGI (Web Server Gateway Interface) que actúa como intermediario entre tu aplicación Django y el servidor web (Nginx). Su función principal es traducir las solicitudes HTTP en llamadas Python que Django puede procesar.
 
-Nginx es un servidor web y proxy inverso de alto rendimiento. Sus principales funciones incluyen:
+Cómo funciona:
 
-- Servir contenido estático: Nginx es muy eficiente para servir archivos estáticos como imágenes, CSS y JavaScript.
+- Gunicorn recibe las solicitudes HTTP del servidor web (Nginx).
+- Convierte estas solicitudes en un formato que Django puede entender.
+- Django procesa la solicitud y devuelve una respuesta.
+- Gunicorn traduce la respuesta de Django en un formato HTTP y la envía de vuelta a Nginx.
 
-- Proxy inverso: Actúa como intermediario entre los clientes y el servidor de aplicaciones, manejando las solicitudes entrantes y distribuyéndolas a los servidores de aplicaciones.
+Por qué es necesario: 
 
-- Balanceo de carga: Distribuye el tráfico entre varios servidores de aplicaciones para mejorar el rendimiento y la disponibilidad.
+Django no está diseñado para manejar solicitudes HTTP directamente en producción. Gunicorn proporciona un entorno eficiente y seguro para ejecutar tu aplicación.
 
-- Seguridad: Proporciona características de seguridad como la limitación de la tasa de solicitudes y la protección contra ataques DDoS.
+2. **Nginx**: El servidor web y proxy inverso
+   
+Nginx es un servidor web de alto rendimiento que se utiliza como proxy inverso frente a Gunicorn. Su función principal es manejar las solicitudes de los clientes y distribuirlas de manera eficiente.
 
-*Gunicorn*
+Cómo funciona:
 
-Gunicorn (Green Unicorn) es un servidor de aplicaciones WSGI (Web Server Gateway Interface) para aplicaciones Python. Sus principales funciones incluyen:
+- Nginx recibe las solicitudes HTTP de los usuarios.
+- Si la solicitud es para un archivo estático (como CSS, JavaScript o imágenes), Nginx lo sirve directamente desde el sistema de archivos, sin pasar por Gunicorn.
+- Si la solicitud es dinámica (requiere procesamiento por Django), Nginx la reenvía a Gunicorn.
+- Una vez que Gunicorn procesa la solicitud, Nginx devuelve la respuesta al cliente.
 
-- Manejo de solicitudes: Gunicorn se encarga de recibir las solicitudes HTTP y pasarlas a la aplicación Python para su procesamiento.
+Ventajas de usar Nginx:
 
-- Multiprocesamiento: Puede manejar múltiples solicitudes simultáneamente utilizando múltiples trabajadores, lo que mejora el rendimiento de la aplicación.
+- Maneja múltiples conexiones simultáneas de manera eficiente.
+- Sirve archivos estáticos rápidamente.
+- Proporciona características de seguridad, como protección contra ataques DDoS y soporte para HTTPS.
 
-- Compatibilidad: Es compatible con cualquier aplicación que siga la especificación WSGI, lo que lo hace ideal para aplicaciones Django y Flask.
+3. **Supervisor**: El administrador de procesos
+   
+Supervisor es una herramienta que se utiliza para gestionar y monitorear procesos en el servidor. En este caso, se encarga de mantener Gunicorn en ejecución.
 
-Nginx y Gunicorn se complementan muy bien debido a sus respectivas fortalezas:
+Cómo funciona:
 
--Separación de responsabilidades: Nginx maneja las solicitudes HTTP, el contenido estático y la seguridad, mientras que Gunicorn se enfoca en ejecutar la aplicación Python y manejar las solicitudes dinámicas.
+- Supervisor inicia Gunicorn como un proceso en segundo plano.
+- Si Gunicorn falla por alguna razón, Supervisor lo reinicia automáticamente.
+- Permite gestionar múltiples procesos de manera centralizada, lo que es útil si tienes varias aplicaciones o servicios en el mismo servidor.
 
--Rendimiento: Nginx puede manejar una gran cantidad de conexiones simultáneas y distribuirlas eficientemente a Gunicorn, que a su vez puede manejar múltiples solicitudes concurrentes.
+Por qué es necesario: 
 
--Escalabilidad: Esta combinación permite escalar la aplicación fácilmente, añadiendo más instancias de Gunicorn detrás de Nginx para manejar un mayor tráfico.
+Sin Supervisor, tendrías que iniciar Gunicorn manualmente cada vez que el servidor se reinicie o si Gunicorn falla. Supervisor automatiza este proceso, asegurando que tu aplicación esté siempre disponible.
 
--Seguridad: Nginx actúa como una capa de seguridad adicional, protegiendo la aplicación de ataques directos y manejando la terminación de SSL/TLS.
+4. Interacción entre Nginx, Gunicorn y Supervisor
+   
+La interacción entre estas herramientas se puede resumir en los siguientes pasos:
 
-En resumen, Nginx y Gunicorn forman un equipo poderoso para desplegar aplicaciones web en producción, combinando eficiencia, rendimiento y seguridad.
+1 Inicio del sistema:
 
-```
-(entorno_1) christian1@django:/mis_proyectos/entorno_1/emp1$ sudo apt install nginx
+- Supervisor arranca Gunicorn y lo mantiene en ejecución.
+- Nginx también se inicia como servicio del sistema.
+
+2 Solicitud del cliente:
+
+- Un usuario realiza una solicitud HTTP a tu dominio (por ejemplo, sociolab.cl).
+- Nginx recibe la solicitud y determina si es para un archivo estático o dinámico.
+
+3 Procesamiento de la solicitud:
+
+- Si es un archivo estático, Nginx lo sirve directamente.
+- Si es una solicitud dinámica, Nginx la reenvía a Gunicorn.
+
+4 Respuesta de la aplicación:
+
+- Gunicorn procesa la solicitud con Django y genera una respuesta.
+- La respuesta se envía de vuelta a Nginx, que la entrega al cliente.
+
+5 Mantenimiento del sistema:
+
+-Supervisor monitorea Gunicorn y lo reinicia si falla.
+-Nginx sigue manejando las solicitudes de los clientes.
+
+5. Configuración típica
+   
+- Gunicorn: Configurado para ejecutarse en un puerto específico (por ejemplo, 127.0.0.1:8000).
+- Nginx: Configurado como proxy inverso para reenviar solicitudes a Gunicorn.
+- Supervisor: Configurado para iniciar y monitorear Gunicorn.
+
+Ejemplo de flujo de trabajo
+
+- 1 Un cliente accede a sociolab.cl/proyecto1.
+- 2 Nginx recibe la solicitud y la redirige a Gunicorn.
+- 3 Gunicorn procesa la solicitud con Django y genera una respuesta.
+- 4 Nginx entrega la respuesta al cliente.
+- 5 Si Gunicorn falla, Supervisor lo reinicia automáticamente.
+
+Este enfoque modular asegura que tu aplicación sea escalable, segura y fácil de mantener.
+
+## 42 Gunicorn
+
+### Instalamos **gunicorn**:
+
+```bash
 (entorno_1) christian1@django:/mis_proyectos/entorno_1/emp1$ pip install gunicorn
 ```
+
+### Configuramos **gunicorn**:
 
 Necesitamos configurar un archivo **gunicorn_start**. El archivo gunicorn_start es un script de inicio personalizado que se utiliza para configurar y ejecutar Gunicorn, el *servidor de aplicaciones* WSGI para aplicaciones Python. Este archivo es especialmente útil cuando deseas automatizar y estandarizar el proceso de inicio de Gunicorn en un entorno de producción. Aquí tienes algunas razones por las que podrías querer crear un archivo gunicorn_start:
 
@@ -478,8 +540,6 @@ Necesitamos configurar un archivo **gunicorn_start**. El archivo gunicorn_start 
 - Facilidad de uso: Simplifica el comando de inicio, permitiendo que los administradores del sistema o los scripts de despliegue ejecuten Gunicorn con un solo comando.
 
 - Mantenimiento: Centraliza la configuración de Gunicorn en un solo archivo, lo que facilita el mantenimiento y las actualizaciones.
-
-### 7.2 Configurar **gunicorn**:
 
 Debemos configurar **gunicorn** para que comience a servir nuestra aplicacion a **nginx**
 
@@ -533,27 +593,7 @@ Le damos permisos de lectura a **gunicorn_start**:
 (entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ chmod u+x gunicorn_start
 ```
 
-Hicimos los cambios en el repositorio de GitHub. Ahora actualicemos con ellos nuestro proyecto en el servidor de DigitalOcean:
-
-```
-christian1@django:/mis_proyectos/entorno_1/emp1$ git pull origin main
-remote: Enumerating objects: 25, done.
-remote: Counting objects: 100% (25/25), done.
-remote: Compressing objects: 100% (20/20), done.
-remote: Total 20 (delta 13), reused 0 (delta 0), pack-reused 0 (from 0)
-Unpacking objects: 100% (20/20), 6.64 KiB | 618.00 KiB/s, done.
-From https://github.com/sociologo/emp1
- * branch            main       -> FETCH_HEAD
-   3c46398..1b9bfa1  main       -> origin/main
-Updating 3c46398..1b9bfa1
-Fast-forward
- README.md                 | 109 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
- empleado/settings/prod.py |  10 +++---
- 2 files changed, 113 insertions(+), 6 deletions(-)
-christian1@django:/mis_proyectos/entorno_1/emp1$
-```
-
-#### 7.2.1 Ejecutando gunicorn.
+### Ejecutamos **gunicorn**:
 
 ```
 (entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ gunicorn_start
@@ -561,8 +601,7 @@ christian1@django:/mis_proyectos/entorno_1/emp1$
 Debe verse así:
 ![image](https://github.com/user-attachments/assets/97f5c2e0-e0df-4279-9a23-84fc2da42e54)
 
-
-### 7.3 Instalando y configurando **supervisor**:
+## 43 Supervisor
 
 Supervisor y Gunicorn son dos herramientas que se utilizan comúnmente juntas para desplegar aplicaciones web en producción.
 
@@ -586,13 +625,17 @@ Al usar Supervisor, puedes asegurarte de que tu aplicación web esté siempre en
 
 Supervisor también facilita la administración de múltiples procesos Gunicorn en un solo servidor, lo que es útil para aplicaciones web de gran escala.
 
-**gunicorn_start** ejecutará el proyecto cuando detecte que nginx le solicite servir nuestra aplicación. Ahora, no pdemos estar ejecutandolo todo el tiempo desde la terminal cada vez que queramos levantar el servidor, para ello existe **supervisor**. Lo instalamos:
+**gunicorn_start** ejecutará el proyecto cuando detecte que nginx le solicite servir nuestra aplicación. Ahora, no pdemos estar ejecutandolo todo el tiempo desde la terminal cada vez que queramos levantar el servidor, para ello existe **supervisor**. 
+
+### Instalamos **supervisor**:
+
 ```
 (entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ sudo apt install supervisor
 (entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ sudo apt upgrade supervisor
 ```
 
-Configuramos supervisor:
+### Configuramos **supervisor**:
+
 ```
 (entorno_1) christian1@django:/mis_proyectos/entorno_1/bin$ cd /etc/supervisor/conf.d
 (entorno_1) christian1@django:/etc/supervisor/conf.d$ sudo touch empleado.conf
@@ -601,11 +644,11 @@ Configuramos supervisor:
 
 ```bash
 [program:empleado]
-command = /mis_proyectos/entorno_1/bin/gunicorn_start                    ; Command to start app
+command = /mis_proyectos/entorno_1/bin/gunicorn_start                      ; Command to start app
 user = christian1                                                          ; User to run as
-stdout_logfile = /mis_proyectos/entorno_1/logs/gunicorn_supervisor.log   ; Where to write log messages
-redirect_stderr = true                                                ; Save stderr in the same log
-environment=LANG=en_US.UTF-8,LC_ALL=en_US.UTF-8                       ; Set UTF-8 as default encoding
+stdout_logfile = /mis_proyectos/entorno_1/logs/gunicorn_supervisor.log     ; Where to write log messages
+redirect_stderr = true                                                     ; Save stderr in the same log
+environment=LANG=en_US.UTF-8,LC_ALL=en_US.UTF-8                            ; Set UTF-8 as default encoding
 ```
 
 ```
@@ -614,10 +657,13 @@ environment=LANG=en_US.UTF-8,LC_ALL=en_US.UTF-8                       ; Set UTF-
 (entorno_1) christian1@django:/mis_proyectos/entorno_1$ touch logs/gunicorn_supervisor.log
 (entorno_1) christian1@django:/mis_proyectos/entorno_1$ ls
 bin  emp1  include  lib  lib64  logs  pyvenv.cfg  run
+```
 
+### Actualiza y Carga la Configuración
+
+```
 (entorno_1) christian1@django:/mis_proyectos/entorno_1$ sudo supervisorctl reread
 empleado: changed
-
 (entorno_1) christian1@django:/mis_proyectos/entorno_1$ sudo supervisorctl update
 empleado: stopped
 empleado: updated process group
@@ -629,7 +675,42 @@ empleado: updated process group
 
 **empleado: updated process group:** Esto indica que Supervisor ha actualizado el grupo de procesos para empleado con la nueva configuración.
 
+### Inicia el Proceso con Supervisor
+
+Puedes iniciar, detener, reiniciar o verificar el estado de tu aplicación con los siguientes comandos:
+```
+sudo supervisorctl start emp1
+sudo supervisorctl stop emp1
+sudo supervisorctl restart emp1
+sudo supervisorctl status emp1
+```
+Por ejemplo, el comando status te mostrará algo como:
+```
+emp1                            RUNNING   pid 12345, uptime 0:02:30
+```
+### Verifica que Todo Funciona
+
+Asegúrate de que tu aplicación esté funcionando correctamente. Puedes hacerlo:
+
+- Accediendo a los archivos de log (/var/log/supervisor/emp1.log).
+- Navegando a tu dominio/subdominio configurado (por ejemplo, sociolab.cl/proyecto1).
+
+### Reiniciar Supervisor (si es necesario)
+
+Si realizas cambios significativos en la configuración global de Supervisor o necesitas reiniciar todos los procesos, usa:
+
+```
+sudo systemctl restart supervisor
+```
+
+
 ### 7.4 Configurando **nginx**.
+
+
+```
+(entorno_1) christian1@django:/mis_proyectos/entorno_1/emp1$ sudo apt install nginx
+```
+
 
 ```
 (entorno_1) christian1@django:/mis_proyectos/entorno_1$ cd /etc/nginx/
