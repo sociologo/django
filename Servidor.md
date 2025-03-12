@@ -12,29 +12,6 @@
 * [4 nginex gunicorn y supervisor](#4-nginex-gunicorn-y-supervisor)
 
 
-
-
-
-
-***
-***
-
-<br>
-<br>
-<br>
-<br>
-
-aca voy
-10 marzo.
-voy iniciando la clase 104
-
-<br>
-<br>
-<br>
-<br>
----
----
-
 # 1 Configuración de la máquina virtual Linux
 
 ## 11 Acerca de root
