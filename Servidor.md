@@ -1,5 +1,5 @@
-# Cómo levantar un proyecto Django a la web
-## (Configurar Django con Postgres, Nginx y Gunicorn en Ubuntu)
+# Cómo levantar un proyecto Django en un servidor web
+## Configurando Django con Postgres, Nginx y Gunicorn en Ubuntu
 
 # Índice
 
