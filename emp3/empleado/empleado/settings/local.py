@@ -1,8 +1,8 @@
+import os
 from .base import *
 
-DEBUG = True
-
-ALLOWED_HOSTS = []
+DEBUG = False
+ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     'default': {
@@ -16,7 +16,7 @@ DATABASES = {
 }
 
 STATIC_URL = 'static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
    BASE_DIR / "static",
 ]
