@@ -571,6 +571,8 @@ Superuser created successfully.
 (entorno_3) C:\mis_proyectos\emp3\empleado>
 ```
 
+La clave es: **123456**
+
 6 Levantamos nuevamente nuestro servidor e ingresamos al administrador con nuestras credenciales:
 
 ![image](https://github.com/user-attachments/assets/0a8d1951-de48-4032-941b-3a05cbea58b0)
