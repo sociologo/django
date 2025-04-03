@@ -14,27 +14,14 @@
 * [9 Primeros pasos en MVT](#9-Primeros-pasos-en-MVT)
 * [10 La ORM de Django y los modelos](#10-La-ORM-de-Django-y-los-modelos)
 * [11 Implementando la base de datos Empleado](#11-Implementando-la-base-de-datos-Empleado)
- 
-  
-* [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
-* [7 Haciendo una carpeta parcial para cada app](#7-Haciendo-una-carpeta-parcial-para-cada-app)
-* [8 Vistas genéricas](#8-Vistas-genéricas)
-* [9 Nuestros primeros pasos en MVT](#9-Nuestros-primeros-pasos-en-MVT)
-* [10 el ORM de Django y modelos](#10-el-ORM-de-Django-y-modelos)
-* [11 Implementando la base de datos Empleado](#11-Implementando-la-base-de-datos-Empleado)
 * [Fin de Pruebas en la aplicacion exp](#6-Inicio-de-Pruebas-en-la-aplicacion-exp)
-* [12 Implementando la base de datos Empleado](#12-Implementando-la-base-de-datos-Empleado)
-
-
-
-
 * [12 Claves foráneas](#12-Claves-foráneas)
 * [13 PostgreSQL y Django](#13-PostgreSQL-y-Django)
-* [14 El Administrador de Django](#14-El-Administrador-de-Django)
-  * [14.1 La clase meta](#14.1-La-clase-meta)
+* [14 El Administrador de Django y la clase Meta](#14-El-Administrador-de-Django-y-la-clase-Meta)
 * [15 Creando modelos dentro de una aplicación ya existente](#15-Creando-modelos-dentro-de-una-aplicación-ya-existente)
-* [16 Diseñar un despliegue de registros al administrador de Django para el modelo empleados](#16-Diseñar-un-despliegue-de-registros-al-administrador-de-Django-para-el-modelo-empleados)
-* [17 Algunas apps de terceros](#17-Algunas-apps-de-terceros)
+* [16 Personalizando al Administrador de Django (admin.py)](#16-Personalizando-al-Administrador-de-Django-(admin.py))
+* [17 La app CKEditor](#17-La-app-CKEditor)
+
 
 ## 1 Crear un proyecto Django
 
@@ -652,7 +639,7 @@ Tipos de campos en Django: https://docs.djangoproject.com/en/5.1/ref/models/fiel
 
 ![image](https://github.com/user-attachments/assets/8dac515d-6913-48b2-b0c2-f4048b827da5)
 
-1 En models.py de la app Departamentos construimos el modelo Departamento:
+#### 1 En models.py de la app Departamentos construimos el modelo Departamento:
 
 ```python
 from django.db import models # type: ignore
@@ -680,7 +667,7 @@ models.CharField('Nombre corto', max_length=20, unique=True)
 # unique=True hace que el nombre del campo no se pueda volver a repetir.
 ```
 
-2 Lo registramos en al admin.py de la aplicación departamentos
+#### 2 Lo registramos en al admin.py de la aplicación departamentos
 
 ```python
 from django.contrib import admin # type: ignore
@@ -689,7 +676,7 @@ from .models import Departamento
 admin.site.register(Departamento)
 ```
 
-3 Hacemos las migraciones:
+#### 3 Hacemos las migraciones:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py makemigrations
@@ -706,16 +693,16 @@ Running migrations:
 (entorno_3) C:\mis_proyectos\emp3\empleado>
 ```
 
-4 Y ya tenemos la tabla con funcionalidad en nuestro navegador:
+#### 4 Y ya tenemos la tabla con funcionalidad en nuestro navegador:
 
 ![image](https://github.com/user-attachments/assets/eaff74d4-5663-4d5f-80e7-908100375af2)
 
 ---
 
 
-## 11 Claves foráneas.
+## 12 Claves foráneas
 
-1 Construyamos el modelo **Empleado** en la app **empleados**
+#### 1 Construyamos el modelo **Empleado** en la app **empleados**
 
 ```python
 from django.db import models # type: ignore
@@ -737,7 +724,7 @@ class Empleado(models.Model):
       return str(self.id) + "-" + self.first_name + "-" + self.last_name
 ```
 
-2 Hacemos las migraciones.
+#### 2 Hacemos las migraciones.
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py makemigrations
@@ -754,7 +741,7 @@ Running migrations:
 (entorno_3) C:\mis_proyectos\emp3\empleado>
 ```
 
-3 Registramos en el **admin.py** de la app empleados la tabla recien construida.
+#### 3 Registramos en el **admin.py** de la app empleados la tabla recien construida.
 
 ```python
 from django.contrib import admin # type: ignore
@@ -763,13 +750,13 @@ from .models import Empleado
 admin.site.register(Empleado)
 ```
 
-4 Abrimos el administrador e ingresamos un registro.
+#### 4 Abrimos el administrador e ingresamos un registro.
 
 ![image](https://github.com/user-attachments/assets/0ba07d8b-73f5-44fb-a212-973398910d09)
 
-## 12 PostgreSQL y Django
+## 13 PostgreSQL y Django
 
-1 Descargemos el instalador de PostgreSQL
+#### 1 Descargemos el instalador de PostgreSQL
 
 ![image](https://github.com/user-attachments/assets/67399987-c891-4c11-b2de-f770c2c1dbbd)
 
@@ -789,7 +776,7 @@ Y finalizamos sin seleccionar Stack Builder:
 
 ![image](https://github.com/user-attachments/assets/5844465e-3838-4e5f-913a-65af349287f1)
 
-2 Ahora que tenemos instalado nuestro postgreSQL en local, podemos acceder a la consola:
+#### 2 Ahora que tenemos instalado nuestro postgreSQL en local, podemos acceder a la consola:
 
 **SQL Shell (psql)**
 
@@ -825,7 +812,7 @@ ALTER ROLE
 dbempleado101=#
 ```
 
-3 Ahora conectamos Django a nuestra base de datos PostgreSQL:
+#### 3 Ahora conectamos Django a nuestra base de datos PostgreSQL:
 
 Instalamos el conector psycopg2:
 
@@ -841,7 +828,7 @@ Successfully installed psycopg2-2.9.10
 (entorno_3) C:\mis_proyectos\emp3\empleado>
 ```
 
-4 Configuramos el archivo local.py
+#### 4 Configuramos el archivo local.py
 
 ```bash
 from .base import *
@@ -865,7 +852,7 @@ STATIC_URL = 'static/'
 ```
 
 
-5 Hacemos las migraciones.
+#### 5 Hacemos las migraciones.
 
 ```bash
 postgres=# ALTER DATABASE dbempleado101 OWNER TO chris101;
@@ -905,7 +892,7 @@ Running migrations:
 (entorno_3) C:\mis_proyectos\emp3\empleado>
 ```
 
-6 Para ingresar al administrador debemos volver a crear un super usuario pues nuestra base de datos en PostgreSQL es nueva y no tiene registrado ninguno.
+#### 6 Para ingresar al administrador debemos volver a crear un super usuario pues nuestra base de datos en PostgreSQL es nueva y no tiene registrado ninguno.
 
 Ingresamos como contraseña 123456:
 
@@ -924,15 +911,13 @@ Superuser created successfully.
 (entorno_3) C:\mis_proyectos\emp3\empleado>
 ```
 
-7 y ya estamos conectados:
+#### 7 y ya estamos conectados:
 
 ![image](https://github.com/user-attachments/assets/6c865fc3-ae15-402f-aee1-a12abd4c0e22)
 
 ---
 
-## 15 El Administrador de Django
-
-### 15.1 La Class Meta
+## 14 El Administrador de Django y la clase Meta
 
 La clase Meta es opcional, pero muy útil para ajustar y personalizar el comportamiento de los modelos en el administrador de Django.
 
@@ -940,7 +925,7 @@ La clase Meta es una clase interna que se utiliza dentro de los modelos para def
 
 Algunas de las cosas que puedes hacer con la clase Meta:
 
-#### 15.1 Ordenar los resultados: Puedes especificar el orden predeterminado de los registros cuando se recuperan de la base de datos.
+#### 1 Ordenar los resultados: Puedes especificar el orden predeterminado de los registros cuando se recuperan de la base de datos.
 
 ```python
 class Persona(models.Model):
@@ -951,7 +936,7 @@ class Persona(models.Model):
         ordering = ['last_name']
 ```
 
-#### 15.2 Nombres legibles: Puedes definir nombres legibles para el modelo en singular y plural.
+#### 2 Nombres legibles: Puedes definir nombres legibles para el modelo en singular y plural.
 
 ```python
 class Persona(models.Model):
@@ -963,7 +948,7 @@ class Persona(models.Model):
         verbose_name_plural = "Personas"
 ```
 
-#### 15.3 Permisos personalizados: Puedes definir permisos específicos para el modelo.
+#### 3 Permisos personalizados: Puedes definir permisos específicos para el modelo.
 
 ```python
 class Persona(models.Model):
@@ -976,7 +961,7 @@ class Persona(models.Model):
         ]
 ```
 
-#### 15.4 Nombre de la tabla: Puedes especificar el nombre de la tabla en la base de datos.
+#### 4 Nombre de la tabla: Puedes especificar el nombre de la tabla en la base de datos.
 
 ```python
 class Persona(models.Model):
@@ -987,7 +972,7 @@ class Persona(models.Model):
         db_table = 'mi_tabla_persona'
 ```
 
-#### 15.5 Implementemos algunos cambios con ésta clase en nuesto modelo Departamento:
+#### 5 Implementemos algunos cambios con ésta clase en nuesto modelo Departamento:
 
 La opción unique_together en la clase Meta de un modelo Django se utiliza para especificar que una combinación de campos debe ser única en la base de datos. Esto significa que no se permitirán dos filas con la misma combinación de valores en esos campos.
 
@@ -1009,7 +994,7 @@ class Departamento(models.Model):
       return str(self.id) + "-" + self.name + "-" + self.short_name
 ```
 
-#### 15.6 Apliquemos las migraciones:
+#### 6 Apliquemos las migraciones:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py makemigrations
@@ -1027,9 +1012,9 @@ Running migrations:
 (entorno_3) C:\mis_proyectos\emp3\empleado>
 ```
 
-## 16 Creando modelos dentro de una aplicación ya existente
+## 15 Creando modelos dentro de una aplicación ya existente
 
-### 16.1 Creemos un modelo **Habilidades** en relación muchos a muchos con el modelo **empleado** e instalemos pillow para poder hacer uso del atributo ImageField:
+#### 1 Creemos un modelo **Habilidades** en relación muchos a muchos con el modelo **empleado** e instalemos pillow para poder hacer uso del atributo ImageField:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado>pip install pillow
@@ -1068,7 +1053,7 @@ class Empleado(models.Model):
       return str(self.id) + "-" + self.first_name + "-" + self.last_name
 ```
 
-### 16.2 Registremos la nueva tabla en el archivo **admin.py** de la aplicación **empleados**:
+#### 2 Registremos la nueva tabla en el archivo **admin.py** de la aplicación **empleados**:
 
 ```python
 from django.contrib import admin # type: ignore
@@ -1078,7 +1063,7 @@ admin.site.register(Empleado)
 admin.site.register(Habilidades)
 ```
 
-### 16.3 Hagamos las migraciones.
+#### 3 Hagamos las migraciones.
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py makemigrations
@@ -1097,21 +1082,21 @@ Running migrations:
 (entorno_3) C:\mis_proyectos\emp3\empleado>
 ```
 
-### 16.4 Veamos los modelos en el administrador:
+#### 4 Veamos los modelos en el administrador:
 
 ![image](https://github.com/user-attachments/assets/6ddd09e3-8107-4cfb-8a84-4dbfddf3011a)
 
 
-### 16.5 Agreguemos nuevos empleados con habilidades específicas:
+#### 5 Agreguemos nuevos empleados con habilidades específicas:
 
 ![image](https://github.com/user-attachments/assets/1c61a018-1f4f-40a9-a5cd-1a4ace47566d)
 
 
 
 
-## 17 Personalizando al Administrador de Django (admin.py)
+## 16 Personalizando al Administrador de Django (admin.py)
 
-### 17.1 El atributo list_display()
+#### 1 El atributo list_display()
 
 El atributo **list_display** en Django se utiliza en el archivo **admin.py** para especificar qué campos de un modelo deben mostrarse en la vista de lista del panel de administración. Esto es especialmente útil para proporcionar una visión general rápida de las instancias del modelo. 
 
@@ -1134,7 +1119,7 @@ admin.site.register(Habilidades)
 ![image](https://github.com/user-attachments/assets/8cf7d5af-488c-40d7-8bc1-3c9ca1469546)
 
 
-### 17.2 El atributo search_fields
+#### 2 El atributo search_fields
 
 Con search_fields podemos integrar al administrador un buscador. Implementemoslo para los primeros nombres:
 
@@ -1155,7 +1140,7 @@ admin.site.register(Empleado, EmpleadoAdmin)
 admin.site.register(Habilidades)
 ```
 
-### 17.3 El atributo list_filter
+#### 3 El atributo list_filter
 
 Con list_filter podemos agragar una funcionalidad de filtrado. Implementemosla para 'job' y 'habilidades':
 
@@ -1181,7 +1166,7 @@ admin.site.register(Habilidades)
 
 
 
-### 17.4 El atributo filter_horizontal
+#### 4 El atributo filter_horizontal
 
 El atributo filter_horizontal de Django se usa en el modelo de administración (admin) de Django para facilitar la selección y administración de relaciones many-to-many (muchos-a-muchos) en una interfaz de usuario más intuitiva. Cuando se agrega el atributo filter_horizontal a un modelo en el admin, se muestra un widget con dos listas: una lista de elementos disponibles y otra lista de elementos seleccionados. Esto permite a los usuarios seleccionar múltiples elementos fácilmente y moverlos entre las listas mediante botones. Apliquemoslo para el campo habilidades:
 
@@ -1207,7 +1192,7 @@ admin.site.register(Habilidades)
 ![image](https://github.com/user-attachments/assets/0a921e90-d916-4dde-baad-9e211695e62e)
 
 
-### 17.4 Desplegando nuevos campos. 
+#### 5 Desplegando nuevos campos
 
 Supongamos que tenemos la necesidad de que se muestre en el listado del administrador una nueva columna que integre los nombres y los apellidos de los empleados sin intervenir en la base de datos y llamemos al campo 'full_name'. Para hacer esto debemos declarar una funcion:
 
@@ -1237,9 +1222,9 @@ admin.site.register(Habilidades)
 
 ![image](https://github.com/user-attachments/assets/bf088c6d-aac4-4652-ab1a-dc80d0915448)
 
-## 18 La app CKEditor
+## 17 La app CKEditor
 
-1 Definición
+#### 1 Definición
 
 https://django-ckeditor.readthedocs.io/en/latest/
 
@@ -1255,13 +1240,13 @@ Características Principales:
 
 ![image](https://github.com/user-attachments/assets/8a104377-9260-437a-b5a7-d1e910f38984)
 
-2 La instalamos
+#### 2 La instalamos
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado>pip install django-ckeditor
 ```
 
-3 Registramos ckeditor en el archivo **base.py**
+#### 3 Registramos ckeditor en el archivo **base.py**
 
 ```python
 from pathlib import Path
@@ -1292,7 +1277,7 @@ MIDDLEWARE = [
 # ...
 ```
 
-4 Importamos la app y agregamos un campo que tenga la forma de elemento de blog:
+#### 4 Importamos la app y agregamos un campo que tenga la forma de elemento de blog:
 
 ```python
 from django.db import models # type: ignore
@@ -1311,7 +1296,7 @@ class Habilidades(models.Model):
       return str(self.id) + "-" + self.first_name + "-" + self.last_name
 ```
 
-5 Hacemos las migraciones y volvemos a cargar el servidor. Vámonos al administrador de Django a intentar ingresar un nuevo empleado:
+#### 5 Hacemos las migraciones y volvemos a cargar el servidor. Vámonos al administrador de Django a intentar ingresar un nuevo empleado:
 
 ![image](https://github.com/user-attachments/assets/adc6d010-01a6-46ff-94ca-7ca21465d55b)
 
