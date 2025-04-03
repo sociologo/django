@@ -6,7 +6,7 @@
 * [2 Configurar la estructura de un proyecto en django](#2-Configurar-la-estructura-de-un-proyecto-en-django)
 * [3 Ejecutando el archivo localpy en vez del original settingspy](#3-Ejecutando-el-archivo-localpy-en-vez-del-original-settingspy)
 * [4 Aplicaciones](#4-Aplicaciones)
-* [5 Vistas genericas (Views)](#5-Vistas-genericas-Views)
+* [5 Vistas genéricas: Views](#5-Vistas-genéricas-Views)
 * [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
 * [7 Haciendo una carpeta parcial para cada app](#7-Haciendo-una-carpeta-parcial-para-cada-app)
 * [8 Vistas genéricas](#8-Vistas-genéricas)
@@ -291,7 +291,7 @@ y en cada uno de los archivos apps.py de las aplicaciones departamentos y emplea
 (entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver
 ```
 
-## 5 Vistas genéricas Views
+## 5 Vistas genéricas: Views
 
 ### 5.1 La teoría del patrón de diseño MVT
 
