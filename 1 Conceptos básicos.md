@@ -4,6 +4,11 @@
 
 * [1 Crear un proyecto Django](#1-crear-un-proyecto-django)
   * [1.1 Creamos carpetas de trabajo](#11-Creamos-carpetas-de-trabajo)
+  * [1.2 Creamos nuestro primer entorno y lo activamos](#12-Creamos-nuestro-primer-entorno-y-lo-activamos)
+  * [1.3 Instalamos y actualizamos paquetes](#13-Instalamos-y-actualizamos-paquetes)
+  * [1.4 En ella, creamos nuestro proyecto empleado](#14-En-ella,-creamos-nuestro-proyecto-empleado)
+  * [1.5 Corremos el servidor](#15-Corremos-el-servidor)
+  * [1.6 Abrimos el proyecto empleado con Visual Studio](#16-Abrimos-el-proyecto-empleado-con-Visual-Studio)
 * [2 Configurar la estructura de un proyecto en django](#2-Configurar-la-estructura-de-un-proyecto-en-django)
 * [3 Ejecutando el archivo localpy en vez del original settingspy](#3-Ejecutando-el-archivo-localpy-en-vez-del-original-settingspy)
 * [4 Aplicaciones](#4-Aplicaciones)
@@ -90,7 +95,7 @@ C:\mis_entornos\entorno_3\Scripts> activate
 (entorno_3) C:\mis_proyectos\emp3> django-admin startproject empleado
 ```
 
-### 1.5 corremos el servidor
+### 1.5 Corremos el servidor
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3> cd empleado
