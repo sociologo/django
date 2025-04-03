@@ -7,7 +7,7 @@
 * [3 Ejecutando el archivo local.py en vez del original settings.py](#3-Ejecutando-el-archivo-localpy-en-vez-del-original-settingspy)
 * [4 Aplicaciones](#4-Aplicaciones)
 * [5 Vistas genéricas: Views](#5-Vistas-genéricas-Views)
-* [Inicio de Pruebas en la aplicacion exp](#6-Inicio-de-Pruebas-en-la-aplicacion-exp)
+* [Inicio de Pruebas en la aplicación exp](#Inicio-de-Pruebas-en-la-aplicacion-exp)
 * [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
 * [7 Haciendo una carpeta parcial para cada app](#7-Haciendo-una-carpeta-parcial-para-cada-app)
 * [8 Vistas genéricas](#8-Vistas-genéricas)
@@ -351,18 +351,18 @@ Plantilla (Template): Diseñamos un archivo HTML que muestra la lista de product
 
 En resumen, el patrón MVT de Django es una adaptación del patrón MVC, con una terminología y flujo de trabajo ligeramente diferentes, pero con el mismo objetivo de separar la lógica de negocio, la lógica de presentación y la interfaz de usuario.
 
-## 6 Inicio de Pruebas en la aplicacion exp
+## Inicio de Pruebas en la aplicacion exp
 
-### 6.1 
 
-#### 1 En la carpeta applications, construyamos una nueva aplicación llamada **exp**.
+
+### 1 En la carpeta applications, construyamos una nueva aplicación llamada **exp**.
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado> cd applications
 (entorno_3) C:\mis_proyectos\emp3\empleado\applications> django-admin startapp exp
 ```
 
-#### 2 En **base.py** agregamos la ruta de la aplicación para instalarla.
+### 2 En **base.py** agregamos la ruta de la aplicación para instalarla.
 
 ```python
 INSTALLED_APPS = [
@@ -380,7 +380,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-#### 3 Vamos a **apps.py** de la misma aplicación y agregamos la ruta de la carpeta:
+### 3 Vamos a **apps.py** de la misma aplicación y agregamos la ruta de la carpeta:
 
 ```python
 from django.apps import AppConfig
@@ -390,11 +390,11 @@ class ExpConfig(AppConfig):
     name = 'applications.exp'
 ```
 
-#### 4 Dentro de la carpeta **exp** agregamos una nueva llamada **templates**, donde alojaremos todos nuestros htmls.
+### 4 Dentro de la carpeta **exp** agregamos una nueva llamada **templates**, donde alojaremos todos nuestros htmls.
 
 ![image](https://github.com/user-attachments/assets/4bea0efe-0d49-4a3d-a926-286f0aea091b)
 
-#### 5 Creamos una vista
+### 5 Creamos una vista
 
 En views.py de exp agregamos las siguientes lineas de codigo:
 
@@ -405,7 +405,7 @@ class IndexView(TemplateView):
     template_name = 'home.html'
 ```
 
-#### 6 Creamos el template
+### 6 Creamos el template
 
 En la carpeta templates creamos un archivo llamado **home.html** donde escribimos el siguiente código:
 
@@ -424,7 +424,7 @@ En la carpeta templates creamos un archivo llamado **home.html** donde escribimo
 </html>
 ```
 
-#### 7 Agregamos la ruta
+### 7 Agregamos la ruta
 
 en **urls.py** agregamos una nueva ruta:
 
@@ -439,7 +439,7 @@ urlpatterns = [
 ]
 ```
 
-#### 8 ejecutemos nuevamente nuestro proyecto y vamos a la url home:
+### 8 ejecutemos nuevamente nuestro proyecto y vamos a la url home:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py runserver
