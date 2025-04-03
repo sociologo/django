@@ -8,6 +8,8 @@
 * [4 Aplicaciones](#4-Aplicaciones)
 * [5 Vistas genéricas: Views](#5-Vistas-genéricas-Views)
 * [Inicio de Pruebas en la aplicación exp](#Inicio-de-Pruebas-en-la-aplicacion-exp)
+
+  
 * [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
 * [7 Haciendo una carpeta parcial para cada app](#7-Haciendo-una-carpeta-parcial-para-cada-app)
 * [8 Vistas genéricas](#8-Vistas-genéricas)
@@ -453,29 +455,29 @@ urlpatterns = [
 
 ---
 
-## 7 Una arquitectura de templates
+## 6 Una arquitectura de templates
 
-### 7.1 Una carpeta templates general
+### 1 Una carpeta templates general
 
 Una buena práctica es contruir una carpeta templates donde tengamos sub carpetas asociadas a las apps y dentro de ellas los correspondientes htmls. Construímos la carpeta como se indica con la subcarpeta y dentro de ella copiamos **home.html** y borramos la carpeta templates de la app exp:
 
 ![image](https://github.com/user-attachments/assets/67f60d17-4cac-4d6d-9b59-c511e2452ef5)
 
-### 7.3 Hacemos las siguientes modificaciones en el archivo base.py:
+### 2 Hacemos las siguientes modificaciones en el archivo base.py:
 
 ![image](https://github.com/user-attachments/assets/8769b9a4-10c9-4e2f-8b2c-03a6a2ffd4dd)
 
-### 7.4 Hacemos las siguientes modificaciones en la vista de nuestra aplicación exp:
+### 3 Hacemos las siguientes modificaciones en la vista de nuestra aplicación exp:
 
 ![image](https://github.com/user-attachments/assets/c805788e-a7d6-4818-a73c-200e3d3b8d40)
 
-### 7.5 Volvemos a cargar nuestro proyecto y vamos a la url home:
+### 4 Volvemos a cargar nuestro proyecto y vamos a la url home:
 
 ![image](https://github.com/user-attachments/assets/2e92a4ba-a7ad-43d6-a8bb-f9eb355bde19)
 
 ---
 
-## 8 Una arquitectura de urls
+## 7 Una arquitectura de urls
 
 Análogo a como lo hicimos con los templates, cada aplicación debe tener su propio archivo de urls, que van a ser llamadas en el archivo **urls.py** general. Creamos un archivo **urls.py** para la aplicación exp como se indica:
 
@@ -487,7 +489,7 @@ Ahora llamamos éste **urls.py** de la aplicacion exp desde nuestro archivo **ur
 
 ---
 
-## 9 Primeros pasos en MVT
+## 8 Primeros pasos en MVT
 
 1 Creemos la vista basada en clases ListView en nuestra aplicación exp. Para ello creamos la clase **Prueba_ListView**:
 
@@ -509,7 +511,7 @@ Ahora llamamos éste **urls.py** de la aplicacion exp desde nuestro archivo **ur
 
 
 
-## 11 La ORM de Django y los modelos
+## 9 La ORM de Django y los modelos
 
 La ORM de Django es una herramienta poderosa que permite a los desarrolladores interactuar con bases de datos de manera eficiente y efectiva utilizando Python, sin necesidad de escribir consultas SQL manualmente.
 
@@ -643,7 +645,7 @@ urlpatterns = [
 
 ---
 
-## 12 Implementando la base de datos Empleado
+## 10 Implementando la base de datos Empleado
 
 Tipos de campos en Django: https://docs.djangoproject.com/en/5.1/ref/models/fields/
 
@@ -710,7 +712,7 @@ Running migrations:
 ---
 
 
-## 13 Claves foráneas.
+## 11 Claves foráneas.
 
 1 Construyamos el modelo **Empleado** en la app **empleados**
 
@@ -764,7 +766,7 @@ admin.site.register(Empleado)
 
 ![image](https://github.com/user-attachments/assets/0ba07d8b-73f5-44fb-a212-973398910d09)
 
-## 14 PostgreSQL y Django
+## 12 PostgreSQL y Django
 
 1 Descargemos el instalador de PostgreSQL
 
