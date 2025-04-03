@@ -3,12 +3,6 @@
 ## Índice
 
 * [1 Crear un proyecto Django](#1-crear-un-proyecto-django)
-  * [1.1 Creamos carpetas de trabajo](#11-Creamos-carpetas-de-trabajo)
-  * [1.2 Creamos nuestro primer entorno y lo activamos](#12-Creamos-nuestro-primer-entorno-y-lo-activamos)
-  * [1.3 Instalamos y actualizamos paquetes](#13-Instalamos-y-actualizamos-paquetes)
-  * [1.4 En ella, creamos nuestro proyecto empleado](#14-En-ella-creamos-nuestro-proyecto-empleado)
-  * [1.5 Corremos el servidor](#15-Corremos-el-servidor)
-  * [1.6 Abrimos el proyecto empleado con Visual Studio](#16-Abrimos-el-proyecto-empleado-con-Visual-Studio)
 * [2 Configurar la estructura de un proyecto en django](#2-Configurar-la-estructura-de-un-proyecto-en-django)
 * [3 Ejecutando el archivo localpy en vez del original settingspy](#3-Ejecutando-el-archivo-localpy-en-vez-del-original-settingspy)
 * [4 Aplicaciones](#4-Aplicaciones)
@@ -51,12 +45,12 @@ Abre un archivo HTML: Crea un nuevo archivo con la extensión .html o abre uno e
 
 Escribe el snippet: Djaneiro proporciona varios snippets útiles. Para una estructura básica de HTML, puedes usar el snippet html5. Simplemente escribe html5 y presiona Tab.
 
-### 1.1 Creamos carpetas de trabajo
+1 Creamos carpetas de trabajo
 
 Construiremos dos carpetas en C. Una para nuestros proyectos **mis_proyectos** y otra para nuestros entornos virtuales **mis_entornos**
 
 
-### 1.2 Creamos nuestro primer entorno y lo activamos
+2 Creamos nuestro primer entorno y lo activamos
 
 ```bash
 C:\>cd mis_entornos
@@ -68,7 +62,7 @@ C:\mis_entornos\entorno_3\Scripts>activate
 (entorno_3) C:\>
 ```
 
-### 1.3 Instalamos y actualizamos paquetes
+3 Instalamos y actualizamos paquetes
 
 ```bash
 (entorno_3) C:\> pip install django
@@ -89,20 +83,20 @@ C:\mis_entornos\entorno_3\Scripts> activate
 (entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver
 ```
 
-### 1.4 En ella, creamos nuestro proyecto empleado
+4 En ella, creamos nuestro proyecto empleado
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3> django-admin startproject empleado
 ```
 
-### 1.5 Corremos el servidor
+5 Corremos el servidor
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3> cd empleado
 (entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver
 ```
 
-### 1.6 Abrimos el proyecto empleado con Visual Studio
+6 Abrimos el proyecto empleado con Visual Studio
 
 ![image](https://github.com/user-attachments/assets/8dbfe7f4-3409-486d-aad0-9e44669ae4f0)
 
@@ -110,13 +104,13 @@ C:\mis_entornos\entorno_3\Scripts> activate
 
 En cualquier desarrollo necesitamos al menos tres entornos (para trabajo local, de pruebas y de producción) y un cuarto **base**. En el entorno **base** alojaremos la configuración básica de todos.
 
-2.1 Dentro de la carpeta **empleado**, creamos otra carpeta llamada **settings** con cuatro archivos .py en su interior:
+1 Dentro de la carpeta **empleado**, creamos otra carpeta llamada **settings** con cuatro archivos .py en su interior:
 
 ![image](https://github.com/user-attachments/assets/3ca4a2a9-bc58-4365-9a2b-15939a7ccf1e)
 
-2.2 Del archivo original settings.py debemos copiar a los archivos recién creados, lo siguiente:
+2 Del archivo original settings.py debemos copiar a los archivos recién creados, lo siguiente:
 
-2.2.1 en **base.py**:
+- en **base.py**:
 
 ```python
 from pathlib import Path
@@ -191,7 +185,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ```
 
-2.2.2 en **local.py**:
+- en **local.py**:
 
 ```python
 from empleado.settings.base import *
@@ -212,15 +206,15 @@ STATIC_URL = 'static/'
 
 ## 3 Ejecutando el archivo localpy en vez del original settingspy
 
-### 3.1 Borramos el archivo settings.py original.
+1 Borramos el archivo settings.py original.
 
-### 3.2 Le indicamos a django que ejecute desde el entorno de configuración local.py:
+2 Le indicamos a django que ejecute desde el entorno de configuración local.py:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver --settings=empleado.settings.local
 ```
 
-### 3.3 Redireccionamos para aumentar la simplicidad al ejecutar el proyecto:
+3 Redireccionamos para aumentar la simplicidad al ejecutar el proyecto:
 
 Agregamos .local a la siguiente línea del archivo manage.py:
 
@@ -252,7 +246,7 @@ if __name__ == '__main__':
     main()
 ```
 
-### 3.4 Ahora podemos ejecutar simplemente escribiendo:
+4 Ahora podemos ejecutar simplemente escribiendo:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver
@@ -262,9 +256,9 @@ if __name__ == '__main__':
 
 Las aplicaciones en django son pequeños proyectos completos. La idea es que:
 
-1 cada una sea independiente de las otras con el objetivo de poder reutilizarlas si fuese necesario y
+- cada una sea independiente de las otras con el objetivo de poder reutilizarlas si fuese necesario y
 
-2 cada una se dedique a un solo proceso de la lógica del negocio.
+- cada una se dedique a un solo proceso de la lógica del negocio.
 
 Crearemos dos aplicaciones dentro de una nueva carpeta llamada **applications** dentro de la carpeta **empleado** junto con un archivo __init__.py. Serán las aplicaciones **departamentos** y **empleados**:
 
@@ -272,7 +266,7 @@ Crearemos dos aplicaciones dentro de una nueva carpeta llamada **applications** 
 
 ![image](https://github.com/user-attachments/assets/f73a5271-00ec-4b33-bcbb-1fe024e9b954)
 
-### 4.1 Vamos al nivel de applications y creamos los dos nuevos proyectos:
+1 Vamos al nivel de applications y creamos los dos nuevos proyectos:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado>cd applications
@@ -282,7 +276,7 @@ Crearemos dos aplicaciones dentro de una nueva carpeta llamada **applications** 
 
 ![image](https://github.com/user-attachments/assets/1aa17e99-bb1c-4d5f-86d6-02832aaf329f)
 
-### 4.2 Ahora necesitamos instalar nuestras aplicaciones en el archivo base.py:
+2 Ahora necesitamos instalar nuestras aplicaciones en el archivo base.py:
 
 ![image](https://github.com/user-attachments/assets/08fe8f7d-9fd1-467e-ae0a-c5ef06cd6ab9)
 
@@ -291,7 +285,7 @@ y en cada uno de los archivos apps.py de las aplicaciones departamentos y emplea
 ![image](https://github.com/user-attachments/assets/3061723c-e662-46dd-918c-f7523e100b05)
 ![image](https://github.com/user-attachments/assets/5709f22a-3467-4e0e-a8f6-c083455dc413)
 
-### 4.3 Levantemos nuestro servidor para que veamos que todo esté funcionando ok:
+3 Levantemos nuestro servidor para que veamos que todo esté funcionando ok:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver
