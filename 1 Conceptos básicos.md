@@ -8,8 +8,8 @@
 * [4 Aplicaciones](#4-Aplicaciones)
 * [5 Vistas genéricas: Views](#5-Vistas-genéricas-Views)
 * [Inicio de Pruebas en la aplicación exp](#Inicio-de-Pruebas-en-la-aplicacion-exp)
+* [6 Construcción y despliegue de la primera App](#6-Construcción-y-despliegue-de-la-primera-App)
 
-  
 * [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
 * [7 Haciendo una carpeta parcial para cada app](#7-Haciendo-una-carpeta-parcial-para-cada-app)
 * [8 Vistas genéricas](#8-Vistas-genéricas)
@@ -355,16 +355,16 @@ En resumen, el patrón MVT de Django es una adaptación del patrón MVC, con una
 
 ## Inicio de Pruebas en la aplicacion exp
 
+## 6 Construcción y despliegue de la primera App
 
-
-### 1 En la carpeta applications, construyamos una nueva aplicación llamada **exp**.
+#### 1 En la carpeta applications, construyamos una nueva aplicación llamada **exp**.
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado> cd applications
 (entorno_3) C:\mis_proyectos\emp3\empleado\applications> django-admin startapp exp
 ```
 
-### 2 En **base.py** agregamos la ruta de la aplicación para instalarla.
+#### 2 En **base.py** agregamos la ruta de la aplicación para instalarla.
 
 ```python
 INSTALLED_APPS = [
