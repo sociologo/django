@@ -14,7 +14,7 @@
 * [9 Primeros pasos en MVT](#9-Primeros-pasos-en-MVT)
 * [10 La ORM de Django y los modelos](#10-La-ORM-de-Django-y-los-modelos)
 * [11 Implementando la base de datos Empleado](#11-Implementando-la-base-de-datos-Empleado)
-* [Fin de Pruebas en la aplicacion exp](#6-Inicio-de-Pruebas-en-la-aplicacion-exp)
+* [Fin de Pruebas en la aplicación exp](#Fin-de-Pruebas-en-la-aplicación-exp)
 * [12 Claves foráneas](#12-Claves-foráneas)
 * [13 PostgreSQL y Django](#13-PostgreSQL-y-Django)
 * [14 El Administrador de Django y la clase Meta](#14-El-Administrador-de-Django-y-la-clase-Meta)
@@ -699,6 +699,7 @@ Running migrations:
 
 ---
 
+# Fin de Pruebas en la aplicación exp
 
 ## 12 Claves foráneas
 
