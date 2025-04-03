@@ -47,12 +47,12 @@ Abre un archivo HTML: Crea un nuevo archivo con la extensión .html o abre uno e
 
 Escribe el snippet: Djaneiro proporciona varios snippets útiles. Para una estructura básica de HTML, puedes usar el snippet html5. Simplemente escribe html5 y presiona Tab.
 
-1 Creamos carpetas de trabajo
+#### 1 Creamos carpetas de trabajo
 
 Construiremos dos carpetas en C. Una para nuestros proyectos **mis_proyectos** y otra para nuestros entornos virtuales **mis_entornos**
 
 
-2 Creamos nuestro primer entorno y lo activamos
+#### 2 Creamos nuestro primer entorno y lo activamos
 
 ```bash
 C:\>cd mis_entornos
@@ -64,7 +64,7 @@ C:\mis_entornos\entorno_3\Scripts>activate
 (entorno_3) C:\>
 ```
 
-3 Instalamos y actualizamos paquetes
+#### 3 Instalamos y actualizamos paquetes
 
 ```bash
 (entorno_3) C:\> pip install django
@@ -85,13 +85,13 @@ C:\mis_entornos\entorno_3\Scripts> activate
 (entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver
 ```
 
-4 En ella, creamos nuestro proyecto empleado
+#### 4 En ella, creamos nuestro proyecto empleado
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3> django-admin startproject empleado
 ```
 
-5 Corremos el servidor
+#### 5 Corremos el servidor
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3> cd empleado
@@ -106,11 +106,11 @@ C:\mis_entornos\entorno_3\Scripts> activate
 
 En cualquier desarrollo necesitamos al menos tres entornos (para trabajo local, de pruebas y de producción) y un cuarto **base**. En el entorno **base** alojaremos la configuración básica de todos.
 
-1 Dentro de la carpeta **empleado**, creamos otra carpeta llamada **settings** con cuatro archivos .py en su interior:
+#### 1 Dentro de la carpeta **empleado**, creamos otra carpeta llamada **settings** con cuatro archivos .py en su interior:
 
 ![image](https://github.com/user-attachments/assets/3ca4a2a9-bc58-4365-9a2b-15939a7ccf1e)
 
-2 Del archivo original settings.py debemos copiar a los archivos recién creados, lo siguiente:
+#### 2 Del archivo original settings.py debemos copiar a los archivos recién creados, lo siguiente:
 
 - en **base.py**:
 
@@ -208,15 +208,15 @@ STATIC_URL = 'static/'
 
 ## 3 Ejecutando el archivo local.py en vez del original settings.py
 
-1 Borramos el archivo settings.py original.
+#### 1 Borramos el archivo settings.py original.
 
-2 Le indicamos a django que ejecute desde el entorno de configuración local.py:
+#### 2 Le indicamos a django que ejecute desde el entorno de configuración local.py:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver --settings=empleado.settings.local
 ```
 
-3 Redireccionamos para aumentar la simplicidad al ejecutar el proyecto:
+#### 3 Redireccionamos para aumentar la simplicidad al ejecutar el proyecto:
 
 Agregamos .local a la siguiente línea del archivo manage.py:
 
@@ -248,7 +248,7 @@ if __name__ == '__main__':
     main()
 ```
 
-4 Ahora podemos ejecutar simplemente escribiendo:
+#### 4 Ahora podemos ejecutar simplemente escribiendo:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver
@@ -268,7 +268,7 @@ Crearemos dos aplicaciones dentro de una nueva carpeta llamada **applications** 
 
 ![image](https://github.com/user-attachments/assets/f73a5271-00ec-4b33-bcbb-1fe024e9b954)
 
-1 Vamos al nivel de applications y creamos los dos nuevos proyectos:
+#### 1 Vamos al nivel de applications y creamos los dos nuevos proyectos:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado>cd applications
@@ -278,7 +278,7 @@ Crearemos dos aplicaciones dentro de una nueva carpeta llamada **applications** 
 
 ![image](https://github.com/user-attachments/assets/1aa17e99-bb1c-4d5f-86d6-02832aaf329f)
 
-2 Ahora necesitamos instalar nuestras aplicaciones en el archivo base.py:
+#### 2 Ahora necesitamos instalar nuestras aplicaciones en el archivo base.py:
 
 ![image](https://github.com/user-attachments/assets/08fe8f7d-9fd1-467e-ae0a-c5ef06cd6ab9)
 
@@ -287,7 +287,7 @@ y en cada uno de los archivos apps.py de las aplicaciones departamentos y emplea
 ![image](https://github.com/user-attachments/assets/3061723c-e662-46dd-918c-f7523e100b05)
 ![image](https://github.com/user-attachments/assets/5709f22a-3467-4e0e-a8f6-c083455dc413)
 
-3 Levantemos nuestro servidor para que veamos que todo esté funcionando ok:
+#### 3 Levantemos nuestro servidor para que veamos que todo esté funcionando ok:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver
@@ -295,11 +295,11 @@ y en cada uno de los archivos apps.py de las aplicaciones departamentos y emplea
 
 ## 5 Vistas genéricas: Views
 
-1 La teoría del patrón de diseño MVT
+#### 1 La teoría del patrón de diseño MVT
 
 El patrón Modelo-Vista-Template (MVT) de Django es una variación del clásico Modelo-Vista-Controlador (MVC). A continuación, veamos en qué consiste el MVT y sus diferencias clave con MVC:
 
-2 Modelo-Vista-Template (MVT) en Django
+#### 2 Modelo-Vista-Template (MVT) en Django
 
 Modelo (**Model**):
 
@@ -319,7 +319,7 @@ Es la capa de presentación que define cómo se muestran los datos al usuario. L
 
 Ejemplo: Un archivo HTML que muestra una lista de usuarios con sus nombres y correos electrónicos.
 
-3 Diferencias con el Modelo Vista-Controlador (MVC)
+#### 3 Diferencias con el Modelo Vista-Controlador (MVC)
 
 Controlador (Controller) vs. Vista (View):
 
@@ -334,7 +334,7 @@ En MVC, el flujo típico es: Usuario → Controlador → Modelo → Vista → Us
 
 En MVT, el flujo es: Usuario → Vista → Modelo → Plantilla → Usuario.
 
-4 Ejemplo Práctico
+#### 4 Ejemplo Práctico
 
 Supongamos que queremos mostrar una lista de productos en una tienda en línea:
 
