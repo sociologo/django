@@ -7,7 +7,7 @@
 * [3 Ejecutando el archivo local.py en vez del original settings.py](#3-Ejecutando-el-archivo-localpy-en-vez-del-original-settingspy)
 * [4 Aplicaciones](#4-Aplicaciones)
 * [5 Vistas genéricas: Views](#5-Vistas-genéricas-Views)
-* [Inicio de Pruebas](#Inicio-de-Pruebas)
+* [6 Inicio de Pruebas en la aplicacion exp](#6-Inicio-de-Pruebas-en-la-aplicacion-exp)
 * [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
 * [7 Haciendo una carpeta parcial para cada app](#7-Haciendo-una-carpeta-parcial-para-cada-app)
 * [8 Vistas genéricas](#8-Vistas-genéricas)
@@ -294,11 +294,11 @@ y en cada uno de los archivos apps.py de las aplicaciones departamentos y emplea
 
 ## 5 Vistas genéricas: Views
 
-### 5.1 La teoría del patrón de diseño MVT
+1 La teoría del patrón de diseño MVT
 
 El patrón Modelo-Vista-Template (MVT) de Django es una variación del clásico Modelo-Vista-Controlador (MVC). A continuación, veamos en qué consiste el MVT y sus diferencias clave con MVC:
 
-### 5.2 Modelo-Vista-Template (MVT) en Django
+2 Modelo-Vista-Template (MVT) en Django
 
 Modelo (**Model**):
 
@@ -318,7 +318,7 @@ Es la capa de presentación que define cómo se muestran los datos al usuario. L
 
 Ejemplo: Un archivo HTML que muestra una lista de usuarios con sus nombres y correos electrónicos.
 
-### 5.3 Diferencias con el Modelo Vista-Controlador (MVC)
+3 Diferencias con el Modelo Vista-Controlador (MVC)
 
 Controlador (Controller) vs. Vista (View):
 
@@ -333,7 +333,7 @@ En MVC, el flujo típico es: Usuario → Controlador → Modelo → Vista → Us
 
 En MVT, el flujo es: Usuario → Vista → Modelo → Plantilla → Usuario.
 
-### 5.4 Ejemplo Práctico
+4 Ejemplo Práctico
 
 Supongamos que queremos mostrar una lista de productos en una tienda en línea:
 
@@ -345,13 +345,9 @@ Plantilla (Template): Diseñamos un archivo HTML que muestra la lista de product
 
 En resumen, el patrón MVT de Django es una adaptación del patrón MVC, con una terminología y flujo de trabajo ligeramente diferentes, pero con el mismo objetivo de separar la lógica de negocio, la lógica de presentación y la interfaz de usuario.
 
-# Inicio de Pruebas
+## 6 Inicio de Pruebas en la aplicacion exp
 
-## 6 La creación de una vista
-
-Haremos pruebas dentro de una nueva aplicacion que crearemos para tal efecto.
-
-### 6.1 La aplicacion exp
+### 6.1 
 
 #### 1 En la carpeta applications, construyamos una nueva aplicación llamada **exp**.
 
