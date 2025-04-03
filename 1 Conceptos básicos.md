@@ -19,7 +19,7 @@
 * [13 PostgreSQL y Django](#13-PostgreSQL-y-Django)
 * [14 El Administrador de Django y la clase Meta](#14-El-Administrador-de-Django-y-la-clase-Meta)
 * [15 Creando modelos dentro de una aplicación ya existente](#15-Creando-modelos-dentro-de-una-aplicación-ya-existente)
-* [16 Personalizando al Administrador de Django (admin.py)](#16-Personalizando-al-Administrador-de-Django-(admin.py))
+* [16 Personalizando al Administrador de Django (admin.py)](#16-Personalizando-al-Administrador-de-Django-(adminpy))
 * [17 La app CKEditor](#17-La-app-CKEditor)
 
 
