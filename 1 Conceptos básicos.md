@@ -7,6 +7,7 @@
 * [3 Ejecutando el archivo local.py en vez del original settings.py](#3-Ejecutando-el-archivo-localpy-en-vez-del-original-settingspy)
 * [4 Aplicaciones](#4-Aplicaciones)
 * [5 Vistas genéricas: Views](#5-Vistas-genéricas-Views)
+* [Inicio de Pruebas](#Inicio-de-Pruebas)
 * [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
 * [7 Haciendo una carpeta parcial para cada app](#7-Haciendo-una-carpeta-parcial-para-cada-app)
 * [8 Vistas genéricas](#8-Vistas-genéricas)
@@ -344,7 +345,8 @@ Plantilla (Template): Diseñamos un archivo HTML que muestra la lista de product
 
 En resumen, el patrón MVT de Django es una adaptación del patrón MVC, con una terminología y flujo de trabajo ligeramente diferentes, pero con el mismo objetivo de separar la lógica de negocio, la lógica de presentación y la interfaz de usuario.
 
- 
+# Inicio de Pruebas
+
 ## 6 La creación de una vista
 
 Haremos pruebas dentro de una nueva aplicacion que crearemos para tal efecto.
