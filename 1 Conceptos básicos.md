@@ -3,7 +3,7 @@
 ## Índice
 
 * [1 Crear un proyecto Django](#1-crear-un-proyecto-django)
-  * [11 Creemos una carpeta donde vamos a alojar todo nuestro trabajo](#11-Creemos-una-carpeta-donde-vamos-a-alojar-todo-nuestro-trabajo)
+  * [1.1 Creamos carpetas de trabajo](#11-Creamos-carpetas-de-trabajo)
 * [2 Configurar la estructura de un proyecto en django](#2-Configurar-la-estructura-de-un-proyecto-en-django)
 * [3 Ejecutando el archivo localpy en vez del original settingspy](#3-Ejecutando-el-archivo-localpy-en-vez-del-original-settingspy)
 * [4 Aplicaciones](#4-Aplicaciones)
@@ -46,12 +46,12 @@ Abre un archivo HTML: Crea un nuevo archivo con la extensión .html o abre uno e
 
 Escribe el snippet: Djaneiro proporciona varios snippets útiles. Para una estructura básica de HTML, puedes usar el snippet html5. Simplemente escribe html5 y presiona Tab.
 
-### 1.1 Creamos carpetas de trabajo:
+### 1.1 Creamos carpetas de trabajo
 
 Construiremos dos carpetas en C. Una para nuestros proyectos **mis_proyectos** y otra para nuestros entornos virtuales **mis_entornos**
 
 
-### 1.2 Creamos nuestro primer entorno y lo activamos:
+### 1.2 Creamos nuestro primer entorno y lo activamos
 
 ```bash
 C:\>cd mis_entornos
@@ -63,7 +63,7 @@ C:\mis_entornos\entorno_3\Scripts>activate
 (entorno_3) C:\>
 ```
 
-### 1.3 Instalamos y actualizamos paquetes:
+### 1.3 Instalamos y actualizamos paquetes
 
 ```bash
 (entorno_3) C:\> pip install django
@@ -84,20 +84,20 @@ C:\mis_entornos\entorno_3\Scripts> activate
 (entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver
 ```
 
-### 1.4 En ella, creamos nuestro proyecto **empleado**:
+### 1.4 En ella, creamos nuestro proyecto empleado
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3> django-admin startproject empleado
 ```
 
-### 1.5 corremos el servidor:
+### 1.5 corremos el servidor
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3> cd empleado
 (entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver
 ```
 
-### 1.6 Abrimos el proyecto empleado con Visual Studio:
+### 1.6 Abrimos el proyecto empleado con Visual Studio
 
 ![image](https://github.com/user-attachments/assets/8dbfe7f4-3409-486d-aad0-9e44669ae4f0)
 
