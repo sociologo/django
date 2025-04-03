@@ -9,7 +9,13 @@
 * [5 Vistas genéricas: Views](#5-Vistas-genéricas-Views)
 * [Inicio de Pruebas en la aplicación exp](#Inicio-de-Pruebas-en-la-aplicacion-exp)
 * [6 Construcción y despliegue de la primera App](#6-Construcción-y-despliegue-de-la-primera-App)
-
+* [7 Una arquitectura de templates](#7-Una-arquitectura-de-templates)
+* [8 Una arquitectura de urls](#8-Una-arquitectura-de-urls)
+* [9 Primeros pasos en MVT](#9-Primeros-pasos-en-MVT)
+* [10 La ORM de Django y los modelos](#10-La-ORM-de-Django-y-los-modelos)
+* [11 Implementando la base de datos Empleado](#11-Implementando-la-base-de-datos-Empleado)
+ 
+  
 * [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
 * [7 Haciendo una carpeta parcial para cada app](#7-Haciendo-una-carpeta-parcial-para-cada-app)
 * [8 Vistas genéricas](#8-Vistas-genéricas)
@@ -382,7 +388,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-### 3 Vamos a **apps.py** de la misma aplicación y agregamos la ruta de la carpeta:
+#### 3 Vamos a **apps.py** de la misma aplicación y agregamos la ruta de la carpeta:
 
 ```python
 from django.apps import AppConfig
@@ -392,11 +398,11 @@ class ExpConfig(AppConfig):
     name = 'applications.exp'
 ```
 
-### 4 Dentro de la carpeta **exp** agregamos una nueva llamada **templates**, donde alojaremos todos nuestros htmls.
+#### 4 Dentro de la carpeta **exp** agregamos una nueva llamada **templates**, donde alojaremos todos nuestros htmls.
 
 ![image](https://github.com/user-attachments/assets/4bea0efe-0d49-4a3d-a926-286f0aea091b)
 
-### 5 Creamos una vista
+#### 5 Creamos una vista
 
 En views.py de exp agregamos las siguientes lineas de codigo:
 
@@ -407,7 +413,7 @@ class IndexView(TemplateView):
     template_name = 'home.html'
 ```
 
-### 6 Creamos el template
+#### 6 Creamos el template
 
 En la carpeta templates creamos un archivo llamado **home.html** donde escribimos el siguiente código:
 
@@ -426,7 +432,7 @@ En la carpeta templates creamos un archivo llamado **home.html** donde escribimo
 </html>
 ```
 
-### 7 Agregamos la ruta
+#### 7 Agregamos la ruta
 
 en **urls.py** agregamos una nueva ruta:
 
@@ -441,7 +447,7 @@ urlpatterns = [
 ]
 ```
 
-### 8 ejecutemos nuevamente nuestro proyecto y vamos a la url home:
+#### 8 ejecutemos nuevamente nuestro proyecto y vamos a la url home:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py runserver
@@ -451,33 +457,29 @@ urlpatterns = [
 
 
 
+## 7 Una arquitectura de templates
 
-
----
-
-## 6 Una arquitectura de templates
-
-### 1 Una carpeta templates general
+#### 1 Una carpeta templates general
 
 Una buena práctica es contruir una carpeta templates donde tengamos sub carpetas asociadas a las apps y dentro de ellas los correspondientes htmls. Construímos la carpeta como se indica con la subcarpeta y dentro de ella copiamos **home.html** y borramos la carpeta templates de la app exp:
 
 ![image](https://github.com/user-attachments/assets/67f60d17-4cac-4d6d-9b59-c511e2452ef5)
 
-### 2 Hacemos las siguientes modificaciones en el archivo base.py:
+#### 2 Hacemos las siguientes modificaciones en el archivo base.py:
 
 ![image](https://github.com/user-attachments/assets/8769b9a4-10c9-4e2f-8b2c-03a6a2ffd4dd)
 
-### 3 Hacemos las siguientes modificaciones en la vista de nuestra aplicación exp:
+#### 3 Hacemos las siguientes modificaciones en la vista de nuestra aplicación exp:
 
 ![image](https://github.com/user-attachments/assets/c805788e-a7d6-4818-a73c-200e3d3b8d40)
 
-### 4 Volvemos a cargar nuestro proyecto y vamos a la url home:
+#### 4 Volvemos a cargar nuestro proyecto y vamos a la url home:
 
 ![image](https://github.com/user-attachments/assets/2e92a4ba-a7ad-43d6-a8bb-f9eb355bde19)
 
 ---
 
-## 7 Una arquitectura de urls
+## 8 Una arquitectura de urls
 
 Análogo a como lo hicimos con los templates, cada aplicación debe tener su propio archivo de urls, que van a ser llamadas en el archivo **urls.py** general. Creamos un archivo **urls.py** para la aplicación exp como se indica:
 
@@ -489,38 +491,37 @@ Ahora llamamos éste **urls.py** de la aplicacion exp desde nuestro archivo **ur
 
 ---
 
-## 8 Primeros pasos en MVT
+## 9 Primeros pasos en MVT
 
-1 Creemos la vista basada en clases ListView en nuestra aplicación exp. Para ello creamos la clase **Prueba_ListView**:
+#### 1 Creemos la vista basada en clases ListView en nuestra aplicación exp. Para ello creamos la clase **Prueba_ListView**:
 
 ![image](https://github.com/user-attachments/assets/d06fcb00-7bf9-45fc-a457-7233e8bd8281)
 
 
-2 Agregamos el url en la aplicación exp:
+#### 2 Agregamos el url en la aplicación exp:
 
 ![image](https://github.com/user-attachments/assets/0de9b66f-cb2c-4740-8a3f-5b43f96ce4e0)
 
 
-3 Construímos el archivo **lista.html** con el context_object_name dentro de llaves dobles:
+#### 3 Construímos el archivo **lista.html** con el context_object_name dentro de llaves dobles:
 
 ![image](https://github.com/user-attachments/assets/b5f74c2c-39c2-46b3-ab78-fa6207b2ce34)
 
 ![image](https://github.com/user-attachments/assets/76228aeb-e993-4d9c-bf4c-6e2a98ff0369)
 
----
 
 
 
-## 9 La ORM de Django y los modelos
+
+## 10 La ORM de Django y los modelos
 
 La ORM de Django es una herramienta poderosa que permite a los desarrolladores interactuar con bases de datos de manera eficiente y efectiva utilizando Python, sin necesidad de escribir consultas SQL manualmente.
 
-1 Haremos que la ORM de Django trabaje construyendo nuestra primera base datos la que consistirá sólo en una tabla asociada a la base de datos que trea por defecto Django (sqlite3):
+#### 1 Haremos que la ORM de Django trabaje construyendo nuestra primera base datos la que consistirá sólo en una tabla asociada a la base de datos que trea por defecto Django (sqlite3):
 
 ![image](https://github.com/user-attachments/assets/927e38c6-aa87-4fbe-b360-1073b0ea1c2e)
 
-
-2 Ahora le preguntaremos a Django si ha existido algún cambio en nuestra base de datos y/o es posible la creación de las tablas:
+#### 2 Ahora le preguntaremos a Django si ha existido algún cambio en nuestra base de datos y/o es posible la creación de las tablas:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py makemigrations
@@ -529,7 +530,7 @@ Migrations for 'exp':
     + Create model Prueba
 ```
 
-3 Ahora creamos la base de datos:
+#### 3 Ahora creamos la base de datos:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py migrate
@@ -559,11 +560,11 @@ Running migrations:
 (entorno_3) C:\mis_proyectos\emp3\empleado>
 ```
 
-4 Ahora, ¿coomo podemos interactuar con el modelo creado? Esto se consigue con el administrador de Django a traves del archivo admin.py de exp. Ingresamos las siguientes lineas de codigo:
+#### 4 Ahora, ¿coomo podemos interactuar con el modelo creado? Esto se consigue con el administrador de Django a traves del archivo admin.py de exp. Ingresamos las siguientes lineas de codigo:
 
 ![image](https://github.com/user-attachments/assets/7a89c4e4-80d5-4951-aad9-436a72e8484f)
 
-5 Creamos un superuser:
+#### 5 Creamos un superuser:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py createsuperuser
@@ -578,18 +579,18 @@ Superuser created successfully.
 
 La clave es: **123456**
 
-6 Levantamos nuevamente nuestro servidor e ingresamos al administrador con nuestras credenciales:
+#### 6 Levantamos nuevamente nuestro servidor e ingresamos al administrador con nuestras credenciales:
 
 ![image](https://github.com/user-attachments/assets/0a8d1951-de48-4032-941b-3a05cbea58b0)
 
-7 Podemos ir ahora llenando nuestra tabla **Prueba** desde el administrador:
+#### 7 Podemos ir ahora llenando nuestra tabla **Prueba** desde el administrador:
 
 ![image](https://github.com/user-attachments/assets/543618a3-b9b1-4d22-8e0c-efa207cbcc9f)
 
 ![image](https://github.com/user-attachments/assets/d5b848d7-4e7b-473e-a784-dbab9fdeba40)
 ![image](https://github.com/user-attachments/assets/35bb9ed6-611d-4a13-b83b-c52dc2cea486)
 
-8 Ahora construyamos la vista basada en clases ModeloPruebaListView en views.py de la app exp:
+#### 8 Ahora construyamos la vista basada en clases ModeloPruebaListView en views.py de la app exp:
 
 ```python
 from django.views.generic import TemplateView, ListView  # type: ignore
@@ -610,7 +611,7 @@ class ModeloPruebaListView(ListView):
     context_object_name = "lista_prueba"
 ```
 
-9 Activamos la url asociada a la vista en urls.py de la app exp:
+#### 9 Activamos la url asociada a la vista en urls.py de la app exp:
 
 ```python
 from django.urls import path # type: ignore
@@ -622,7 +623,7 @@ urlpatterns = [
    path('lista-prueba/', views.ModeloPruebaListView.as_view()),
 ```
 
-10 Creamos nuestro html pruebas.html dentro de la carpeta templates/home:
+#### 10 Creamos nuestro html pruebas.html dentro de la carpeta templates/home:
 
 ```html
 <h1>Listando elementos desde una base de datos</h1>
@@ -638,14 +639,14 @@ urlpatterns = [
 </ul>
 ```
 
-11 Vemos el despliegue:
+#### 11 Vemos el despliegue:
 
 ![image](https://github.com/user-attachments/assets/cdae0be2-95fd-4f3e-b435-c0c33f0e2b8d)
 
 
 ---
 
-## 10 Implementando la base de datos Empleado
+## 11 Implementando la base de datos Empleado
 
 Tipos de campos en Django: https://docs.djangoproject.com/en/5.1/ref/models/fields/
 
