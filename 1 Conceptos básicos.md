@@ -7,13 +7,19 @@
 * [3 Ejecutando el archivo local.py en vez del original settings.py](#3-Ejecutando-el-archivo-localpy-en-vez-del-original-settingspy)
 * [4 Aplicaciones](#4-Aplicaciones)
 * [5 Vistas genéricas: Views](#5-Vistas-genéricas-Views)
-* [6 Inicio de Pruebas en la aplicacion exp](#6-Inicio-de-Pruebas-en-la-aplicacion-exp)
+* [Inicio de Pruebas en la aplicacion exp](#6-Inicio-de-Pruebas-en-la-aplicacion-exp)
 * [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
 * [7 Haciendo una carpeta parcial para cada app](#7-Haciendo-una-carpeta-parcial-para-cada-app)
 * [8 Vistas genéricas](#8-Vistas-genéricas)
 * [9 Nuestros primeros pasos en MVT](#9-Nuestros-primeros-pasos-en-MVT)
 * [10 el ORM de Django y modelos](#10-el-ORM-de-Django-y-modelos)
 * [11 Implementando la base de datos Empleado](#11-Implementando-la-base-de-datos-Empleado)
+* [Fin de Pruebas en la aplicacion exp](#6-Inicio-de-Pruebas-en-la-aplicacion-exp)
+* [12 Implementando la base de datos Empleado](#12-Implementando-la-base-de-datos-Empleado)
+
+
+
+
 * [12 Claves foráneas](#12-Claves-foráneas)
 * [13 PostgreSQL y Django](#13-PostgreSQL-y-Django)
 * [14 El Administrador de Django](#14-El-Administrador-de-Django)
@@ -637,7 +643,7 @@ urlpatterns = [
 
 ---
 
-## 12 Implementando la base de datos Empleado.
+## 12 Implementando la base de datos Empleado
 
 Tipos de campos en Django: https://docs.djangoproject.com/en/5.1/ref/models/fields/
 
