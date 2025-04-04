@@ -635,6 +635,8 @@ urlpatterns = [
 
 ---
 
+# Fin de Pruebas en la aplicación exp
+
 ## 11 Implementando la base de datos Empleado
 
 Tipos de campos en Django: https://docs.djangoproject.com/en/5.1/ref/models/fields/
@@ -701,7 +703,7 @@ Running migrations:
 
 ---
 
-# Fin de Pruebas en la aplicación exp
+
 
 ## 12 Claves foráneas
 
