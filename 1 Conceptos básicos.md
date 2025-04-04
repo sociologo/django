@@ -284,7 +284,7 @@ Serán las aplicaciones **departamentos** y **empleados**:
 
 ![image](https://github.com/user-attachments/assets/08fe8f7d-9fd1-467e-ae0a-c5ef06cd6ab9)
 
-y en cada uno de los archivos apps.py de las aplicaciones departamentos y empleados anteponemos el prefijo applications:
+y en cada uno de los archivos `apps.py` de las aplicaciones **departamentos** y **empleados** anteponemos el prefijo `applications`:
 
 ![image](https://github.com/user-attachments/assets/3061723c-e662-46dd-918c-f7523e100b05)
 ![image](https://github.com/user-attachments/assets/5709f22a-3467-4e0e-a8f6-c083455dc413)
