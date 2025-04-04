@@ -262,13 +262,15 @@ Las aplicaciones en django son pequeños proyectos completos. La idea es que:
 
 - cada una se dedique a un solo proceso de la lógica del negocio.
 
-Creamos una nueva carpeta llamada **applications** dentro de la carpeta **empleado** junto con un archivo __init__.py. Serán las aplicaciones **departamentos** y **empleados**:
+En la carpeta **empleado** creamos una nueva carpeta llamada **applications** y dentro de ella un archivo __init__.py.
 
 ![image](https://github.com/user-attachments/assets/8a4cacb5-da70-4e4d-8e39-453c3285dcfe)
 
 ![image](https://github.com/user-attachments/assets/f73a5271-00ec-4b33-bcbb-1fe024e9b954)
 
 #### 1 Vamos al nivel de applications y creamos los dos nuevos proyectos:
+
+Serán las aplicaciones **departamentos** y **empleados**:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado>cd applications
