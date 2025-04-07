@@ -294,11 +294,12 @@ urlpatterns = [
    path('', include("applications.exp.urls")),
    path('', include("applications.departamentos.urls")),
 ]
-``
+```
 
 6 Verificamos:
 
 ![image](https://github.com/user-attachments/assets/e53329e7-c69c-4f8f-9a2b-016d3b784521)
+
 ![image](https://github.com/user-attachments/assets/6ffd7346-9f5c-414b-a53d-f0c18694a2ca)
 
 
