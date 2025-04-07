@@ -16,7 +16,7 @@ C:\mis_entornos\entorno_3\Scripts> activate
 
 ## Índice
 
-* [1 La vista ListView](#1-El-método-ListView)
+* [1 La vista ListView](#1-La-vista-ListView)
   * [a) Listar todos los empleados](#a-Listar-todos-los-empleados)
   * [b) Listar todos los empleados que pertenezcan a un departamento](#b-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento)
   * [c) Listar todos los empleados que pertenezcan a un departamento filtrando por medio de una caja de texto](#c-Listar-todos-los-empleados-que-pertenezcan-a-un-departamento-filtrando-por-medio-de-una-caja-de-texto)
@@ -24,11 +24,11 @@ C:\mis_entornos\entorno_3\Scripts> activate
    * [1 El atributo paginate_by](#1-El-atributo-paginate_by)
    * [2 El atributo ordering](#2-El-atributo-ordering)   
   * [d) Listar las habilidades de un empleado](#d-Listar-las-habilidades-de-un-empleado)
-* [2 La vista DetailView](#2-El-método-DetailView)
-* [3 La vista CreateView](#3-El-método-CreateView)
+* [2 La vista DetailView](#2-La-vista-DetailView)
+* [3 La vista CreateView](#3-La-vista-CreateView)
   * [Nuevos campos compuestos en el modelo de empleados](#Nuevos-campos-compuestos-en-el-modelo-de-empleados)
-* [4 La vista UpdateView](#4-El-método-UpdateView)
-* [5 La vista DeleteView](#5-El-método-DeleteView)
+* [4 La vista UpdateView](#4-La-vista-UpdateView)
+* [5 La vista DeleteView](#5-La-vista-DeleteView)
 
 ## 1 La vista ListView
 
@@ -49,7 +49,7 @@ b) Listar todos los empleados que pertenezcan a un departamento.\
 c) Listar todos los empleados que pertenezcan a un departamento mediante urls con un filtro en una caja de texto.\
 d) Listar las habilidades de un empleado.
 
-### a) Listar todos los empleados.
+### a) Listar todos los empleados
 
 1 En el archivo **views.py** de la aplicación **empleados** debemos importar el método **ListView**, el modelo **Empleado** y construir la clase **EmpleadosListView**:
 
