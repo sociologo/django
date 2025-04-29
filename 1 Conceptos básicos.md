@@ -3,24 +3,25 @@
 ## Índice
 
 * [1 Crear un proyecto Django](#1-crear-un-proyecto-django)
-  * [11 Creemos una carpeta donde vamos a alojar todo nuestro trabajo](#11-Creemos-una-carpeta-donde-vamos-a-alojar-todo-nuestro-trabajo)
 * [2 Configurar la estructura de un proyecto en django](#2-Configurar-la-estructura-de-un-proyecto-en-django)
-* [3 Ejecutando el archivo localpy en vez del original settingspy](#3-Ejecutando-el-archivo-localpy-en-vez-del-original-settingspy)
+* [3 Ejecutando el archivo local.py en vez del original settings.py](#3-Ejecutando-el-archivo-localpy-en-vez-del-original-settingspy)
 * [4 Aplicaciones](#4-Aplicaciones)
-* [5 Vistas genericas (Views)](#5-Vistas-genericas-Views)
-* [6 Haciendo una carpeta templates generalizada](#6-Haciendo-una-carpeta-templates-generalizada)
-* [7 Haciendo una carpeta parcial para cada app](#7-Haciendo-una-carpeta-parcial-para-cada-app)
-* [8 Vistas genéricas](#8-Vistas-genéricas)
-* [9 Nuestros primeros pasos en MVT](#9-Nuestros-primeros-pasos-en-MVT)
-* [10 el ORM de Django y modelos](#10-el-ORM-de-Django-y-modelos)
+* [5 Vistas genéricas: Views](#5-Vistas-genéricas-Views)
+* [Inicio de Pruebas en la aplicación exp](#Inicio-de-Pruebas-en-la-aplicacion-exp)
+* [6 Construcción y despliegue de la primera App](#6-Construcción-y-despliegue-de-la-primera-App)
+* [7 Una arquitectura de templates](#7-Una-arquitectura-de-templates)
+* [8 Una arquitectura de urls](#8-Una-arquitectura-de-urls)
+* [9 Primeros pasos en MVT](#9-Primeros-pasos-en-MVT)
+* [10 La ORM de Django y los modelos](#10-La-ORM-de-Django-y-los-modelos)
+* [Fin de Pruebas en la aplicación exp](#Fin-de-Pruebas-en-la-aplicación-exp)
 * [11 Implementando la base de datos Empleado](#11-Implementando-la-base-de-datos-Empleado)
 * [12 Claves foráneas](#12-Claves-foráneas)
 * [13 PostgreSQL y Django](#13-PostgreSQL-y-Django)
-* [14 El Administrador de Django](#14-El-Administrador-de-Django)
-  * [14.1 La clase meta](#14.1-La-clase-meta)
+* [14 El Administrador de Django y la clase Meta](#14-El-Administrador-de-Django-y-la-clase-Meta)
 * [15 Creando modelos dentro de una aplicación ya existente](#15-Creando-modelos-dentro-de-una-aplicación-ya-existente)
-* [16 Diseñar un despliegue de registros al administrador de Django para el modelo empleados](#16-Diseñar-un-despliegue-de-registros-al-administrador-de-Django-para-el-modelo-empleados)
-* [17 Algunas apps de terceros](#17-Algunas-apps-de-terceros)
+* [16 Personalizando al Administrador de Django (admin.py)](#16-Personalizando-al-Administrador-de-Django-adminpy)
+* [17 La app CKEditor](#17-La-app-CKEditor)
+
 
 ## 1 Crear un proyecto Django
 
@@ -46,12 +47,12 @@ Abre un archivo HTML: Crea un nuevo archivo con la extensión .html o abre uno e
 
 Escribe el snippet: Djaneiro proporciona varios snippets útiles. Para una estructura básica de HTML, puedes usar el snippet html5. Simplemente escribe html5 y presiona Tab.
 
-### 1.1 Creamos carpetas de trabajo:
+#### 1 Creamos carpetas de trabajo
 
 Construiremos dos carpetas en C. Una para nuestros proyectos **mis_proyectos** y otra para nuestros entornos virtuales **mis_entornos**
 
 
-### 1.2 Creamos nuestro primer entorno y lo activamos:
+#### 2 Creamos nuestro primer entorno y lo activamos
 
 ```bash
 C:\>cd mis_entornos
@@ -63,7 +64,7 @@ C:\mis_entornos\entorno_3\Scripts>activate
 (entorno_3) C:\>
 ```
 
-### 1.3 Instalamos y actualizamos paquetes:
+#### 3 Instalamos y actualizamos paquetes
 
 ```bash
 (entorno_3) C:\> pip install django
@@ -84,20 +85,20 @@ C:\mis_entornos\entorno_3\Scripts> activate
 (entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver
 ```
 
-### 1.4 En ella, creamos nuestro proyecto **empleado**:
+#### 4 En ella, creamos nuestro proyecto empleado
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3> django-admin startproject empleado
 ```
 
-### 1.5 corremos el servidor:
+#### 5 Corremos el servidor
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3> cd empleado
 (entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver
 ```
 
-### 1.6 Abrimos el proyecto empleado con Visual Studio:
+6 Abrimos el proyecto empleado con Visual Studio
 
 ![image](https://github.com/user-attachments/assets/8dbfe7f4-3409-486d-aad0-9e44669ae4f0)
 
@@ -105,13 +106,13 @@ C:\mis_entornos\entorno_3\Scripts> activate
 
 En cualquier desarrollo necesitamos al menos tres entornos (para trabajo local, de pruebas y de producción) y un cuarto **base**. En el entorno **base** alojaremos la configuración básica de todos.
 
-2.1 Dentro de la carpeta **empleado**, creamos otra carpeta llamada **settings** con cuatro archivos .py en su interior:
+#### 1 Dentro de la carpeta **empleado**, creamos otra carpeta llamada **settings** con cuatro archivos .py en su interior:
 
 ![image](https://github.com/user-attachments/assets/3ca4a2a9-bc58-4365-9a2b-15939a7ccf1e)
 
-2.2 Del archivo original settings.py debemos copiar a los archivos recién creados, lo siguiente:
+#### 2 Del archivo original settings.py debemos copiar a los archivos recién creados, lo siguiente:
 
-2.2.1 en **base.py**:
+- en **base.py**:
 
 ```python
 from pathlib import Path
@@ -186,7 +187,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ```
 
-2.2.2 en **local.py**:
+- en **local.py**:
 
 ```python
 from empleado.settings.base import *
@@ -205,17 +206,17 @@ DATABASES = {
 STATIC_URL = 'static/'
 ```
 
-## 3 Ejecutando el archivo localpy en vez del original settingspy
+## 3 Ejecutando el archivo local.py en vez del original settings.py
 
-### 3.1 Borramos el archivo settings.py original.
+#### 1 Borramos el archivo settings.py original.
 
-### 3.2 Le indicamos a django que ejecute desde el entorno de configuración local.py:
+#### 2 Le indicamos a django que ejecute desde el entorno de configuración local.py:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver --settings=empleado.settings.local
 ```
 
-### 3.3 Redireccionamos para aumentar la simplicidad al ejecutar el proyecto:
+#### 3 Redireccionamos para aumentar la simplicidad al ejecutar el proyecto:
 
 Agregamos .local a la siguiente línea del archivo manage.py:
 
@@ -247,7 +248,7 @@ if __name__ == '__main__':
     main()
 ```
 
-### 3.4 Ahora podemos ejecutar simplemente escribiendo:
+#### 4 Ahora podemos ejecutar simplemente escribiendo:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver
@@ -257,17 +258,19 @@ if __name__ == '__main__':
 
 Las aplicaciones en django son pequeños proyectos completos. La idea es que:
 
-1 cada una sea independiente de las otras con el objetivo de poder reutilizarlas si fuese necesario y
+- cada una sea independiente de las otras con el objetivo de poder reutilizarlas si fuese necesario y
 
-2 cada una se dedique a un solo proceso de la lógica del negocio.
+- cada una se dedique a un solo proceso de la lógica del negocio.
 
-Crearemos dos aplicaciones dentro de una nueva carpeta llamada **applications** dentro de la carpeta **empleado** junto con un archivo __init__.py. Serán las aplicaciones **departamentos** y **empleados**:
+En la carpeta **empleado** creamos una nueva carpeta llamada **applications** y dentro de ella un archivo **__init__.py**.
 
 ![image](https://github.com/user-attachments/assets/8a4cacb5-da70-4e4d-8e39-453c3285dcfe)
 
 ![image](https://github.com/user-attachments/assets/f73a5271-00ec-4b33-bcbb-1fe024e9b954)
 
-### 4.1 Vamos al nivel de applications y creamos los dos nuevos proyectos:
+#### 1 Vamos al nivel de applications y creamos los dos nuevos proyectos:
+
+Serán las aplicaciones **departamentos** y **empleados**:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado>cd applications
@@ -277,28 +280,28 @@ Crearemos dos aplicaciones dentro de una nueva carpeta llamada **applications** 
 
 ![image](https://github.com/user-attachments/assets/1aa17e99-bb1c-4d5f-86d6-02832aaf329f)
 
-### 4.2 Ahora necesitamos instalar nuestras aplicaciones en el archivo base.py:
+#### 2 Ahora necesitamos instalar nuestras aplicaciones en el archivo base.py:
 
 ![image](https://github.com/user-attachments/assets/08fe8f7d-9fd1-467e-ae0a-c5ef06cd6ab9)
 
-y en cada uno de los archivos apps.py de las aplicaciones departamentos y empleados anteponemos el prefijo applications:
+y en cada uno de los archivos `apps.py` de las aplicaciones **departamentos** y **empleados** anteponemos el prefijo `applications`:
 
 ![image](https://github.com/user-attachments/assets/3061723c-e662-46dd-918c-f7523e100b05)
 ![image](https://github.com/user-attachments/assets/5709f22a-3467-4e0e-a8f6-c083455dc413)
 
-### 4.3 Levantemos nuestro servidor para que veamos que todo esté funcionando ok:
+#### 3 Levantemos nuestro servidor para que veamos que todo esté funcionando ok:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py runserver
 ```
 
-## 5 Vistas genéricas Views
+## 5 Vistas genéricas: Views
 
-### 5.1 La teoría del patrón de diseño MVT
+#### 1 La teoría del patrón de diseño MVT
 
 El patrón Modelo-Vista-Template (MVT) de Django es una variación del clásico Modelo-Vista-Controlador (MVC). A continuación, veamos en qué consiste el MVT y sus diferencias clave con MVC:
 
-### 5.2 Modelo-Vista-Template (MVT) en Django
+#### 2 Modelo-Vista-Template (MVT) en Django
 
 Modelo (**Model**):
 
@@ -318,7 +321,7 @@ Es la capa de presentación que define cómo se muestran los datos al usuario. L
 
 Ejemplo: Un archivo HTML que muestra una lista de usuarios con sus nombres y correos electrónicos.
 
-### 5.3 Diferencias con el Modelo Vista-Controlador (MVC)
+#### 3 Diferencias con el Modelo Vista-Controlador (MVC)
 
 Controlador (Controller) vs. Vista (View):
 
@@ -333,7 +336,7 @@ En MVC, el flujo típico es: Usuario → Controlador → Modelo → Vista → Us
 
 En MVT, el flujo es: Usuario → Vista → Modelo → Plantilla → Usuario.
 
-### 5.4 Ejemplo Práctico
+#### 4 Ejemplo Práctico
 
 Supongamos que queremos mostrar una lista de productos en una tienda en línea:
 
@@ -345,12 +348,9 @@ Plantilla (Template): Diseñamos un archivo HTML que muestra la lista de product
 
 En resumen, el patrón MVT de Django es una adaptación del patrón MVC, con una terminología y flujo de trabajo ligeramente diferentes, pero con el mismo objetivo de separar la lógica de negocio, la lógica de presentación y la interfaz de usuario.
 
- 
-## 6 La creación de una vista
+# Inicio de Pruebas en la aplicacion exp
 
-Haremos pruebas dentro de una nueva aplicacion que crearemos para tal efecto.
-
-### 6.1 La aplicacion exp
+## 6 Construcción y despliegue de la primera App
 
 #### 1 En la carpeta applications, construyamos una nueva aplicación llamada **exp**.
 
@@ -446,27 +446,23 @@ urlpatterns = [
 
 
 
-
-
----
-
 ## 7 Una arquitectura de templates
 
-### 7.1 Una carpeta templates general
+#### 1 Una carpeta templates general
 
 Una buena práctica es contruir una carpeta templates donde tengamos sub carpetas asociadas a las apps y dentro de ellas los correspondientes htmls. Construímos la carpeta como se indica con la subcarpeta y dentro de ella copiamos **home.html** y borramos la carpeta templates de la app exp:
 
 ![image](https://github.com/user-attachments/assets/67f60d17-4cac-4d6d-9b59-c511e2452ef5)
 
-### 7.3 Hacemos las siguientes modificaciones en el archivo base.py:
+#### 2 Hacemos las siguientes modificaciones en el archivo base.py:
 
 ![image](https://github.com/user-attachments/assets/8769b9a4-10c9-4e2f-8b2c-03a6a2ffd4dd)
 
-### 7.4 Hacemos las siguientes modificaciones en la vista de nuestra aplicación exp:
+#### 3 Hacemos las siguientes modificaciones en la vista de nuestra aplicación exp:
 
 ![image](https://github.com/user-attachments/assets/c805788e-a7d6-4818-a73c-200e3d3b8d40)
 
-### 7.5 Volvemos a cargar nuestro proyecto y vamos a la url home:
+#### 4 Volvemos a cargar nuestro proyecto y vamos a la url home:
 
 ![image](https://github.com/user-attachments/assets/2e92a4ba-a7ad-43d6-a8bb-f9eb355bde19)
 
@@ -486,36 +482,35 @@ Ahora llamamos éste **urls.py** de la aplicacion exp desde nuestro archivo **ur
 
 ## 9 Primeros pasos en MVT
 
-1 Creemos la vista basada en clases ListView en nuestra aplicación exp. Para ello creamos la clase **Prueba_ListView**:
+#### 1 Creemos la vista basada en clases ListView en nuestra aplicación exp. Para ello creamos la clase **Prueba_ListView**:
 
 ![image](https://github.com/user-attachments/assets/d06fcb00-7bf9-45fc-a457-7233e8bd8281)
 
 
-2 Agregamos el url en la aplicación exp:
+#### 2 Agregamos el url en la aplicación exp:
 
 ![image](https://github.com/user-attachments/assets/0de9b66f-cb2c-4740-8a3f-5b43f96ce4e0)
 
 
-3 Construímos el archivo **lista.html** con el context_object_name dentro de llaves dobles:
+#### 3 Construímos el archivo **lista.html** con el context_object_name dentro de llaves dobles:
 
 ![image](https://github.com/user-attachments/assets/b5f74c2c-39c2-46b3-ab78-fa6207b2ce34)
 
 ![image](https://github.com/user-attachments/assets/76228aeb-e993-4d9c-bf4c-6e2a98ff0369)
 
----
 
 
 
-## 11 La ORM de Django y los modelos
+
+## 10 La ORM de Django y los modelos
 
 La ORM de Django es una herramienta poderosa que permite a los desarrolladores interactuar con bases de datos de manera eficiente y efectiva utilizando Python, sin necesidad de escribir consultas SQL manualmente.
 
-1 Haremos que la ORM de Django trabaje construyendo nuestra primera base datos la que consistirá sólo en una tabla asociada a la base de datos que trea por defecto Django (sqlite3):
+#### 1 Haremos que la ORM de Django trabaje construyendo nuestra primera base datos la que consistirá sólo en una tabla asociada a la base de datos que trea por defecto Django (sqlite3):
 
 ![image](https://github.com/user-attachments/assets/927e38c6-aa87-4fbe-b360-1073b0ea1c2e)
 
-
-2 Ahora le preguntaremos a Django si ha existido algún cambio en nuestra base de datos y/o es posible la creación de las tablas:
+#### 2 Ahora le preguntaremos a Django si ha existido algún cambio en nuestra base de datos y/o es posible la creación de las tablas:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado> python manage.py makemigrations
@@ -524,7 +519,7 @@ Migrations for 'exp':
     + Create model Prueba
 ```
 
-3 Ahora creamos la base de datos:
+#### 3 Ahora creamos la base de datos:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py migrate
@@ -554,11 +549,11 @@ Running migrations:
 (entorno_3) C:\mis_proyectos\emp3\empleado>
 ```
 
-4 Ahora, ¿coomo podemos interactuar con el modelo creado? Esto se consigue con el administrador de Django a traves del archivo admin.py de exp. Ingresamos las siguientes lineas de codigo:
+#### 4 Ahora, ¿coomo podemos interactuar con el modelo creado? Esto se consigue con el administrador de Django a traves del archivo admin.py de exp. Ingresamos las siguientes lineas de codigo:
 
 ![image](https://github.com/user-attachments/assets/7a89c4e4-80d5-4951-aad9-436a72e8484f)
 
-5 Creamos un superuser:
+#### 5 Creamos un superuser:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py createsuperuser
@@ -571,18 +566,20 @@ Superuser created successfully.
 (entorno_3) C:\mis_proyectos\emp3\empleado>
 ```
 
-6 Levantamos nuevamente nuestro servidor e ingresamos al administrador con nuestras credenciales:
+La clave es: **123456**
+
+#### 6 Levantamos nuevamente nuestro servidor e ingresamos al administrador con nuestras credenciales:
 
 ![image](https://github.com/user-attachments/assets/0a8d1951-de48-4032-941b-3a05cbea58b0)
 
-7 Podemos ir ahora llenando nuestra tabla **Prueba** desde el administrador:
+#### 7 Podemos ir ahora llenando nuestra tabla **Prueba** desde el administrador:
 
 ![image](https://github.com/user-attachments/assets/543618a3-b9b1-4d22-8e0c-efa207cbcc9f)
 
 ![image](https://github.com/user-attachments/assets/d5b848d7-4e7b-473e-a784-dbab9fdeba40)
 ![image](https://github.com/user-attachments/assets/35bb9ed6-611d-4a13-b83b-c52dc2cea486)
 
-8 Ahora construyamos la vista basada en clases ModeloPruebaListView en views.py de la app exp:
+#### 8 Ahora construyamos la vista basada en clases ModeloPruebaListView en views.py de la app exp:
 
 ```python
 from django.views.generic import TemplateView, ListView  # type: ignore
@@ -603,7 +600,7 @@ class ModeloPruebaListView(ListView):
     context_object_name = "lista_prueba"
 ```
 
-9 Activamos la url asociada a la vista en urls.py de la app exp:
+#### 9 Activamos la url asociada a la vista en urls.py de la app exp:
 
 ```python
 from django.urls import path # type: ignore
@@ -615,7 +612,7 @@ urlpatterns = [
    path('lista-prueba/', views.ModeloPruebaListView.as_view()),
 ```
 
-10 Creamos nuestro html pruebas.html dentro de la carpeta templates/home:
+#### 10 Creamos nuestro html pruebas.html dentro de la carpeta templates/home:
 
 ```html
 <h1>Listando elementos desde una base de datos</h1>
@@ -631,20 +628,22 @@ urlpatterns = [
 </ul>
 ```
 
-11 Vemos el despliegue:
+#### 11 Vemos el despliegue:
 
 ![image](https://github.com/user-attachments/assets/cdae0be2-95fd-4f3e-b435-c0c33f0e2b8d)
 
 
 ---
 
-## 12 Implementando la base de datos Empleado.
+# Fin de Pruebas en la aplicación exp
+
+## 11 Implementando la base de datos Empleado
 
 Tipos de campos en Django: https://docs.djangoproject.com/en/5.1/ref/models/fields/
 
 ![image](https://github.com/user-attachments/assets/8dac515d-6913-48b2-b0c2-f4048b827da5)
 
-1 En models.py de la app Departamentos construimos el modelo Departamento:
+#### 1 En models.py de la app Departamentos construimos el modelo Departamento:
 
 ```python
 from django.db import models # type: ignore
@@ -672,7 +671,7 @@ models.CharField('Nombre corto', max_length=20, unique=True)
 # unique=True hace que el nombre del campo no se pueda volver a repetir.
 ```
 
-2 Lo registramos en al admin.py de la aplicación departamentos
+#### 2 Lo registramos en al admin.py de la aplicación departamentos
 
 ```python
 from django.contrib import admin # type: ignore
@@ -681,7 +680,7 @@ from .models import Departamento
 admin.site.register(Departamento)
 ```
 
-3 Hacemos las migraciones:
+#### 3 Hacemos las migraciones:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py makemigrations
@@ -698,16 +697,17 @@ Running migrations:
 (entorno_3) C:\mis_proyectos\emp3\empleado>
 ```
 
-4 Y ya tenemos la tabla con funcionalidad en nuestro navegador:
+#### 4 Y ya tenemos la tabla con funcionalidad en nuestro navegador:
 
 ![image](https://github.com/user-attachments/assets/eaff74d4-5663-4d5f-80e7-908100375af2)
 
 ---
 
 
-## 13 Claves foráneas.
 
-1 Construyamos el modelo **Empleado** en la app **empleados**
+## 12 Claves foráneas
+
+#### 1 Construyamos el modelo **Empleado** en la app **empleados**
 
 ```python
 from django.db import models # type: ignore
@@ -729,7 +729,7 @@ class Empleado(models.Model):
       return str(self.id) + "-" + self.first_name + "-" + self.last_name
 ```
 
-2 Hacemos las migraciones.
+#### 2 Hacemos las migraciones.
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py makemigrations
@@ -746,7 +746,7 @@ Running migrations:
 (entorno_3) C:\mis_proyectos\emp3\empleado>
 ```
 
-3 Registramos en el **admin.py** de la app empleados la tabla recien construida.
+#### 3 Registramos en el **admin.py** de la app empleados la tabla recien construida.
 
 ```python
 from django.contrib import admin # type: ignore
@@ -755,13 +755,13 @@ from .models import Empleado
 admin.site.register(Empleado)
 ```
 
-4 Abrimos el administrador e ingresamos un registro.
+#### 4 Abrimos el administrador e ingresamos un registro.
 
 ![image](https://github.com/user-attachments/assets/0ba07d8b-73f5-44fb-a212-973398910d09)
 
-## 14 PostgreSQL y Django
+## 13 PostgreSQL y Django
 
-1 Descargemos el instalador de PostgreSQL
+#### 1 Descargemos el instalador de PostgreSQL
 
 ![image](https://github.com/user-attachments/assets/67399987-c891-4c11-b2de-f770c2c1dbbd)
 
@@ -781,7 +781,7 @@ Y finalizamos sin seleccionar Stack Builder:
 
 ![image](https://github.com/user-attachments/assets/5844465e-3838-4e5f-913a-65af349287f1)
 
-2 Ahora que tenemos instalado nuestro postgreSQL en local, podemos acceder a la consola:
+#### 2 Ahora que tenemos instalado nuestro postgreSQL en local, podemos acceder a la consola:
 
 **SQL Shell (psql)**
 
@@ -817,7 +817,7 @@ ALTER ROLE
 dbempleado101=#
 ```
 
-3 Ahora conectamos Django a nuestra base de datos PostgreSQL:
+#### 3 Ahora conectamos Django a nuestra base de datos PostgreSQL:
 
 Instalamos el conector psycopg2:
 
@@ -833,7 +833,7 @@ Successfully installed psycopg2-2.9.10
 (entorno_3) C:\mis_proyectos\emp3\empleado>
 ```
 
-4 Configuramos el archivo local.py
+#### 4 Configuramos el archivo local.py
 
 ```bash
 from .base import *
@@ -857,7 +857,7 @@ STATIC_URL = 'static/'
 ```
 
 
-5 Hacemos las migraciones.
+#### 5 Hacemos las migraciones.
 
 ```bash
 postgres=# ALTER DATABASE dbempleado101 OWNER TO chris101;
@@ -897,7 +897,7 @@ Running migrations:
 (entorno_3) C:\mis_proyectos\emp3\empleado>
 ```
 
-6 Para ingresar al administrador debemos volver a crear un super usuario pues nuestra base de datos en PostgreSQL es nueva y no tiene registrado ninguno.
+#### 6 Para ingresar al administrador debemos volver a crear un super usuario pues nuestra base de datos en PostgreSQL es nueva y no tiene registrado ninguno.
 
 Ingresamos como contraseña 123456:
 
@@ -916,15 +916,13 @@ Superuser created successfully.
 (entorno_3) C:\mis_proyectos\emp3\empleado>
 ```
 
-7 y ya estamos conectados:
+#### 7 y ya estamos conectados:
 
 ![image](https://github.com/user-attachments/assets/6c865fc3-ae15-402f-aee1-a12abd4c0e22)
 
 ---
 
-## 15 El Administrador de Django
-
-### 15.1 La Class Meta
+## 14 El Administrador de Django y la clase Meta
 
 La clase Meta es opcional, pero muy útil para ajustar y personalizar el comportamiento de los modelos en el administrador de Django.
 
@@ -932,7 +930,7 @@ La clase Meta es una clase interna que se utiliza dentro de los modelos para def
 
 Algunas de las cosas que puedes hacer con la clase Meta:
 
-#### 15.1 Ordenar los resultados: Puedes especificar el orden predeterminado de los registros cuando se recuperan de la base de datos.
+#### 1 Ordenar los resultados: Puedes especificar el orden predeterminado de los registros cuando se recuperan de la base de datos.
 
 ```python
 class Persona(models.Model):
@@ -943,7 +941,7 @@ class Persona(models.Model):
         ordering = ['last_name']
 ```
 
-#### 15.2 Nombres legibles: Puedes definir nombres legibles para el modelo en singular y plural.
+#### 2 Nombres legibles: Puedes definir nombres legibles para el modelo en singular y plural.
 
 ```python
 class Persona(models.Model):
@@ -955,7 +953,7 @@ class Persona(models.Model):
         verbose_name_plural = "Personas"
 ```
 
-#### 15.3 Permisos personalizados: Puedes definir permisos específicos para el modelo.
+#### 3 Permisos personalizados: Puedes definir permisos específicos para el modelo.
 
 ```python
 class Persona(models.Model):
@@ -968,7 +966,7 @@ class Persona(models.Model):
         ]
 ```
 
-#### 15.4 Nombre de la tabla: Puedes especificar el nombre de la tabla en la base de datos.
+#### 4 Nombre de la tabla: Puedes especificar el nombre de la tabla en la base de datos.
 
 ```python
 class Persona(models.Model):
@@ -979,7 +977,7 @@ class Persona(models.Model):
         db_table = 'mi_tabla_persona'
 ```
 
-#### 15.5 Implementemos algunos cambios con ésta clase en nuesto modelo Departamento:
+#### 5 Implementemos algunos cambios con ésta clase en nuesto modelo Departamento:
 
 La opción unique_together en la clase Meta de un modelo Django se utiliza para especificar que una combinación de campos debe ser única en la base de datos. Esto significa que no se permitirán dos filas con la misma combinación de valores en esos campos.
 
@@ -1001,7 +999,7 @@ class Departamento(models.Model):
       return str(self.id) + "-" + self.name + "-" + self.short_name
 ```
 
-#### 15.6 Apliquemos las migraciones:
+#### 6 Apliquemos las migraciones:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py makemigrations
@@ -1019,9 +1017,9 @@ Running migrations:
 (entorno_3) C:\mis_proyectos\emp3\empleado>
 ```
 
-## 16 Creando modelos dentro de una aplicación ya existente
+## 15 Creando modelos dentro de una aplicación ya existente
 
-### 16.1 Creemos un modelo **Habilidades** en relación muchos a muchos con el modelo **empleado** e instalemos pillow para poder hacer uso del atributo ImageField:
+#### 1 Creemos un modelo **Habilidades** en relación muchos a muchos con el modelo **empleado** e instalemos pillow para poder hacer uso del atributo ImageField:
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado>pip install pillow
@@ -1060,7 +1058,7 @@ class Empleado(models.Model):
       return str(self.id) + "-" + self.first_name + "-" + self.last_name
 ```
 
-### 16.2 Registremos la nueva tabla en el archivo **admin.py** de la aplicación **empleados**:
+#### 2 Registremos la nueva tabla en el archivo **admin.py** de la aplicación **empleados**:
 
 ```python
 from django.contrib import admin # type: ignore
@@ -1070,7 +1068,7 @@ admin.site.register(Empleado)
 admin.site.register(Habilidades)
 ```
 
-### 16.3 Hagamos las migraciones.
+#### 3 Hagamos las migraciones.
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado>python manage.py makemigrations
@@ -1089,21 +1087,21 @@ Running migrations:
 (entorno_3) C:\mis_proyectos\emp3\empleado>
 ```
 
-### 16.4 Veamos los modelos en el administrador:
+#### 4 Veamos los modelos en el administrador:
 
 ![image](https://github.com/user-attachments/assets/6ddd09e3-8107-4cfb-8a84-4dbfddf3011a)
 
 
-### 16.5 Agreguemos nuevos empleados con habilidades específicas:
+#### 5 Agreguemos nuevos empleados con habilidades específicas:
 
 ![image](https://github.com/user-attachments/assets/1c61a018-1f4f-40a9-a5cd-1a4ace47566d)
 
 
 
 
-## 17 Personalizando al Administrador de Django (admin.py)
+## 16 Personalizando al Administrador de Django (admin.py)
 
-### 17.1 El atributo list_display()
+#### 1 El atributo list_display()
 
 El atributo **list_display** en Django se utiliza en el archivo **admin.py** para especificar qué campos de un modelo deben mostrarse en la vista de lista del panel de administración. Esto es especialmente útil para proporcionar una visión general rápida de las instancias del modelo. 
 
@@ -1126,7 +1124,7 @@ admin.site.register(Habilidades)
 ![image](https://github.com/user-attachments/assets/8cf7d5af-488c-40d7-8bc1-3c9ca1469546)
 
 
-### 17.2 El atributo search_fields
+#### 2 El atributo search_fields
 
 Con search_fields podemos integrar al administrador un buscador. Implementemoslo para los primeros nombres:
 
@@ -1147,7 +1145,7 @@ admin.site.register(Empleado, EmpleadoAdmin)
 admin.site.register(Habilidades)
 ```
 
-### 17.3 El atributo list_filter
+#### 3 El atributo list_filter
 
 Con list_filter podemos agragar una funcionalidad de filtrado. Implementemosla para 'job' y 'habilidades':
 
@@ -1173,7 +1171,7 @@ admin.site.register(Habilidades)
 
 
 
-### 17.4 El atributo filter_horizontal
+#### 4 El atributo filter_horizontal
 
 El atributo filter_horizontal de Django se usa en el modelo de administración (admin) de Django para facilitar la selección y administración de relaciones many-to-many (muchos-a-muchos) en una interfaz de usuario más intuitiva. Cuando se agrega el atributo filter_horizontal a un modelo en el admin, se muestra un widget con dos listas: una lista de elementos disponibles y otra lista de elementos seleccionados. Esto permite a los usuarios seleccionar múltiples elementos fácilmente y moverlos entre las listas mediante botones. Apliquemoslo para el campo habilidades:
 
@@ -1199,7 +1197,7 @@ admin.site.register(Habilidades)
 ![image](https://github.com/user-attachments/assets/0a921e90-d916-4dde-baad-9e211695e62e)
 
 
-### 17.4 Desplegando nuevos campos. 
+#### 5 Desplegando nuevos campos
 
 Supongamos que tenemos la necesidad de que se muestre en el listado del administrador una nueva columna que integre los nombres y los apellidos de los empleados sin intervenir en la base de datos y llamemos al campo 'full_name'. Para hacer esto debemos declarar una funcion:
 
@@ -1229,9 +1227,9 @@ admin.site.register(Habilidades)
 
 ![image](https://github.com/user-attachments/assets/bf088c6d-aac4-4652-ab1a-dc80d0915448)
 
-## 18 La app CKEditor
+## 17 La app CKEditor
 
-1 Definición
+#### 1 Definición
 
 https://django-ckeditor.readthedocs.io/en/latest/
 
@@ -1247,13 +1245,13 @@ Características Principales:
 
 ![image](https://github.com/user-attachments/assets/8a104377-9260-437a-b5a7-d1e910f38984)
 
-2 La instalamos
+#### 2 La instalamos
 
 ```bash
 (entorno_3) C:\mis_proyectos\emp3\empleado>pip install django-ckeditor
 ```
 
-3 Registramos ckeditor en el archivo **base.py**
+#### 3 Registramos ckeditor en el archivo **base.py**
 
 ```python
 from pathlib import Path
@@ -1284,7 +1282,7 @@ MIDDLEWARE = [
 # ...
 ```
 
-4 Importamos la app y agregamos un campo que tenga la forma de elemento de blog:
+#### 4 Importamos la app y agregamos un campo que tenga la forma de elemento de blog:
 
 ```python
 from django.db import models # type: ignore
@@ -1303,7 +1301,7 @@ class Habilidades(models.Model):
       return str(self.id) + "-" + self.first_name + "-" + self.last_name
 ```
 
-5 Hacemos las migraciones y volvemos a cargar el servidor. Vámonos al administrador de Django a intentar ingresar un nuevo empleado:
+#### 5 Hacemos las migraciones y volvemos a cargar el servidor. Vámonos al administrador de Django a intentar ingresar un nuevo empleado:
 
 ![image](https://github.com/user-attachments/assets/adc6d010-01a6-46ff-94ca-7ca21465d55b)
 
